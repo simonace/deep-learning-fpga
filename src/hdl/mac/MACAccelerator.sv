@@ -74,8 +74,12 @@ module MACAccelerator #(
     wire compute_enable;
     reg compute_enable_reg;
     always @(posedge clk) begin
-        if (!rst) compute_enable_reg <= 0;
-        else compute_enable_reg <= enable;
+        if (!rst) begin
+            compute_enable_reg <= 0;
+        end
+        else begin
+            compute_enable_reg <= enable;
+        end
     end
     assign compute_enable = compute_enable_reg;
 
@@ -174,7 +178,7 @@ module MACAccelerator #(
                 .rst(rst),
                 .enable(compute_enable && !load_w),
                 .clear(clear),
-                .write_enable(load_vector[i]),
+                .write_enable(enable && load_vector[i]),
                 .address(read_index),
                 .data_in(data_in),
                 .data_out(results[i])

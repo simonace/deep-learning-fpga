@@ -164,7 +164,7 @@ module MACAccelerator_tb();
             "Write transaction");
         wr_transaction.set_delay(0);
         // Write transaction created by VIP
-        for (int i = 0; i < PACKET_LENGTH; i = i+1) begin
+        for (int i = 1; i < PACKET_LENGTH+1; i = i+1) begin
             data[0] = i[31:24];
             data[1] = i[23:16];
             data[2] = i[15:8];
@@ -193,7 +193,7 @@ module MACAccelerator_tb();
             "Write transaction");
         wr_transaction.set_delay(0);
         // Write transaction created by VIP
-        for (int i = 0; i < PACKET_LENGTH; i = i+1) begin
+        for (int i = 1; i < PACKET_LENGTH+1; i = i+1) begin
             data[0] = i[31:24];
             data[1] = i[23:16];
             data[2] = i[15:8];

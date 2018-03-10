@@ -30,19 +30,18 @@ module MAC_tb;
         tb_RSTN = 0;
         tb_enable = 0;
         tb_clear = 0;
-
         @(posedge temp_clk);
-
         tb_RSTN = 1;
-
         compute();
-
-        #100
-
+        tb_inA = 0;
+        tb_inB = 2;
+        @(posedge temp_clk);
         tb_clear = 1;
-
-        #10
-
+        @(posedge temp_clk);
+        tb_clear = 0;
+        @(posedge temp_clk);
+        compute();
+        #100
         $finish();
     end
 
@@ -61,8 +60,8 @@ module MAC_tb;
     task compute();
         tb_enable = 1;
         for (int i = 0; i < 8; i = i+1) begin
-            tb_inA = i;
-            tb_inB = i;
+            tb_inA = i+1;
+            tb_inB = i+1;
             @(posedge temp_clk);
         end
         tb_enable = 0;
