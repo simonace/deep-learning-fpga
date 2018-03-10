@@ -118,6 +118,26 @@ module MACAccelerator_tb();
         wdata = 1;
         ctrl_agent.AXI4LITE_WRITE_BURST(0, 0, wdata, resp);
         @(posedge temp_clk);
+        // Enable
+        wdata = 0;
+        ctrl_agent.AXI4LITE_WRITE_BURST(0, 0, wdata, resp);
+
+        // Stream again
+        $display("Streaming inputs...");
+        // Stream inputs into the accelerator
+        @(posedge temp_clk);
+        mst_gen_input_transaction();
+        $display("Stream inputs complete");
+
+        // Allow time for the accelerator to write from master
+        #1000
+
+        // Clear the accelerator registers
+        @(posedge temp_clk);
+        // Clear
+        wdata = 1;
+        ctrl_agent.AXI4LITE_WRITE_BURST(0, 0, wdata, resp);
+        @(posedge temp_clk);
 
         mst_agent.stop_master();
         slv_agent.stop_slave();
