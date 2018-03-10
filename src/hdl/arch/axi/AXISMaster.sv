@@ -105,16 +105,11 @@ module AXISMaster # (
         else begin
             case (mst_exec_state)
                 IDLE:
-                    mst_exec_state  <= INIT_COUNTER;
-                INIT_COUNTER:
-                    // The slave starts accepting tdata when
-                    // there tvalid is asserted to mark the
-                    // presence of valid streaming data
                     if (enable) begin
                         mst_exec_state  <= SEND_STREAM;
                     end
                     else begin
-                        mst_exec_state  <= INIT_COUNTER;
+                        mst_exec_state  <= IDLE;
                     end
 
                 SEND_STREAM:
@@ -177,6 +172,7 @@ module AXISMaster # (
                 // tx_done is asserted when NUMBER_OF_OUTPUT_WORDS numbers of streaming data
                 // has been out.
                 if (tx_done) begin
+                    tx_done <= 1'b0;
                     read_pointer <= 0;
                 end
                 else begin
