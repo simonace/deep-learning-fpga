@@ -2,8 +2,8 @@
 
 module MACAccelerator #(
     parameter integer DATA_WIDTH = 32,
-    parameter integer HIDDEN_UNITS = 32,
-    parameter integer INPUT_DIM = 32
+    parameter integer HIDDEN_UNITS = 64,
+    parameter integer INPUT_DIM = 64
 ) (
     input clk,
     input rst,
@@ -47,7 +47,7 @@ module MACAccelerator #(
     wire enable;
     wire load_w;
     wire clear;
-    wire [HIDDEN_UNITS-1:0] load_vector;
+    wire [DATA_WIDTH*2-1:0] load_vector;
 
     wire [INPUT_DIM_BITS-1:0] read_index;
     wire [HIDDEN_UNITS_BITS+1-1:0] write_index; // Extra bit here
@@ -81,7 +81,7 @@ module MACAccelerator #(
             compute_enable_reg <= enable;
         end
     end
-    assign compute_enable = compute_enable_reg;
+    assign compute_enable = compute_enable_reg && !load_w;
 
     // Latch the write enable for master interface for the next clock cycle
     // after the final read index is done.
@@ -168,7 +168,7 @@ module MACAccelerator #(
     // ------------- COMPUTE UNITS ---------------
     generate
         genvar i;
-        for (i = 0; i < HIDDEN_UNITS; i  = i+1) begin
+        for (i = 0; i < HIDDEN_UNITS; i = i+1) begin
             MACUnit #(
                 .DATA_WIDTH(DATA_WIDTH),
                 .BRAM_DEPTH(INPUT_DIM),
@@ -176,9 +176,9 @@ module MACAccelerator #(
             ) unit (
                 .clk(clk),
                 .rst(rst),
-                .enable(compute_enable && !load_w),
+                .enable(compute_enable),
                 .clear(clear),
-                .write_enable(enable && load_vector[i]),
+                .write_enable(enable && load_vector[i] && load_w),
                 .address(read_index),
                 .data_in(data_in),
                 .data_out(results[i])

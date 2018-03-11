@@ -12,9 +12,7 @@ module AXISMaster # (
     // Do not modify the parameters beyond this line
 
     // Width of S_AXIS address bus. The slave accepts the read and write addresses of width C_M_AXIS_TDATA_WIDTH.
-    parameter integer C_M_AXIS_TDATA_WIDTH	= 32,
-    // Start count is the number of clock cycles the master will wait before initiating/issuing any transaction.
-    parameter integer C_M_START_COUNT	= 32
+    parameter integer C_M_AXIS_TDATA_WIDTH	= 32
 )
 (
     // Users to add ports here
@@ -48,42 +46,30 @@ module AXISMaster # (
         end
     endfunction
 
-    // WAIT_COUNT_BITS is the width of the wait counter.
-    localparam integer WAIT_COUNT_BITS = clogb2(C_M_START_COUNT-1);
-
     // bit_num gives the minimum number of bits needed to address 'depth' size of FIFO.
     localparam bit_num  = clogb2(NUMBER_OF_OUTPUT_WORDS);
 
     // Define the states of state machine
     // The control state machine oversees the writing of input streaming data to the FIFO,
     // and outputs the streaming data from the FIFO
-    parameter [1:0] IDLE = 2'b00,        // This is the initial/idle state
+    localparam IDLE = 1'b0,        // This is the initial/idle state
+               SEND_STREAM = 1'b1; // Stream data is output
+    reg mst_exec_state;
 
-    INIT_COUNTER  = 2'b01, // This state initializes the counter, once
-    // the counter reaches C_M_START_COUNT count,
-    // the state machine changes state to SEND_STREAM
-    SEND_STREAM   = 2'b10; // In this state the
-    // stream data is output through M_AXIS_TDATA
-    // State variable
-    reg [1:0] mst_exec_state;
-    // Example design FIFO read pointer
+    // Read index
     reg [bit_num-1:0] read_pointer;
 
-    // AXI Stream internal signals
-    //wait counter. The master waits for the user defined number of clock cycles before initiating a transfer.
-    reg [WAIT_COUNT_BITS-1 : 0] 	count;
-    //streaming data valid
+    // streaming data valid
     wire  	axis_tvalid;
-    //streaming data valid delayed by one clock cycle
+    // streaming data valid delayed by one clock cycle
     reg  	axis_tvalid_delay;
-    //Last of the streaming data
+    // Last of the streaming data
     wire  	axis_tlast;
-    //Last of the streaming data delayed by one clock cycle
+    // Last of the streaming data delayed by one clock cycle
     reg  	axis_tlast_delay;
-    //FIFO implementation signals
-    reg [C_M_AXIS_TDATA_WIDTH-1 : 0] 	stream_data_out;
+    // FIFO implementation signals
     wire  	tx_en;
-    //The master has issued all the streaming data stored in FIFO
+    // The master has issued all the streaming data stored in FIFO
     reg  	tx_done;
 
 
@@ -100,7 +86,6 @@ module AXISMaster # (
         if (!M_AXIS_ARESETN) begin
             // Synchronous reset (active low)
             mst_exec_state <= IDLE;
-            count <= 0;
         end
         else begin
             case (mst_exec_state)
@@ -168,7 +153,7 @@ module AXISMaster # (
                     tx_done <= 1'b0;
                 end
             end
-            else if (read_pointer == NUMBER_OF_OUTPUT_WORDS) begin
+            if (read_pointer == NUMBER_OF_OUTPUT_WORDS) begin
                 // tx_done is asserted when NUMBER_OF_OUTPUT_WORDS numbers of streaming data
                 // has been out.
                 if (tx_done) begin
@@ -182,20 +167,7 @@ module AXISMaster # (
         end
     end
 
-
-    //FIFO read enable generation
-
     assign tx_en = M_AXIS_TREADY && axis_tvalid;
-
-    // Streaming output data is read from FIFO
-    always @( posedge M_AXIS_ACLK ) begin
-        if(!M_AXIS_ARESETN) begin
-            stream_data_out <= 0;
-        end
-        else if (tx_en) begin
-            stream_data_out <= data_out;
-        end
-    end
 
     // Add user logic here
     assign index = read_pointer;

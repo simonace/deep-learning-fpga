@@ -19,7 +19,7 @@ module AXILiteSlave4 # (
     // Users to add ports here
     output wire load_w,
     output wire clear,
-    output wire [C_S_AXI_DATA_WIDTH-1:0] load_vector,
+    output wire [C_S_AXI_DATA_WIDTH*2-1:0] load_vector,
     // User ports ends
     // Do not modify the ports beyond this line
 
@@ -369,7 +369,7 @@ module AXILiteSlave4 # (
     // Add user logic here
     assign load_w = slv_reg0[1];
     assign clear = slv_reg0[0];
-    assign load_vector = slv_reg1;
+    assign load_vector = {slv_reg2, slv_reg1};
     // User logic ends
 
 endmodule

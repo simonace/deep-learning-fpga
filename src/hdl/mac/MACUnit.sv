@@ -21,7 +21,8 @@ module MACUnit #(
     // Weight memory bank in BRAM
     Memory #(
         .WIDTH(DATA_WIDTH),
-        .DEPTH(BRAM_DEPTH)
+        .DEPTH(BRAM_DEPTH),
+        .ADDRESS_WIDTH(W_ADDR_BITS)
     ) weights (
         .clk(clk),
         .write_enable(write_enable),
