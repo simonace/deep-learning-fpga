@@ -14,7 +14,7 @@ localparam EW = ENCODED_WIDTH;
 
 reg [NEXT_WIDTH-1:0] next;
 
-always @* begin
+always_comb begin
     for (int i = 0; i < GROUPS; i = i + 2) begin
         // Both left and right start with 1s
         if (encoded[(i+2)*EW-1] == 1'b1 && encoded[(i+1)*EW-1] == 1'b1) begin

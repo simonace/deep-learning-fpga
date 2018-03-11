@@ -1,6 +1,6 @@
 `timescale 1 ns / 1 ps
 
-module MultiplyAccumulator #(
+module ExactMultiplyAccumulator #(
     parameter integer COMPLETE_REGISTER_WORDS = 128,
     parameter integer WORD_SIZE = 8
 )
@@ -102,7 +102,7 @@ module MultiplyAccumulator #(
             else begin
                 Out[30:23] = 127 + ZERO_POINT - Lz;
             end
-            
+
             // Mantissa
             if (COMPLETE_REGISTER_SIZE - Lz >= 23 + 5) begin
                 Out[22:0] = CompleteRegister[COMPLETE_REGISTER_SIZE - Lz - 2 -: 23];

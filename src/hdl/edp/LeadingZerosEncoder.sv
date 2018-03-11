@@ -5,7 +5,7 @@ module LeadingZerosEncoder #(
     output reg [DATA_WIDTH-1:0] out
 );
 
-always @* begin
+always_comb begin
     for (int i = 0; i < DATA_WIDTH; i = i + 2) begin
         if (in[i +: 2] == 2'b00) begin
             out[i+:2] <= 2'b10;
