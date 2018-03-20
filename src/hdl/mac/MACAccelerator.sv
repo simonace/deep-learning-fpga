@@ -47,7 +47,7 @@ module MACAccelerator #(
     wire enable;
     wire load_w;
     wire clear;
-    wire [DATA_WIDTH*2-1:0] load_vector;
+    wire [HIDDEN_UNITS-1:0] load_vector;
 
     wire [INPUT_DIM_BITS-1:0] read_index;
     wire [HIDDEN_UNITS_BITS+1-1:0] write_index; // Extra bit here
