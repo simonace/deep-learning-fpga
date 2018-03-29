@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'icmp' operation ('exitcond1', neural_network/neural_network.cpp:38) (1.77 ns)&#xA;&#x9;blocking operation 0.931 ns on control path)" projectName="neural_network" solutionName="base" date="2018-03-28T21:05:08.168+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (2.7015ns) exceeds the target (target clock period: 3ns, clock uncertainty: 0.375ns, effective delay budget: 2.625ns)." projectName="neural_network" solutionName="base" date="2018-03-28T21:05:08.162+0800" type="Warning"/>
+      </synLog>
+      <simLog>
+        <logs message="WARNING: [COSIM 212-369] AXI_master port 'out_V' has a depth of '10'. Insufficient depth may result in simulation mismatch or freeze.&#xA;   Build using &quot;&quot;&#xA;   Compiling exact_dot_product_test.cpp_pre.cpp.tb.cpp&#xA;   Compiling neural_network_test.cpp_pre.cpp.tb.cpp&#xA;   Compiling apatb_neural_network.cpp&#xA;   Compiling exact_dot_product.cpp_pre.cpp.tb.cpp&#xA;   Compiling neural_network.cpp_pre.cpp.tb.cpp&#xA;   Generating cosim.tv.exe" projectName="neural_network" solutionName="base" date="2018-03-28T21:06:17.025+0800" type="Warning"/>
+        <logs message="WARNING: [COSIM 212-369] AXI_master port 'mem_V' has a depth of '8347050'. Insufficient depth may result in simulation mismatch or freeze." projectName="neural_network" solutionName="base" date="2018-03-28T21:06:12.725+0800" type="Warning"/>
+      </simLog>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

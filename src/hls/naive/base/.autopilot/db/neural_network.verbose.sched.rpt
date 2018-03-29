@@ -1,0 +1,1421 @@
+
+
+================================================================
+== Vivado HLS Report for 'neural_network'
+================================================================
+* Date:           Wed Mar 28 21:05:08 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        neural_network
+* Solution:       base
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   3.00|      2.70|        0.38|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  839235|  839235|  839235|  839235|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------------------+--------+--------+----------+-----------+-----------+------+----------+
+        |                                   |     Latency     | Iteration|  Initiation Interval  | Trip |          |
+        |             Loop Name             |   min  |   max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------------------------+--------+--------+----------+-----------+-----------+------+----------+
+        |- memcpy.inputs.addr.mem.V         |     785|     785|         3|          1|          1|   784|    yes   |
+        |- memcpy.bias_1.addr.mem.V         |     513|     513|         3|          1|          1|   512|    yes   |
+        |- memcpy.bias_2.addr.mem.V         |      11|      11|         3|          1|          1|    10|    yes   |
+        |- InitL1                           |     514|     514|         4|          1|          1|   512|    yes   |
+        |- InitL2                           |      11|      11|         3|          1|          1|    10|    yes   |
+        |- Layer1                           |  813792|  813792|      1038|          -|          -|   784|    no    |
+        | + memcpy.weights_1.addr.mem.V     |     513|     513|         3|          1|          1|   512|    yes   |
+        | + Layer1DotProduct                |     518|     518|         8|          1|          1|   512|    yes   |
+        |- ReLU                             |     513|     513|         3|          1|          1|   512|    yes   |
+        |- Layer2                           |   23040|   23040|        45|          -|          -|   512|    no    |
+        | + memcpy.weights_2.addr.mem.V     |      11|      11|         3|          1|          1|    10|    yes   |
+        | + Layer2DotProduct                |      19|      19|        11|          1|          1|    10|    yes   |
+        |- memcpy.out.V.l2_result.V.addr.1  |      11|      11|         3|          1|          1|    10|    yes   |
+        +-----------------------------------+--------+--------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+  * Pipeline-1: initiation interval (II) = 1, depth = 3
+  * Pipeline-2: initiation interval (II) = 1, depth = 3
+  * Pipeline-3: initiation interval (II) = 1, depth = 4
+  * Pipeline-4: initiation interval (II) = 1, depth = 3
+  * Pipeline-5: initiation interval (II) = 1, depth = 3
+  * Pipeline-6: initiation interval (II) = 1, depth = 8
+  * Pipeline-7: initiation interval (II) = 1, depth = 3
+  * Pipeline-8: initiation interval (II) = 1, depth = 3
+  * Pipeline-9: initiation interval (II) = 1, depth = 11
+  * Pipeline-10: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 102
+* Pipeline : 11
+  Pipeline-0 : II = 1, D = 3, States = { 9 10 11 }
+  Pipeline-1 : II = 1, D = 3, States = { 19 20 21 }
+  Pipeline-2 : II = 1, D = 3, States = { 29 30 31 }
+  Pipeline-3 : II = 1, D = 4, States = { 33 34 35 36 }
+  Pipeline-4 : II = 1, D = 3, States = { 38 39 40 }
+  Pipeline-5 : II = 1, D = 3, States = { 49 50 51 }
+  Pipeline-6 : II = 1, D = 8, States = { 55 56 57 58 59 60 61 62 }
+  Pipeline-7 : II = 1, D = 3, States = { 64 65 66 }
+  Pipeline-8 : II = 1, D = 3, States = { 77 78 79 }
+  Pipeline-9 : II = 1, D = 11, States = { 83 84 85 86 87 88 89 90 91 92 93 }
+  Pipeline-10 : II = 1, D = 3, States = { 95 96 97 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	12  / (exitcond9)
+	10  / (!exitcond9)
+10 --> 
+	11  / true
+11 --> 
+	9  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	22  / (exitcond7)
+	20  / (!exitcond7)
+20 --> 
+	21  / true
+21 --> 
+	19  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	32  / (exitcond8)
+	30  / (!exitcond8)
+30 --> 
+	31  / true
+31 --> 
+	29  / true
+32 --> 
+	33  / true
+33 --> 
+	37  / (exitcond1)
+	34  / (!exitcond1)
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	33  / true
+37 --> 
+	38  / true
+38 --> 
+	41  / (exitcond2)
+	39  / (!exitcond2)
+39 --> 
+	40  / true
+40 --> 
+	38  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / (!exitcond3)
+	64  / (exitcond3)
+49 --> 
+	52  / (exitcond10)
+	50  / (!exitcond10)
+50 --> 
+	51  / true
+51 --> 
+	49  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	63  / (exitcond5)
+	56  / (!exitcond5)
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / true
+61 --> 
+	62  / true
+62 --> 
+	55  / true
+63 --> 
+	48  / true
+64 --> 
+	67  / (exitcond4)
+	65  / (!exitcond4)
+65 --> 
+	66  / true
+66 --> 
+	64  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / (!exitcond6)
+	95  / (exitcond6)
+69 --> 
+	70  / true
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	73  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	80  / (exitcond12)
+	78  / (!exitcond12)
+78 --> 
+	79  / true
+79 --> 
+	77  / true
+80 --> 
+	81  / true
+81 --> 
+	82  / true
+82 --> 
+	83  / true
+83 --> 
+	94  / (exitcond)
+	84  / (!exitcond)
+84 --> 
+	85  / true
+85 --> 
+	86  / true
+86 --> 
+	87  / true
+87 --> 
+	88  / true
+88 --> 
+	89  / true
+89 --> 
+	90  / true
+90 --> 
+	91  / true
+91 --> 
+	92  / true
+92 --> 
+	93  / true
+93 --> 
+	83  / true
+94 --> 
+	68  / true
+95 --> 
+	98  / (exitcond11)
+	96  / (!exitcond11)
+96 --> 
+	97  / true
+97 --> 
+	95  / true
+98 --> 
+	99  / true
+99 --> 
+	100  / true
+100 --> 
+	101  / true
+101 --> 
+	102  / true
+102 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.00ns
+ST_1 : Operation 103 [1/1] (1.00ns)   --->   "%result_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %result_offset)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 104 [1/1] (1.00ns)   --->   "%b2_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %b2_offset)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 105 [1/1] (1.00ns)   --->   "%b1_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %b1_offset)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 106 [1/1] (1.00ns)   --->   "%input_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %input_offset)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 107 [1/1] (1.00ns)   --->   "%w2_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %w2_offset)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 108 [1/1] (1.00ns)   --->   "%w1_offset_read = call i32 @_ssdm_op_Read.s_axilite.i32(i32 %w1_offset)"   --->   Core 10 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 109 [1/1] (0.00ns)   --->   "%weights_1 = alloca [512 x i8], align 1"   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 110 [1/1] (0.00ns)   --->   "%weights_2 = alloca [10 x i8], align 1"   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 111 [1/1] (0.00ns)   --->   "%bias_1 = alloca [512 x i8], align 1"   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 112 [1/1] (0.00ns)   --->   "%bias_2 = alloca [10 x i8], align 1"   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 113 [1/1] (0.00ns)   --->   "%inputs = alloca [784 x i8], align 1"   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 114 [1/1] (0.00ns)   --->   "%l1_result_V = alloca [512 x i32], align 4" [neural_network/neural_network.cpp:27]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 115 [1/1] (0.00ns)   --->   "%l2_result_V = alloca [10 x i32], align 4" [neural_network/neural_network.cpp:28]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_1 : Operation 116 [1/1] (0.00ns)   --->   "%tmp = zext i32 %input_offset_read to i64" [neural_network/neural_network.cpp:31]
+ST_1 : Operation 117 [1/1] (0.00ns)   --->   "%mem_V_addr = getelementptr i8* %mem_V, i64 %tmp" [neural_network/neural_network.cpp:31]
+
+ <State 2> : 2.62ns
+ST_2 : Operation 118 [7/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 3> : 2.62ns
+ST_3 : Operation 119 [6/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 4> : 2.62ns
+ST_4 : Operation 120 [5/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 5> : 2.62ns
+ST_5 : Operation 121 [4/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 6> : 2.62ns
+ST_6 : Operation 122 [3/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 7> : 2.62ns
+ST_7 : Operation 123 [2/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 8> : 2.62ns
+ST_8 : Operation 124 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %mem_V), !map !52"
+ST_8 : Operation 125 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %out_V), !map !58"
+ST_8 : Operation 126 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %w1_offset), !map !64"
+ST_8 : Operation 127 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %w2_offset), !map !70"
+ST_8 : Operation 128 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %input_offset), !map !74"
+ST_8 : Operation 129 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %b1_offset), !map !78"
+ST_8 : Operation 130 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %b2_offset), !map !82"
+ST_8 : Operation 131 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %result_offset), !map !86"
+ST_8 : Operation 132 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @neural_network_str) nounwind"
+ST_8 : Operation 133 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 134 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %input_offset, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 135 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %w1_offset, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 136 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %b2_offset, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 137 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %b1_offset, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 138 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %result_offset, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 139 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 %w2_offset, [10 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [5 x i8]* @p_str2, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 140 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 10, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 141 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %mem_V, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 8347050, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 16, i32 16, i32 16, i32 16, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:17]
+ST_8 : Operation 142 [1/7] (2.62ns)   --->   "%mem_V_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr, i32 784)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 143 [1/1] (1.76ns)   --->   "br label %burst.rd.header"
+
+ <State 9> : 1.96ns
+ST_9 : Operation 144 [1/1] (0.00ns)   --->   "%indvar = phi i10 [ 0, %arrayctor.loop1.preheader ], [ %indvar_next, %burst.rd.body ]"
+ST_9 : Operation 145 [1/1] (1.77ns)   --->   "%exitcond9 = icmp eq i10 %indvar, -240"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 146 [1/1] (1.95ns)   --->   "%indvar_next = add i10 %indvar, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 147 [1/1] (0.00ns)   --->   "br i1 %exitcond9, label %burst.rd.end, label %burst.rd.body"
+
+ <State 10> : 2.62ns
+ST_10 : Operation 148 [1/1] (2.62ns)   --->   "%mem_V_addr_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_V_addr)" [neural_network/neural_network.cpp:31]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 11> : 1.68ns
+ST_11 : Operation 149 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 784, i64 784, i64 784)"
+ST_11 : Operation 150 [1/1] (0.00ns)   --->   "%burstread_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s)"
+ST_11 : Operation 151 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str12)"
+ST_11 : Operation 152 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([25 x i8]* @memcpy_OC_inputs_OC_s)"
+ST_11 : Operation 153 [1/1] (0.00ns)   --->   "%tmp_5 = zext i10 %indvar to i64" [neural_network/neural_network.cpp:31]
+ST_11 : Operation 154 [1/1] (0.00ns)   --->   "%inputs_addr = getelementptr [784 x i8]* %inputs, i64 0, i64 %tmp_5" [neural_network/neural_network.cpp:31]
+ST_11 : Operation 155 [1/1] (1.68ns)   --->   "store i8 %mem_V_addr_read, i8* %inputs_addr, align 1" [neural_network/neural_network.cpp:31]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_11 : Operation 156 [1/1] (0.00ns)   --->   "%burstread_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin)"
+ST_11 : Operation 157 [1/1] (0.00ns)   --->   "br label %burst.rd.header"
+
+ <State 12> : 2.62ns
+ST_12 : Operation 158 [1/1] (0.00ns)   --->   "%tmp_1 = zext i32 %b1_offset_read to i64" [neural_network/neural_network.cpp:34]
+ST_12 : Operation 159 [1/1] (0.00ns)   --->   "%mem_V_addr_1 = getelementptr i8* %mem_V, i64 %tmp_1" [neural_network/neural_network.cpp:34]
+ST_12 : Operation 160 [7/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 13> : 2.62ns
+ST_13 : Operation 161 [6/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 14> : 2.62ns
+ST_14 : Operation 162 [5/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 15> : 2.62ns
+ST_15 : Operation 163 [4/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 16> : 2.62ns
+ST_16 : Operation 164 [3/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 17> : 2.62ns
+ST_17 : Operation 165 [2/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 18> : 2.62ns
+ST_18 : Operation 166 [1/7] (2.62ns)   --->   "%mem_V_addr_1_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_1, i32 512)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 167 [1/1] (1.76ns)   --->   "br label %burst.rd.header16"
+
+ <State 19> : 1.96ns
+ST_19 : Operation 168 [1/1] (0.00ns)   --->   "%indvar1 = phi i10 [ 0, %burst.rd.end ], [ %indvar_next1, %burst.rd.body17 ]"
+ST_19 : Operation 169 [1/1] (1.77ns)   --->   "%exitcond7 = icmp eq i10 %indvar1, -512"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 170 [1/1] (1.95ns)   --->   "%indvar_next1 = add i10 %indvar1, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 171 [1/1] (0.00ns)   --->   "br i1 %exitcond7, label %burst.rd.end15, label %burst.rd.body17"
+
+ <State 20> : 2.62ns
+ST_20 : Operation 172 [1/1] (2.62ns)   --->   "%mem_V_addr_1_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_V_addr_1)" [neural_network/neural_network.cpp:34]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 21> : 1.68ns
+ST_21 : Operation 173 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 512, i64 512, i64 512)"
+ST_21 : Operation 174 [1/1] (0.00ns)   --->   "%burstread_rbegin1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s)"
+ST_21 : Operation 175 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str13)"
+ST_21 : Operation 176 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([25 x i8]* @memcpy_OC_bias_1_OC_s)"
+ST_21 : Operation 177 [1/1] (0.00ns)   --->   "%tmp_4 = zext i10 %indvar1 to i64" [neural_network/neural_network.cpp:34]
+ST_21 : Operation 178 [1/1] (0.00ns)   --->   "%bias_1_addr = getelementptr [512 x i8]* %bias_1, i64 0, i64 %tmp_4" [neural_network/neural_network.cpp:34]
+ST_21 : Operation 179 [1/1] (1.68ns)   --->   "store i8 %mem_V_addr_1_read, i8* %bias_1_addr, align 1" [neural_network/neural_network.cpp:34]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_21 : Operation 180 [1/1] (0.00ns)   --->   "%burstread_rend27 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin1)"
+ST_21 : Operation 181 [1/1] (0.00ns)   --->   "br label %burst.rd.header16"
+
+ <State 22> : 2.62ns
+ST_22 : Operation 182 [1/1] (0.00ns)   --->   "%tmp_2 = zext i32 %b2_offset_read to i64" [neural_network/neural_network.cpp:35]
+ST_22 : Operation 183 [1/1] (0.00ns)   --->   "%mem_V_addr_2 = getelementptr i8* %mem_V, i64 %tmp_2" [neural_network/neural_network.cpp:35]
+ST_22 : Operation 184 [7/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 23> : 2.62ns
+ST_23 : Operation 185 [6/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 24> : 2.62ns
+ST_24 : Operation 186 [5/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 25> : 2.62ns
+ST_25 : Operation 187 [4/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 26> : 2.62ns
+ST_26 : Operation 188 [3/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 27> : 2.62ns
+ST_27 : Operation 189 [2/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 28> : 2.62ns
+ST_28 : Operation 190 [1/7] (2.62ns)   --->   "%mem_V_addr_2_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_2, i32 10)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 191 [1/1] (1.76ns)   --->   "br label %burst.rd.header30"
+
+ <State 29> : 1.74ns
+ST_29 : Operation 192 [1/1] (0.00ns)   --->   "%indvar2 = phi i4 [ 0, %burst.rd.end15 ], [ %indvar_next2, %burst.rd.body31 ]"
+ST_29 : Operation 193 [1/1] (1.30ns)   --->   "%exitcond8 = icmp eq i4 %indvar2, -6"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 194 [1/1] (1.73ns)   --->   "%indvar_next2 = add i4 %indvar2, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 195 [1/1] (0.00ns)   --->   "br i1 %exitcond8, label %burst.rd.end29.preheader, label %burst.rd.body31"
+
+ <State 30> : 2.62ns
+ST_30 : Operation 196 [1/1] (2.62ns)   --->   "%mem_V_addr_2_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_V_addr_2)" [neural_network/neural_network.cpp:35]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 31> : 2.32ns
+ST_31 : Operation 197 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_31 : Operation 198 [1/1] (0.00ns)   --->   "%burstread_rbegin2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s)"
+ST_31 : Operation 199 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str14)"
+ST_31 : Operation 200 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([25 x i8]* @memcpy_OC_bias_2_OC_s)"
+ST_31 : Operation 201 [1/1] (0.00ns)   --->   "%tmp_8 = zext i4 %indvar2 to i64" [neural_network/neural_network.cpp:35]
+ST_31 : Operation 202 [1/1] (0.00ns)   --->   "%bias_2_addr = getelementptr [10 x i8]* %bias_2, i64 0, i64 %tmp_8" [neural_network/neural_network.cpp:35]
+ST_31 : Operation 203 [1/1] (2.32ns)   --->   "store i8 %mem_V_addr_2_read, i8* %bias_2_addr, align 1" [neural_network/neural_network.cpp:35]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_31 : Operation 204 [1/1] (0.00ns)   --->   "%burstread_rend41 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin2)"
+ST_31 : Operation 205 [1/1] (0.00ns)   --->   "br label %burst.rd.header30"
+
+ <State 32> : 1.77ns
+ST_32 : Operation 206 [1/1] (1.76ns)   --->   "br label %burst.rd.end29" [neural_network/neural_network.cpp:38]
+
+ <State 33> : 2.70ns
+ST_33 : Operation 207 [1/1] (0.00ns)   --->   "%i = phi i10 [ %i_1, %0 ], [ 0, %burst.rd.end29.preheader ]"
+ST_33 : Operation 208 [1/1] (1.77ns)   --->   "%exitcond1 = icmp eq i10 %i, -512" [neural_network/neural_network.cpp:38]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 209 [1/1] (1.95ns)   --->   "%i_1 = add i10 %i, 1" [neural_network/neural_network.cpp:38]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 210 [1/1] (0.00ns)   --->   "br i1 %exitcond1, label %.preheader121.preheader, label %0" [neural_network/neural_network.cpp:38]
+ST_33 : Operation 211 [1/1] (0.00ns)   --->   "%tmp_3 = zext i10 %i to i64" [neural_network/neural_network.cpp:39]
+ST_33 : Operation 212 [1/1] (0.00ns)   --->   "%bias_1_addr_1 = getelementptr [512 x i8]* %bias_1, i64 0, i64 %tmp_3" [neural_network/neural_network.cpp:39]
+ST_33 : Operation 213 [3/3] (1.68ns)   --->   "%bias_1_load = load i8* %bias_1_addr_1, align 1" [neural_network/neural_network.cpp:39]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 34> : 1.68ns
+ST_34 : Operation 214 [2/3] (1.68ns)   --->   "%bias_1_load = load i8* %bias_1_addr_1, align 1" [neural_network/neural_network.cpp:39]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 35> : 1.68ns
+ST_35 : Operation 215 [1/3] (1.68ns)   --->   "%bias_1_load = load i8* %bias_1_addr_1, align 1" [neural_network/neural_network.cpp:39]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 36> : 1.68ns
+ST_36 : Operation 216 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 512, i64 512, i64 512)"
+ST_36 : Operation 217 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str4) nounwind" [neural_network/neural_network.cpp:38]
+ST_36 : Operation 218 [1/1] (0.00ns)   --->   "%tmp_9 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str4)" [neural_network/neural_network.cpp:38]
+ST_36 : Operation 219 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:39]
+ST_36 : Operation 220 [1/1] (0.00ns)   --->   "%p_s = sext i8 %bias_1_load to i32" [neural_network/neural_network.cpp:39]
+ST_36 : Operation 221 [1/1] (0.00ns)   --->   "%l1_result_V_addr = getelementptr [512 x i32]* %l1_result_V, i64 0, i64 %tmp_3" [neural_network/neural_network.cpp:39]
+ST_36 : Operation 222 [1/1] (1.68ns)   --->   "store i32 %p_s, i32* %l1_result_V_addr, align 4" [neural_network/neural_network.cpp:39]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_36 : Operation 223 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str4, i32 %tmp_9)" [neural_network/neural_network.cpp:40]
+ST_36 : Operation 224 [1/1] (0.00ns)   --->   "br label %burst.rd.end29" [neural_network/neural_network.cpp:38]
+
+ <State 37> : 1.77ns
+ST_37 : Operation 225 [1/1] (1.76ns)   --->   "br label %.preheader121" [neural_network/neural_network.cpp:42]
+
+ <State 38> : 2.32ns
+ST_38 : Operation 226 [1/1] (0.00ns)   --->   "%i7 = phi i4 [ %i_2, %1 ], [ 0, %.preheader121.preheader ]"
+ST_38 : Operation 227 [1/1] (1.30ns)   --->   "%exitcond2 = icmp eq i4 %i7, -6" [neural_network/neural_network.cpp:42]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 228 [1/1] (1.73ns)   --->   "%i_2 = add i4 %i7, 1" [neural_network/neural_network.cpp:42]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_38 : Operation 229 [1/1] (0.00ns)   --->   "br i1 %exitcond2, label %.preheader120.preheader, label %1" [neural_network/neural_network.cpp:42]
+ST_38 : Operation 230 [1/1] (0.00ns)   --->   "%tmp_6 = zext i4 %i7 to i64" [neural_network/neural_network.cpp:43]
+ST_38 : Operation 231 [1/1] (0.00ns)   --->   "%bias_2_addr_1 = getelementptr [10 x i8]* %bias_2, i64 0, i64 %tmp_6" [neural_network/neural_network.cpp:43]
+ST_38 : Operation 232 [2/2] (2.32ns)   --->   "%bias_2_load = load i8* %bias_2_addr_1, align 1" [neural_network/neural_network.cpp:43]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 39> : 2.32ns
+ST_39 : Operation 233 [1/2] (2.32ns)   --->   "%bias_2_load = load i8* %bias_2_addr_1, align 1" [neural_network/neural_network.cpp:43]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 40> : 2.32ns
+ST_40 : Operation 234 [1/1] (0.00ns)   --->   "%empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_40 : Operation 235 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str5) nounwind" [neural_network/neural_network.cpp:42]
+ST_40 : Operation 236 [1/1] (0.00ns)   --->   "%tmp_16 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str5)" [neural_network/neural_network.cpp:42]
+ST_40 : Operation 237 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:43]
+ST_40 : Operation 238 [1/1] (0.00ns)   --->   "%p_1 = sext i8 %bias_2_load to i32" [neural_network/neural_network.cpp:43]
+ST_40 : Operation 239 [1/1] (0.00ns)   --->   "%l2_result_V_addr = getelementptr [10 x i32]* %l2_result_V, i64 0, i64 %tmp_6" [neural_network/neural_network.cpp:43]
+ST_40 : Operation 240 [1/1] (2.32ns)   --->   "store i32 %p_1, i32* %l2_result_V_addr, align 4" [neural_network/neural_network.cpp:43]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_40 : Operation 241 [1/1] (0.00ns)   --->   "%empty_8 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str5, i32 %tmp_16)" [neural_network/neural_network.cpp:44]
+ST_40 : Operation 242 [1/1] (0.00ns)   --->   "br label %.preheader121" [neural_network/neural_network.cpp:42]
+
+ <State 41> : 2.62ns
+ST_41 : Operation 243 [1/1] (0.00ns)   --->   "%tmp_10 = zext i32 %w1_offset_read to i64" [neural_network/neural_network.cpp:47]
+ST_41 : Operation 244 [1/1] (0.00ns)   --->   "%mem_V_addr_3 = getelementptr i8* %mem_V, i64 %tmp_10" [neural_network/neural_network.cpp:47]
+ST_41 : Operation 245 [7/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 42> : 2.62ns
+ST_42 : Operation 246 [6/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 43> : 2.62ns
+ST_43 : Operation 247 [5/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 44> : 2.62ns
+ST_44 : Operation 248 [4/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 45> : 2.62ns
+ST_45 : Operation 249 [3/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 46> : 2.62ns
+ST_46 : Operation 250 [2/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 47> : 2.62ns
+ST_47 : Operation 251 [1/7] (2.62ns)   --->   "%mem_V_addr_7_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_3, i32 401408)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_47 : Operation 252 [1/1] (1.76ns)   --->   "br label %.preheader120" [neural_network/neural_network.cpp:46]
+
+ <State 48> : 2.70ns
+ST_48 : Operation 253 [1/1] (0.00ns)   --->   "%i8 = phi i10 [ %i_3, %5 ], [ 0, %.preheader120.preheader ]"
+ST_48 : Operation 254 [1/1] (1.77ns)   --->   "%exitcond3 = icmp eq i10 %i8, -240" [neural_network/neural_network.cpp:46]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_48 : Operation 255 [1/1] (0.00ns)   --->   "%empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 784, i64 784, i64 784)"
+ST_48 : Operation 256 [1/1] (1.95ns)   --->   "%i_3 = add i10 %i8, 1" [neural_network/neural_network.cpp:46]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_48 : Operation 257 [1/1] (0.00ns)   --->   "br i1 %exitcond3, label %.preheader119.preheader, label %2" [neural_network/neural_network.cpp:46]
+ST_48 : Operation 258 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str6) nounwind" [neural_network/neural_network.cpp:46]
+ST_48 : Operation 259 [1/1] (0.00ns)   --->   "%tmp_22 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str6)" [neural_network/neural_network.cpp:46]
+ST_48 : Operation 260 [1/1] (1.76ns)   --->   "br label %burst.rd.header44"
+ST_48 : Operation 261 [1/1] (1.76ns)   --->   "br label %.preheader119" [neural_network/neural_network.cpp:54]
+
+ <State 49> : 1.96ns
+ST_49 : Operation 262 [1/1] (0.00ns)   --->   "%indvar3 = phi i10 [ 0, %2 ], [ %indvar_next3, %burst.rd.body45 ]"
+ST_49 : Operation 263 [1/1] (1.77ns)   --->   "%exitcond10 = icmp eq i10 %indvar3, -512"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 264 [1/1] (1.95ns)   --->   "%indvar_next3 = add i10 %indvar3, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_49 : Operation 265 [1/1] (0.00ns)   --->   "br i1 %exitcond10, label %burst.rd.end43, label %burst.rd.body45"
+
+ <State 50> : 2.62ns
+ST_50 : Operation 266 [1/1] (2.62ns)   --->   "%mem_V_addr_3_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_V_addr_3)" [neural_network/neural_network.cpp:47]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 51> : 1.68ns
+ST_51 : Operation 267 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 512, i64 512, i64 512)"
+ST_51 : Operation 268 [1/1] (0.00ns)   --->   "%burstread_rbegin3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s)"
+ST_51 : Operation 269 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str15)"
+ST_51 : Operation 270 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([28 x i8]* @memcpy_OC_weights_1_s)"
+ST_51 : Operation 271 [1/1] (0.00ns)   --->   "%tmp_25 = zext i10 %indvar3 to i64" [neural_network/neural_network.cpp:47]
+ST_51 : Operation 272 [1/1] (0.00ns)   --->   "%weights_1_addr = getelementptr [512 x i8]* %weights_1, i64 0, i64 %tmp_25" [neural_network/neural_network.cpp:47]
+ST_51 : Operation 273 [1/1] (1.68ns)   --->   "store i8 %mem_V_addr_3_read, i8* %weights_1_addr, align 1" [neural_network/neural_network.cpp:47]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_51 : Operation 274 [1/1] (0.00ns)   --->   "%burstread_rend55 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin3)"
+ST_51 : Operation 275 [1/1] (0.00ns)   --->   "br label %burst.rd.header44"
+
+ <State 52> : 1.68ns
+ST_52 : Operation 276 [1/1] (0.00ns)   --->   "%tmp_s = zext i10 %i8 to i64" [neural_network/neural_network.cpp:50]
+ST_52 : Operation 277 [1/1] (0.00ns)   --->   "%inputs_addr_1 = getelementptr [784 x i8]* %inputs, i64 0, i64 %tmp_s" [neural_network/neural_network.cpp:50]
+ST_52 : Operation 278 [3/3] (1.68ns)   --->   "%inputs_load = load i8* %inputs_addr_1, align 1" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 53> : 1.68ns
+ST_53 : Operation 279 [2/3] (1.68ns)   --->   "%inputs_load = load i8* %inputs_addr_1, align 1" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 54> : 1.77ns
+ST_54 : Operation 280 [1/3] (1.68ns)   --->   "%inputs_load = load i8* %inputs_addr_1, align 1" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_54 : Operation 281 [1/1] (0.00ns)   --->   "%rhs_V = sext i8 %inputs_load to i16" [neural_network/neural_network.cpp:50]
+ST_54 : Operation 282 [1/1] (1.76ns)   --->   "br label %3" [neural_network/neural_network.cpp:49]
+
+ <State 55> : 2.70ns
+ST_55 : Operation 283 [1/1] (0.00ns)   --->   "%j = phi i10 [ 0, %burst.rd.end43 ], [ %j_1, %4 ]"
+ST_55 : Operation 284 [1/1] (1.77ns)   --->   "%exitcond5 = icmp eq i10 %j, -512" [neural_network/neural_network.cpp:49]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_55 : Operation 285 [1/1] (1.95ns)   --->   "%j_1 = add i10 %j, 1" [neural_network/neural_network.cpp:49]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_55 : Operation 286 [1/1] (0.00ns)   --->   "br i1 %exitcond5, label %5, label %4" [neural_network/neural_network.cpp:49]
+ST_55 : Operation 287 [1/1] (0.00ns)   --->   "%tmp_11 = zext i10 %j to i64" [neural_network/neural_network.cpp:50]
+ST_55 : Operation 288 [1/1] (0.00ns)   --->   "%weights_1_addr_1 = getelementptr [512 x i8]* %weights_1, i64 0, i64 %tmp_11" [neural_network/neural_network.cpp:50]
+ST_55 : Operation 289 [3/3] (1.68ns)   --->   "%weights_1_load = load i8* %weights_1_addr_1, align 1" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_55 : Operation 290 [1/1] (0.00ns)   --->   "%l1_result_V_addr_2 = getelementptr [512 x i32]* %l1_result_V, i64 0, i64 %tmp_11" [neural_network/neural_network.cpp:50]
+
+ <State 56> : 1.68ns
+ST_56 : Operation 291 [2/3] (1.68ns)   --->   "%weights_1_load = load i8* %weights_1_addr_1, align 1" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 57> : 1.68ns
+ST_57 : Operation 292 [1/3] (1.68ns)   --->   "%weights_1_load = load i8* %weights_1_addr_1, align 1" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_57 : Operation 293 [3/3] (1.68ns)   --->   "%l1_result_V_load_1 = load i32* %l1_result_V_addr_2, align 4" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 58> : 1.68ns
+ST_58 : Operation 294 [1/1] (0.00ns)   --->   "%lhs_V = sext i8 %weights_1_load to i16" [neural_network/neural_network.cpp:50]
+ST_58 : Operation 295 [3/3] (1.05ns)   --->   "%r_V = mul i16 %lhs_V, %rhs_V" [neural_network/neural_network.cpp:50]   --->   Core 61 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_58 : Operation 296 [2/3] (1.68ns)   --->   "%l1_result_V_load_1 = load i32* %l1_result_V_addr_2, align 4" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 59> : 1.68ns
+ST_59 : Operation 297 [2/3] (1.05ns)   --->   "%r_V = mul i16 %lhs_V, %rhs_V" [neural_network/neural_network.cpp:50]   --->   Core 61 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_59 : Operation 298 [1/3] (1.68ns)   --->   "%l1_result_V_load_1 = load i32* %l1_result_V_addr_2, align 4" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 60> : 2.10ns
+ST_60 : Operation 299 [1/3] (0.00ns)   --->   "%r_V = mul i16 %lhs_V, %rhs_V" [neural_network/neural_network.cpp:50]   --->   Core 61 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_60 : Operation 300 [1/1] (0.00ns)   --->   "%tmp_12 = sext i16 %r_V to i32" [neural_network/neural_network.cpp:50]
+ST_60 : Operation 301 [2/2] (2.10ns)   --->   "%tmp_13 = add nsw i32 %l1_result_V_load_1, %tmp_12" [neural_network/neural_network.cpp:50]   --->   Core 61 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 61> : 2.10ns
+ST_61 : Operation 302 [1/2] (2.10ns)   --->   "%tmp_13 = add nsw i32 %l1_result_V_load_1, %tmp_12" [neural_network/neural_network.cpp:50]   --->   Core 61 'DSP48' <Latency = 3> <II = 1> <Delay = 2.15> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 62> : 1.68ns
+ST_62 : Operation 303 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 512, i64 512, i64 512)"
+ST_62 : Operation 304 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @p_str7) nounwind" [neural_network/neural_network.cpp:49]
+ST_62 : Operation 305 [1/1] (0.00ns)   --->   "%tmp_29 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @p_str7)" [neural_network/neural_network.cpp:49]
+ST_62 : Operation 306 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:50]
+ST_62 : Operation 307 [1/1] (1.68ns)   --->   "store i32 %tmp_13, i32* %l1_result_V_addr_2, align 4" [neural_network/neural_network.cpp:50]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_62 : Operation 308 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @p_str7, i32 %tmp_29)" [neural_network/neural_network.cpp:51]
+ST_62 : Operation 309 [1/1] (0.00ns)   --->   "br label %3" [neural_network/neural_network.cpp:49]
+
+ <State 63> : 0.00ns
+ST_63 : Operation 310 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str6, i32 %tmp_22)" [neural_network/neural_network.cpp:52]
+ST_63 : Operation 311 [1/1] (0.00ns)   --->   "br label %.preheader120" [neural_network/neural_network.cpp:46]
+
+ <State 64> : 2.70ns
+ST_64 : Operation 312 [1/1] (0.00ns)   --->   "%i9 = phi i10 [ %i_4, %._crit_edge ], [ 0, %.preheader119.preheader ]"
+ST_64 : Operation 313 [1/1] (1.77ns)   --->   "%exitcond4 = icmp eq i10 %i9, -512" [neural_network/neural_network.cpp:54]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 314 [1/1] (1.95ns)   --->   "%i_4 = add i10 %i9, 1" [neural_network/neural_network.cpp:54]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 315 [1/1] (0.00ns)   --->   "br i1 %exitcond4, label %.preheader.preheader, label %6" [neural_network/neural_network.cpp:54]
+ST_64 : Operation 316 [1/1] (0.00ns)   --->   "%tmp_23 = call i32 (...)* @_ssdm_op_SpecRegionBegin([5 x i8]* @p_str8)" [neural_network/neural_network.cpp:54]
+ST_64 : Operation 317 [1/1] (0.00ns)   --->   "%tmp_7 = zext i10 %i9 to i64" [neural_network/neural_network.cpp:55]
+ST_64 : Operation 318 [1/1] (0.00ns)   --->   "%l1_result_V_addr_1 = getelementptr [512 x i32]* %l1_result_V, i64 0, i64 %tmp_7" [neural_network/neural_network.cpp:55]
+ST_64 : Operation 319 [3/3] (1.68ns)   --->   "%l1_result_V_load = load i32* %l1_result_V_addr_1, align 4" [neural_network/neural_network.cpp:55]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_64 : Operation 320 [1/1] (0.00ns)   --->   "%empty_15 = call i32 (...)* @_ssdm_op_SpecRegionEnd([5 x i8]* @p_str8, i32 %tmp_23)" [neural_network/neural_network.cpp:58]
+ST_64 : Operation 321 [1/1] (0.00ns)   --->   "br label %.preheader119" [neural_network/neural_network.cpp:54]
+
+ <State 65> : 1.68ns
+ST_65 : Operation 322 [2/3] (1.68ns)   --->   "%l1_result_V_load = load i32* %l1_result_V_addr_1, align 4" [neural_network/neural_network.cpp:55]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 66> : 1.68ns
+ST_66 : Operation 323 [1/1] (0.00ns)   --->   "%empty_14 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 512, i64 512, i64 512)"
+ST_66 : Operation 324 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([5 x i8]* @p_str8) nounwind" [neural_network/neural_network.cpp:54]
+ST_66 : Operation 325 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:55]
+ST_66 : Operation 326 [1/3] (1.68ns)   --->   "%l1_result_V_load = load i32* %l1_result_V_addr_1, align 4" [neural_network/neural_network.cpp:55]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_66 : Operation 327 [1/1] (0.00ns)   --->   "%tmp_24 = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %l1_result_V_load, i32 31)" [neural_network/neural_network.cpp:55]
+ST_66 : Operation 328 [1/1] (0.00ns)   --->   "br i1 %tmp_24, label %7, label %._crit_edge" [neural_network/neural_network.cpp:55]
+ST_66 : Operation 329 [1/1] (1.68ns)   --->   "store i32 0, i32* %l1_result_V_addr_1, align 4" [neural_network/neural_network.cpp:56]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_66 : Operation 330 [1/1] (0.00ns)   --->   "br label %._crit_edge" [neural_network/neural_network.cpp:57]
+
+ <State 67> : 1.77ns
+ST_67 : Operation 331 [1/1] (0.00ns)   --->   "%tmp_4_cast = zext i32 %w2_offset_read to i33" [neural_network/neural_network.cpp:60]
+ST_67 : Operation 332 [1/1] (1.76ns)   --->   "br label %.preheader" [neural_network/neural_network.cpp:60]
+
+ <State 68> : 2.70ns
+ST_68 : Operation 333 [1/1] (0.00ns)   --->   "%i4 = phi i10 [ %i_5, %11 ], [ 0, %.preheader.preheader ]"
+ST_68 : Operation 334 [1/1] (1.77ns)   --->   "%exitcond6 = icmp eq i10 %i4, -512" [neural_network/neural_network.cpp:60]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_68 : Operation 335 [1/1] (0.00ns)   --->   "%empty_16 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 512, i64 512, i64 512)"
+ST_68 : Operation 336 [1/1] (1.95ns)   --->   "%i_5 = add i10 %i4, 1" [neural_network/neural_network.cpp:60]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_68 : Operation 337 [1/1] (0.00ns)   --->   "br i1 %exitcond6, label %12, label %8" [neural_network/neural_network.cpp:60]
+ST_68 : Operation 338 [1/1] (0.00ns) (grouped into LUT with out node tmp_15)   --->   "%tmp_27 = trunc i10 %i4 to i9" [neural_network/neural_network.cpp:60]
+ST_68 : Operation 339 [1/1] (0.00ns) (grouped into LUT with out node tmp_15)   --->   "%p_shl = call i12 @_ssdm_op_BitConcatenate.i12.i9.i3(i9 %tmp_27, i3 0)" [neural_network/neural_network.cpp:61]
+ST_68 : Operation 340 [1/1] (0.00ns) (grouped into LUT with out node tmp_15)   --->   "%p_shl_cast = zext i12 %p_shl to i13" [neural_network/neural_network.cpp:61]
+ST_68 : Operation 341 [1/1] (0.00ns) (grouped into LUT with out node tmp_15)   --->   "%tmp_28 = shl i10 %i4, 1" [neural_network/neural_network.cpp:61]
+ST_68 : Operation 342 [1/1] (0.00ns) (grouped into LUT with out node tmp_15)   --->   "%p_shl1_cast = zext i10 %tmp_28 to i13" [neural_network/neural_network.cpp:61]
+ST_68 : Operation 343 [1/1] (1.99ns) (out node of the LUT)   --->   "%tmp_15 = add i13 %p_shl1_cast, %p_shl_cast" [neural_network/neural_network.cpp:61]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_68 : Operation 344 [1/1] (0.00ns)   --->   "%tmp_14 = zext i32 %result_offset_read to i64" [neural_network/neural_network.cpp:69]
+ST_68 : Operation 345 [1/1] (0.00ns)   --->   "%out_V_addr = getelementptr i32* %out_V, i64 %tmp_14" [neural_network/neural_network.cpp:69]
+ST_68 : Operation 346 [1/1] (2.62ns)   --->   "%out_V_addr_wr_req = call i1 @_ssdm_op_WriteReq.m_axi.i32P(i32* %out_V_addr, i32 10)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_68 : Operation 347 [1/1] (1.76ns)   --->   "br label %burst.wr.header"
+
+ <State 69> : 2.55ns
+ST_69 : Operation 348 [1/1] (0.00ns)   --->   "%tmp_16_cast = zext i13 %tmp_15 to i33" [neural_network/neural_network.cpp:61]
+ST_69 : Operation 349 [1/1] (2.55ns)   --->   "%p_sum = add i33 %tmp_16_cast, %tmp_4_cast" [neural_network/neural_network.cpp:61]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_69 : Operation 350 [1/1] (0.00ns)   --->   "%p_sum_cast = zext i33 %p_sum to i64" [neural_network/neural_network.cpp:61]
+ST_69 : Operation 351 [1/1] (0.00ns)   --->   "%mem_V_addr_4 = getelementptr i8* %mem_V, i64 %p_sum_cast" [neural_network/neural_network.cpp:61]
+
+ <State 70> : 2.62ns
+ST_70 : Operation 352 [7/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 71> : 2.62ns
+ST_71 : Operation 353 [6/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 72> : 2.62ns
+ST_72 : Operation 354 [5/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 73> : 2.62ns
+ST_73 : Operation 355 [4/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 74> : 2.62ns
+ST_74 : Operation 356 [3/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 75> : 2.62ns
+ST_75 : Operation 357 [2/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 76> : 2.62ns
+ST_76 : Operation 358 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str9) nounwind" [neural_network/neural_network.cpp:60]
+ST_76 : Operation 359 [1/1] (0.00ns)   --->   "%tmp_26 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str9)" [neural_network/neural_network.cpp:60]
+ST_76 : Operation 360 [1/7] (2.62ns)   --->   "%mem_V_addr_4_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i8P(i8* %mem_V_addr_4, i32 10)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_76 : Operation 361 [1/1] (1.76ns)   --->   "br label %burst.rd.header58"
+
+ <State 77> : 1.74ns
+ST_77 : Operation 362 [1/1] (0.00ns)   --->   "%indvar5 = phi i4 [ 0, %8 ], [ %indvar_next5, %burst.rd.body59 ]"
+ST_77 : Operation 363 [1/1] (1.30ns)   --->   "%exitcond12 = icmp eq i4 %indvar5, -6"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 364 [1/1] (1.73ns)   --->   "%indvar_next5 = add i4 %indvar5, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_77 : Operation 365 [1/1] (0.00ns)   --->   "br i1 %exitcond12, label %burst.rd.end57, label %burst.rd.body59"
+
+ <State 78> : 2.62ns
+ST_78 : Operation 366 [1/1] (2.62ns)   --->   "%mem_V_addr_4_read = call i8 @_ssdm_op_Read.m_axi.i8P(i8* %mem_V_addr_4)" [neural_network/neural_network.cpp:61]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 79> : 2.32ns
+ST_79 : Operation 367 [1/1] (0.00ns)   --->   "%empty_17 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_79 : Operation 368 [1/1] (0.00ns)   --->   "%burstread_rbegin4 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s)"
+ST_79 : Operation 369 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str16)"
+ST_79 : Operation 370 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([28 x i8]* @memcpy_OC_weights_2_s)"
+ST_79 : Operation 371 [1/1] (0.00ns)   --->   "%tmp_31 = zext i4 %indvar5 to i64" [neural_network/neural_network.cpp:61]
+ST_79 : Operation 372 [1/1] (0.00ns)   --->   "%weights_2_addr = getelementptr [10 x i8]* %weights_2, i64 0, i64 %tmp_31" [neural_network/neural_network.cpp:61]
+ST_79 : Operation 373 [1/1] (2.32ns)   --->   "store i8 %mem_V_addr_4_read, i8* %weights_2_addr, align 1" [neural_network/neural_network.cpp:61]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_79 : Operation 374 [1/1] (0.00ns)   --->   "%burstread_rend69 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin4)"
+ST_79 : Operation 375 [1/1] (0.00ns)   --->   "br label %burst.rd.header58"
+
+ <State 80> : 1.68ns
+ST_80 : Operation 376 [1/1] (0.00ns)   --->   "%tmp_17 = zext i10 %i4 to i64" [neural_network/neural_network.cpp:64]
+ST_80 : Operation 377 [1/1] (0.00ns)   --->   "%l1_result_V_addr_3 = getelementptr [512 x i32]* %l1_result_V, i64 0, i64 %tmp_17" [neural_network/neural_network.cpp:64]
+ST_80 : Operation 378 [3/3] (1.68ns)   --->   "%l1_result_V_load_2 = load i32* %l1_result_V_addr_3, align 4" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 81> : 1.68ns
+ST_81 : Operation 379 [2/3] (1.68ns)   --->   "%l1_result_V_load_2 = load i32* %l1_result_V_addr_3, align 4" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 82> : 1.77ns
+ST_82 : Operation 380 [1/3] (1.68ns)   --->   "%l1_result_V_load_2 = load i32* %l1_result_V_addr_3, align 4" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_82 : Operation 381 [1/1] (1.76ns)   --->   "br label %9" [neural_network/neural_network.cpp:63]
+
+ <State 83> : 2.32ns
+ST_83 : Operation 382 [1/1] (0.00ns)   --->   "%j2 = phi i4 [ 0, %burst.rd.end57 ], [ %j_2, %10 ]"
+ST_83 : Operation 383 [1/1] (1.30ns)   --->   "%exitcond = icmp eq i4 %j2, -6" [neural_network/neural_network.cpp:63]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_83 : Operation 384 [1/1] (1.73ns)   --->   "%j_2 = add i4 %j2, 1" [neural_network/neural_network.cpp:63]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_83 : Operation 385 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %11, label %10" [neural_network/neural_network.cpp:63]
+ST_83 : Operation 386 [1/1] (0.00ns)   --->   "%tmp_18 = zext i4 %j2 to i64" [neural_network/neural_network.cpp:64]
+ST_83 : Operation 387 [1/1] (0.00ns)   --->   "%weights_2_addr_1 = getelementptr [10 x i8]* %weights_2, i64 0, i64 %tmp_18" [neural_network/neural_network.cpp:64]
+ST_83 : Operation 388 [2/2] (2.32ns)   --->   "%weights_2_load = load i8* %weights_2_addr_1, align 1" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_83 : Operation 389 [1/1] (0.00ns)   --->   "%l2_result_V_addr_2 = getelementptr [10 x i32]* %l2_result_V, i64 0, i64 %tmp_18" [neural_network/neural_network.cpp:64]
+
+ <State 84> : 2.32ns
+ST_84 : Operation 390 [1/2] (2.32ns)   --->   "%weights_2_load = load i8* %weights_2_addr_1, align 1" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 85> : 2.12ns
+ST_85 : Operation 391 [1/1] (0.00ns)   --->   "%tmp_19 = sext i8 %weights_2_load to i32" [neural_network/neural_network.cpp:64]
+ST_85 : Operation 392 [7/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 86> : 2.12ns
+ST_86 : Operation 393 [6/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 87> : 2.12ns
+ST_87 : Operation 394 [5/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 88> : 2.12ns
+ST_88 : Operation 395 [4/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 89> : 2.12ns
+ST_89 : Operation 396 [3/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 90> : 2.32ns
+ST_90 : Operation 397 [2/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_90 : Operation 398 [2/2] (2.32ns)   --->   "%l2_result_V_load = load i32* %l2_result_V_addr_2, align 4" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 91> : 2.32ns
+ST_91 : Operation 399 [1/7] (2.11ns)   --->   "%tmp_20 = mul i32 %l1_result_V_load_2, %tmp_19" [neural_network/neural_network.cpp:64]   --->   Core 17 'MulnS' <Latency = 6> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_91 : Operation 400 [1/2] (2.32ns)   --->   "%l2_result_V_load = load i32* %l2_result_V_addr_2, align 4" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 92> : 2.55ns
+ST_92 : Operation 401 [1/1] (2.55ns)   --->   "%tmp_21 = add i32 %l2_result_V_load, %tmp_20" [neural_network/neural_network.cpp:64]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 93> : 2.32ns
+ST_93 : Operation 402 [1/1] (0.00ns)   --->   "%empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_93 : Operation 403 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @p_str10) nounwind" [neural_network/neural_network.cpp:63]
+ST_93 : Operation 404 [1/1] (0.00ns)   --->   "%tmp_32 = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @p_str10)" [neural_network/neural_network.cpp:63]
+ST_93 : Operation 405 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [neural_network/neural_network.cpp:64]
+ST_93 : Operation 406 [1/1] (2.32ns)   --->   "store i32 %tmp_21, i32* %l2_result_V_addr_2, align 4" [neural_network/neural_network.cpp:64]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+ST_93 : Operation 407 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @p_str10, i32 %tmp_32)" [neural_network/neural_network.cpp:65]
+ST_93 : Operation 408 [1/1] (0.00ns)   --->   "br label %9" [neural_network/neural_network.cpp:63]
+
+ <State 94> : 0.00ns
+ST_94 : Operation 409 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str9, i32 %tmp_26)" [neural_network/neural_network.cpp:66]
+ST_94 : Operation 410 [1/1] (0.00ns)   --->   "br label %.preheader" [neural_network/neural_network.cpp:60]
+
+ <State 95> : 2.32ns
+ST_95 : Operation 411 [1/1] (0.00ns)   --->   "%indvar4 = phi i4 [ 0, %12 ], [ %indvar_next4, %burst.wr.body ]"
+ST_95 : Operation 412 [1/1] (1.30ns)   --->   "%exitcond11 = icmp eq i4 %indvar4, -6"   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.77> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_95 : Operation 413 [1/1] (1.73ns)   --->   "%indvar_next4 = add i4 %indvar4, 1"   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_95 : Operation 414 [1/1] (0.00ns)   --->   "br i1 %exitcond11, label %memcpy.tail, label %burst.wr.body"
+ST_95 : Operation 415 [1/1] (0.00ns)   --->   "%tmp_30 = zext i4 %indvar4 to i64" [neural_network/neural_network.cpp:69]
+ST_95 : Operation 416 [1/1] (0.00ns)   --->   "%l2_result_V_addr_1 = getelementptr [10 x i32]* %l2_result_V, i64 0, i64 %tmp_30" [neural_network/neural_network.cpp:69]
+ST_95 : Operation 417 [2/2] (2.32ns)   --->   "%l2_result_V_load_1 = load i32* %l2_result_V_addr_1, align 4" [neural_network/neural_network.cpp:69]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 96> : 2.32ns
+ST_96 : Operation 418 [1/2] (2.32ns)   --->   "%l2_result_V_load_1 = load i32* %l2_result_V_addr_1, align 4" [neural_network/neural_network.cpp:69]   --->   Core 37 'RAM' <Latency = 2> <II = 1> <Delay = 1.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 512> <RAM>
+
+ <State 97> : 2.62ns
+ST_97 : Operation 419 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_97 : Operation 420 [1/1] (0.00ns)   --->   "%burstwrite_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([18 x i8]* @burstwrite_OC_region)"
+ST_97 : Operation 421 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str17)"
+ST_97 : Operation 422 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([32 x i8]* @memcpy_OC_out_OC_V_O)"
+ST_97 : Operation 423 [1/1] (2.62ns)   --->   "call void @_ssdm_op_Write.m_axi.i32P(i32* %out_V_addr, i32 %l2_result_V_load_1, i4 -1)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_97 : Operation 424 [1/1] (0.00ns)   --->   "%burstwrite_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([18 x i8]* @burstwrite_OC_region, i32 %burstwrite_rbegin)"
+ST_97 : Operation 425 [1/1] (0.00ns)   --->   "br label %burst.wr.header"
+
+ <State 98> : 2.62ns
+ST_98 : Operation 426 [5/5] (2.62ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %out_V_addr)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 99> : 2.62ns
+ST_99 : Operation 427 [4/5] (2.62ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %out_V_addr)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 100> : 2.62ns
+ST_100 : Operation 428 [3/5] (2.62ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %out_V_addr)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 101> : 2.62ns
+ST_101 : Operation 429 [2/5] (2.62ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %out_V_addr)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+ <State 102> : 2.62ns
+ST_102 : Operation 430 [1/5] (2.62ns)   --->   "%out_V_addr_wr_resp = call i1 @_ssdm_op_WriteResp.m_axi.i32P(i32* %out_V_addr)" [neural_network/neural_network.cpp:69]   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_102 : Operation 431 [1/1] (0.00ns)   --->   "ret void" [neural_network/neural_network.cpp:70]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 3ns, clock uncertainty: 0.375ns.
+
+ <State 1>: 1ns
+The critical path consists of the following:
+	s_axi read on port 'result_offset' [18]  (1 ns)
+
+ <State 2>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 3>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 4>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 5>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 6>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 7>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 8>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:31) [42]  (2.62 ns)
+
+ <State 9>: 1.96ns
+The critical path consists of the following:
+	'phi' operation ('indvar') with incoming values : ('indvar_next') [45]  (0 ns)
+	'add' operation ('indvar_next') [47]  (1.96 ns)
+
+ <State 10>: 2.62ns
+The critical path consists of the following:
+	bus read on port 'mem_V' (neural_network/neural_network.cpp:31) [54]  (2.62 ns)
+
+ <State 11>: 1.68ns
+The critical path consists of the following:
+	'getelementptr' operation ('inputs_addr', neural_network/neural_network.cpp:31) [56]  (0 ns)
+	'store' operation (neural_network/neural_network.cpp:31) of variable 'mem_V_addr_read', neural_network/neural_network.cpp:31 on array 'inputs' [57]  (1.68 ns)
+
+ <State 12>: 2.62ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_V_addr_1', neural_network/neural_network.cpp:34) [62]  (0 ns)
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 13>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 14>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 15>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 16>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 17>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 18>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:34) [63]  (2.62 ns)
+
+ <State 19>: 1.96ns
+The critical path consists of the following:
+	'phi' operation ('indvar1') with incoming values : ('indvar_next1') [66]  (0 ns)
+	'add' operation ('indvar_next1') [68]  (1.96 ns)
+
+ <State 20>: 2.62ns
+The critical path consists of the following:
+	bus read on port 'mem_V' (neural_network/neural_network.cpp:34) [75]  (2.62 ns)
+
+ <State 21>: 1.68ns
+The critical path consists of the following:
+	'getelementptr' operation ('bias_1_addr', neural_network/neural_network.cpp:34) [77]  (0 ns)
+	'store' operation (neural_network/neural_network.cpp:34) of variable 'mem_V_addr_1_read', neural_network/neural_network.cpp:34 on array 'bias_1' [78]  (1.68 ns)
+
+ <State 22>: 2.62ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_V_addr_2', neural_network/neural_network.cpp:35) [83]  (0 ns)
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 23>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 24>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 25>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 26>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 27>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 28>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:35) [84]  (2.62 ns)
+
+ <State 29>: 1.74ns
+The critical path consists of the following:
+	'phi' operation ('indvar2') with incoming values : ('indvar_next2') [87]  (0 ns)
+	'add' operation ('indvar_next2') [89]  (1.74 ns)
+
+ <State 30>: 2.62ns
+The critical path consists of the following:
+	bus read on port 'mem_V' (neural_network/neural_network.cpp:35) [96]  (2.62 ns)
+
+ <State 31>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('bias_2_addr', neural_network/neural_network.cpp:35) [98]  (0 ns)
+	'store' operation (neural_network/neural_network.cpp:35) of variable 'mem_V_addr_2_read', neural_network/neural_network.cpp:35 on array 'bias_2' [99]  (2.32 ns)
+
+ <State 32>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', neural_network/neural_network.cpp:38) [105]  (1.77 ns)
+
+ <State 33>: 2.7ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond1', neural_network/neural_network.cpp:38) [106]  (1.77 ns)
+	blocking operation 0.931 ns on control path)
+
+ <State 34>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('bias_1_load', neural_network/neural_network.cpp:39) on array 'bias_1' [116]  (1.68 ns)
+
+ <State 35>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('bias_1_load', neural_network/neural_network.cpp:39) on array 'bias_1' [116]  (1.68 ns)
+
+ <State 36>: 1.68ns
+The critical path consists of the following:
+	'store' operation (neural_network/neural_network.cpp:39) of variable 'p_s', neural_network/neural_network.cpp:39 on array 'l1_result.V', neural_network/neural_network.cpp:27 [119]  (1.68 ns)
+
+ <State 37>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', neural_network/neural_network.cpp:42) [125]  (1.77 ns)
+
+ <State 38>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', neural_network/neural_network.cpp:42) [125]  (0 ns)
+	'getelementptr' operation ('bias_2_addr_1', neural_network/neural_network.cpp:43) [135]  (0 ns)
+	'load' operation ('bias_2_load', neural_network/neural_network.cpp:43) on array 'bias_2' [136]  (2.32 ns)
+
+ <State 39>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('bias_2_load', neural_network/neural_network.cpp:43) on array 'bias_2' [136]  (2.32 ns)
+
+ <State 40>: 2.32ns
+The critical path consists of the following:
+	'store' operation (neural_network/neural_network.cpp:43) of variable 'p_1', neural_network/neural_network.cpp:43 on array 'l2_result.V', neural_network/neural_network.cpp:28 [139]  (2.32 ns)
+
+ <State 41>: 2.62ns
+The critical path consists of the following:
+	'getelementptr' operation ('mem_V_addr_3', neural_network/neural_network.cpp:47) [144]  (0 ns)
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 42>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 43>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 44>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 45>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 46>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 47>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:47) [145]  (2.62 ns)
+
+ <State 48>: 2.7ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond3', neural_network/neural_network.cpp:46) [149]  (1.77 ns)
+	blocking operation 0.931 ns on control path)
+
+ <State 49>: 1.96ns
+The critical path consists of the following:
+	'phi' operation ('indvar3') with incoming values : ('indvar_next3') [158]  (0 ns)
+	'add' operation ('indvar_next3') [160]  (1.96 ns)
+
+ <State 50>: 2.62ns
+The critical path consists of the following:
+	bus read on port 'mem_V' (neural_network/neural_network.cpp:47) [167]  (2.62 ns)
+
+ <State 51>: 1.68ns
+The critical path consists of the following:
+	'getelementptr' operation ('weights_1_addr', neural_network/neural_network.cpp:47) [169]  (0 ns)
+	'store' operation (neural_network/neural_network.cpp:47) of variable 'mem_V_addr_3_read', neural_network/neural_network.cpp:47 on array 'weights_1' [170]  (1.68 ns)
+
+ <State 52>: 1.68ns
+The critical path consists of the following:
+	'getelementptr' operation ('inputs_addr_1', neural_network/neural_network.cpp:50) [175]  (0 ns)
+	'load' operation ('inputs_load', neural_network/neural_network.cpp:50) on array 'inputs' [176]  (1.68 ns)
+
+ <State 53>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('inputs_load', neural_network/neural_network.cpp:50) on array 'inputs' [176]  (1.68 ns)
+
+ <State 54>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', neural_network/neural_network.cpp:49) [180]  (1.77 ns)
+
+ <State 55>: 2.7ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond5', neural_network/neural_network.cpp:49) [181]  (1.77 ns)
+	blocking operation 0.931 ns on control path)
+
+ <State 56>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('weights_1_load', neural_network/neural_network.cpp:50) on array 'weights_1' [191]  (1.68 ns)
+
+ <State 57>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('weights_1_load', neural_network/neural_network.cpp:50) on array 'weights_1' [191]  (1.68 ns)
+
+ <State 58>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('l1_result_V_load_1', neural_network/neural_network.cpp:50) on array 'l1_result.V', neural_network/neural_network.cpp:27 [196]  (1.68 ns)
+
+ <State 59>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('l1_result_V_load_1', neural_network/neural_network.cpp:50) on array 'l1_result.V', neural_network/neural_network.cpp:27 [196]  (1.68 ns)
+
+ <State 60>: 2.1ns
+The critical path consists of the following:
+	'mul' operation ('r.V', neural_network/neural_network.cpp:50) [193]  (0 ns)
+	'add' operation ('tmp_13', neural_network/neural_network.cpp:50) [197]  (2.1 ns)
+
+ <State 61>: 2.1ns
+The critical path consists of the following:
+	'add' operation ('tmp_13', neural_network/neural_network.cpp:50) [197]  (2.1 ns)
+
+ <State 62>: 1.68ns
+The critical path consists of the following:
+	'store' operation (neural_network/neural_network.cpp:50) of variable 'tmp_13', neural_network/neural_network.cpp:50 on array 'l1_result.V', neural_network/neural_network.cpp:27 [198]  (1.68 ns)
+
+ <State 63>: 0ns
+The critical path consists of the following:
+
+ <State 64>: 2.7ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond4', neural_network/neural_network.cpp:54) [208]  (1.77 ns)
+	blocking operation 0.931 ns on control path)
+
+ <State 65>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('l1_result_V_load', neural_network/neural_network.cpp:55) on array 'l1_result.V', neural_network/neural_network.cpp:27 [218]  (1.68 ns)
+
+ <State 66>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('l1_result_V_load', neural_network/neural_network.cpp:55) on array 'l1_result.V', neural_network/neural_network.cpp:27 [218]  (1.68 ns)
+
+ <State 67>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', neural_network/neural_network.cpp:60) [231]  (1.77 ns)
+
+ <State 68>: 2.7ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond6', neural_network/neural_network.cpp:60) [232]  (1.77 ns)
+	blocking operation 0.931 ns on control path)
+
+ <State 69>: 2.55ns
+The critical path consists of the following:
+	'add' operation ('p_sum', neural_network/neural_network.cpp:61) [246]  (2.55 ns)
+
+ <State 70>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 71>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 72>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 73>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 74>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 75>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 76>: 2.62ns
+The critical path consists of the following:
+	bus request on port 'mem_V' (neural_network/neural_network.cpp:61) [249]  (2.62 ns)
+
+ <State 77>: 1.74ns
+The critical path consists of the following:
+	'phi' operation ('indvar5') with incoming values : ('indvar_next5') [252]  (0 ns)
+	'add' operation ('indvar_next5') [254]  (1.74 ns)
+
+ <State 78>: 2.62ns
+The critical path consists of the following:
+	bus read on port 'mem_V' (neural_network/neural_network.cpp:61) [261]  (2.62 ns)
+
+ <State 79>: 2.32ns
+The critical path consists of the following:
+	'getelementptr' operation ('weights_2_addr', neural_network/neural_network.cpp:61) [263]  (0 ns)
+	'store' operation (neural_network/neural_network.cpp:61) of variable 'mem_V_addr_4_read', neural_network/neural_network.cpp:61 on array 'weights_2' [264]  (2.32 ns)
+
+ <State 80>: 1.68ns
+The critical path consists of the following:
+	'getelementptr' operation ('l1_result_V_addr_3', neural_network/neural_network.cpp:64) [269]  (0 ns)
+	'load' operation ('l1_result_V_load_2', neural_network/neural_network.cpp:64) on array 'l1_result.V', neural_network/neural_network.cpp:27 [270]  (1.68 ns)
+
+ <State 81>: 1.68ns
+The critical path consists of the following:
+	'load' operation ('l1_result_V_load_2', neural_network/neural_network.cpp:64) on array 'l1_result.V', neural_network/neural_network.cpp:27 [270]  (1.68 ns)
+
+ <State 82>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', neural_network/neural_network.cpp:63) [273]  (1.77 ns)
+
+ <State 83>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', neural_network/neural_network.cpp:63) [273]  (0 ns)
+	'getelementptr' operation ('weights_2_addr_1', neural_network/neural_network.cpp:64) [283]  (0 ns)
+	'load' operation ('weights_2_load', neural_network/neural_network.cpp:64) on array 'weights_2' [284]  (2.32 ns)
+
+ <State 84>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('weights_2_load', neural_network/neural_network.cpp:64) on array 'weights_2' [284]  (2.32 ns)
+
+ <State 85>: 2.12ns
+The critical path consists of the following:
+	'mul' operation ('tmp_20', neural_network/neural_network.cpp:64) [286]  (2.12 ns)
+
+ <State 86>: 2.12ns
+The critical path consists of the following:
+	'mul' operation ('tmp_20', neural_network/neural_network.cpp:64) [286]  (2.12 ns)
+
+ <State 87>: 2.12ns
+The critical path consists of the following:
+	'mul' operation ('tmp_20', neural_network/neural_network.cpp:64) [286]  (2.12 ns)
+
+ <State 88>: 2.12ns
+The critical path consists of the following:
+	'mul' operation ('tmp_20', neural_network/neural_network.cpp:64) [286]  (2.12 ns)
+
+ <State 89>: 2.12ns
+The critical path consists of the following:
+	'mul' operation ('tmp_20', neural_network/neural_network.cpp:64) [286]  (2.12 ns)
+
+ <State 90>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('l2_result_V_load', neural_network/neural_network.cpp:64) on array 'l2_result.V', neural_network/neural_network.cpp:28 [288]  (2.32 ns)
+
+ <State 91>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('l2_result_V_load', neural_network/neural_network.cpp:64) on array 'l2_result.V', neural_network/neural_network.cpp:28 [288]  (2.32 ns)
+
+ <State 92>: 2.55ns
+The critical path consists of the following:
+	'add' operation ('tmp_21', neural_network/neural_network.cpp:64) [289]  (2.55 ns)
+
+ <State 93>: 2.32ns
+The critical path consists of the following:
+	'store' operation (neural_network/neural_network.cpp:64) of variable 'tmp_21', neural_network/neural_network.cpp:64 on array 'l2_result.V', neural_network/neural_network.cpp:28 [290]  (2.32 ns)
+
+ <State 94>: 0ns
+The critical path consists of the following:
+
+ <State 95>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('indvar4') with incoming values : ('indvar_next4') [302]  (0 ns)
+	'getelementptr' operation ('l2_result_V_addr_1', neural_network/neural_network.cpp:69) [312]  (0 ns)
+	'load' operation ('l2_result_V_load_1', neural_network/neural_network.cpp:69) on array 'l2_result.V', neural_network/neural_network.cpp:28 [313]  (2.32 ns)
+
+ <State 96>: 2.32ns
+The critical path consists of the following:
+	'load' operation ('l2_result_V_load_1', neural_network/neural_network.cpp:69) on array 'l2_result.V', neural_network/neural_network.cpp:28 [313]  (2.32 ns)
+
+ <State 97>: 2.62ns
+The critical path consists of the following:
+	bus write on port 'out_V' (neural_network/neural_network.cpp:69) [314]  (2.62 ns)
+
+ <State 98>: 2.62ns
+The critical path consists of the following:
+	bus access on port 'out_V' (neural_network/neural_network.cpp:69) [318]  (2.62 ns)
+
+ <State 99>: 2.62ns
+The critical path consists of the following:
+	bus access on port 'out_V' (neural_network/neural_network.cpp:69) [318]  (2.62 ns)
+
+ <State 100>: 2.62ns
+The critical path consists of the following:
+	bus access on port 'out_V' (neural_network/neural_network.cpp:69) [318]  (2.62 ns)
+
+ <State 101>: 2.62ns
+The critical path consists of the following:
+	bus access on port 'out_V' (neural_network/neural_network.cpp:69) [318]  (2.62 ns)
+
+ <State 102>: 2.62ns
+The critical path consists of the following:
+	bus access on port 'out_V' (neural_network/neural_network.cpp:69) [318]  (2.62 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+	State 78
+	State 79
+	State 80
+	State 81
+	State 82
+	State 83
+	State 84
+	State 85
+	State 86
+	State 87
+	State 88
+	State 89
+	State 90
+	State 91
+	State 92
+	State 93
+	State 94
+	State 95
+	State 96
+	State 97
+	State 98
+	State 99
+	State 100
+	State 101
+	State 102
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
