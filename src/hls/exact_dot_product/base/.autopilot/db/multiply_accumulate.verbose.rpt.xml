@@ -1,0 +1,156 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'multiply_accumulate'" level="0">
+<item name = "Date">Sun Apr  1 01:10:31 2018
+</item>
+<item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
+<item name = "Project">exact_dot_product</item>
+<item name = "Solution">base</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 4.15, 0.62</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">39, 39, 39, 39, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- GetMantissa">10, 10, 1, -, -, 10, no</column>
+<column name="- GetExponent">5, 5, 1, -, -, 5, no</column>
+<column name="- GetMantissa">10, 10, 1, -, -, 10, no</column>
+<column name="- GetExponent">5, 5, 1, -, -, 5, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, 1, -, -</column>
+<column name="Expression">-, -, 0, 342</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">-, -, 580, 132</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 131</column>
+<column name="Register">-, -, 120, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, ~0, ~0, 1</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="neural_network_adbkb_U1">neural_network_adbkb, 0, 0, 580, 132</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+<column name="neural_network_mucud_U2">neural_network_mucud, i0 * i1</column>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="exact_e_V_fu_327_p2">+, 0, 0, 8, 6, 6</column>
+<column name="i_1_fu_189_p2">+, 0, 0, 12, 3, 1</column>
+<column name="i_2_fu_233_p2">+, 0, 0, 13, 4, 1</column>
+<column name="i_3_fu_271_p2">+, 0, 0, 12, 3, 1</column>
+<column name="i_assign_1_fu_195_p2">+, 0, 0, 13, 4, 4</column>
+<column name="i_assign_4_fu_277_p2">+, 0, 0, 13, 4, 4</column>
+<column name="i_fu_151_p2">+, 0, 0, 13, 4, 1</column>
+<column name="r_V_4_fu_336_p2">+, 0, 0, 15, 5, 7</column>
+<column name="tmp1_fu_321_p2">+, 0, 0, 8, 5, 6</column>
+<column name="tmp_6_fu_342_p2">-, 0, 0, 15, 4, 7</column>
+<column name="exitcond_i1_fu_227_p2">icmp, 0, 0, 9, 4, 4</column>
+<column name="exitcond_i2_fu_183_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="exitcond_i3_fu_265_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="exitcond_i_fu_145_p2">icmp, 0, 0, 9, 4, 4</column>
+<column name="tmp_7_fu_361_p2">lshr, 0, 0, 61, 22, 22</column>
+<column name="r_V_fu_379_p3">select, 0, 0, 22, 1, 22</column>
+<column name="tmp_3_fu_369_p2">shl, 0, 0, 101, 32, 32</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">50, 11, 1, 11</column>
+<column name="cr_m_cr_V_o">9, 2, 512, 1024</column>
+<column name="e1_V_reg_73">9, 2, 5, 10</column>
+<column name="i_assign_2_reg_85">9, 2, 3, 6</column>
+<column name="i_assign_3_reg_108">9, 2, 4, 8</column>
+<column name="i_assign_5_reg_130">9, 2, 3, 6</column>
+<column name="i_assign_reg_62">9, 2, 4, 8</column>
+<column name="m1_V_reg_50">9, 2, 11, 22</column>
+<column name="m2_V_reg_96">9, 2, 11, 22</column>
+<column name="p_Val2_4_reg_119">9, 2, 5, 10</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">10, 0, 10, 0</column>
+<column name="e1_V_reg_73">5, 0, 5, 0</column>
+<column name="exact_e_V_reg_474">6, 0, 6, 0</column>
+<column name="i_assign_2_reg_85">3, 0, 3, 0</column>
+<column name="i_assign_3_reg_108">4, 0, 4, 0</column>
+<column name="i_assign_5_reg_130">3, 0, 3, 0</column>
+<column name="i_assign_reg_62">4, 0, 4, 0</column>
+<column name="m1_V_reg_50">11, 0, 11, 0</column>
+<column name="m2_V_reg_96">11, 0, 11, 0</column>
+<column name="p_Val2_4_reg_119">5, 0, 5, 0</column>
+<column name="r_V_3_reg_479">22, 0, 22, 0</column>
+<column name="r_V_4_reg_485">7, 0, 7, 0</column>
+<column name="r_V_reg_496">22, 0, 22, 0</column>
+<column name="tmp_6_reg_491">7, 0, 7, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, multiply_accumulate, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, multiply_accumulate, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, multiply_accumulate, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, multiply_accumulate, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, multiply_accumulate, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, multiply_accumulate, return value</column>
+<column name="cr_m_cr_V_i">in, 512, ap_ovld, cr_m_cr_V, pointer</column>
+<column name="cr_m_cr_V_o">out, 512, ap_ovld, cr_m_cr_V, pointer</column>
+<column name="cr_m_cr_V_o_ap_vld">out, 1, ap_ovld, cr_m_cr_V, pointer</column>
+</table>
+</item>
+</section>
+</profile>

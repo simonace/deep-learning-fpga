@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:12:32.228+0800"/>
+      </csimLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Register 'cr_m_cr_V' is power-on initialization." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:31.657+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'CompleteRegister::multiply_accumulate' to 'multiply_accumulate' (exact_dot_product/complete_register.cpp:52:39)" projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:31.372+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-77] The top function 'neural_network' (exact_dot_product/neural_network.cpp:3) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:30.408+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] exact_dot_product/complete_register.cpp:89: variable-indexed range selection may cause suboptimal QoR." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:30.406+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
