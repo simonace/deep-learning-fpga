@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message prefix="[COSIM 212-47]" severity="INFO" keynum="COSIM_TCL_47_1115" content="Using XSIM for RTL simulation." tag=""/>
+	<Message prefix="[COSIM 212-14]" severity="INFO" keynum="COSIM_TCL_14_1084" content="Instrumenting C test bench ..." tag=""/>
+	<Message prefix="[COSIM 212-302]" severity="INFO" keynum="COSIM_TCL_302_1177" content="Starting C TB testing ... " tag=""/>
+	<Message prefix="[COSIM 212-330]" severity="ERROR" keynum="COSIM_TCL_330_1202" content="Aborting co-simulation: top function &apos;neural_network&apos; is not invoked in the test bench." tag=""/>
+	<Message prefix="[COSIM 212-5]" severity="ERROR" keynum="COSIM_TCL_5_1075" content="*** C/RTL co-simulation file generate finished: FAIL ***" tag=""/>
+	<Message prefix="[HLS 200-150]" severity="INFO" keynum="11" content="command &apos;ap_source&apos; returned error code
+    while executing
+&quot;source /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/exact_dot_product/base/cosim.tcl&quot;
+    invoked from within
+&quot;hls::main /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/exact_dot_product/base/cosim.tcl&quot;
+    (&quot;uplevel&quot; body line 1)
+    invoked from within
+&quot;uplevel 1 hls::main {*}$args&quot;
+    (procedure &quot;hls_proc&quot; line 5)
+    invoked from within
+&quot;hls_proc $argv&quot;" tag=""/>
+</Messages>

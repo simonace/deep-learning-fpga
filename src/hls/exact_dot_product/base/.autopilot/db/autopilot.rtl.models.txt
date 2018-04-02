@@ -1,4 +1,1 @@
-neural_network_adbkb
-neural_network_mucud
-multiply_accumulate
 neural_network

@@ -17,24 +17,24 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>4.15</EstimatedClockPeriod>
+<EstimatedClockPeriod>0.00</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>41</Best-caseLatency>
-<Average-caseLatency>41</Average-caseLatency>
-<Worst-caseLatency>41</Worst-caseLatency>
-<Interval-min>42</Interval-min>
-<Interval-max>42</Interval-max>
+<Best-caseLatency>0</Best-caseLatency>
+<Average-caseLatency>0</Average-caseLatency>
+<Worst-caseLatency>0</Worst-caseLatency>
+<Interval-min>1</Interval-min>
+<Interval-max>1</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<DSP48E>1</DSP48E>
-<FF>1216</FF>
-<LUT>635</LUT>
+<FF>1</FF>
 <BRAM_18K>0</BRAM_18K>
+<DSP48E>0</DSP48E>
+<LUT>0</LUT>
 </Resources>
 <AvailableResources>
 <BRAM_18K>280</BRAM_18K>

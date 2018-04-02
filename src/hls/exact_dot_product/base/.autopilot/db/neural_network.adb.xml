@@ -2,18 +2,6 @@
 
 
 <trans_list>
-
-<trans id="9" from="1" to="2">
-<condition id="3">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="10" from="2" to="3">
-<condition id="4">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
 </trans_list>
 
 
@@ -22,46 +10,10 @@
 
 <state id="1" st_id="1">
 
-<operation id="4" st_id="1" stage="2" lat="2">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="0">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="3" bw="0" op_0_bw="0">
-<![CDATA[
-codeRepl:1  call fastcc void @multiply_accumulate() nounwind
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-</state>
-
-<state id="2" st_id="2">
-
-<operation id="5" st_id="2" stage="1" lat="2">
-<core></core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="3" bw="0" op_0_bw="0">
-<![CDATA[
-codeRepl:1  call fastcc void @multiply_accumulate() nounwind
-
-]]></Node>
-<StgValue><ssdm name=""/></StgValue>
-</operation>
-</state>
-
-<state id="3" st_id="3">
-
-<operation id="6" st_id="3" stage="1" lat="1">
+<operation id="2" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="0">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -73,25 +25,40 @@ codeRepl:0  call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @neural_network_
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="7" st_id="3" stage="1" lat="1">
+<operation id="3" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="0">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="4" bw="0" op_0_bw="512" op_1_bw="512">
+<Node id="3" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="32" op_6_bw="0" op_7_bw="0" op_8_bw="0" op_9_bw="0" op_10_bw="0">
 <![CDATA[
-codeRepl:2  store i512 0, i512* @cr_m_cr_V, align 64
+codeRepl:1  call void (...)* @_ssdm_op_SpecMemCore(i1* @cr_m_cr_V, [1 x i8]* @p_str, [14 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
 
 ]]></Node>
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="8" st_id="3" stage="1" lat="1">
+<operation id="4" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
-<condition id="2">
+<condition id="0">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="0" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+codeRepl:2  store i1 false, i1* @cr_m_cr_V, align 1
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="5" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
@@ -107,28 +74,42 @@ codeRepl:3  ret void
 
 
 <ports>
-<port id="11" name="cr_m_cr_V" dir="2" iftype="0">
+<port id="6" name="cr_m_cr_V" dir="1" iftype="0">
 <core>NULL</core><StgValue><ssdm name="cr_m_cr_V"/></StgValue>
 </port>
 </ports>
 
 
 <dataflows>
-<dataflow id="13" from="multiply_accumulate" to="StgValue_4" fromId="12" toId="4">
+<dataflow id="8" from="_ssdm_op_SpecTopModule" to="StgValue_2" fromId="7" toId="2">
 </dataflow>
-<dataflow id="14" from="cr_m_cr_V" to="StgValue_4" fromId="11" toId="4">
+<dataflow id="10" from="neural_network_str" to="StgValue_2" fromId="9" toId="2">
 </dataflow>
-<dataflow id="15" from="multiply_accumulate" to="StgValue_5" fromId="12" toId="5">
+<dataflow id="12" from="_ssdm_op_SpecMemCore" to="StgValue_3" fromId="11" toId="3">
 </dataflow>
-<dataflow id="16" from="cr_m_cr_V" to="StgValue_5" fromId="11" toId="5">
+<dataflow id="13" from="cr_m_cr_V" to="StgValue_3" fromId="6" toId="3">
 </dataflow>
-<dataflow id="18" from="_ssdm_op_SpecTopModule" to="StgValue_6" fromId="17" toId="6">
+<dataflow id="15" from="p_str" to="StgValue_3" fromId="14" toId="3">
 </dataflow>
-<dataflow id="20" from="neural_network_str" to="StgValue_6" fromId="19" toId="6">
+<dataflow id="17" from="p_str1" to="StgValue_3" fromId="16" toId="3">
 </dataflow>
-<dataflow id="22" from="StgValue_21" to="StgValue_7" fromId="21" toId="7">
+<dataflow id="18" from="p_str" to="StgValue_3" fromId="14" toId="3">
 </dataflow>
-<dataflow id="23" from="cr_m_cr_V" to="StgValue_7" fromId="11" toId="7">
+<dataflow id="20" from="StgValue_19" to="StgValue_3" fromId="19" toId="3">
+</dataflow>
+<dataflow id="21" from="p_str" to="StgValue_3" fromId="14" toId="3">
+</dataflow>
+<dataflow id="22" from="p_str" to="StgValue_3" fromId="14" toId="3">
+</dataflow>
+<dataflow id="23" from="p_str" to="StgValue_3" fromId="14" toId="3">
+</dataflow>
+<dataflow id="24" from="p_str" to="StgValue_3" fromId="14" toId="3">
+</dataflow>
+<dataflow id="25" from="p_str" to="StgValue_3" fromId="14" toId="3">
+</dataflow>
+<dataflow id="27" from="StgValue_26" to="StgValue_4" fromId="26" toId="4">
+</dataflow>
+<dataflow id="28" from="cr_m_cr_V" to="StgValue_4" fromId="6" toId="4">
 </dataflow>
 </dataflows>
 

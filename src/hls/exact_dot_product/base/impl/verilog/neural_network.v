@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="neural_network,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.150000,HLS_SYN_LAT=41,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=1,HLS_SYN_FF=1216,HLS_SYN_LUT=635}" *)
+(* CORE_GENERATION_INFO="neural_network,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=0.000000,HLS_SYN_LAT=0,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=1,HLS_SYN_LUT=0}" *)
 
 module neural_network (
         ap_clk,
@@ -18,9 +18,7 @@ module neural_network (
         ap_ready
 );
 
-parameter    ap_ST_fsm_state1 = 3'd1;
-parameter    ap_ST_fsm_state2 = 3'd2;
-parameter    ap_ST_fsm_state3 = 3'd4;
+parameter    ap_ST_fsm_state1 = 1'd1;
 
 input   ap_clk;
 input   ap_rst;
@@ -33,38 +31,14 @@ reg ap_done;
 reg ap_idle;
 reg ap_ready;
 
-(* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [511:0] cr_m_cr_V;
-wire    grp_multiply_accumulate_fu_10_ap_start;
-wire    grp_multiply_accumulate_fu_10_ap_done;
-wire    grp_multiply_accumulate_fu_10_ap_idle;
-wire    grp_multiply_accumulate_fu_10_ap_ready;
-wire   [511:0] grp_multiply_accumulate_fu_10_cr_m_cr_V_o;
-wire    grp_multiply_accumulate_fu_10_cr_m_cr_V_o_ap_vld;
-reg    ap_reg_grp_multiply_accumulate_fu_10_ap_start;
-wire    ap_CS_fsm_state2;
-wire    ap_CS_fsm_state3;
-reg   [2:0] ap_NS_fsm;
+reg   [0:0] ap_NS_fsm;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 3'd1;
-#0 cr_m_cr_V = 512'd0;
-#0 ap_reg_grp_multiply_accumulate_fu_10_ap_start = 1'b0;
+#0 ap_CS_fsm = 1'd1;
 end
-
-multiply_accumulate grp_multiply_accumulate_fu_10(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .ap_start(grp_multiply_accumulate_fu_10_ap_start),
-    .ap_done(grp_multiply_accumulate_fu_10_ap_done),
-    .ap_idle(grp_multiply_accumulate_fu_10_ap_idle),
-    .ap_ready(grp_multiply_accumulate_fu_10_ap_ready),
-    .cr_m_cr_V_i(cr_m_cr_V),
-    .cr_m_cr_V_o(grp_multiply_accumulate_fu_10_cr_m_cr_V_o),
-    .cr_m_cr_V_o_ap_vld(grp_multiply_accumulate_fu_10_cr_m_cr_V_o_ap_vld)
-);
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
@@ -74,28 +48,8 @@ always @ (posedge ap_clk) begin
     end
 end
 
-always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        ap_reg_grp_multiply_accumulate_fu_10_ap_start <= 1'b0;
-    end else begin
-        if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-            ap_reg_grp_multiply_accumulate_fu_10_ap_start <= 1'b1;
-        end else if ((grp_multiply_accumulate_fu_10_ap_ready == 1'b1)) begin
-            ap_reg_grp_multiply_accumulate_fu_10_ap_start <= 1'b0;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        cr_m_cr_V <= 512'd0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (grp_multiply_accumulate_fu_10_cr_m_cr_V_o_ap_vld == 1'b1))) begin
-        cr_m_cr_V <= grp_multiply_accumulate_fu_10_cr_m_cr_V_o;
-    end
-end
-
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -111,7 +65,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
+    if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -121,20 +75,6 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((ap_start == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end
-        end
-        ap_ST_fsm_state2 : begin
-            if (((grp_multiply_accumulate_fu_10_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end
-        end
-        ap_ST_fsm_state3 : begin
             ap_NS_fsm = ap_ST_fsm_state1;
         end
         default : begin
@@ -144,11 +84,5 @@ always @ (*) begin
 end
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
-
-assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
-
-assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
-
-assign grp_multiply_accumulate_fu_10_ap_start = ap_reg_grp_multiply_accumulate_fu_10_ap_start;
 
 endmodule //neural_network

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'neural_network'" level="0">
-<item name = "Date">Sun Apr  1 01:10:31 2018
+<item name = "Date">Tue Apr  3 00:36:26 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">exact_dot_product</item>
@@ -15,21 +15,20 @@
 <section name = "" level="1">
 <item name = "Target clock period (ns)">5.00</item>
 <item name = "Clock uncertainty (ns)">0.62</item>
-<item name = "Estimated clock period (ns)">4.15</item>
+<item name = "Estimated clock period (ns)">0.00</item>
 </section>
 </item>
 <item name = "Latency (clock cycles)">
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">41, 41, 41, 41, none</column>
+<column name="">0, 0, 0, 0, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_multiply_accumulate_fu_10">multiply_accumulate, 39, 39, 39, 39, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -48,19 +47,18 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, -, -</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, 1, 700, 605</column>
+<column name="Instance">-, -, -, -</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 30</column>
-<column name="Register">-, -, 516, -</column>
+<column name="Multiplexer">-, -, -, -</column>
+<column name="Register">-, -, 1, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">0, ~0, 1, 1</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_multiply_accumulate_fu_10">multiply_accumulate, 0, 1, 700, 605</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -81,15 +79,11 @@
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">21, 4, 1, 4</column>
-<column name="cr_m_cr_V">9, 2, 512, 1024</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">3, 0, 3, 0</column>
-<column name="ap_reg_grp_multiply_accumulate_fu_10_ap_start">1, 0, 1, 0</column>
-<column name="cr_m_cr_V">512, 0, 512, 0</column>
+<column name="ap_CS_fsm">1, 0, 1, 0</column>
 </table>
 </item>
 </section>

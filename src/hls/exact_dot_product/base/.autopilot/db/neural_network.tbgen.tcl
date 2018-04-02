@@ -7,7 +7,7 @@ set isDatapathOnly 0
 set isPipelined 0
 set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
-set isOneStateSeq 0
+set isOneStateSeq 1
 set ProfileFlag 0
 set StallSigGenFlag 0
 set C_modelName {neural_network}
@@ -35,45 +35,27 @@ set NewPortList {[
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
 		"CDFG" : "neural_network",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
-		"VariableLatency" : "1",
-		"WaitState" : [
-			{"State" : "ap_ST_fsm_state2", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_multiply_accumulate_fu_10"}],
+		"VariableLatency" : "0",
 		"Port" : [
-			{"Name" : "cr_m_cr_V", "Type" : "OVld", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "1", "SubInstance" : "grp_multiply_accumulate_fu_10", "Port" : "cr_m_cr_V"}]}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_multiply_accumulate_fu_10", "Parent" : "0", "Child" : ["2", "3"],
-		"CDFG" : "multiply_accumulate",
-		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1",
-		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"Combinational" : "0",
-		"Datapath" : "0",
-		"ClockEnable" : "0",
-		"VariableLatency" : "1",
-		"Port" : [
-			{"Name" : "cr_m_cr_V", "Type" : "OVld", "Direction" : "IO"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_multiply_accumulate_fu_10.neural_network_adbkb_U1", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_multiply_accumulate_fu_10.neural_network_mucud_U2", "Parent" : "1"}]}
+			{"Name" : "cr_m_cr_V", "Type" : "Vld", "Direction" : "O"}]}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	neural_network {
-		cr_m_cr_V {Type IO LastRead -1 FirstWrite -1}}
-	multiply_accumulate {
-		cr_m_cr_V {Type IO LastRead 8 FirstWrite 9}}}
+		cr_m_cr_V {Type O LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "41", "Max" : "41"}
-	, {"Name" : "Interval", "Min" : "42", "Max" : "42"}
+	{"Name" : "Latency", "Min" : "0", "Max" : "0"}
+	, {"Name" : "Interval", "Min" : "1", "Max" : "1"}
 ]}
 
 set PipelineEnableSignalInfo {[

@@ -3,77 +3,57 @@
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;exact_dot_product/neural_network.cpp&apos; ..." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;exact_dot_product/complete_register.cpp&apos; ..." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1465" content="Validating synthesis directives ..." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Pragmas Time (s): cpu = 00:00:40 ; elapsed = 00:00:22 . Memory (MB): peak = 362.484 ; gain = 13.375 ; free physical = 5633 ; free virtual = 12222" tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Linking Time (s): cpu = 00:00:42 ; elapsed = 00:00:23 . Memory (MB): peak = 362.484 ; gain = 13.375 ; free physical = 5634 ; free virtual = 12222" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Pragmas Time (s): cpu = 00:00:43 ; elapsed = 00:00:21 . Memory (MB): peak = 362.480 ; gain = 13.375 ; free physical = 7600 ; free virtual = 13463" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Linking Time (s): cpu = 00:00:44 ; elapsed = 00:00:22 . Memory (MB): peak = 362.480 ; gain = 13.375 ; free physical = 7595 ; free virtual = 13463" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1467" content="Starting code transformations ..." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Standard Transforms Time (s): cpu = 00:00:43 ; elapsed = 00:00:24 . Memory (MB): peak = 362.973 ; gain = 13.863 ; free physical = 5617 ; free virtual = 12208" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Standard Transforms Time (s): cpu = 00:00:44 ; elapsed = 00:00:23 . Memory (MB): peak = 363.086 ; gain = 13.980 ; free physical = 7574 ; free virtual = 13446" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1472" content="Checking synthesizability ..." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_sign&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:51) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_mantissa&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:52) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_exponent&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:53) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::sign_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:60) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::mantissa_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:61) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::exponent_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:62) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_sign&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:63) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_mantissa&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:64) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_exponent&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:65) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::sign_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:72) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::mantissa_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:73) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::exponent_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:74) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::to_2s_complement&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:77) automatically." tag=""/>
 	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::clear&apos; into &apos;neural_network&apos; (exact_dot_product/neural_network.cpp:7) automatically." tag=""/>
-	<Message prefix="[SYNCHK 200-23]" severity="WARNING" keynum="579" content="exact_dot_product/complete_register.cpp:89: variable-indexed range selection may cause suboptimal QoR." tag=""/>
 	<Message prefix="[SYNCHK 200-77]" severity="WARNING" keynum="590" content="The top function &apos;neural_network&apos; (exact_dot_product/neural_network.cpp:3) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." tag=""/>
-	<Message prefix="[SYNCHK 200-10]" severity="INFO" keynum="597" content="0 error(s), 2 warning(s)." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Synthesizability Time (s): cpu = 00:00:43 ; elapsed = 00:00:24 . Memory (MB): peak = 490.828 ; gain = 141.719 ; free physical = 5609 ; free virtual = 12201" tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_mantissa&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:52) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_exponent&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:53) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::mantissa_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:61) automatically." tag=""/>
-	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::exponent_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:62) automatically." tag=""/>
+	<Message prefix="[SYNCHK 200-10]" severity="INFO" keynum="597" content="0 error(s), 1 warning(s)." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Synthesizability Time (s): cpu = 00:00:45 ; elapsed = 00:00:23 . Memory (MB): peak = 491.020 ; gain = 141.914 ; free physical = 7564 ; free virtual = 13437" tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_sign&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:63) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_mantissa&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:64) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::get_exponent&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:65) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::sign_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:72) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::mantissa_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:73) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::exponent_mult&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:74) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::to_2s_complement&apos; into &apos;CompleteRegister::multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:77) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::multiply_accumulate&apos; into &apos;neural_network&apos; (exact_dot_product/neural_network.cpp:6) automatically." tag=""/>
 	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister::clear&apos; into &apos;neural_network&apos; (exact_dot_product/neural_network.cpp:7) automatically." tag=""/>
-	<Message prefix="[XFORM 203-401]" severity="INFO" keynum="809" content="Performing if-conversion on hyperblock from (exact_dot_product/complete_register.cpp:57:19) to (exact_dot_product/complete_register.cpp:67:2) in function &apos;CompleteRegister::multiply_accumulate&apos;... converting 4 basic blocks." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Pre-synthesis Time (s): cpu = 00:00:43 ; elapsed = 00:00:24 . Memory (MB): peak = 490.828 ; gain = 141.719 ; free physical = 5575 ; free virtual = 12172" tag=""/>
-	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;CompleteRegister::multiply_accumulate&apos; to &apos;multiply_accumulate&apos; (exact_dot_product/complete_register.cpp:52:39)" tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Architecture Synthesis Time (s): cpu = 00:00:44 ; elapsed = 00:00:25 . Memory (MB): peak = 490.828 ; gain = 141.719 ; free physical = 5564 ; free virtual = 12162" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Pre-synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:00:23 . Memory (MB): peak = 491.020 ; gain = 141.914 ; free physical = 7526 ; free virtual = 13408" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Architecture Synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:00:24 . Memory (MB): peak = 491.020 ; gain = 141.914 ; free physical = 7505 ; free virtual = 13405" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1317" content="Starting hardware synthesis ..." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1385" content="Synthesizing &apos;neural_network&apos; ..." tag=""/>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
-	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;multiply_accumulate&apos;" tag=""/>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
-	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
-	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 24.94 seconds; current allocated memory: 100.510 MB." tag=""/>
-	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
-	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
-	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
-	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
-	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.03 seconds; current allocated memory: 100.814 MB." tag=""/>
+	<Message prefix="[SYN 201-303]" severity="WARNING" keynum="69" content="Cannot apply memory assignment of &apos;ROM_nP_LUTRAM&apos; (exact_dot_product/complete_register.cpp:13) on &apos;cr_m_cr_V&apos;, which is not an array." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
 	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;neural_network&apos;" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
 	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
 	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.05 seconds; current allocated memory: 100.958 MB." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 23.78 seconds; current allocated memory: 95.750 MB." tag=""/>
 	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
 	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
 	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
 	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
 	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.01 seconds; current allocated memory: 100.982 MB." tag=""/>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;multiply_accumulate&apos;" tag=""/>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
-	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;neural_network_add_512ns_512ns_512_2_1&apos; to &apos;neural_network_adbkb&apos; due to the length limit 20" tag=""/>
-	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;neural_network_mul_mul_11ns_11ns_22_3_1&apos; to &apos;neural_network_mucud&apos; due to the length limit 20" tag=""/>
-	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;neural_network_adbkb&apos;: 1 instance(s)." tag=""/>
-	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;neural_network_mucud&apos;: 1 instance(s)." tag=""/>
-	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;multiply_accumulate&apos;." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.04 seconds; current allocated memory: 101.460 MB." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.01 seconds; current allocated memory: 95.781 MB." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;neural_network&apos;" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
 	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on function &apos;neural_network&apos; to &apos;ap_ctrl_hs&apos;." tag=""/>
-	<Message prefix="[RTGEN 206-101]" severity="WARNING" keynum="374" content="Register &apos;cr_m_cr_V&apos; is power-on initialization." tag=""/>
 	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;neural_network&apos;." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.12 seconds; current allocated memory: 102.686 MB." tag=""/>
-	<Message prefix="[RTMG 210-283]" severity="INFO" keynum="RTMG_283_1797" content="Generating pipelined adder/subtractor : &apos;neural_network_adbkb_AddSubnS_0&apos;" tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished generating all RTL models Time (s): cpu = 00:00:44 ; elapsed = 00:00:26 . Memory (MB): peak = 490.828 ; gain = 141.719 ; free physical = 5561 ; free virtual = 12160" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0 seconds; current allocated memory: 95.889 MB." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished generating all RTL models Time (s): cpu = 00:00:46 ; elapsed = 00:00:24 . Memory (MB): peak = 491.020 ; gain = 141.914 ; free physical = 7504 ; free virtual = 13405" tag=""/>
 	<Message prefix="[SYSC 207-301]" severity="INFO" keynum="SYSC_301_1065" content="Generating SystemC RTL for neural_network." tag=""/>
 	<Message prefix="[VHDL 208-304]" severity="INFO" keynum="VHDL_304_1066" content="Generating VHDL RTL for neural_network." tag=""/>
 	<Message prefix="[VLOG 209-307]" severity="INFO" keynum="VLOG_307_1067" content="Generating Verilog RTL for neural_network." tag=""/>
-	<Message prefix="[HLS 200-112]" severity="INFO" keynum="472" content="Total elapsed time: 25.57 seconds; peak allocated memory: 102.686 MB." tag=""/>
+	<Message prefix="[HLS 200-112]" severity="INFO" keynum="472" content="Total elapsed time: 24.05 seconds; peak allocated memory: 95.889 MB." tag=""/>
 </Messages>

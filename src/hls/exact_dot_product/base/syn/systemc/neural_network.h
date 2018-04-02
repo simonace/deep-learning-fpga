@@ -11,7 +11,6 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
-#include "multiply_accumulate.h"
 
 namespace ap_rtl {
 
@@ -35,39 +34,20 @@ struct neural_network : public sc_module {
 
     ofstream mHdltvinHandle;
     ofstream mHdltvoutHandle;
-    multiply_accumulate* grp_multiply_accumulate_fu_10;
-    sc_signal< sc_lv<3> > ap_CS_fsm;
+    sc_signal< sc_lv<1> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
-    sc_signal< sc_lv<512> > cr_m_cr_V;
-    sc_signal< sc_logic > grp_multiply_accumulate_fu_10_ap_start;
-    sc_signal< sc_logic > grp_multiply_accumulate_fu_10_ap_done;
-    sc_signal< sc_logic > grp_multiply_accumulate_fu_10_ap_idle;
-    sc_signal< sc_logic > grp_multiply_accumulate_fu_10_ap_ready;
-    sc_signal< sc_lv<512> > grp_multiply_accumulate_fu_10_cr_m_cr_V_o;
-    sc_signal< sc_logic > grp_multiply_accumulate_fu_10_cr_m_cr_V_o_ap_vld;
-    sc_signal< sc_logic > ap_reg_grp_multiply_accumulate_fu_10_ap_start;
-    sc_signal< sc_logic > ap_CS_fsm_state2;
-    sc_signal< sc_logic > ap_CS_fsm_state3;
-    sc_signal< sc_lv<3> > ap_NS_fsm;
+    sc_signal< sc_lv<1> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
-    static const sc_lv<3> ap_ST_fsm_state1;
-    static const sc_lv<3> ap_ST_fsm_state2;
-    static const sc_lv<3> ap_ST_fsm_state3;
+    static const sc_lv<1> ap_ST_fsm_state1;
     static const sc_lv<32> ap_const_lv32_0;
-    static const sc_lv<512> ap_const_lv512_lc_1;
-    static const sc_lv<32> ap_const_lv32_1;
-    static const sc_lv<32> ap_const_lv32_2;
     static const bool ap_const_boolean_1;
     // Thread declarations
     void thread_ap_clk_no_reset_();
     void thread_ap_CS_fsm_state1();
-    void thread_ap_CS_fsm_state2();
-    void thread_ap_CS_fsm_state3();
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
-    void thread_grp_multiply_accumulate_fu_10_ap_start();
     void thread_ap_NS_fsm();
     void thread_hdltv_gen();
 };

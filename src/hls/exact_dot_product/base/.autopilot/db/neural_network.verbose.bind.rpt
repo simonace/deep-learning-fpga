@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'neural_network'
 ================================================================
-* Date:           Sun Apr  1 01:10:31 2018
+* Date:           Tue Apr  3 00:36:26 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        exact_dot_product
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |   5.00|      4.15|        0.62|
+    |ap_clk  |   5.00|      0.00|        0.62|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,17 +29,12 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |   41|   41|   41|   41|   none  |
+    |    0|    0|    0|    0|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
         * Instance: 
-        +-------------------------------+---------------------+-----+-----+-----+-----+---------+
-        |                               |                     |  Latency  |  Interval | Pipeline|
-        |            Instance           |        Module       | min | max | min | max |   Type  |
-        +-------------------------------+---------------------+-----+-----+-----+-----+---------+
-        |grp_multiply_accumulate_fu_10  |multiply_accumulate  |   39|   39|   39|   39|   none  |
-        +-------------------------------+---------------------+-----+-----+-----+-----+---------+
+        N/A
 
         * Loop: 
         N/A
@@ -58,7 +53,7 @@ IsCombinational: 0
 IsDatapathOnly: 0
 HasWiredReturn: 1
 HasMFsm: 0
-HasVarLatency: 1
+HasVarLatency: 0
 IsPipeline: 0
 IsRtlPipelined: 0
 IsInstanceOverlapped: 0
@@ -70,29 +65,20 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 3
+* Number of FSM states : 1
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
-	2  / true
-2 --> 
-	3  / true
-3 --> 
 
 * FSM state operations: 
 
  <State 1> : 0.00ns
-ST_1 : Operation 4 [2/2] (0.00ns)   --->   "call fastcc void @multiply_accumulate() nounwind" [exact_dot_product/neural_network.cpp:6]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-
- <State 2> : 0.00ns
-ST_2 : Operation 5 [1/2] (0.00ns)   --->   "call fastcc void @multiply_accumulate() nounwind" [exact_dot_product/neural_network.cpp:6]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-
- <State 3> : 0.00ns
-ST_3 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @neural_network_str) nounwind"
-ST_3 : Operation 7 [1/1] (0.00ns)   --->   "store i512 0, i512* @cr_m_cr_V, align 64" [exact_dot_product/complete_register.cpp:75->exact_dot_product/neural_network.cpp:7]
-ST_3 : Operation 8 [1/1] (0.00ns)   --->   "ret void" [exact_dot_product/neural_network.cpp:8]
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @neural_network_str) nounwind"
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore(i1* @cr_m_cr_V, [1 x i8]* @p_str, [14 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [exact_dot_product/complete_register.cpp:13]
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "store i1 false, i1* @cr_m_cr_V, align 1" [exact_dot_product/complete_register.cpp:92->exact_dot_product/neural_network.cpp:7]
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "ret void" [exact_dot_product/neural_network.cpp:8]
 
 
 ============================================================
@@ -101,22 +87,22 @@ ST_3 : Operation 8 [1/1] (0.00ns)   --->   "ret void" [exact_dot_product/neural_
 STG Binding: 
 ---------------- STG Properties BEGIN ----------------
 - Is combinational: 0
-- Is one-state seq: 0
+- Is one-state seq: 1
 - Is datapath-only: 0
 - Is pipelined: 0
 - Is top level: 1
 Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
-Port [ cr_m_cr_V]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=2; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_ovld:ce=0
+Port [ cr_m_cr_V]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern=0; dir=1; type=0; pingpong=0; private_global=1; linkage=7; visibility=0; IO mode=ap_vld:ce=0
 ---------------- STG Properties END ------------------
 
 ---------------- Datapath Model BEGIN ----------------
 
 <LifeTime>
 <method=bitvector/>
-StgValue_5 (call         ) [ 0000]
-StgValue_6 (spectopmodule) [ 0000]
-StgValue_7 (store        ) [ 0000]
-StgValue_8 (ret          ) [ 0000]
+StgValue_2 (spectopmodule) [ 00]
+StgValue_3 (specmemcore  ) [ 00]
+StgValue_4 (store        ) [ 00]
+StgValue_5 (ret          ) [ 00]
 </LifeTime>
 
 <model>
@@ -133,10 +119,10 @@ StgValue_8 (ret          ) [ 0000]
 
 <comp id="2" class="1001" name="const_2">
 <pin_list>
-<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+<pin id="3" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="multiply_accumulate"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
 </bind>
 </comp>
 
@@ -145,7 +131,7 @@ StgValue_8 (ret          ) [ 0000]
 <pin id="5" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+<StgValue><ssdm name="neural_network_str"/></StgValue>
 </bind>
 </comp>
 
@@ -154,51 +140,62 @@ StgValue_8 (ret          ) [ 0000]
 <pin id="7" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="neural_network_str"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecMemCore"/></StgValue>
 </bind>
 </comp>
 
 <comp id="8" class="1001" name="const_8">
 <pin_list>
-<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+<pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1001" name="const_10">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1001" name="const_12">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
-<comp id="10" class="1004" name="grp_multiply_accumulate_fu_10">
+<comp id="14" class="1001" name="const_14">
 <pin_list>
-<pin id="11" dir="0" index="0" bw="0" slack="0"/>
-<pin id="12" dir="0" index="1" bw="512" slack="0"/>
-<pin id="13" dir="1" index="2" bw="0" slack="2147483647"/>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<opcode="call(48) " fcode="call"/>
-<opset="StgValue_4/1 "/>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
-<comp id="16" class="1004" name="StgValue_7_store_fu_16">
+<comp id="16" class="1004" name="StgValue_4_store_fu_16">
 <pin_list>
 <pin id="17" dir="0" index="0" bw="1" slack="0"/>
-<pin id="18" dir="0" index="1" bw="512" slack="0"/>
+<pin id="18" dir="0" index="1" bw="1" slack="0"/>
 <pin id="19" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="StgValue_7/3 "/>
+<opset="StgValue_4/1 "/>
 </bind>
 </comp>
 
 </comp_list>
 
 <net_list>
-<net id="14"><net_src comp="2" pin="0"/><net_sink comp="10" pin=0"/></net>
-
-<net id="15"><net_src comp="0" pin="0"/><net_sink comp="10" pin=1"/></net>
-
-<net id="20"><net_src comp="8" pin="0"/><net_sink comp="16" pin=0"/></net>
+<net id="20"><net_src comp="14" pin="0"/><net_sink comp="16" pin=0"/></net>
 
 <net id="21"><net_src comp="0" pin="0"/><net_sink comp="16" pin=1"/></net>
 
@@ -209,13 +206,10 @@ StgValue_8 (ret          ) [ 0000]
 
 * FSMD analyzer results:
   - Output states:
-	Port: cr_m_cr_V | {1 2 3 }
+	Port: cr_m_cr_V | {1 }
  - Input state : 
-	Port: neural_network : cr_m_cr_V | {1 2 }
   - Chain level:
 	State 1
-	State 2
-	State 3
 
 
 ============================================================
@@ -223,13 +217,11 @@ StgValue_8 (ret          ) [ 0000]
 ============================================================
 
 * Functional unit list:
-|----------|-------------------------------|---------|---------|---------|---------|
-| Operation|        Functional Unit        |  DSP48E |  Delay  |    FF   |   LUT   |
-|----------|-------------------------------|---------|---------|---------|---------|
-|   call   | grp_multiply_accumulate_fu_10 |    1    |  12.383 |   1804  |   497   |
-|----------|-------------------------------|---------|---------|---------|---------|
-|   Total  |                               |    1    |  12.383 |   1804  |   497   |
-|----------|-------------------------------|---------|---------|---------|---------|
+|----------|----------------|
+| Operation| Functional Unit|
+|----------|----------------|
+|   Total  |                |
+|----------|----------------|
 
 Memories:
 N/A
@@ -247,13 +239,13 @@ N/A
 
 
 * Summary:
-+-----------+--------+--------+--------+--------+
-|           | DSP48E |  Delay |   FF   |   LUT  |
-+-----------+--------+--------+--------+--------+
-|  Function |    1   |   12   |  1804  |   497  |
-|   Memory  |    -   |    -   |    -   |    -   |
-|Multiplexer|    -   |    -   |    -   |    -   |
-|  Register |    -   |    -   |    -   |    -   |
-+-----------+--------+--------+--------+--------+
-|   Total   |    1   |   12   |  1804  |   497  |
-+-----------+--------+--------+--------+--------+
++-----------+
+|           |
++-----------+
+|  Function |
+|   Memory  |
+|Multiplexer|
+|  Register |
++-----------+
+|   Total   |
++-----------+

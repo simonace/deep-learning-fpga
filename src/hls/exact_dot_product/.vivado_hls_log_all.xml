@@ -3,21 +3,20 @@
   <errorLogs>
     <logs>
       <synLog/>
-      <simLog/>
+      <simLog>
+        <logs message="ERROR: [COSIM 212-5] *** C/RTL co-simulation file generate finished: FAIL ***&#xA;command 'ap_source' returned error code&#xA;    while executing&#xA;&quot;source /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/exact_dot_product/base/cosim.tcl&quot;&#xA;    invoked from within&#xA;&quot;hls::main /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/exact_dot_product/base/cosim.tcl&quot;&#xA;    (&quot;uplevel&quot; body line 1)&#xA;    invoked from within&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xA;    invoked from within&#xA;&quot;hls_proc $argv&quot;&#xA;" projectName="exact_dot_product" solutionName="base" date="2018-04-03T00:37:12.077+0800"/>
+        <logs message="ERROR: [COSIM 212-330] Aborting co-simulation: top function 'neural_network' is not invoked in the test bench." projectName="exact_dot_product" solutionName="base" date="2018-04-03T00:37:12.048+0800"/>
+      </simLog>
       <mgLog/>
       <packageLog/>
-      <csimLog>
-        <logs message="ERROR: [SIM 211-100] CSim file generation failed: compilation error(s)." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:12:32.228+0800"/>
-      </csimLog>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'cr_m_cr_V' is power-on initialization." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:31.657+0800" type="Warning"/>
-        <logs message="WARNING: [XFORM 203-631] Renaming function 'CompleteRegister::multiply_accumulate' to 'multiply_accumulate' (exact_dot_product/complete_register.cpp:52:39)" projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:31.372+0800" type="Warning"/>
-        <logs message="WARNING: [SYNCHK 200-77] The top function 'neural_network' (exact_dot_product/neural_network.cpp:3) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:30.408+0800" type="Warning"/>
-        <logs message="WARNING: [SYNCHK 200-23] exact_dot_product/complete_register.cpp:89: variable-indexed range selection may cause suboptimal QoR." projectName="exact_dot_product" solutionName="base" date="2018-04-01T01:10:30.406+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-303] Cannot apply memory assignment of 'ROM_nP_LUTRAM' (exact_dot_product/complete_register.cpp:13) on 'cr_m_cr_V', which is not an array." projectName="exact_dot_product" solutionName="base" date="2018-04-03T00:36:26.708+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-77] The top function 'neural_network' (exact_dot_product/neural_network.cpp:3) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." projectName="exact_dot_product" solutionName="base" date="2018-04-03T00:36:25.791+0800" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

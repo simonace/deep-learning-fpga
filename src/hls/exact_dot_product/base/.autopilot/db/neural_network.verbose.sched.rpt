@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'neural_network'
 ================================================================
-* Date:           Sun Apr  1 01:10:31 2018
+* Date:           Tue Apr  3 00:36:26 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        exact_dot_product
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |   5.00|      4.15|        0.62|
+    |ap_clk  |   5.00|      0.00|        0.62|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |   41|   41|   41|   41|   none  |
+    |    0|    0|    0|    0|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -53,7 +53,7 @@ IsCombinational: 0
 IsDatapathOnly: 0
 HasWiredReturn: 1
 HasMFsm: 0
-HasVarLatency: 1
+HasVarLatency: 0
 IsPipeline: 0
 IsRtlPipelined: 0
 IsInstanceOverlapped: 0
@@ -65,29 +65,20 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 3
+* Number of FSM states : 1
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 
-	2  / true
-2 --> 
-	3  / true
-3 --> 
 
 * FSM state operations: 
 
  <State 1> : 0.00ns
-ST_1 : Operation 4 [2/2] (0.00ns)   --->   "call fastcc void @multiply_accumulate() nounwind" [exact_dot_product/neural_network.cpp:6]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-
- <State 2> : 0.00ns
-ST_2 : Operation 5 [1/2] (0.00ns)   --->   "call fastcc void @multiply_accumulate() nounwind" [exact_dot_product/neural_network.cpp:6]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-
- <State 3> : 0.00ns
-ST_3 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @neural_network_str) nounwind"
-ST_3 : Operation 7 [1/1] (0.00ns)   --->   "store i512 0, i512* @cr_m_cr_V, align 64" [exact_dot_product/complete_register.cpp:75->exact_dot_product/neural_network.cpp:7]
-ST_3 : Operation 8 [1/1] (0.00ns)   --->   "ret void" [exact_dot_product/neural_network.cpp:8]
+ST_1 : Operation 2 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([15 x i8]* @neural_network_str) nounwind"
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecMemCore(i1* @cr_m_cr_V, [1 x i8]* @p_str, [14 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind" [exact_dot_product/complete_register.cpp:13]
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "store i1 false, i1* @cr_m_cr_V, align 1" [exact_dot_product/complete_register.cpp:92->exact_dot_product/neural_network.cpp:7]
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "ret void" [exact_dot_product/neural_network.cpp:8]
 
 
 ============================================================
@@ -96,12 +87,6 @@ ST_3 : Operation 8 [1/1] (0.00ns)   --->   "ret void" [exact_dot_product/neural_
 Target clock period: 5ns, clock uncertainty: 0.625ns.
 
  <State 1>: 0ns
-The critical path consists of the following:
-
- <State 2>: 0ns
-The critical path consists of the following:
-
- <State 3>: 0ns
 The critical path consists of the following:
 
 
@@ -114,8 +99,6 @@ N/A
  - Input state : 
   - Chain level:
 	State 1
-	State 2
-	State 3
 
 
 ============================================================
