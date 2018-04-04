@@ -14,8 +14,8 @@ set FftOrFirFlag 0
 set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
-set HasDSPModule 0
-set ResetLevelFlag 1
+set HasDSPModule 1
+set ResetLevelFlag 0
 set ResetStyle "control"
 set ResetSyncFlag 1
 set ResetRegisterFlag 0
@@ -44,7 +44,7 @@ set TargetInfo "xc7z020:clg400:-1"
 set SourceFiles {sc {} c {../neural_network.cpp ../complete_register.cpp}}
 set SourceFlags {sc {} c {{} {}}}
 set DirectiveFile {/home/xbili/Code/FPGA/deep-learning-fpga/src/hls/exact_dot_product/base/base.directive}
-set TBFiles {verilog {../../../../../../keras-mnist/data/fp16/test.dat ../complete_register_test.cpp} bc {../../../../../../keras-mnist/data/fp16/test.dat ../complete_register_test.cpp} sc {../../../../../../keras-mnist/data/fp16/test.dat ../complete_register_test.cpp} vhdl {../../../../../../keras-mnist/data/fp16/test.dat ../complete_register_test.cpp} c {} cas {../../../../../../keras-mnist/data/fp16/test.dat ../complete_register_test.cpp}}
+set TBFiles {verilog {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} bc {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} sc {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} vhdl {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} c {} cas {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

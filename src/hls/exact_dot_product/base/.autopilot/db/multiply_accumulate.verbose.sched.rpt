@@ -1,0 +1,196 @@
+
+
+================================================================
+== Vivado HLS Report for 'multiply_accumulate'
+================================================================
+* Date:           Tue Apr  3 14:51:54 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        exact_dot_product
+* Solution:       base
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.18|        0.62|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    6|    6|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 7
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 7
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 7, States = { 1 2 3 4 5 6 7 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+
+* FSM state operations: 
+
+ <State 1> : 3.89ns
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%in2_V_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %in2_V)"
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%in1_V_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %in1_V)"
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%CompleteRegister_m_c_1 = call i128 @_ssdm_op_Read.ap_auto.i128(i128 %CompleteRegister_m_cr_V_read)"
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp = trunc i16 %in1_V_read to i10" [exact_dot_product/complete_register.cpp:102->exact_dot_product/complete_register.cpp:66]
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%p_Result_s = call i11 @_ssdm_op_BitConcatenate.i11.i1.i10(i1 true, i10 %tmp)" [exact_dot_product/complete_register.cpp:105->exact_dot_product/complete_register.cpp:66]
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%e1_V = call i5 @_ssdm_op_PartSelect.i5.i16.i32.i32(i16 %in1_V_read, i32 10, i32 14)" [exact_dot_product/complete_register.cpp:112->exact_dot_product/complete_register.cpp:67]
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_31 = trunc i16 %in2_V_read to i10" [exact_dot_product/complete_register.cpp:102->exact_dot_product/complete_register.cpp:70]
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_Result_1 = call i11 @_ssdm_op_BitConcatenate.i11.i1.i10(i1 true, i10 %tmp_31)" [exact_dot_product/complete_register.cpp:105->exact_dot_product/complete_register.cpp:70]
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%e2_V = call i5 @_ssdm_op_PartSelect.i5.i16.i32.i32(i16 %in2_V_read, i32 10, i32 14)" [exact_dot_product/complete_register.cpp:112->exact_dot_product/complete_register.cpp:71]
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%lhs_V = zext i11 %p_Result_s to i22" [exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75]
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%rhs_V = zext i11 %p_Result_1 to i22" [exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75]
+ST_1 : Operation 19 [3/3] (3.89ns)   --->   "%r_V = mul i22 %lhs_V, %rhs_V" [exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75]   --->   Core 61 'DSP48' <Latency = 2> <II = 1> <Delay = 3.89> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%lhs_V_1 = zext i5 %e1_V to i6" [exact_dot_product/complete_register.cpp:130->exact_dot_product/complete_register.cpp:76]
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%rhs_V_1 = zext i5 %e2_V to i6" [exact_dot_product/complete_register.cpp:130->exact_dot_product/complete_register.cpp:76]
+ST_1 : Operation 22 [1/1] (1.78ns)   --->   "%r_V_1 = add i6 %lhs_V_1, %rhs_V_1" [exact_dot_product/complete_register.cpp:130->exact_dot_product/complete_register.cpp:76]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 2> : 3.89ns
+ST_2 : Operation 23 [2/3] (3.89ns)   --->   "%r_V = mul i22 %lhs_V, %rhs_V" [exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75]   --->   Core 61 'DSP48' <Latency = 2> <II = 1> <Delay = 3.89> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 3> : 0.00ns
+ST_3 : Operation 24 [1/3] (0.00ns)   --->   "%r_V = mul i22 %lhs_V, %rhs_V" [exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75]   --->   Core 61 'DSP48' <Latency = 2> <II = 1> <Delay = 3.89> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+
+ <State 4> : 2.26ns
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%result_V = zext i22 %r_V to i23" [exact_dot_product/complete_register.cpp:144->exact_dot_product/complete_register.cpp:79]
+ST_4 : Operation 26 [1/1] (2.25ns)   --->   "%agg_result_V_assign_s = sub i23 0, %result_V" [exact_dot_product/complete_register.cpp:146->exact_dot_product/complete_register.cpp:79]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_cast = zext i6 %r_V_1 to i7" [exact_dot_product/complete_register.cpp:83]
+ST_4 : Operation 28 [1/1] (1.82ns)   --->   "%op2_assign = add i7 12, %tmp_cast" [exact_dot_product/complete_register.cpp:84]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 5> : 4.18ns
+ST_5 : Operation 29 [1/1] (0.00ns) (grouped into LUT with out node r_V_2)   --->   "%sign = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %in1_V_read, i32 15)" [exact_dot_product/complete_register.cpp:118->exact_dot_product/complete_register.cpp:65]
+ST_5 : Operation 30 [1/1] (0.00ns) (grouped into LUT with out node r_V_2)   --->   "%sign_1 = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %in2_V_read, i32 15)" [exact_dot_product/complete_register.cpp:118->exact_dot_product/complete_register.cpp:69]
+ST_5 : Operation 31 [1/1] (0.00ns) (grouped into LUT with out node r_V_2)   --->   "%exact_s = xor i1 %sign, %sign_1" [exact_dot_product/complete_register.cpp:135->exact_dot_product/complete_register.cpp:74]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node r_V_2)   --->   "%result_V_2 = select i1 %exact_s, i23 %agg_result_V_assign_s, i23 %result_V" [exact_dot_product/complete_register.cpp:145->exact_dot_product/complete_register.cpp:79]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_5 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node r_V_2)   --->   "%shifted_V_cast = sext i23 %result_V_2 to i97" [exact_dot_product/complete_register.cpp:83]
+ST_5 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node r_V_2)   --->   "%tmp_cast_21 = zext i7 %op2_assign to i97" [exact_dot_product/complete_register.cpp:84]
+ST_5 : Operation 35 [1/1] (4.17ns) (out node of the LUT)   --->   "%r_V_2 = shl i97 %shifted_V_cast, %tmp_cast_21" [exact_dot_product/complete_register.cpp:84]   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+
+ <State 6> : 3.44ns
+ST_6 : Operation 36 [1/1] (0.00ns)   --->   "%r_V_4_cast = sext i97 %r_V_2 to i128" [exact_dot_product/complete_register.cpp:84]
+ST_6 : Operation 37 [2/2] (3.44ns)   --->   "%CompleteRegister_m_c = add nsw i128 %CompleteRegister_m_c_1, %r_V_4_cast" [exact_dot_product/complete_register.cpp:86]   --->   Core 15 'AddSubnS' <Latency = 1> <II = 1> <Delay = 3.44> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 7> : 3.44ns
+ST_7 : Operation 38 [1/2] (3.44ns)   --->   "%CompleteRegister_m_c = add nsw i128 %CompleteRegister_m_c_1, %r_V_4_cast" [exact_dot_product/complete_register.cpp:86]   --->   Core 15 'AddSubnS' <Latency = 1> <II = 1> <Delay = 3.44> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 39 [1/1] (0.00ns)   --->   "ret i128 %CompleteRegister_m_c" [exact_dot_product/complete_register.cpp:87]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 3.89ns
+The critical path consists of the following:
+	wire read on port 'in2_V' [4]  (0 ns)
+	'mul' operation ('r.V', exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75) [18]  (3.89 ns)
+
+ <State 2>: 3.89ns
+The critical path consists of the following:
+	'mul' operation ('r.V', exact_dot_product/complete_register.cpp:125->exact_dot_product/complete_register.cpp:75) [18]  (3.89 ns)
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 2.26ns
+The critical path consists of the following:
+	'sub' operation ('agg_result_V_assign_s', exact_dot_product/complete_register.cpp:146->exact_dot_product/complete_register.cpp:79) [23]  (2.26 ns)
+
+ <State 5>: 4.18ns
+The critical path consists of the following:
+	'xor' operation ('exact_s', exact_dot_product/complete_register.cpp:135->exact_dot_product/complete_register.cpp:74) [15]  (0 ns)
+	'select' operation ('result.V', exact_dot_product/complete_register.cpp:145->exact_dot_product/complete_register.cpp:79) [24]  (0 ns)
+	'shl' operation ('r.V', exact_dot_product/complete_register.cpp:84) [29]  (4.18 ns)
+
+ <State 6>: 3.44ns
+The critical path consists of the following:
+	'add' operation ('CompleteRegister.m_cr.V', exact_dot_product/complete_register.cpp:86) [31]  (3.44 ns)
+
+ <State 7>: 3.44ns
+The critical path consists of the following:
+	'add' operation ('CompleteRegister.m_cr.V', exact_dot_product/complete_register.cpp:86) [31]  (3.44 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
