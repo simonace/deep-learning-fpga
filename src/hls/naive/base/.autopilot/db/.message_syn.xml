@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Messages>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;neural_network/neural_network.cpp&apos; ..." tag=""/>
-	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;neural_network/exact_dot_product.cpp&apos; ..." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;naive/neural_network.cpp&apos; ..." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1465" content="Validating synthesis directives ..." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Pragmas Time (s): cpu = 00:00:30 ; elapsed = 00:00:17 . Memory (MB): peak = 362.477 ; gain = 13.375 ; free physical = 3941 ; free virtual = 11242" tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Linking Time (s): cpu = 00:00:31 ; elapsed = 00:00:18 . Memory (MB): peak = 362.477 ; gain = 13.375 ; free physical = 3938 ; free virtual = 11242" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Pragmas Time (s): cpu = 00:00:21 ; elapsed = 00:00:11 . Memory (MB): peak = 362.477 ; gain = 13.375 ; free physical = 7996 ; free virtual = 13582" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Linking Time (s): cpu = 00:00:22 ; elapsed = 00:00:12 . Memory (MB): peak = 362.477 ; gain = 13.375 ; free physical = 7987 ; free virtual = 13582" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1467" content="Starting code transformations ..." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Standard Transforms Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 362.746 ; gain = 13.645 ; free physical = 3925 ; free virtual = 11234" tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="877" content="Unrolling loop &apos;Layer2DotProduct&apos; (naive/neural_network.cpp:63) in function &apos;neural_network(ap_int&lt;8&gt;*, ap_int&lt;32&gt;*, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)&apos;: changing partial unrolling into complete unrolling since the unrolling factor (=10) is no less than the loop trip count (=10)." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Standard Transforms Time (s): cpu = 00:00:23 ; elapsed = 00:00:13 . Memory (MB): peak = 362.746 ; gain = 13.645 ; free physical = 7964 ; free virtual = 13573" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1472" content="Checking synthesizability ..." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Synthesizability Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 362.746 ; gain = 13.645 ; free physical = 3928 ; free virtual = 11230" tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Pre-synthesis Time (s): cpu = 00:00:33 ; elapsed = 00:00:20 . Memory (MB): peak = 490.473 ; gain = 141.371 ; free physical = 3899 ; free virtual = 11204" tag=""/>
-	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 784 on port &apos;mem.V&apos; (neural_network/neural_network.cpp:31:2)." tag=""/>
-	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 512 on port &apos;mem.V&apos; (neural_network/neural_network.cpp:34:2)." tag=""/>
-	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 10 on port &apos;mem.V&apos; (neural_network/neural_network.cpp:35:2)." tag=""/>
-	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 401408 on port &apos;mem.V&apos; (neural_network/neural_network.cpp:47:3)." tag=""/>
-	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 10 on port &apos;mem.V&apos; (neural_network/neural_network.cpp:61:3)." tag=""/>
-	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst write of length 10 on port &apos;out.V&apos; (neural_network/neural_network.cpp:69:2)." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Architecture Synthesis Time (s): cpu = 00:00:34 ; elapsed = 00:00:21 . Memory (MB): peak = 490.473 ; gain = 141.371 ; free physical = 3899 ; free virtual = 11203" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Synthesizability Time (s): cpu = 00:00:23 ; elapsed = 00:00:13 . Memory (MB): peak = 362.746 ; gain = 13.645 ; free physical = 7959 ; free virtual = 13570" tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="877" content="Unrolling loop &apos;Layer2DotProduct&apos; (naive/neural_network.cpp:63) in function &apos;neural_network&apos;: changing partial unrolling into complete unrolling since the unrolling factor (=10) is no less than the loop trip count (=10)." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="876" content="Unrolling loop &apos;Layer1DotProduct&apos; (naive/neural_network.cpp:49) in function &apos;neural_network&apos; partially with a factor of 128." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Layer2DotProduct&apos; (naive/neural_network.cpp:63) in function &apos;neural_network&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-505]" severity="WARNING" keynum="884" content="Pipeline directive for loop &apos;Layer2DotProduct&apos; (naive/neural_network.cpp:63) in function &apos;neural_network&apos; has been removed because the loop is unrolled completely." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Pre-synthesis Time (s): cpu = 00:00:24 ; elapsed = 00:00:14 . Memory (MB): peak = 490.473 ; gain = 141.371 ; free physical = 7926 ; free virtual = 13539" tag=""/>
+	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 784 on port &apos;mem.V&apos; (naive/neural_network.cpp:31:2)." tag=""/>
+	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 512 on port &apos;mem.V&apos; (naive/neural_network.cpp:34:2)." tag=""/>
+	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 10 on port &apos;mem.V&apos; (naive/neural_network.cpp:35:2)." tag=""/>
+	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 401408 on port &apos;mem.V&apos; (naive/neural_network.cpp:47:3)." tag=""/>
+	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst read of length 10 on port &apos;mem.V&apos; (naive/neural_network.cpp:61:3)." tag=""/>
+	<Message prefix="[XFORM 203-811]" severity="INFO" keynum="821" content="Inferring bus burst write of length 10 on port &apos;out.V&apos; (naive/neural_network.cpp:69:2)." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Architecture Synthesis Time (s): cpu = 00:00:25 ; elapsed = 00:00:16 . Memory (MB): peak = 490.473 ; gain = 141.371 ; free physical = 7900 ; free virtual = 13528" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1317" content="Starting hardware synthesis ..." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1385" content="Synthesizing &apos;neural_network&apos; ..." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
@@ -36,27 +40,27 @@
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;memcpy.weights_1.addr.mem.V&apos;." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Layer1DotProduct&apos;." tag=""/>
-	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 8." tag=""/>
+	<Message prefix="[SCHED 204-69]" severity="WARNING" keynum="104" content="Unable to schedule &apos;load&apos; operation (&apos;weights_1_load_2&apos;, naive/neural_network.cpp:50) on array &apos;weights_1&apos; due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;weights_1&apos;." tag=""/>
+	<Message prefix="[SCHED 204-69]" severity="WARNING" keynum="104" content="Unable to schedule &apos;store&apos; operation (naive/neural_network.cpp:50) of variable &apos;tmp_13_6&apos;, naive/neural_network.cpp:50 on array &apos;l1_result.V&apos;, naive/neural_network.cpp:27 due to limited memory ports. Please consider using a memory core with more ports or partitioning the array &apos;l1_result_V&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 128, Depth = 256." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;ReLU&apos;." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;memcpy.weights_2.addr.mem.V&apos;." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3." tag=""/>
-	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Layer2DotProduct&apos;." tag=""/>
-	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 11." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;memcpy.out.V.l2_result.V.addr.1&apos;." tag=""/>
 	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3." tag=""/>
 	<Message prefix="[SCHED 204-21]" severity="WARNING" keynum="137" content="Estimated clock period (2.7015ns) exceeds the target (target clock period: 3ns, clock uncertainty: 0.375ns, effective delay budget: 2.625ns)." tag=""/>
 	<Message prefix="[SCHED 204-21]" severity="WARNING" keynum="135" content="The critical path consists of the following:
-	&apos;icmp&apos; operation (&apos;exitcond1&apos;, neural_network/neural_network.cpp:38) (1.77 ns)
+	&apos;icmp&apos; operation (&apos;exitcond1&apos;, naive/neural_network.cpp:38) (1.77 ns)
 	blocking operation 0.931 ns on control path)" tag=""/>
 	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 20.78 seconds; current allocated memory: 80.348 MB." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 23.06 seconds; current allocated memory: 106.928 MB." tag=""/>
 	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
 	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
 	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
 	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
 	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.29 seconds; current allocated memory: 81.521 MB." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 2.69 seconds; current allocated memory: 114.984 MB." tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;neural_network&apos;" tag=""/>
 	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
@@ -79,19 +83,21 @@
 	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;neural_network_l2_result_V&apos; to &apos;neural_network_l2hbi&apos; due to the length limit 20" tag=""/>
 	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;neural_network_mul_32s_8s_32_7_1&apos; to &apos;neural_network_muibs&apos; due to the length limit 20" tag=""/>
 	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;neural_network_mac_muladd_8s_8s_32ns_32_4_1&apos; to &apos;neural_network_majbC&apos; due to the length limit 20" tag=""/>
-	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;neural_network_majbC&apos;: 1 instance(s)." tag=""/>
-	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;neural_network_muibs&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;neural_network_majbC&apos;: 128 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;neural_network_muibs&apos;: 10 instance(s)." tag=""/>
 	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;neural_network&apos;." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.27 seconds; current allocated memory: 84.640 MB." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 3.15 seconds; current allocated memory: 129.135 MB." tag=""/>
 	<Message prefix="[RTMG 210-282]" severity="INFO" keynum="RTMG_282_1796" content="Generating pipelined core: &apos;neural_network_muibs_MulnS_0&apos;" tag=""/>
 	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_webkb_ram (RAM)&apos; using block RAMs." tag=""/>
 	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_wecud_ram (RAM)&apos; using distributed RAMs." tag=""/>
+	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_bidEe_ram (RAM)&apos; using block RAMs." tag=""/>
+	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_bieOg_ram (RAM)&apos; using distributed RAMs." tag=""/>
 	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_infYi_ram (RAM)&apos; using block RAMs." tag=""/>
 	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_l1g8j_ram (RAM)&apos; using block RAMs." tag=""/>
 	<Message prefix="[RTMG 210-278]" severity="INFO" keynum="RTMG_278_1790" content="Implementing memory &apos;neural_network_l2hbi_ram (RAM)&apos; using block RAMs." tag=""/>
-	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished generating all RTL models Time (s): cpu = 00:00:35 ; elapsed = 00:00:23 . Memory (MB): peak = 490.473 ; gain = 141.371 ; free physical = 3903 ; free virtual = 11191" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished generating all RTL models Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 554.473 ; gain = 205.371 ; free physical = 7726 ; free virtual = 13371" tag=""/>
 	<Message prefix="[SYSC 207-301]" severity="INFO" keynum="SYSC_301_1065" content="Generating SystemC RTL for neural_network." tag=""/>
 	<Message prefix="[VHDL 208-304]" severity="INFO" keynum="VHDL_304_1066" content="Generating VHDL RTL for neural_network." tag=""/>
 	<Message prefix="[VLOG 209-307]" severity="INFO" keynum="VLOG_307_1067" content="Generating Verilog RTL for neural_network." tag=""/>
-	<Message prefix="[HLS 200-112]" severity="INFO" keynum="472" content="Total elapsed time: 22.84 seconds; peak allocated memory: 84.640 MB." tag=""/>
+	<Message prefix="[HLS 200-112]" severity="INFO" keynum="472" content="Total elapsed time: 33.74 seconds; peak allocated memory: 129.135 MB." tag=""/>
 </Messages>

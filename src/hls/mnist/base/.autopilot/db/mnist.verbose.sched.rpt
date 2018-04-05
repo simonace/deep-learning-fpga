@@ -1,0 +1,234 @@
+
+
+================================================================
+== Vivado HLS Report for 'mnist'
+================================================================
+* Date:           Thu Apr  5 21:36:50 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist
+* Solution:       base
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.51|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |  919|  919|  919|  919| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 12
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 12, States = { 1 2 3 4 5 6 7 8 9 10 11 12 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+
+* FSM state operations: 
+
+ <State 1> : 0.00ns
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%data_in_V_V = alloca i8, align 1" [mnist/mnist.cpp:23]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%data_out_V_V = alloca i32, align 4" [mnist/mnist.cpp:24]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%l1_result_V_V = alloca i32, align 4" [mnist/mnist.cpp:30]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%l1_relu_V_V = alloca i32, align 4" [mnist/mnist.cpp:30]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+
+ <State 2> : 0.00ns
+ST_2 : Operation 17 [2/2] (0.00ns)   --->   "call fastcc void @unpacker(i8* %sdata_in_V_data_V, i1* %sdata_in_V_keep_V, i1* %sdata_in_V_strb_V, i1* %sdata_in_V_user_V, i1* %sdata_in_V_last_V, i1* %sdata_in_V_id_V, i1* %sdata_in_V_dest_V, i8* %data_in_V_V)" [mnist/mnist.cpp:27]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 3> : 0.00ns
+ST_3 : Operation 18 [1/2] (0.00ns)   --->   "call fastcc void @unpacker(i8* %sdata_in_V_data_V, i1* %sdata_in_V_keep_V, i1* %sdata_in_V_strb_V, i1* %sdata_in_V_user_V, i1* %sdata_in_V_last_V, i1* %sdata_in_V_id_V, i1* %sdata_in_V_dest_V, i8* %data_in_V_V)" [mnist/mnist.cpp:27]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 4> : 0.00ns
+ST_4 : Operation 19 [2/2] (0.00ns)   --->   "call fastcc void @linear_activation(i8* %data_in_V_V, i32* %l1_result_V_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 5> : 0.00ns
+ST_5 : Operation 20 [1/2] (0.00ns)   --->   "call fastcc void @linear_activation(i8* %data_in_V_V, i32* %l1_result_V_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 6> : 0.00ns
+ST_6 : Operation 21 [2/2] (0.00ns)   --->   "call fastcc void @relu(i32* %l1_result_V_V, i32* %l1_relu_V_V)" [mnist/mnist.cpp:32]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 7> : 0.00ns
+ST_7 : Operation 22 [1/2] (0.00ns)   --->   "call fastcc void @relu(i32* %l1_result_V_V, i32* %l1_relu_V_V)" [mnist/mnist.cpp:32]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 8> : 0.00ns
+ST_8 : Operation 23 [2/2] (0.00ns)   --->   "call fastcc void @linear_activation.1(i32* %l1_relu_V_V, i32* %data_out_V_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 9> : 0.00ns
+ST_9 : Operation 24 [1/2] (0.00ns)   --->   "call fastcc void @linear_activation.1(i32* %l1_relu_V_V, i32* %data_out_V_V)"   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 10> : 0.00ns
+ST_10 : Operation 25 [2/2] (0.00ns)   --->   "call fastcc void @packer(i32* %data_out_V_V, i32* %sdata_out_V_data_V, i4* %sdata_out_V_keep_V, i4* %sdata_out_V_strb_V, i1* %sdata_out_V_user_V, i1* %sdata_out_V_last_V, i1* %sdata_out_V_id_V, i1* %sdata_out_V_dest_V)" [mnist/mnist.cpp:38]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 11> : 0.00ns
+ST_11 : Operation 26 [1/2] (0.00ns)   --->   "call fastcc void @packer(i32* %data_out_V_V, i32* %sdata_out_V_data_V, i4* %sdata_out_V_keep_V, i4* %sdata_out_V_strb_V, i1* %sdata_out_V_user_V, i1* %sdata_out_V_last_V, i1* %sdata_out_V_id_V, i1* %sdata_out_V_dest_V)" [mnist/mnist.cpp:38]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 12> : 0.00ns
+ST_12 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str6) nounwind" [mnist/mnist.cpp:21]
+ST_12 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i8* %sdata_in_V_data_V), !map !97"
+ST_12 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_in_V_keep_V), !map !101"
+ST_12 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_in_V_strb_V), !map !105"
+ST_12 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_in_V_user_V), !map !109"
+ST_12 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_in_V_last_V), !map !113"
+ST_12 : Operation 33 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_in_V_id_V), !map !117"
+ST_12 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_in_V_dest_V), !map !121"
+ST_12 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %sdata_out_V_data_V), !map !125"
+ST_12 : Operation 36 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %sdata_out_V_keep_V), !map !129"
+ST_12 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i4* %sdata_out_V_strb_V), !map !133"
+ST_12 : Operation 38 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_out_V_user_V), !map !137"
+ST_12 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_out_V_last_V), !map !141"
+ST_12 : Operation 40 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_out_V_id_V), !map !145"
+ST_12 : Operation 41 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i1* %sdata_out_V_dest_V), !map !149"
+ST_12 : Operation 42 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([6 x i8]* @mnist_str) nounwind"
+ST_12 : Operation 43 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecChannel([12 x i8]* @data_in_OC_V_OC_V_st, i32 1, [1 x i8]* @p_str67, [1 x i8]* @p_str67, i32 1, i32 1, i8* %data_in_V_V, i8* %data_in_V_V)"
+ST_12 : Operation 44 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %data_in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str68, i32 0, i32 0, [1 x i8]* @p_str69, [1 x i8]* @p_str70, [1 x i8]* @p_str71, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str72, [1 x i8]* @p_str73)"
+ST_12 : Operation 45 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecChannel([13 x i8]* @data_out_OC_V_OC_V_s, i32 1, [1 x i8]* @p_str74, [1 x i8]* @p_str74, i32 1, i32 1, i32* %data_out_V_V, i32* %data_out_V_V)"
+ST_12 : Operation 46 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %data_out_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str75, i32 0, i32 0, [1 x i8]* @p_str76, [1 x i8]* @p_str77, [1 x i8]* @p_str78, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str79, [1 x i8]* @p_str80)"
+ST_12 : Operation 47 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecChannel([14 x i8]* @l1_result_OC_V_OC_V_s, i32 1, [1 x i8]* @p_str81, [1 x i8]* @p_str81, i32 1, i32 1, i32* %l1_result_V_V, i32* %l1_result_V_V)"
+ST_12 : Operation 48 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %l1_result_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str82, i32 0, i32 0, [1 x i8]* @p_str83, [1 x i8]* @p_str84, [1 x i8]* @p_str85, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str86, [1 x i8]* @p_str87)"
+ST_12 : Operation 49 [1/1] (0.00ns)   --->   "%empty_14 = call i32 (...)* @_ssdm_op_SpecChannel([12 x i8]* @l1_relu_OC_V_OC_V_st, i32 1, [1 x i8]* @p_str88, [1 x i8]* @p_str88, i32 1, i32 1, i32* %l1_relu_V_V, i32* %l1_relu_V_V)"
+ST_12 : Operation 50 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %l1_relu_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str89, i32 0, i32 0, [1 x i8]* @p_str90, [1 x i8]* @p_str91, [1 x i8]* @p_str92, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str93, [1 x i8]* @p_str94)"
+ST_12 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %sdata_in_V_data_V, i1* %sdata_in_V_keep_V, i1* %sdata_in_V_strb_V, i1* %sdata_in_V_user_V, i1* %sdata_in_V_last_V, i1* %sdata_in_V_id_V, i1* %sdata_in_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind" [mnist/mnist.cpp:17]
+ST_12 : Operation 52 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %sdata_out_V_data_V, i4* %sdata_out_V_keep_V, i4* %sdata_out_V_strb_V, i1* %sdata_out_V_user_V, i1* %sdata_out_V_last_V, i1* %sdata_out_V_id_V, i1* %sdata_out_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind" [mnist/mnist.cpp:18]
+ST_12 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str7, i32 0, i32 0, [1 x i8]* @p_str6, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind" [mnist/mnist.cpp:19]
+ST_12 : Operation 54 [1/1] (0.00ns)   --->   "ret void" [mnist/mnist.cpp:39]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 0ns
+The critical path consists of the following:
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

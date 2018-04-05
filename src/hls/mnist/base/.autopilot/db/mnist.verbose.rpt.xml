@@ -1,0 +1,134 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'mnist'" level="0">
+<item name = "Date">Thu Apr  5 21:36:54 2018
+</item>
+<item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
+<item name = "Project">mnist</item>
+<item name = "Solution">base</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.51, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">919, 919, 919, 919, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="linear_activation_U0">linear_activation, 918, 918, 918, 918, none</column>
+<column name="linear_activation_1_U0">linear_activation_1, 145, 145, 145, 145, none</column>
+<column name="packer_U0">packer, 23, 23, 23, 23, none</column>
+<column name="relu_U0">relu, 129, 129, 129, 129, none</column>
+<column name="unpacker_U0">unpacker, 786, 786, 786, 786, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, -, -</column>
+<column name="FIFO">0, -, 20, 152</column>
+<column name="Instance">60, 158, 9492, 3469</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, -</column>
+<column name="Register">-, -, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">21, 71, 8, 6</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="linear_activation_U0">linear_activation, 57, 128, 8428, 1509</column>
+<column name="linear_activation_1_U0">linear_activation_1, 3, 30, 885, 1061</column>
+<column name="packer_U0">packer, 0, 0, 127, 524</column>
+<column name="relu_U0">relu, 0, 0, 12, 161</column>
+<column name="unpacker_U0">unpacker, 0, 0, 40, 214</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+<column name="data_in_V_V_U">0, 5, 20, 1, 8, 8</column>
+<column name="data_out_V_V_U">0, 5, 44, 1, 32, 32</column>
+<column name="l1_relu_V_V_U">0, 5, 44, 1, 32, 32</column>
+<column name="l1_result_V_V_U">0, 5, 44, 1, 32, 32</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="sdata_in_TDATA">in, 8, axis, sdata_in_V_data_V, pointer</column>
+<column name="sdata_in_TKEEP">in, 1, axis, sdata_in_V_keep_V, pointer</column>
+<column name="sdata_in_TSTRB">in, 1, axis, sdata_in_V_strb_V, pointer</column>
+<column name="sdata_in_TUSER">in, 1, axis, sdata_in_V_user_V, pointer</column>
+<column name="sdata_in_TLAST">in, 1, axis, sdata_in_V_last_V, pointer</column>
+<column name="sdata_in_TID">in, 1, axis, sdata_in_V_id_V, pointer</column>
+<column name="sdata_in_TDEST">in, 1, axis, sdata_in_V_dest_V, pointer</column>
+<column name="sdata_in_TVALID">in, 1, axis, sdata_in_V_dest_V, pointer</column>
+<column name="sdata_in_TREADY">out, 1, axis, sdata_in_V_dest_V, pointer</column>
+<column name="sdata_out_TDATA">out, 32, axis, sdata_out_V_data_V, pointer</column>
+<column name="sdata_out_TKEEP">out, 4, axis, sdata_out_V_keep_V, pointer</column>
+<column name="sdata_out_TSTRB">out, 4, axis, sdata_out_V_strb_V, pointer</column>
+<column name="sdata_out_TUSER">out, 1, axis, sdata_out_V_user_V, pointer</column>
+<column name="sdata_out_TLAST">out, 1, axis, sdata_out_V_last_V, pointer</column>
+<column name="sdata_out_TID">out, 1, axis, sdata_out_V_id_V, pointer</column>
+<column name="sdata_out_TDEST">out, 1, axis, sdata_out_V_dest_V, pointer</column>
+<column name="sdata_out_TVALID">out, 1, axis, sdata_out_V_dest_V, pointer</column>
+<column name="sdata_out_TREADY">in, 1, axis, sdata_out_V_dest_V, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_none, mnist, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_none, mnist, return value</column>
+</table>
+</item>
+</section>
+</profile>

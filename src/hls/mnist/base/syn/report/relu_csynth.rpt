@@ -1,0 +1,153 @@
+
+
+================================================================
+== Vivado HLS Report for 'relu'
+================================================================
+* Date:           Thu Apr  5 21:36:52 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist
+* Solution:       base
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.27|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  129|  129|  129|  129|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  128|  128|         1|          -|          -|   128|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     86|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|     75|
+|Register         |        -|      -|      12|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|      12|    161|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |ii_1_fu_84_p2                   |     +    |      0|  0|  15|           8|           1|
+    |ap_condition_81                 |    and   |      0|  0|   8|           1|           1|
+    |ap_predicate_op14_write_state2  |    and   |      0|  0|   8|           1|           1|
+    |ap_predicate_op16_write_state2  |    and   |      0|  0|   8|           1|           1|
+    |exitcond_fu_78_p2               |   icmp   |      0|  0|  13|           8|           9|
+    |tmp_fu_90_p2                    |   icmp   |      0|  0|  18|          32|           1|
+    |ap_block_state1                 |    or    |      0|  0|   8|           1|           1|
+    |ap_block_state2                 |    or    |      0|  0|   8|           1|           1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |Total                           |          |      0|  0|  86|          53|          16|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------+----+-----------+-----+-----------+
+    |        Name        | LUT| Input Size| Bits| Total Bits|
+    +--------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm           |  15|          3|    1|          3|
+    |ap_done             |   9|          2|    1|          2|
+    |data_in_V_V_blk_n   |   9|          2|    1|          2|
+    |data_out_V_V_blk_n  |   9|          2|    1|          2|
+    |data_out_V_V_din    |  15|          3|   32|         96|
+    |ii_reg_67           |   9|          2|    8|         16|
+    |real_start          |   9|          2|    1|          2|
+    +--------------------+----+-----------+-----+-----------+
+    |Total               |  75|         16|   45|        123|
+    +--------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  2|   0|    2|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |ii_reg_67       |  8|   0|    8|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           | 12|   0|   12|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  | Source Object|    C Type    |
++---------------------+-----+-----+------------+--------------+--------------+
+|ap_clk               |  in |    1| ap_ctrl_hs |     relu     | return value |
+|ap_rst               |  in |    1| ap_ctrl_hs |     relu     | return value |
+|ap_start             |  in |    1| ap_ctrl_hs |     relu     | return value |
+|start_full_n         |  in |    1| ap_ctrl_hs |     relu     | return value |
+|ap_done              | out |    1| ap_ctrl_hs |     relu     | return value |
+|ap_continue          |  in |    1| ap_ctrl_hs |     relu     | return value |
+|ap_idle              | out |    1| ap_ctrl_hs |     relu     | return value |
+|ap_ready             | out |    1| ap_ctrl_hs |     relu     | return value |
+|start_out            | out |    1| ap_ctrl_hs |     relu     | return value |
+|start_write          | out |    1| ap_ctrl_hs |     relu     | return value |
+|data_in_V_V_dout     |  in |   32|   ap_fifo  |  data_in_V_V |    pointer   |
+|data_in_V_V_empty_n  |  in |    1|   ap_fifo  |  data_in_V_V |    pointer   |
+|data_in_V_V_read     | out |    1|   ap_fifo  |  data_in_V_V |    pointer   |
+|data_out_V_V_din     | out |   32|   ap_fifo  | data_out_V_V |    pointer   |
+|data_out_V_V_full_n  |  in |    1|   ap_fifo  | data_out_V_V |    pointer   |
+|data_out_V_V_write   | out |    1|   ap_fifo  | data_out_V_V |    pointer   |
++---------------------+-----+-----+------------+--------------+--------------+
+

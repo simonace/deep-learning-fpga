@@ -1,10 +1,10 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'neural_network'" level="0">
-<item name = "Date">Wed Mar 28 21:05:08 2018
+<item name = "Date">Wed Apr  4 20:18:59 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
-<item name = "Project">neural_network</item>
+<item name = "Project">naive</item>
 <item name = "Solution">base</item>
 <item name = "Product family">zynq</item>
 <item name = "Target device">xc7z020clg400-1</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">839235, 839235, 839235, 839235, none</column>
+<column name="">930003, 930003, 930003, 930003, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -40,13 +40,12 @@
 <column name="- memcpy.bias_2.addr.mem.V">11, 11, 3, 1, 1, 10, yes</column>
 <column name="- InitL1">514, 514, 4, 1, 1, 512, yes</column>
 <column name="- InitL2">11, 11, 3, 1, 1, 10, yes</column>
-<column name="- Layer1">813792, 813792, 1038, -, -, 784, no</column>
+<column name="- Layer1">908656, 908656, 1159, -, -, 784, no</column>
 <column name=" + memcpy.weights_1.addr.mem.V">513, 513, 3, 1, 1, 512, yes</column>
-<column name=" + Layer1DotProduct">518, 518, 8, 1, 1, 512, yes</column>
+<column name=" + Layer1DotProduct">639, 639, 256, 128, 1, 4, yes</column>
 <column name="- ReLU">513, 513, 3, 1, 1, 512, yes</column>
-<column name="- Layer2">23040, 23040, 45, -, -, 512, no</column>
+<column name="- Layer2">18944, 18944, 37, -, -, 512, no</column>
 <column name=" + memcpy.weights_2.addr.mem.V">11, 11, 3, 1, 1, 10, yes</column>
-<column name=" + Layer2DotProduct">19, 19, 11, 1, 1, 10, yes</column>
 <column name="- memcpy.out.V.l2_result.V.addr.1">11, 11, 3, 1, 1, 10, yes</column>
 </table>
 </item>
