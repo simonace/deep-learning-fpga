@@ -1,0 +1,2089 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Apr  9 21:33:55 2018
+# Process ID: 21082
+# Current directory: /home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1
+# Command line: vivado -log base_mnist_edp_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_mnist_edp_0_0.tcl
+# Log file: /home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/base_mnist_edp_0_0.vds
+# Journal file: /home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source base_mnist_edp_0_0.tcl -notrace
+Command: synth_design -top base_mnist_edp_0_0 -part xc7z020clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 21135 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1268.578 ; gain = 85.996 ; free physical = 3667 ; free virtual = 9263
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'base_mnist_edp_0_0' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ip/base_mnist_edp_0_0/synth/base_mnist_edp_0_0.v:57]
+INFO: [Synth 8-638] synthesizing module 'mnist_edp' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp.v:12]
+INFO: [Synth 8-638] synthesizing module 'unpacker' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/unpacker.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 3'b001 
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 3'b010 
+	Parameter ap_ST_fsm_state4 bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/unpacker.v:70]
+INFO: [Synth 8-256] done synthesizing module 'unpacker' (1#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/unpacker.v:10]
+INFO: [Synth 8-638] synthesizing module 'linear_activation' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 7'b0000001 
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 7'b0000010 
+	Parameter ap_ST_fsm_pp0_stage1 bound to: 7'b0000100 
+	Parameter ap_ST_fsm_state7 bound to: 7'b0001000 
+	Parameter ap_ST_fsm_pp1_stage0 bound to: 7'b0010000 
+	Parameter ap_ST_fsm_pp1_stage1 bound to: 7'b0100000 
+	Parameter ap_ST_fsm_state14 bound to: 7'b1000000 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:63]
+INFO: [Synth 8-638] synthesizing module 'linear_activationcud' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:43]
+	Parameter DataWidth bound to: 1024 - type: integer 
+	Parameter AddressRange bound to: 784 - type: integer 
+	Parameter AddressWidth bound to: 10 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'linear_activationcud_rom' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:9]
+	Parameter DWIDTH bound to: 1024 - type: integer 
+	Parameter AWIDTH bound to: 10 - type: integer 
+	Parameter MEM_SIZE bound to: 784 - type: integer 
+INFO: [Synth 8-3876] $readmem data file './linear_activationcud_rom.dat' is read successfully [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:24]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationcud_rom' (2#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:9]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationcud' (3#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:43]
+INFO: [Synth 8-638] synthesizing module 'linear_activationdEe' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:43]
+	Parameter DataWidth bound to: 16 - type: integer 
+	Parameter AddressRange bound to: 64 - type: integer 
+	Parameter AddressWidth bound to: 6 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'linear_activationdEe_rom' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:9]
+	Parameter DWIDTH bound to: 16 - type: integer 
+	Parameter AWIDTH bound to: 6 - type: integer 
+	Parameter MEM_SIZE bound to: 64 - type: integer 
+INFO: [Synth 8-3876] $readmem data file './linear_activationdEe_rom.dat' is read successfully [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:24]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationdEe_rom' (4#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:9]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationdEe' (5#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:43]
+INFO: [Synth 8-638] synthesizing module 'get_result' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:10]
+	Parameter ap_const_lv64_FFFFFFFFFFFFFFFF bound to: 64'b1111111111111111111111111111111111111111111111111111111111111111 
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:201]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:227]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:229]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:231]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:237]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:241]
+INFO: [Synth 8-256] done synthesizing module 'get_result' (6#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v:10]
+INFO: [Synth 8-638] synthesizing module 'multiply_accumulate' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/multiply_accumulate.v:10]
+INFO: [Synth 8-638] synthesizing module 'mnist_edp_mul_mulbkb' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mul_mulbkb.v:14]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 11 - type: integer 
+	Parameter din1_WIDTH bound to: 11 - type: integer 
+	Parameter dout_WIDTH bound to: 22 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'mnist_edp_mul_mulbkb_DSP48_0' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mul_mulbkb.v:4]
+INFO: [Synth 8-256] done synthesizing module 'mnist_edp_mul_mulbkb_DSP48_0' (7#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mul_mulbkb.v:4]
+INFO: [Synth 8-256] done synthesizing module 'mnist_edp_mul_mulbkb' (8#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mul_mulbkb.v:14]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/multiply_accumulate.v:120]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/multiply_accumulate.v:132]
+INFO: [Synth 8-256] done synthesizing module 'multiply_accumulate' (9#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/multiply_accumulate.v:10]
+INFO: [Synth 8-638] synthesizing module 'mnist_edp_mux_646eOg' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mux_646eOg.v:11]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 80 - type: integer 
+	Parameter din1_WIDTH bound to: 80 - type: integer 
+	Parameter din2_WIDTH bound to: 80 - type: integer 
+	Parameter din3_WIDTH bound to: 80 - type: integer 
+	Parameter din4_WIDTH bound to: 80 - type: integer 
+	Parameter din5_WIDTH bound to: 80 - type: integer 
+	Parameter din6_WIDTH bound to: 80 - type: integer 
+	Parameter din7_WIDTH bound to: 80 - type: integer 
+	Parameter din8_WIDTH bound to: 80 - type: integer 
+	Parameter din9_WIDTH bound to: 80 - type: integer 
+	Parameter din10_WIDTH bound to: 80 - type: integer 
+	Parameter din11_WIDTH bound to: 80 - type: integer 
+	Parameter din12_WIDTH bound to: 80 - type: integer 
+	Parameter din13_WIDTH bound to: 80 - type: integer 
+	Parameter din14_WIDTH bound to: 80 - type: integer 
+	Parameter din15_WIDTH bound to: 80 - type: integer 
+	Parameter din16_WIDTH bound to: 80 - type: integer 
+	Parameter din17_WIDTH bound to: 80 - type: integer 
+	Parameter din18_WIDTH bound to: 80 - type: integer 
+	Parameter din19_WIDTH bound to: 80 - type: integer 
+	Parameter din20_WIDTH bound to: 80 - type: integer 
+	Parameter din21_WIDTH bound to: 80 - type: integer 
+	Parameter din22_WIDTH bound to: 80 - type: integer 
+	Parameter din23_WIDTH bound to: 80 - type: integer 
+	Parameter din24_WIDTH bound to: 80 - type: integer 
+	Parameter din25_WIDTH bound to: 80 - type: integer 
+	Parameter din26_WIDTH bound to: 80 - type: integer 
+	Parameter din27_WIDTH bound to: 80 - type: integer 
+	Parameter din28_WIDTH bound to: 80 - type: integer 
+	Parameter din29_WIDTH bound to: 80 - type: integer 
+	Parameter din30_WIDTH bound to: 80 - type: integer 
+	Parameter din31_WIDTH bound to: 80 - type: integer 
+	Parameter din32_WIDTH bound to: 80 - type: integer 
+	Parameter din33_WIDTH bound to: 80 - type: integer 
+	Parameter din34_WIDTH bound to: 80 - type: integer 
+	Parameter din35_WIDTH bound to: 80 - type: integer 
+	Parameter din36_WIDTH bound to: 80 - type: integer 
+	Parameter din37_WIDTH bound to: 80 - type: integer 
+	Parameter din38_WIDTH bound to: 80 - type: integer 
+	Parameter din39_WIDTH bound to: 80 - type: integer 
+	Parameter din40_WIDTH bound to: 80 - type: integer 
+	Parameter din41_WIDTH bound to: 80 - type: integer 
+	Parameter din42_WIDTH bound to: 80 - type: integer 
+	Parameter din43_WIDTH bound to: 80 - type: integer 
+	Parameter din44_WIDTH bound to: 80 - type: integer 
+	Parameter din45_WIDTH bound to: 80 - type: integer 
+	Parameter din46_WIDTH bound to: 80 - type: integer 
+	Parameter din47_WIDTH bound to: 80 - type: integer 
+	Parameter din48_WIDTH bound to: 80 - type: integer 
+	Parameter din49_WIDTH bound to: 80 - type: integer 
+	Parameter din50_WIDTH bound to: 80 - type: integer 
+	Parameter din51_WIDTH bound to: 80 - type: integer 
+	Parameter din52_WIDTH bound to: 80 - type: integer 
+	Parameter din53_WIDTH bound to: 80 - type: integer 
+	Parameter din54_WIDTH bound to: 80 - type: integer 
+	Parameter din55_WIDTH bound to: 80 - type: integer 
+	Parameter din56_WIDTH bound to: 80 - type: integer 
+	Parameter din57_WIDTH bound to: 80 - type: integer 
+	Parameter din58_WIDTH bound to: 80 - type: integer 
+	Parameter din59_WIDTH bound to: 80 - type: integer 
+	Parameter din60_WIDTH bound to: 80 - type: integer 
+	Parameter din61_WIDTH bound to: 80 - type: integer 
+	Parameter din62_WIDTH bound to: 80 - type: integer 
+	Parameter din63_WIDTH bound to: 80 - type: integer 
+	Parameter din64_WIDTH bound to: 6 - type: integer 
+	Parameter dout_WIDTH bound to: 80 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mnist_edp_mux_646eOg' (10#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mux_646eOg.v:11]
+INFO: [Synth 8-256] done synthesizing module 'linear_activation' (11#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:10]
+INFO: [Synth 8-638] synthesizing module 'relu' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/relu.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 2'b01 
+	Parameter ap_ST_fsm_state2 bound to: 2'b10 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/relu.v:59]
+INFO: [Synth 8-256] done synthesizing module 'relu' (12#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/relu.v:10]
+INFO: [Synth 8-638] synthesizing module 'linear_activation_1' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 6'b000001 
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 6'b000010 
+	Parameter ap_ST_fsm_pp0_stage1 bound to: 6'b000100 
+	Parameter ap_ST_fsm_state7 bound to: 6'b001000 
+	Parameter ap_ST_fsm_pp1_stage0 bound to: 6'b010000 
+	Parameter ap_ST_fsm_state14 bound to: 6'b100000 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:62]
+INFO: [Synth 8-638] synthesizing module 'linear_activationfYi' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:43]
+	Parameter DataWidth bound to: 160 - type: integer 
+	Parameter AddressRange bound to: 64 - type: integer 
+	Parameter AddressWidth bound to: 6 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'linear_activationfYi_rom' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:9]
+	Parameter DWIDTH bound to: 160 - type: integer 
+	Parameter AWIDTH bound to: 6 - type: integer 
+	Parameter MEM_SIZE bound to: 64 - type: integer 
+INFO: [Synth 8-3876] $readmem data file './linear_activationfYi_rom.dat' is read successfully [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:24]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationfYi_rom' (13#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:9]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationfYi' (14#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:43]
+INFO: [Synth 8-638] synthesizing module 'linear_activationg8j' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v:43]
+	Parameter DataWidth bound to: 16 - type: integer 
+	Parameter AddressRange bound to: 10 - type: integer 
+	Parameter AddressWidth bound to: 4 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'linear_activationg8j_rom' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v:9]
+	Parameter DWIDTH bound to: 16 - type: integer 
+	Parameter AWIDTH bound to: 4 - type: integer 
+	Parameter MEM_SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v:21]
+INFO: [Synth 8-3876] $readmem data file './linear_activationg8j_rom.dat' is read successfully [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v:24]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationg8j_rom' (15#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v:9]
+INFO: [Synth 8-256] done synthesizing module 'linear_activationg8j' (16#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v:43]
+INFO: [Synth 8-638] synthesizing module 'mnist_edp_mux_104hbi' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mux_104hbi.v:11]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 80 - type: integer 
+	Parameter din1_WIDTH bound to: 80 - type: integer 
+	Parameter din2_WIDTH bound to: 80 - type: integer 
+	Parameter din3_WIDTH bound to: 80 - type: integer 
+	Parameter din4_WIDTH bound to: 80 - type: integer 
+	Parameter din5_WIDTH bound to: 80 - type: integer 
+	Parameter din6_WIDTH bound to: 80 - type: integer 
+	Parameter din7_WIDTH bound to: 80 - type: integer 
+	Parameter din8_WIDTH bound to: 80 - type: integer 
+	Parameter din9_WIDTH bound to: 80 - type: integer 
+	Parameter din10_WIDTH bound to: 4 - type: integer 
+	Parameter dout_WIDTH bound to: 80 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'mnist_edp_mux_104hbi' (17#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mux_104hbi.v:11]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1272]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1274]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1276]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1278]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1280]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1282]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1284]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1286]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1288]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1290]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1292]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1390]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1392]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1394]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1396]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1398]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1400]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1402]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1404]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1406]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1408]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1410]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1412]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:1414]
+INFO: [Synth 8-256] done synthesizing module 'linear_activation_1' (18#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:10]
+INFO: [Synth 8-638] synthesizing module 'packer' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:10]
+	Parameter ap_ST_fsm_state1 bound to: 3'b001 
+	Parameter ap_ST_fsm_pp0_stage0 bound to: 3'b010 
+	Parameter ap_ST_fsm_state5 bound to: 3'b100 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:62]
+INFO: [Synth 8-638] synthesizing module 'packer_packet_useibs' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v:43]
+	Parameter DataWidth bound to: 1 - type: integer 
+	Parameter AddressRange bound to: 10 - type: integer 
+	Parameter AddressWidth bound to: 4 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'packer_packet_useibs_rom' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v:9]
+	Parameter DWIDTH bound to: 1 - type: integer 
+	Parameter AWIDTH bound to: 4 - type: integer 
+	Parameter MEM_SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "distributed" *) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v:21]
+INFO: [Synth 8-3876] $readmem data file './packer_packet_useibs_rom.dat' is read successfully [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v:24]
+INFO: [Synth 8-256] done synthesizing module 'packer_packet_useibs_rom' (19#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v:9]
+INFO: [Synth 8-256] done synthesizing module 'packer_packet_useibs' (20#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v:43]
+WARNING: [Synth 8-6014] Unused sequential element stream_out_V_keep_V_1_sel_rd_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:422]
+WARNING: [Synth 8-6014] Unused sequential element stream_out_V_strb_V_1_sel_rd_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:484]
+INFO: [Synth 8-256] done synthesizing module 'packer' (21#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:10]
+INFO: [Synth 8-638] synthesizing module 'fifo_w16_d1_A' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/fifo_w16_d1_A.v:45]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'fifo_w16_d1_A_shiftReg' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/fifo_w16_d1_A.v:11]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'fifo_w16_d1_A_shiftReg' (22#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/fifo_w16_d1_A.v:11]
+INFO: [Synth 8-256] done synthesizing module 'fifo_w16_d1_A' (23#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/fifo_w16_d1_A.v:45]
+INFO: [Synth 8-638] synthesizing module 'start_for_linear_kbM' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_kbM.v:45]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'start_for_linear_kbM_shiftReg' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_kbM.v:11]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'start_for_linear_kbM_shiftReg' (24#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_kbM.v:11]
+INFO: [Synth 8-256] done synthesizing module 'start_for_linear_kbM' (25#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_kbM.v:45]
+INFO: [Synth 8-638] synthesizing module 'start_for_relu_U0' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_relu_U0.v:45]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'start_for_relu_U0_shiftReg' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_relu_U0.v:11]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'start_for_relu_U0_shiftReg' (26#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_relu_U0.v:11]
+INFO: [Synth 8-256] done synthesizing module 'start_for_relu_U0' (27#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_relu_U0.v:45]
+INFO: [Synth 8-638] synthesizing module 'start_for_linear_lbW' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_lbW.v:45]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'start_for_linear_lbW_shiftReg' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_lbW.v:11]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'start_for_linear_lbW_shiftReg' (28#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_lbW.v:11]
+INFO: [Synth 8-256] done synthesizing module 'start_for_linear_lbW' (29#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_lbW.v:45]
+INFO: [Synth 8-638] synthesizing module 'start_for_packer_U0' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_packer_U0.v:45]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'start_for_packer_U0_shiftReg' [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_packer_U0.v:11]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'start_for_packer_U0_shiftReg' (30#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_packer_U0.v:11]
+INFO: [Synth 8-256] done synthesizing module 'start_for_packer_U0' (31#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_packer_U0.v:45]
+INFO: [Synth 8-256] done synthesizing module 'mnist_edp' (32#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp.v:12]
+INFO: [Synth 8-256] done synthesizing module 'base_mnist_edp_0_0' (33#1) [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ip/base_mnist_edp_0_0/synth/base_mnist_edp_0_0.v:57]
+WARNING: [Synth 8-3331] design packer_packet_useibs has unconnected port reset
+WARNING: [Synth 8-3331] design multiply_accumulate has unconnected port ap_rst
+WARNING: [Synth 8-3331] design get_result has unconnected port ap_rst
+WARNING: [Synth 8-3331] design linear_activationg8j has unconnected port reset
+WARNING: [Synth 8-3331] design linear_activationfYi has unconnected port reset
+WARNING: [Synth 8-3331] design linear_activationdEe has unconnected port reset
+WARNING: [Synth 8-3331] design linear_activationcud has unconnected port reset
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TKEEP[1]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TKEEP[0]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TSTRB[1]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TSTRB[0]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TUSER[0]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TLAST[0]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TID[0]
+WARNING: [Synth 8-3331] design unpacker has unconnected port sdata_in_TDEST[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1356.125 ; gain = 173.543 ; free physical = 3635 ; free virtual = 9233
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1356.125 ; gain = 173.543 ; free physical = 3644 ; free virtual = 9242
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ip/base_mnist_edp_0_0/constraints/mnist_edp_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ip/base_mnist_edp_0_0/constraints/mnist_edp_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.62 ; elapsed = 00:00:00.21 . Memory (MB): peak = 1751.289 ; gain = 6.000 ; free physical = 3292 ; free virtual = 8891
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1751.289 ; gain = 568.707 ; free physical = 3456 ; free virtual = 9042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1751.289 ; gain = 568.707 ; free physical = 3456 ; free virtual = 9042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  /home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1751.289 ; gain = 568.707 ; free physical = 3458 ; free virtual = 9044
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "exitcond_fu_108_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element i_reg_97_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/unpacker.v:237]
+WARNING: [Synth 8-6014] Unused sequential element q0_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:33]
+WARNING: [Synth 8-6014] Unused sequential element q0_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:33]
+INFO: [Synth 8-5546] ROM "tmp_10_fu_206_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "tmp_28_fu_118_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "tmp_31_fu_148_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "tmp_10_fu_206_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "tmp_28_fu_118_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "tmp_31_fu_148_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "exitcond2_fu_1856_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond_fu_2827_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element ii_2_reg_3498_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:2243]
+WARNING: [Synth 8-6014] Unused sequential element ires_1_reg_4631_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:2249]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "exitcond_fu_84_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element ii_reg_73_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/relu.v:117]
+WARNING: [Synth 8-6014] Unused sequential element q0_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:33]
+INFO: [Synth 8-5542] Attribute ram_style/rom_style = distributed specified for ROM  "ram". This will be implemented in logic
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5546] ROM "exitcond5_fu_492_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "exitcond_fu_603_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp7_fu_695_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp5_fu_689_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp3_fu_683_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_677_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_671_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp6_fu_665_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_659_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_653_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp_fu_647_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element ii_2_reg_939_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:740]
+WARNING: [Synth 8-6014] Unused sequential element ires_1_reg_1057_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:746]
+INFO: [Synth 8-5546] ROM "exitcond5_fu_492_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "exitcond_fu_603_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp7_fu_695_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp5_fu_689_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp3_fu_683_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_677_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_671_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp6_fu_665_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_659_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_653_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp_fu_647_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5542] Attribute ram_style/rom_style = distributed specified for ROM  "ram". This will be implemented in logic
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5544] ROM "exitcond_fu_173_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "tmp_last_V_fu_192_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element i_reg_162_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:546]
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "internal_empty_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:42 . Memory (MB): peak = 1751.289 ; gain = 568.707 ; free physical = 3439 ; free virtual = 9025
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'inst/packer_U0/packet_user_V_U' (packer_packet_useibs) to 'inst/packer_U0/packet_id_V_U'
+INFO: [Synth 8-223] decloning instance 'inst/packer_U0/packet_user_V_U' (packer_packet_useibs) to 'inst/packer_U0/packet_dest_V_U'
+
+Report RTL Partitions: 
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |linear_activation__GB0 |           1|     31760|
+|2     |linear_activation__GB1 |           1|     26457|
+|3     |linear_activation__GB2 |           1|     18720|
+|4     |linear_activation__GB3 |           1|     18755|
+|5     |mnist_edp__GC0         |           1|     22170|
++------+-----------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 37    
+	   2 Input     23 Bit       Adders := 37    
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 18    
+	   2 Input      8 Bit       Adders := 4     
+	   2 Input      7 Bit       Adders := 79    
+	   2 Input      6 Bit       Adders := 37    
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 8     
++---XORs : 
+	   2 Input     80 Bit         XORs := 2     
+	   2 Input      5 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 76    
++---Registers : 
+	             1024 Bit    Registers := 1     
+	              160 Bit    Registers := 1     
+	               80 Bit    Registers := 224   
+	               23 Bit    Registers := 37    
+	               16 Bit    Registers := 92    
+	               10 Bit    Registers := 3     
+	                7 Bit    Registers := 6     
+	                6 Bit    Registers := 40    
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 18    
+	                1 Bit    Registers := 134   
++---ROMs : 
+	                              ROMs := 3     
++---Muxes : 
+	   2 Input     80 Bit        Muxes := 290   
+	   4 Input     80 Bit        Muxes := 1     
+	   2 Input     73 Bit        Muxes := 37    
+	   2 Input     23 Bit        Muxes := 37    
+	   2 Input     16 Bit        Muxes := 50    
+	   2 Input     10 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 7     
+	   3 Input      7 Bit        Muxes := 2     
+	  64 Input      7 Bit        Muxes := 4     
+	  66 Input      7 Bit        Muxes := 4     
+	   3 Input      6 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 31    
+	   4 Input      2 Bit        Muxes := 3     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 182   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module multiply_accumulate__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__5 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__6 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__7 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__8 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__9 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__10 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__11 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__12 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module mnist_edp_mux_646eOg 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     80 Bit        Muxes := 63    
+Module multiply_accumulate__13 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__14 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__15 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__16 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module get_result__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 9     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---XORs : 
+	   2 Input     80 Bit         XORs := 1     
+	   2 Input      5 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 19    
++---Registers : 
+	               80 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 22    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	  64 Input      7 Bit        Muxes := 2     
+	  66 Input      7 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+Module linear_activationdEe_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module linear_activationcud_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	             1024 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module multiply_accumulate__17 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__18 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__19 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__20 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__21 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__22 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__23 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__24 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__25 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__26 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__27 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__28 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__29 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__30 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__31 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__32 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module linear_activation 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	               80 Bit    Registers := 160   
+	               16 Bit    Registers := 66    
+	               10 Bit    Registers := 2     
+	                7 Bit    Registers := 3     
+	                6 Bit    Registers := 2     
+	                1 Bit    Registers := 13    
++---Muxes : 
+	   2 Input     80 Bit        Muxes := 161   
+	   2 Input     16 Bit        Muxes := 34    
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 5     
+	   3 Input      7 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 76    
+Module unpacker 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 10    
+Module relu 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	                7 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module linear_activationfYi_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	              160 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module linear_activationg8j_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+Module get_result 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 9     
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---XORs : 
+	   2 Input     80 Bit         XORs := 1     
+	   2 Input      5 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 19    
++---Registers : 
+	               80 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 22    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	  64 Input      7 Bit        Muxes := 2     
+	  66 Input      7 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+Module multiply_accumulate__33 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__34 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__35 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate__36 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module multiply_accumulate 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     80 Bit       Adders := 1     
+	   2 Input     23 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               80 Bit    Registers := 1     
+	               23 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     73 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+Module mnist_edp_mux_104hbi 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     80 Bit        Muxes := 9     
+Module linear_activation_1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               80 Bit    Registers := 25    
+	               16 Bit    Registers := 12    
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 4     
+	                1 Bit    Registers := 18    
++---Muxes : 
+	   2 Input     80 Bit        Muxes := 57    
+	   4 Input     80 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 7     
+	   2 Input      7 Bit        Muxes := 2     
+	   3 Input      6 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 36    
+Module packer_packet_useibs_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module packer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 7     
+	                1 Bit    Registers := 25    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 26    
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 18    
+Module fifo_w16_d1_A_shiftReg__1 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module fifo_w16_d1_A__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module fifo_w16_d1_A_shiftReg__2 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module fifo_w16_d1_A__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module fifo_w16_d1_A_shiftReg__3 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module fifo_w16_d1_A__3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module fifo_w16_d1_A_shiftReg 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 1     
+Module fifo_w16_d1_A 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module start_for_linear_kbM_shiftReg 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module start_for_linear_kbM 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module start_for_relu_U0_shiftReg 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module start_for_relu_U0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module start_for_linear_lbW_shiftReg 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module start_for_linear_lbW 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+Module start_for_packer_U0_shiftReg 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module start_for_packer_U0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 4 processes.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+WARNING: [Synth 8-3331] design multiply_accumulate__12 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__11 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__10 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__9 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__8 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__7 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__6 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__5 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__4 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__3 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__2 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__1 has unconnected port ap_rst
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+INFO: [Synth 8-5545] ROM "tmp_28_fu_118_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "tmp_10_fu_206_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "tmp_31_fu_148_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "exitcond_fu_2827_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exitcond2_fu_1856_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element L1_BIAS_V_U/linear_activationdEe_rom_U/q0_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v:33]
+WARNING: [Synth 8-6014] Unused sequential element L1_WEIGHTS_V_U/linear_activationcud_rom_U/q0_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v:33]
+WARNING: [Synth 8-6014] Unused sequential element ires_1_reg_4631_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:2249]
+WARNING: [Synth 8-6014] Unused sequential element ii_2_reg_3498_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v:2243]
+WARNING: [Synth 8-3331] design get_result__1 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__16 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__15 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__14 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__13 has unconnected port ap_rst
+INFO: [Synth 8-3886] merging instance 'grp_get_result_fu_1555/CompleteRegister_m_c_reg_853_reg[79]' (FDE) to 'grp_get_result_fu_1555/tmp_reg_858_reg[0]'
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[78]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[77]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[76]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[75]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[74]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[73]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[72]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[71]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[70]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[69]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[68]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[67]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[66]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[65]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[64]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[63]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[62]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[61]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[60]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[59]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[58]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[57]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[56]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[55]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[54]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[53]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[52]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[51]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[50]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[49]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[48]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[47]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[46]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[45]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[44]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[43]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[42]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[41]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[40]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[39]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[38]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[37]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[36]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[35]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[34]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[33]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[32]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[31]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[30]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[29]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[28]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[27]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[26]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[25]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[24]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[23]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[22]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[21]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[20]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[19]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[18]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[17]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[16]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[15]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[14]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[13]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[12]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[11]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[10]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[9]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[8]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[7]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[6]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[5]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[4]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[3]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[2]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[1]) is unused and will be removed from module get_result__1.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[0]) is unused and will be removed from module get_result__1.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+WARNING: [Synth 8-3331] design multiply_accumulate__24 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__23 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__22 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__21 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__20 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__19 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__18 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__17 has unconnected port ap_rst
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+WARNING: [Synth 8-3331] design multiply_accumulate__32 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__31 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__30 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__29 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__28 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__27 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__26 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__25 has unconnected port ap_rst
+INFO: [Synth 8-5545] ROM "tmp_28_fu_118_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "tmp_10_fu_206_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "tmp_31_fu_148_p2" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+DSP Report: Generating DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00, operation Mode is: A*B.
+DSP Report: operator mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00 is absorbed into DSP mnist_edp_mul_mulbkb_U9/mnist_edp_mul_mulbkb_DSP48_0_U/in00.
+INFO: [Synth 8-5544] ROM "sel_tmp7_fu_695_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp5_fu_689_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp1_fu_677_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp3_fu_683_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp6_fu_665_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp8_fu_671_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp2_fu_653_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sel_tmp4_fu_659_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "exitcond5_fu_492_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element L2_WEIGHTS_V_U/linear_activationfYi_rom_U/q0_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v:33]
+WARNING: [Synth 8-6014] Unused sequential element ii_2_reg_939_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:740]
+WARNING: [Synth 8-6014] Unused sequential element ires_1_reg_1057_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v:746]
+INFO: [Synth 8-5546] ROM "unpacker_U0/exitcond_fu_108_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "relu_U0/exitcond_fu_84_p2" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element unpacker_U0/i_reg_97_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/unpacker.v:237]
+WARNING: [Synth 8-6014] Unused sequential element relu_U0/ii_reg_73_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/relu.v:117]
+WARNING: [Synth 8-6014] Unused sequential element packer_U0/i_reg_162_reg was removed.  [/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v:546]
+WARNING: [Synth 8-3917] design mnist_edp__GC0 has port sdata_out_TKEEP[1] driven by constant 1
+WARNING: [Synth 8-3917] design mnist_edp__GC0 has port sdata_out_TKEEP[0] driven by constant 1
+WARNING: [Synth 8-3917] design mnist_edp__GC0 has port sdata_out_TSTRB[1] driven by constant 1
+WARNING: [Synth 8-3917] design mnist_edp__GC0 has port sdata_out_TSTRB[0] driven by constant 1
+WARNING: [Synth 8-3331] design multiply_accumulate has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__36 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__35 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__34 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design multiply_accumulate__33 has unconnected port ap_rst
+WARNING: [Synth 8-3331] design get_result has unconnected port ap_rst
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (linear_activation_1_U0/\L2_BIAS_V_U/linear_activationg8j_rom_U/q0_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (linear_activation_1_U0/ap_done_reg_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\relu_U0/ap_done_reg_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/ap_done_reg_reg )
+INFO: [Synth 8-3886] merging instance 'linear_activation_1_U0/grp_get_result_fu_434/CompleteRegister_m_c_reg_853_reg[79]' (FDE) to 'linear_activation_1_U0/grp_get_result_fu_434/tmp_reg_858_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\unpacker_U0/ap_done_reg_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/packet_user_V_U/packer_packet_useibs_rom_U/q0_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (linear_activation_1_U0/\L2_BIAS_V_load_reg_1067_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/stream_out_V_dest_V_1_payload_B_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/stream_out_V_dest_V_1_payload_A_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/stream_out_V_id_V_1_payload_B_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/stream_out_V_id_V_1_payload_A_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/stream_out_V_user_V_1_payload_B_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\packer_U0/stream_out_V_user_V_1_payload_A_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[78]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[77]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[76]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[75]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[74]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[73]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[72]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[71]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[70]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[69]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[68]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[67]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[66]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[65]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[64]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[63]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[62]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[61]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[60]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[59]) is unused and will be removed from module get_result.
+WARNING: [Synth 8-3332] Sequential element (CompleteRegister_m_c_reg_853_reg[58]) is unused and will be removed from module get_result.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:02:17 . Memory (MB): peak = 1771.289 ; gain = 588.707 ; free physical = 1271 ; free virtual = 6860
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------------------+------------+---------------+----------------+
+|Module Name              | RTL Object | Depth x Width | Implemented As | 
++-------------------------+------------+---------------+----------------+
+|linear_activationcud_rom | q0_reg     | 1024x1024     | Block RAM      | 
+|linear_activationdEe_rom | q0_reg     | 64x16         | Block RAM      | 
+|linear_activationfYi_rom | q0_reg     | 64x160        | Block RAM      | 
+|linear_activationg8j_rom | p_0_out    | 16x16         | LUT            | 
+|packer_packet_useibs_rom | p_0_out    | 16x1          | LUT            | 
++-------------------------+------------+---------------+----------------+
+
+
+DSP: Preliminary Mapping  Report (see note below)
++-----------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                  | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mnist_edp_mul_mulbkb_DSP48_0 | A*B         | 11     | 11     | -      | -      | 22     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-----------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |linear_activation__GB0 |           1|     21820|
+|2     |linear_activation__GB1 |           1|     19865|
+|3     |linear_activation__GB2 |           1|      9640|
+|4     |linear_activation__GB3 |           1|      9677|
+|5     |mnist_edp__GC0         |           1|     16519|
++------+-----------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:02:28 . Memory (MB): peak = 1976.641 ; gain = 794.059 ; free physical = 1040 ; free virtual = 6620
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/linear_activation_U0i_3_3/ap_done_reg_reg)
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:58 ; elapsed = 00:03:29 . Memory (MB): peak = 2250.047 ; gain = 1067.465 ; free physical = 1018 ; free virtual = 6600
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |linear_activation__GB2 |           1|      9640|
+|2     |mnist_edp__GC0         |           1|     16419|
+|3     |mnist_edp_GT1          |           1|      9680|
+|4     |mnist_edp_GT3          |           1|       160|
+|5     |mnist_edp_GT5          |           1|        80|
+|6     |mnist_edp_GT6          |           1|        80|
+|7     |mnist_edp_GT8          |           1|     13754|
+|8     |mnist_edp_GT0          |           1|     27601|
++------+-----------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/i_3_4/\linear_activation_1_U0/tmp_V_1_reg_949_reg[15] )
+INFO: [Synth 8-4480] The timing for the instance inst/linear_activation_U0i_0/linear_activation_U0/L1_WEIGHTS_V_U/linear_activationcud_rom_U/q0_reg_15 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:18 ; elapsed = 00:03:58 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 436 ; free virtual = 6021
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+---------------+------------+----------+
+|      |RTL Partition  |Replication |Instances |
++------+---------------+------------+----------+
+|1     |mnist_edp__GC0 |           1|      7204|
+|2     |mnist_edp_GT8  |           1|      6306|
+|3     |mnist_edp_GT0  |           1|     18772|
++------+---------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:22 ; elapsed = 00:04:02 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 517 ; free virtual = 6102
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:22 ; elapsed = 00:04:02 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 519 ; free virtual = 6104
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:28 ; elapsed = 00:04:07 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 502 ; free virtual = 6087
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:28 ; elapsed = 00:04:07 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 502 ; free virtual = 6087
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:30 ; elapsed = 00:04:10 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 506 ; free virtual = 6091
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:30 ; elapsed = 00:04:10 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 506 ; free virtual = 6091
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------------+------+
+|      |Cell        |Count |
++------+------------+------+
+|1     |CARRY4      |   970|
+|2     |DSP48E1     |    37|
+|3     |LUT1        |   891|
+|4     |LUT2        |   864|
+|5     |LUT3        |  6428|
+|6     |LUT4        |  1303|
+|7     |LUT5        |  5402|
+|8     |LUT6        |  7305|
+|9     |MUXF7       |   828|
+|10    |MUXF8       |   400|
+|11    |RAMB18E1_10 |     1|
+|12    |RAMB18E1_11 |     1|
+|13    |RAMB18E1_12 |     1|
+|14    |RAMB18E1_13 |     1|
+|15    |RAMB18E1_7  |     1|
+|16    |RAMB18E1_8  |     1|
+|17    |RAMB18E1_9  |     1|
+|18    |RAMB36E1_28 |     1|
+|19    |RAMB36E1_29 |     1|
+|20    |RAMB36E1_30 |     1|
+|21    |RAMB36E1_31 |     1|
+|22    |RAMB36E1_32 |     1|
+|23    |RAMB36E1_33 |     1|
+|24    |RAMB36E1_34 |     1|
+|25    |RAMB36E1_35 |     1|
+|26    |RAMB36E1_36 |     1|
+|27    |RAMB36E1_37 |     1|
+|28    |RAMB36E1_38 |     1|
+|29    |RAMB36E1_39 |     1|
+|30    |RAMB36E1_40 |     1|
+|31    |RAMB36E1_41 |     1|
+|32    |RAMB36E1_42 |     1|
+|33    |RAMB36E1_43 |     1|
+|34    |RAMB36E1_44 |     1|
+|35    |RAMB36E1_45 |     1|
+|36    |RAMB36E1_46 |     1|
+|37    |RAMB36E1_47 |     1|
+|38    |RAMB36E1_48 |     1|
+|39    |RAMB36E1_49 |     1|
+|40    |RAMB36E1_50 |     1|
+|41    |RAMB36E1_51 |     1|
+|42    |RAMB36E1_52 |     1|
+|43    |RAMB36E1_53 |     1|
+|44    |RAMB36E1_54 |     1|
+|45    |RAMB36E1_55 |     1|
+|46    |FDRE        | 19353|
+|47    |FDSE        |    37|
++------+------------+------+
+
+Report Instance Areas: 
++------+-----------------------------------------+---------------------------------+------+
+|      |Instance                                 |Module                           |Cells |
++------+-----------------------------------------+---------------------------------+------+
+|1     |top                                      |                                 | 43853|
+|2     |  inst                                   |mnist_edp                        | 43853|
+|3     |    data_in_V_V_U                        |fifo_w16_d1_A                    |    62|
+|4     |      U_fifo_w16_d1_A_ram                |fifo_w16_d1_A_shiftReg_114       |    53|
+|5     |    data_out_V_V_U                       |fifo_w16_d1_A_0                  |    56|
+|6     |      U_fifo_w16_d1_A_ram                |fifo_w16_d1_A_shiftReg_113       |    48|
+|7     |    l1_relu_V_V_U                        |fifo_w16_d1_A_1                  |    53|
+|8     |      U_fifo_w16_d1_A_ram                |fifo_w16_d1_A_shiftReg_112       |    45|
+|9     |    l1_result_V_V_U                      |fifo_w16_d1_A_2                  |    57|
+|10    |      U_fifo_w16_d1_A_ram                |fifo_w16_d1_A_shiftReg           |    49|
+|11    |    linear_activation_1_U0               |linear_activation_1              |  6695|
+|12    |      L2_BIAS_V_U                        |linear_activationg8j             |    21|
+|13    |        linear_activationg8j_rom_U       |linear_activationg8j_rom         |    21|
+|14    |      L2_WEIGHTS_V_U                     |linear_activationfYi             |   197|
+|15    |        linear_activationfYi_rom_U       |linear_activationfYi_rom         |   197|
+|16    |      grp_get_result_fu_434              |get_result_96                    |   545|
+|17    |      grp_multiply_accumulate_fu_440     |multiply_accumulate_97           |   569|
+|18    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_110         |    63|
+|19    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_111 |    63|
+|20    |      grp_multiply_accumulate_fu_448     |multiply_accumulate_98           |   431|
+|21    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_108         |    31|
+|22    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_109 |    31|
+|23    |      grp_multiply_accumulate_fu_456     |multiply_accumulate_99           |   431|
+|24    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_106         |    31|
+|25    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_107 |    31|
+|26    |      grp_multiply_accumulate_fu_464     |multiply_accumulate_100          |   431|
+|27    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_104         |    31|
+|28    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_105 |    31|
+|29    |      grp_multiply_accumulate_fu_472     |multiply_accumulate_101          |   433|
+|30    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_102         |    31|
+|31    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_103 |    31|
+|32    |      mnist_edp_mux_104hbi_U23           |mnist_edp_mux_104hbi             |   640|
+|33    |    linear_activation_U0                 |linear_activation                | 36627|
+|34    |      L1_BIAS_V_U                        |linear_activationdEe             |    24|
+|35    |        linear_activationdEe_rom_U       |linear_activationdEe_rom         |    24|
+|36    |      L1_WEIGHTS_V_U                     |linear_activationcud             |   874|
+|37    |        linear_activationcud_rom_U       |linear_activationcud_rom         |   874|
+|38    |      grp_get_result_fu_1555             |get_result                       |   545|
+|39    |      grp_multiply_accumulate_fu_1561    |multiply_accumulate              |  2384|
+|40    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_94          |    52|
+|41    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_95  |    52|
+|42    |      grp_multiply_accumulate_fu_1569    |multiply_accumulate_3            |   542|
+|43    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_92          |    52|
+|44    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_93  |    52|
+|45    |      grp_multiply_accumulate_fu_1577    |multiply_accumulate_4            |   541|
+|46    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_90          |    52|
+|47    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_91  |    52|
+|48    |      grp_multiply_accumulate_fu_1585    |multiply_accumulate_5            |   461|
+|49    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_88          |    52|
+|50    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_89  |    52|
+|51    |      grp_multiply_accumulate_fu_1593    |multiply_accumulate_6            |   461|
+|52    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_86          |    52|
+|53    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_87  |    52|
+|54    |      grp_multiply_accumulate_fu_1601    |multiply_accumulate_7            |   462|
+|55    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_84          |    52|
+|56    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_85  |    52|
+|57    |      grp_multiply_accumulate_fu_1609    |multiply_accumulate_8            |   461|
+|58    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_82          |    52|
+|59    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_83  |    52|
+|60    |      grp_multiply_accumulate_fu_1617    |multiply_accumulate_9            |   461|
+|61    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_80          |    52|
+|62    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_81  |    52|
+|63    |      grp_multiply_accumulate_fu_1625    |multiply_accumulate_10           |   440|
+|64    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_78          |    31|
+|65    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_79  |    31|
+|66    |      grp_multiply_accumulate_fu_1633    |multiply_accumulate_11           |   438|
+|67    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_76          |    31|
+|68    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_77  |    31|
+|69    |      grp_multiply_accumulate_fu_1641    |multiply_accumulate_12           |   438|
+|70    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_74          |    31|
+|71    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_75  |    31|
+|72    |      grp_multiply_accumulate_fu_1649    |multiply_accumulate_13           |   438|
+|73    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_72          |    31|
+|74    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_73  |    31|
+|75    |      grp_multiply_accumulate_fu_1657    |multiply_accumulate_14           |   461|
+|76    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_70          |    52|
+|77    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_71  |    52|
+|78    |      grp_multiply_accumulate_fu_1665    |multiply_accumulate_15           |   461|
+|79    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_68          |    52|
+|80    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_69  |    52|
+|81    |      grp_multiply_accumulate_fu_1673    |multiply_accumulate_16           |   461|
+|82    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_66          |    52|
+|83    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_67  |    52|
+|84    |      grp_multiply_accumulate_fu_1681    |multiply_accumulate_17           |   438|
+|85    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_64          |    31|
+|86    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_65  |    31|
+|87    |      grp_multiply_accumulate_fu_1689    |multiply_accumulate_18           |   438|
+|88    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_62          |    31|
+|89    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_63  |    31|
+|90    |      grp_multiply_accumulate_fu_1697    |multiply_accumulate_19           |   438|
+|91    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_60          |    31|
+|92    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_61  |    31|
+|93    |      grp_multiply_accumulate_fu_1705    |multiply_accumulate_20           |   461|
+|94    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_58          |    52|
+|95    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_59  |    52|
+|96    |      grp_multiply_accumulate_fu_1713    |multiply_accumulate_21           |   438|
+|97    |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_56          |    31|
+|98    |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_57  |    31|
+|99    |      grp_multiply_accumulate_fu_1721    |multiply_accumulate_22           |   462|
+|100   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_54          |    52|
+|101   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_55  |    52|
+|102   |      grp_multiply_accumulate_fu_1729    |multiply_accumulate_23           |   438|
+|103   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_52          |    31|
+|104   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_53  |    31|
+|105   |      grp_multiply_accumulate_fu_1737    |multiply_accumulate_24           |   438|
+|106   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_50          |    31|
+|107   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_51  |    31|
+|108   |      grp_multiply_accumulate_fu_1745    |multiply_accumulate_25           |   438|
+|109   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_48          |    31|
+|110   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_49  |    31|
+|111   |      grp_multiply_accumulate_fu_1753    |multiply_accumulate_26           |   440|
+|112   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_46          |    31|
+|113   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_47  |    31|
+|114   |      grp_multiply_accumulate_fu_1761    |multiply_accumulate_27           |   461|
+|115   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_44          |    52|
+|116   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_45  |    52|
+|117   |      grp_multiply_accumulate_fu_1769    |multiply_accumulate_28           |   438|
+|118   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_42          |    31|
+|119   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_43  |    31|
+|120   |      grp_multiply_accumulate_fu_1777    |multiply_accumulate_29           |   461|
+|121   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_40          |    52|
+|122   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_41  |    52|
+|123   |      grp_multiply_accumulate_fu_1785    |multiply_accumulate_30           |   438|
+|124   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_38          |    31|
+|125   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_39  |    31|
+|126   |      grp_multiply_accumulate_fu_1793    |multiply_accumulate_31           |   438|
+|127   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_36          |    31|
+|128   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_37  |    31|
+|129   |      grp_multiply_accumulate_fu_1801    |multiply_accumulate_32           |   438|
+|130   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb_34          |    31|
+|131   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0_35  |    31|
+|132   |      grp_multiply_accumulate_fu_1809    |multiply_accumulate_33           |   462|
+|133   |        mnist_edp_mul_mulbkb_U9          |mnist_edp_mul_mulbkb             |    53|
+|134   |          mnist_edp_mul_mulbkb_DSP48_0_U |mnist_edp_mul_mulbkb_DSP48_0     |    53|
+|135   |      mnist_edp_mux_646eOg_U15           |mnist_edp_mux_646eOg             |  2320|
+|136   |    packer_U0                            |packer                           |   130|
+|137   |    relu_U0                              |relu                             |    28|
+|138   |    start_for_linear_kbM_U               |start_for_linear_kbM             |    10|
+|139   |    start_for_linear_lbW_U               |start_for_linear_lbW             |    10|
+|140   |    start_for_packer_U0_U                |start_for_packer_U0              |     9|
+|141   |    start_for_relu_U0_U                  |start_for_relu_U0                |    11|
+|142   |    unpacker_U0                          |unpacker                         |   105|
++------+-----------------------------------------+---------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:30 ; elapsed = 00:04:10 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 506 ; free virtual = 6091
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 224 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:20 ; elapsed = 00:03:50 . Memory (MB): peak = 2261.973 ; gain = 684.227 ; free physical = 3164 ; free virtual = 8749
+Synthesis Optimization Complete : Time (s): cpu = 00:02:31 ; elapsed = 00:04:12 . Memory (MB): peak = 2261.973 ; gain = 1079.391 ; free physical = 3170 ; free virtual = 8749
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 2270 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+182 Infos, 212 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:37 ; elapsed = 00:04:18 . Memory (MB): peak = 2274.059 ; gain = 1110.578 ; free physical = 3252 ; free virtual = 8831
+INFO: [Common 17-1381] The checkpoint '/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/base_mnist_edp_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2298.070 ; gain = 24.012 ; free physical = 3247 ; free virtual = 8832
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP /home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.srcs/sources_1/bd/base/ip/base_mnist_edp_0_0/base_mnist_edp_0_0.xci
+INFO: [Coretcl 2-1174] Renamed 141 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/xbili/Code/FPGA/vivado-projects/hls_mnist_edpa/hls_mnist_edpa.runs/base_mnist_edp_0_0_synth_1/base_mnist_edp_0_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2298.070 ; gain = 0.000 ; free physical = 3212 ; free virtual = 8833
+INFO: [runtcl-4] Executing : report_utilization -file base_mnist_edp_0_0_utilization_synth.rpt -pb base_mnist_edp_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.26 . Memory (MB): peak = 2298.070 ; gain = 0.000 ; free physical = 3212 ; free virtual = 8833
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  9 21:38:44 2018...

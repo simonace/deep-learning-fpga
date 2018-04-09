@@ -21,3 +21,7 @@ set_directive_unroll "CompleteRegister::get_result/GetMantissa"
 set_directive_unroll "CompleteRegister::get_result/FlipMantissa"
 set_directive_pipeline "CompleteRegister::multiply_accumulate"
 set_directive_pipeline "CompleteRegister::get_result"
+set_directive_interface -mode ap_ctrl_none "exact_dot_product"
+set_directive_interface -mode axis -register -register_mode both "exact_dot_product" data_out
+set_directive_interface -mode axis -register -register_mode both "exact_dot_product" data_in
+set_directive_pipeline "exact_dot_product/Accumulate"

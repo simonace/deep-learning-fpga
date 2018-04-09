@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;mnist_edpa/mnist_edp.cpp&apos; ..." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1465" content="Validating synthesis directives ..." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Pragmas Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 362.484 ; gain = 13.375 ; free physical = 3948 ; free virtual = 9499" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Linking Time (s): cpu = 00:00:29 ; elapsed = 00:00:19 . Memory (MB): peak = 362.484 ; gain = 13.375 ; free physical = 3921 ; free virtual = 9499" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1467" content="Starting code transformations ..." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Standard Transforms Time (s): cpu = 00:00:38 ; elapsed = 00:00:28 . Memory (MB): peak = 698.484 ; gain = 349.375 ; free physical = 3584 ; free virtual = 9190" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1472" content="Checking synthesizability ..." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_sign&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:79) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_mantissa&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:80) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_exponent&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:81) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::sign_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:88) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::mantissa_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:89) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::exponent_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:90) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::to_2s_complement&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:93) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::clear&apos; into &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 784, 64&gt;&apos; (mnist_edpa/linear_activation.hpp:25) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_sign&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:79) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_mantissa&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:80) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_exponent&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:81) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::sign_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:88) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::mantissa_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:89) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::exponent_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:90) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::to_2s_complement&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate.1&apos; (mnist_edpa/complete_register.hpp:93) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::clear.1&apos; into &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos; (mnist_edpa/linear_activation.hpp:25) automatically." tag=""/>
+	<Message prefix="[SYNCHK 200-23]" severity="WARNING" keynum="579" content="mnist_edpa/complete_register.hpp:55: variable-indexed range selection may cause suboptimal QoR." tag=""/>
+	<Message prefix="[SYNCHK 200-10]" severity="INFO" keynum="597" content="0 error(s), 1 warning(s)." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Synthesizability Time (s): cpu = 00:00:39 ; elapsed = 00:00:28 . Memory (MB): peak = 698.484 ; gain = 349.375 ; free physical = 3604 ; free virtual = 9189" tag=""/>
+	<Message prefix="[XFORM 203-502]" severity="INFO" keynum="817" content="Unrolling all loops for pipelining in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos; (mnist_edpa/complete_register.hpp:30)." tag=""/>
+	<Message prefix="[XFORM 203-502]" severity="INFO" keynum="813" content="Unrolling all sub-loops inside loop &apos;NewInput&apos; (mnist_edpa/linear_activation.hpp:28) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos; for pipelining." tag=""/>
+	<Message prefix="[XFORM 203-502]" severity="INFO" keynum="813" content="Unrolling all sub-loops inside loop &apos;NewInput&apos; (mnist_edpa/linear_activation.hpp:28) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 784, 64&gt;&apos; for pipelining." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Loop-1&apos; (mnist_edpa/complete_register.hpp:39) in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Loop-2&apos; (mnist_edpa/complete_register.hpp:41) in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;GetMantissa&apos; (mnist_edpa/complete_register.hpp:52) in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;FlipMantissa&apos; (mnist_edpa/complete_register.hpp:62) in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Reset&apos; (mnist_edpa/linear_activation.hpp:23) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Product&apos; (mnist_edpa/linear_activation.hpp:31) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Reset&apos; (mnist_edpa/linear_activation.hpp:23) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 784, 64&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Product&apos; (mnist_edpa/linear_activation.hpp:31) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 784, 64&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-131]" severity="INFO" keynum="701" content="Reshaping array &apos;L2_WEIGHTS.V&apos;  in dimension 2 completely." tag=""/>
+	<Message prefix="[XFORM 203-131]" severity="INFO" keynum="701" content="Reshaping array &apos;L1_WEIGHTS.V&apos;  in dimension 2 completely." tag=""/>
+	<Message prefix="[XFORM 203-101]" severity="INFO" keynum="692" content="Partitioning array &apos;acc.m_cr.V&apos; (mnist_edpa/linear_activation.hpp:18) in dimension 1 completely." tag=""/>
+	<Message prefix="[XFORM 203-104]" severity="WARNING" keynum="694" content="Completely partitioning array &apos;acc.m_cr.V&apos; (mnist_edpa/linear_activation.hpp:18) accessed through non-constant indices on dimension 1 (mnist_edpa/linear_activation.hpp:40:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." tag=""/>
+	<Message prefix="[XFORM 203-101]" severity="INFO" keynum="692" content="Partitioning array &apos;acc.m_cr.V&apos; (mnist_edpa/linear_activation.hpp:18) in dimension 1 completely." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_sign&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:79) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_mantissa&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:80) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_exponent&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:81) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::sign_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:88) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::mantissa_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:89) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::exponent_mult&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:90) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::to_2s_complement&apos; into &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:93) automatically." tag=""/>
+	<Message prefix="[XFORM 203-712]" severity="INFO" keynum="801" content="Applying dataflow to function &apos;mnist_edp&apos; (mnist_edpa/mnist_edp.cpp:14), detected/extracted 5 process function(s): 
+	 &apos;unpacker&lt;ap_uint&lt;16&gt;, 16, 784&gt;&apos;
+	 &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 784, 64&gt;&apos;
+	 &apos;relu&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64&gt;&apos;
+	 &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos;
+	 &apos;packer&lt;ap_uint&lt;16&gt;, 16, 10&gt;&apos;." tag=""/>
+	<Message prefix="[XFORM 203-401]" severity="INFO" keynum="809" content="Performing if-conversion on hyperblock from (mnist_edpa/linear_activation.hpp:37:61) to (mnist_edpa/linear_activation.hpp:37:52) in function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos;... converting 12 basic blocks." tag=""/>
+	<Message prefix="[XFORM 203-401]" severity="INFO" keynum="809" content="Performing if-conversion on hyperblock from (mnist_edpa/complete_register.hpp:76:7) to (mnist_edpa/complete_register.hpp:102:2) in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos;... converting 4 basic blocks." tag=""/>
+	<Message prefix="[XFORM 203-401]" severity="INFO" keynum="809" content="Performing if-conversion on hyperblock from (mnist_edpa/complete_register.hpp:30:16) to (mnist_edpa/complete_register.hpp:71:2) in function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos;... converting 40 basic blocks." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Pre-synthesis Time (s): cpu = 00:00:41 ; elapsed = 00:00:31 . Memory (MB): peak = 698.484 ; gain = 349.375 ; free physical = 3592 ; free virtual = 9189" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;unpacker&lt;ap_uint&lt;16&gt;, 16, 784&gt;&apos; to &apos;unpacker&apos; (mnist_edpa/unpacker.h:12:38)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;relu&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64&gt;&apos; to &apos;relu&apos; (mnist_edpa/relu_activation.hpp:7:29)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;packer&lt;ap_uint&lt;16&gt;, 16, 10&gt;&apos; to &apos;packer&apos; (mnist_edpa/packer.h:10:36)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 784, 64&gt;&apos; to &apos;linear_activation&apos; (mnist_edpa/linear_activation.hpp:28:2)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;linear_activation&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, ap_uint&lt;16&gt;, 64, 10&gt;&apos; to &apos;linear_activation.1&apos; (mnist_edpa/linear_activation.hpp:28:52)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::multiply_accumulate&apos; to &apos;multiply_accumulate&apos; (mnist_edpa/complete_register.hpp:76)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;CompleteRegister&lt;ap_uint&lt;16&gt;, ap_uint&lt;16&gt; &gt;::get_result&apos; to &apos;get_result&apos; (mnist_edpa/complete_register.hpp:32:2)" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Architecture Synthesis Time (s): cpu = 00:00:43 ; elapsed = 00:00:33 . Memory (MB): peak = 810.480 ; gain = 461.371 ; free physical = 3542 ; free virtual = 9137" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1317" content="Starting hardware synthesis ..." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1385" content="Synthesizing &apos;mnist_edp&apos; ..." tag=""/>
+	<Message prefix="[SYN 201-103]" severity="WARNING" keynum="534" content="Legalizing function name &apos;linear_activation.1&apos; to &apos;linear_activation_1&apos;." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;unpacker&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Unpack&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 32.63 seconds; current allocated memory: 311.267 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.05 seconds; current allocated memory: 311.389 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;multiply_accumulate&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="112" content="Pipelining function &apos;multiply_accumulate&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.07 seconds; current allocated memory: 311.626 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.05 seconds; current allocated memory: 311.759 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;get_result&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="112" content="Pipelining function &apos;get_result&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.12 seconds; current allocated memory: 312.317 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.12 seconds; current allocated memory: 312.773 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;linear_activation&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;NewInput&apos;." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 1)
+   between &apos;call&apos; operation (&apos;acc[63].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:33) to &apos;multiply_accumulate&apos; and &apos;call&apos; operation (&apos;acc[63].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:33) to &apos;multiply_accumulate&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 2, Depth = 5." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Result&apos;." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="98" content="Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between &apos;store&apos; operation (mnist_edpa/linear_activation.hpp:40) of variable &apos;acc[0].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:40 on local variable &apos;acc[63].m_cr.V&apos; and &apos;load&apos; operation (&apos;acc_63_m_cr_V_2_loa&apos;) on local variable &apos;acc[63].m_cr.V&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 2, Depth = 6." tag=""/>
+	<Message prefix="[SCHED 204-21]" severity="WARNING" keynum="137" content="Estimated clock period (14.9101ns) exceeds the target (target clock period: 15ns, clock uncertainty: 1.875ns, effective delay budget: 13.125ns)." tag=""/>
+	<Message prefix="[SCHED 204-21]" severity="WARNING" keynum="135" content="The critical path consists of the following:
+	&apos;load&apos; operation (&apos;acc_63_m_cr_V_2_loa&apos;) on local variable &apos;acc[63].m_cr.V&apos; (0 ns)
+	&apos;mux&apos; operation (&apos;tmp&apos;, mnist_edpa/linear_activation.hpp:37) (3.14 ns)
+	&apos;call&apos; operation (&apos;acc[0].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:40) to &apos;multiply_accumulate&apos; (11.8 ns)" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.47 seconds; current allocated memory: 315.192 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.47 seconds; current allocated memory: 317.926 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;relu&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.78 seconds; current allocated memory: 318.455 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.04 seconds; current allocated memory: 318.538 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;linear_activation_1&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;NewInput&apos;." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 1)
+   between &apos;call&apos; operation (&apos;acc[9].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:33) to &apos;multiply_accumulate&apos; and &apos;call&apos; operation (&apos;acc[9].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:33) to &apos;multiply_accumulate&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 2, Depth = 5." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Result&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 6." tag=""/>
+	<Message prefix="[SCHED 204-21]" severity="WARNING" keynum="137" content="Estimated clock period (14.4041ns) exceeds the target (target clock period: 15ns, clock uncertainty: 1.875ns, effective delay budget: 13.125ns)." tag=""/>
+	<Message prefix="[SCHED 204-21]" severity="WARNING" keynum="135" content="The critical path consists of the following:
+	&apos;mux&apos; operation (&apos;tmp&apos;, mnist_edpa/linear_activation.hpp:37) (2.63 ns)
+	&apos;call&apos; operation (&apos;acc[9].m_cr.V&apos;, mnist_edpa/linear_activation.hpp:40) to &apos;multiply_accumulate&apos; (11.8 ns)" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.19 seconds; current allocated memory: 319.078 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.2 seconds; current allocated memory: 319.822 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;packer&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Pack&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.31 seconds; current allocated memory: 320.197 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.08 seconds; current allocated memory: 320.351 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;mnist_edp&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.07 seconds; current allocated memory: 320.520 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 1.13 seconds; current allocated memory: 321.553 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;unpacker&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;unpacker&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.76 seconds; current allocated memory: 322.793 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;multiply_accumulate&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_edp_mul_mul_11ns_11ns_22_1_1&apos; to &apos;mnist_edp_mul_mulbkb&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_edp_mul_mulbkb&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;multiply_accumulate&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.09 seconds; current allocated memory: 323.415 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;get_result&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;get_result&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.12 seconds; current allocated memory: 324.758 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;linear_activation&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_L1_WEIGHTS_V&apos; to &apos;linear_activationcud&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_L1_BIAS_V&apos; to &apos;linear_activationdEe&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_edp_mux_646_80_1_1&apos; to &apos;mnist_edp_mux_646eOg&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-104]" severity="INFO" keynum="365" content="Estimated max fanout for &apos;linear_activation&apos; is 5132 from HDL expression: (~((real_start == 1&apos;b0) | (ap_done_reg == 1&apos;b1)) &amp; (1&apos;b1 == ap_CS_fsm_state1))" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_edp_mux_646eOg&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;linear_activation&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.63 seconds; current allocated memory: 329.347 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;relu&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;relu&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 1.13 seconds; current allocated memory: 338.749 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;linear_activation_1&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_1_L2_WEIGHTS_V&apos; to &apos;linear_activationfYi&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_1_L2_BIAS_V&apos; to &apos;linear_activationg8j&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_edp_mux_104_80_1_1&apos; to &apos;mnist_edp_mux_104hbi&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_edp_mux_104hbi&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;linear_activation_1&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.21 seconds; current allocated memory: 340.169 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;packer&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;packer_packet_user_V&apos; to &apos;packer_packet_useibs&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;packer_packet_dest_V&apos; to &apos;packer_packet_desjbC&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;packer&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.53 seconds; current allocated memory: 343.268 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;mnist_edp&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_data_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_keep_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_strb_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_user_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_last_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_id_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_in_V_dest_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_data_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_keep_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_strb_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_user_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_last_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_id_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_edp/sdata_out_V_dest_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on function &apos;mnist_edp&apos; to &apos;ap_ctrl_none&apos;." tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;start_for_linear_activation_U0&apos; to &apos;start_for_linear_kbM&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;start_for_linear_activation_1_U0&apos; to &apos;start_for_linear_lbW&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;mnist_edp&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.27 seconds; current allocated memory: 344.353 MB." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationcud_rom&apos; using auto ROMs." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationdEe_rom&apos; using auto ROMs." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationfYi_rom&apos; using auto ROMs." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationg8j_rom&apos; using distributed ROMs." tag=""/>
+	<Message prefix="[RTMG 210-274]" severity="WARNING" keynum="RTMG_274_1758" content="Memory &apos;packer_packet_useibs&apos; is read-only, switch it to a ROM." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;packer_packet_useibs_rom&apos; using distributed ROMs." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished generating all RTL models Time (s): cpu = 00:00:52 ; elapsed = 00:00:44 . Memory (MB): peak = 810.480 ; gain = 461.371 ; free physical = 3456 ; free virtual = 9088" tag=""/>
+	<Message prefix="[SYSC 207-301]" severity="INFO" keynum="SYSC_301_1065" content="Generating SystemC RTL for mnist_edp." tag=""/>
+	<Message prefix="[VHDL 208-304]" severity="INFO" keynum="VHDL_304_1066" content="Generating VHDL RTL for mnist_edp." tag=""/>
+	<Message prefix="[VLOG 209-307]" severity="INFO" keynum="VLOG_307_1067" content="Generating Verilog RTL for mnist_edp." tag=""/>
+	<Message prefix="[HLS 200-112]" severity="INFO" keynum="472" content="Total elapsed time: 43.92 seconds; peak allocated memory: 344.353 MB." tag=""/>
+</Messages>

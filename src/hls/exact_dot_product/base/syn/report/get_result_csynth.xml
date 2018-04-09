@@ -11,32 +11,41 @@
 <TopModelName>get_result</TopModelName>
 <TargetClockPeriod>5.00</TargetClockPeriod>
 <ClockUncertainty>0.62</ClockUncertainty>
-<TargetInitiationInterval>1</TargetInitiationInterval>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>function</PipelineType>
+<PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>4.11</EstimatedClockPeriod>
+<EstimatedClockPeriod>4.06</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>4</Best-caseLatency>
-<Average-caseLatency>4</Average-caseLatency>
-<Worst-caseLatency>4</Worst-caseLatency>
-<PipelineInitiationInterval>1</PipelineInitiationInterval>
-<PipelineDepth>5</PipelineDepth>
-<Interval-min>1</Interval-min>
-<Interval-max>1</Interval-max>
+<Best-caseLatency>3</Best-caseLatency>
+<Average-caseLatency>12</Average-caseLatency>
+<Worst-caseLatency>26</Worst-caseLatency>
+<Interval-min>3</Interval-min>
+<Interval-max>26</Interval-max>
 </SummaryOfOverallLatency>
+<SummaryOfLoopLatency>
+<GetMantissa>
+<TripCount>10</TripCount>
+<Latency>10</Latency>
+<IterationLatency>1</IterationLatency>
+</GetMantissa>
+<FlipMantissa>
+<TripCount>10</TripCount>
+<Latency>10</Latency>
+<IterationLatency>1</IterationLatency>
+</FlipMantissa>
+</SummaryOfLoopLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>4</BRAM_18K>
-<FF>841</FF>
-<LUT>1119</LUT>
+<FF>645</FF>
+<LUT>722</LUT>
+<BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
 <AvailableResources>
@@ -71,6 +80,50 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
+<name>ap_start</name>
+<Object>get_result</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_done</name>
+<Object>get_result</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_idle</name>
+<Object>get_result</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_ready</name>
+<Object>get_result</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
 <name>ap_return</name>
 <Object>get_result</Object>
 <Type>return value</Type>
@@ -82,17 +135,6 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>ap_ce</name>
-<Object>get_result</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
 <name>CompleteRegister_m_cr_V_read</name>
 <Object>CompleteRegister_m_cr_V_read</Object>
 <Type>scalar</Type>
@@ -100,7 +142,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>128</Bits>
+<Bits>72</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 </InterfaceSummary>

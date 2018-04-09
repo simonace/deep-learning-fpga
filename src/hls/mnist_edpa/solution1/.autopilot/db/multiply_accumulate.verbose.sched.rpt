@@ -1,0 +1,158 @@
+
+
+================================================================
+== Vivado HLS Report for 'multiply_accumulate'
+================================================================
+* Date:           Mon Apr  9 21:30:07 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_edpa
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  15.00|     10.01|        1.88|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    1|    1|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+
+* FSM state operations: 
+
+ <State 1> : 10.01ns
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%in2_V_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %in2_V)"
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%in1_V_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %in1_V)"
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%CompleteRegister_m_c_1 = call i80 @_ssdm_op_Read.ap_auto.i80(i80 %CompleteRegister_ap_uint_16_ap_uint_16_m_cr_V_read)"
+ST_1 : Operation 6 [1/1] (0.00ns) (grouped into LUT with out node result_V_2)   --->   "%sign = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %in1_V_read, i32 15)" [mnist_edpa/complete_register.hpp:133->mnist_edpa/complete_register.hpp:79]
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp = trunc i16 %in1_V_read to i10" [mnist_edpa/complete_register.hpp:117->mnist_edpa/complete_register.hpp:80]
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%p_Result_s = call i11 @_ssdm_op_BitConcatenate.i11.i1.i10(i1 true, i10 %tmp)" [mnist_edpa/complete_register.hpp:120->mnist_edpa/complete_register.hpp:80]
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%e1_V = call i5 @_ssdm_op_PartSelect.i5.i16.i32.i32(i16 %in1_V_read, i32 10, i32 14)" [mnist_edpa/complete_register.hpp:127->mnist_edpa/complete_register.hpp:81]
+ST_1 : Operation 10 [1/1] (0.00ns) (grouped into LUT with out node result_V_2)   --->   "%sign_1 = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %in2_V_read, i32 15)" [mnist_edpa/complete_register.hpp:133->mnist_edpa/complete_register.hpp:83]
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tmp_2 = trunc i16 %in2_V_read to i10" [mnist_edpa/complete_register.hpp:117->mnist_edpa/complete_register.hpp:84]
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%p_Result_1 = call i11 @_ssdm_op_BitConcatenate.i11.i1.i10(i1 true, i10 %tmp_2)" [mnist_edpa/complete_register.hpp:120->mnist_edpa/complete_register.hpp:84]
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%e2_V = call i5 @_ssdm_op_PartSelect.i5.i16.i32.i32(i16 %in2_V_read, i32 10, i32 14)" [mnist_edpa/complete_register.hpp:127->mnist_edpa/complete_register.hpp:85]
+ST_1 : Operation 14 [1/1] (0.00ns) (grouped into LUT with out node result_V_2)   --->   "%exact_s = xor i1 %sign, %sign_1" [mnist_edpa/complete_register.hpp:150->mnist_edpa/complete_register.hpp:88]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%lhs_V = zext i11 %p_Result_s to i22" [mnist_edpa/complete_register.hpp:140->mnist_edpa/complete_register.hpp:89]
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%rhs_V = zext i11 %p_Result_1 to i22" [mnist_edpa/complete_register.hpp:140->mnist_edpa/complete_register.hpp:89]
+ST_1 : Operation 17 [1/1] (6.38ns)   --->   "%r_V = mul i22 %lhs_V, %rhs_V" [mnist_edpa/complete_register.hpp:140->mnist_edpa/complete_register.hpp:89]   --->   Core 61 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%lhs_V_1 = zext i5 %e1_V to i6" [mnist_edpa/complete_register.hpp:145->mnist_edpa/complete_register.hpp:90]
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%rhs_V_1 = zext i5 %e2_V to i6" [mnist_edpa/complete_register.hpp:145->mnist_edpa/complete_register.hpp:90]
+ST_1 : Operation 20 [1/1] (1.78ns)   --->   "%r_V_1 = add i6 %lhs_V_1, %rhs_V_1" [mnist_edpa/complete_register.hpp:145->mnist_edpa/complete_register.hpp:90]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.97> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%result_V = zext i22 %r_V to i23" [mnist_edpa/complete_register.hpp:159->mnist_edpa/complete_register.hpp:93]
+ST_1 : Operation 22 [1/1] (2.25ns)   --->   "%agg_result_V_assign_s = sub i23 0, %result_V" [mnist_edpa/complete_register.hpp:161->mnist_edpa/complete_register.hpp:93]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.97> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (1.37ns) (out node of the LUT)   --->   "%result_V_2 = select i1 %exact_s, i23 %agg_result_V_assign_s, i23 %result_V" [mnist_edpa/complete_register.hpp:160->mnist_edpa/complete_register.hpp:93]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+ <State 2> : 6.25ns
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tmp_cast = zext i6 %r_V_1 to i7" [mnist_edpa/complete_register.hpp:97]
+ST_2 : Operation 25 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%shifted_V_cast = sext i23 %result_V_2 to i73" [mnist_edpa/complete_register.hpp:97]
+ST_2 : Operation 26 [1/1] (1.82ns)   --->   "%op2_assign = add i7 -12, %tmp_cast" [mnist_edpa/complete_register.hpp:98]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.97> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 27 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%op2_assign_cast = sext i7 %op2_assign to i32" [mnist_edpa/complete_register.hpp:98]
+ST_2 : Operation 28 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i7.i32(i7 %op2_assign, i32 6)" [mnist_edpa/complete_register.hpp:98]
+ST_2 : Operation 29 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%tmp_3_cast = zext i32 %op2_assign_cast to i73" [mnist_edpa/complete_register.hpp:98]
+ST_2 : Operation 30 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%tmp_4 = shl i73 %shifted_V_cast, %tmp_3_cast" [mnist_edpa/complete_register.hpp:98]   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 31 [1/1] (1.82ns)   --->   "%tmp_5 = sub i7 12, %tmp_cast" [mnist_edpa/complete_register.hpp:98]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.97> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%tmp_5_cast_cast = sext i7 %tmp_5 to i23" [mnist_edpa/complete_register.hpp:98]
+ST_2 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%tmp_7 = ashr i23 %result_V_2, %tmp_5_cast_cast" [mnist_edpa/complete_register.hpp:98]   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 4.17> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%tmp_7_cast = sext i23 %tmp_7 to i73" [mnist_edpa/complete_register.hpp:98]
+ST_2 : Operation 35 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%r_V_2 = select i1 %tmp_3, i73 %tmp_7_cast, i73 %tmp_4" [mnist_edpa/complete_register.hpp:98]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_2 : Operation 36 [1/1] (0.00ns) (grouped into LUT with out node CompleteRegister_m_c)   --->   "%r_V_cast = sext i73 %r_V_2 to i80" [mnist_edpa/complete_register.hpp:98]
+ST_2 : Operation 37 [1/1] (4.42ns) (out node of the LUT)   --->   "%CompleteRegister_m_c = add nsw i80 %CompleteRegister_m_c_1, %r_V_cast" [mnist_edpa/complete_register.hpp:101]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 3.97> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "ret i80 %CompleteRegister_m_c" [mnist_edpa/complete_register.hpp:102]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15ns, clock uncertainty: 1.88ns.
+
+ <State 1>: 10ns
+The critical path consists of the following:
+	wire read on port 'in2_V' [4]  (0 ns)
+	'mul' operation ('r.V', mnist_edpa/complete_register.hpp:140->mnist_edpa/complete_register.hpp:89) [18]  (6.38 ns)
+	'sub' operation ('agg_result_V_assign_s', mnist_edpa/complete_register.hpp:161->mnist_edpa/complete_register.hpp:93) [23]  (2.26 ns)
+	'select' operation ('result.V', mnist_edpa/complete_register.hpp:160->mnist_edpa/complete_register.hpp:93) [24]  (1.37 ns)
+
+ <State 2>: 6.25ns
+The critical path consists of the following:
+	'add' operation ('op2', mnist_edpa/complete_register.hpp:98) [27]  (1.83 ns)
+	'select' operation ('r.V', mnist_edpa/complete_register.hpp:98) [36]  (0 ns)
+	'add' operation ('CompleteRegister<ap_uint<16>, ap_uint<16> >.m_cr.V', mnist_edpa/complete_register.hpp:101) [38]  (4.42 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

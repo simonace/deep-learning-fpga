@@ -16,7 +16,4 @@ typedef ap_uint<EXPONENT+1> exact_exponent_t;
 typedef ap_uint<(MANTISSA+1) * 2> exact_mantissa_t;
 typedef ap_int<(MANTISSA+1) * 2 + 1> exact_mantissa_2s_t;
 typedef ap_int<128> exact_mantissa_shifted_t;
-
-// Each complete register word is 8-bits
-typedef ap_uint<8> cr_word_t;
 typedef ap_int<128> cr_t;

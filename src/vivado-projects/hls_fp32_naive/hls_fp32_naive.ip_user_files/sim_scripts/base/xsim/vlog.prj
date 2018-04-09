@@ -1,0 +1,35 @@
+verilog xil_defaultlib --include "../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/ec67/hdl" --include "../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/02c8/hdl/verilog" --include "../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/1313/hdl" \
+"/home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.srcs/sources_1/bd/base/ip/base_processing_system7_0_0/base_processing_system7_0_0_sim_netlist.v" \
+"/home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.srcs/sources_1/bd/base/ip/base_axi_dma_0_0/base_axi_dma_0_0_sim_netlist.v" \
+"/home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.srcs/sources_1/bd/base/ip/base_rst_ps7_0_50M_0/base_rst_ps7_0_50M_0_sim_netlist.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/linear_activationibs.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/mnist_fp32_naive.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/relu.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/packer_packet_usekbM.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/linear_activationhbi.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/start_for_linear_ncg.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/mnist_fp32_naive_jbC.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/linear_activationcud.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/mnist_fp32_naive_g8j.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/linear_activation_1.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/start_for_linear_mb6.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/unpacker.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/start_for_relu_U0.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/linear_activation.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/start_for_packer_U0.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/packer.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/fifo_w32_d1_A.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/mnist_fp32_naive_fYi.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/mnist_fp32_naive_eOg.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/mnist_fp32_naive_dEe.v" \
+"../../../../hls_fp32_naive.srcs/sources_1/bd/base/ipshared/9d3f/hdl/verilog/linear_activationbkb.v" \
+"../../../bd/base/ip/base_xbar_0/sim/base_xbar_0.v" \
+"../../../bd/base/ip/base_auto_pc_1/sim/base_auto_pc_1.v" \
+"../../../bd/base/ip/base_auto_pc_0/sim/base_auto_pc_0.v" \
+"../../../bd/base/ip/base_auto_us_1/sim/base_auto_us_1.v" \
+"../../../bd/base/ip/base_auto_us_0/sim/base_auto_us_0.v" \
+"../../../bd/base/sim/base.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

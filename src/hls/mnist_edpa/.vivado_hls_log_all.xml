@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTMG 210-274] Memory 'packer_packet_useibs' is read-only, switch it to a ROM." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:17.578+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'mux' operation ('tmp', mnist_edpa/linear_activation.hpp:37) (2.63 ns)&#xA;&#x9;'call' operation ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:40) to 'multiply_accumulate' (11.8 ns)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:09.242+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (14.4041ns) exceeds the target (target clock period: 15ns, clock uncertainty: 1.875ns, effective delay budget: 13.125ns)." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:09.238+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)&#xA;   between 'call' operation ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' and 'call' operation ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate'." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:09.187+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'load' operation ('acc_63_m_cr_V_2_loa') on local variable 'acc[63].m_cr.V' (0 ns)&#xA;&#x9;'mux' operation ('tmp', mnist_edpa/linear_activation.hpp:37) (3.14 ns)&#xA;&#x9;'call' operation ('acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:40) to 'multiply_accumulate' (11.8 ns)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:07.736+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (14.9101ns) exceeds the target (target clock period: 15ns, clock uncertainty: 1.875ns, effective delay budget: 13.125ns)." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:07.731+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xA;   between 'store' operation (mnist_edpa/linear_activation.hpp:40) of variable 'acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:40 on local variable 'acc[63].m_cr.V' and 'load' operation ('acc_63_m_cr_V_2_loa') on local variable 'acc[63].m_cr.V'." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:07.671+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)&#xA;   between 'call' operation ('acc[63].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' and 'call' operation ('acc[63].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate'." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:07.639+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'linear_activation.1' to 'linear_activation_1'." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:06.824+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'CompleteRegister&lt;ap_uint&lt;16>, ap_uint&lt;16> >::get_result' to 'get_result' (mnist_edpa/complete_register.hpp:32:2)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:06.790+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'CompleteRegister&lt;ap_uint&lt;16>, ap_uint&lt;16> >::multiply_accumulate' to 'multiply_accumulate' (mnist_edpa/complete_register.hpp:76)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:05.556+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'linear_activation&lt;ap_uint&lt;16>, ap_uint&lt;16>, ap_uint&lt;16>, ap_uint&lt;16>, ap_uint&lt;16>, 64, 10>' to 'linear_activation.1' (mnist_edpa/linear_activation.hpp:28:52)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:05.555+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'linear_activation&lt;ap_uint&lt;16>, ap_uint&lt;16>, ap_uint&lt;16>, ap_uint&lt;16>, ap_uint&lt;16>, 784, 64>' to 'linear_activation' (mnist_edpa/linear_activation.hpp:28:2)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:05.553+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'packer&lt;ap_uint&lt;16>, 16, 10>' to 'packer' (mnist_edpa/packer.h:10:36)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:05.551+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'relu&lt;ap_uint&lt;16>, ap_uint&lt;16>, 64>' to 'relu' (mnist_edpa/relu_activation.hpp:7:29)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:05.550+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'unpacker&lt;ap_uint&lt;16>, 16, 784>' to 'unpacker' (mnist_edpa/unpacker.h:12:38)" projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:05.547+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-104] Completely partitioning array 'acc.m_cr.V' (mnist_edpa/linear_activation.hpp:18) accessed through non-constant indices on dimension 1 (mnist_edpa/linear_activation.hpp:40:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:03.322+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] mnist_edpa/complete_register.hpp:55: variable-indexed range selection may cause suboptimal QoR." projectName="mnist_edpa" solutionName="solution1" date="2018-04-09T21:30:02.641+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

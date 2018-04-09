@@ -1,0 +1,182 @@
+
+
+================================================================
+== Vivado HLS Report for 'packer'
+================================================================
+* Date:           Mon Apr  9 21:30:09 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_edpa
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  15.00|      3.63|        1.88|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   13|   13|   13|   13|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Pack    |   11|   11|         3|          1|          1|    10|    yes   |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	5  / (exitcond)
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	2  / true
+5 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %stream_in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str115, i32 0, i32 0, [1 x i8]* @p_str116, [1 x i8]* @p_str117, [1 x i8]* @p_str118, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str119, [1 x i8]* @p_str120)"
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %stream_out_V_data_V, i2* %stream_out_V_keep_V, i2* %stream_out_V_strb_V, i1* %stream_out_V_user_V, i1* %stream_out_V_last_V, i1* %stream_out_V_id_V, i1* %stream_out_V_dest_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str5, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6, [1 x i8]* @p_str6, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str6) nounwind"
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%packet_user_V = alloca [10 x i1], align 1" [mnist_edpa/packer.h:10]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%packet_id_V = alloca [10 x i1], align 1" [mnist_edpa/packer.h:10]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%packet_dest_V = alloca [10 x i1], align 1" [mnist_edpa/packer.h:10]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_1 : Operation 11 [1/1] (1.76ns)   --->   "br label %.preheader" [mnist_edpa/packer.h:12]
+
+ <State 2> : 2.32ns
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%i = phi i4 [ %i_2, %0 ], [ 0, %arrayctor.loop1.preheader ]"
+ST_2 : Operation 13 [1/1] (1.30ns)   --->   "%exitcond = icmp eq i4 %i, -6" [mnist_edpa/packer.h:12]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 14 [1/1] (1.73ns)   --->   "%i_2 = add i4 %i, 1" [mnist_edpa/packer.h:12]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %1, label %0" [mnist_edpa/packer.h:12]
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = zext i4 %i to i64" [mnist_edpa/packer.h:14]
+ST_2 : Operation 17 [1/1] (1.30ns)   --->   "%tmp_last_V = icmp eq i4 %i, -7" [mnist_edpa/packer.h:19]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%packet_user_V_addr = getelementptr [10 x i1]* %packet_user_V, i64 0, i64 %tmp" [mnist_edpa/packer.h:21]
+ST_2 : Operation 19 [2/2] (2.32ns)   --->   "%tmp_user_V = load i1* %packet_user_V_addr, align 4" [mnist_edpa/packer.h:21]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%packet_id_V_addr = getelementptr [10 x i1]* %packet_id_V, i64 0, i64 %tmp" [mnist_edpa/packer.h:21]
+ST_2 : Operation 21 [2/2] (2.32ns)   --->   "%tmp_id_V = load i1* %packet_id_V_addr, align 2" [mnist_edpa/packer.h:21]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%packet_dest_V_addr = getelementptr [10 x i1]* %packet_dest_V, i64 0, i64 %tmp" [mnist_edpa/packer.h:21]
+ST_2 : Operation 23 [2/2] (2.32ns)   --->   "%tmp_dest_V = load i1* %packet_dest_V_addr, align 1" [mnist_edpa/packer.h:21]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+
+ <State 3> : 3.63ns
+ST_3 : Operation 24 [1/1] (3.63ns)   --->   "%tmp_V = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %stream_in_V_V)" [mnist_edpa/packer.h:14]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_3 : Operation 25 [1/2] (2.32ns)   --->   "%tmp_user_V = load i1* %packet_user_V_addr, align 4" [mnist_edpa/packer.h:21]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_3 : Operation 26 [1/2] (2.32ns)   --->   "%tmp_id_V = load i1* %packet_id_V_addr, align 2" [mnist_edpa/packer.h:21]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_3 : Operation 27 [1/2] (2.32ns)   --->   "%tmp_dest_V = load i1* %packet_dest_V_addr, align 1" [mnist_edpa/packer.h:21]   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.32> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 10> <RAM>
+ST_3 : Operation 28 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i16P.i2P.i2P.i1P.i1P.i1P.i1P(i16* %stream_out_V_data_V, i2* %stream_out_V_keep_V, i2* %stream_out_V_strb_V, i1* %stream_out_V_user_V, i1* %stream_out_V_last_V, i1* %stream_out_V_id_V, i1* %stream_out_V_dest_V, i16 %tmp_V, i2 -1, i2 -1, i1 %tmp_user_V, i1 %tmp_last_V, i1 %tmp_id_V, i1 %tmp_dest_V)" [mnist_edpa/packer.h:21]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+ <State 4> : 0.00ns
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([5 x i8]* @p_str8) nounwind" [mnist_edpa/packer.h:12]
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%tmp_1 = call i32 (...)* @_ssdm_op_SpecRegionBegin([5 x i8]* @p_str8)" [mnist_edpa/packer.h:12]
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind" [mnist_edpa/packer.h:13]
+ST_4 : Operation 33 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i16P.i2P.i2P.i1P.i1P.i1P.i1P(i16* %stream_out_V_data_V, i2* %stream_out_V_keep_V, i2* %stream_out_V_strb_V, i1* %stream_out_V_user_V, i1* %stream_out_V_last_V, i1* %stream_out_V_id_V, i1* %stream_out_V_dest_V, i16 %tmp_V, i2 -1, i2 -1, i1 %tmp_user_V, i1 %tmp_last_V, i1 %tmp_id_V, i1 %tmp_dest_V)" [mnist_edpa/packer.h:21]   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecRegionEnd([5 x i8]* @p_str8, i32 %tmp_1)" [mnist_edpa/packer.h:22]
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "br label %.preheader" [mnist_edpa/packer.h:12]
+
+ <State 5> : 0.00ns
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "ret void" [mnist_edpa/packer.h:23]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15ns, clock uncertainty: 1.88ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', mnist_edpa/packer.h:12) [16]  (1.77 ns)
+
+ <State 2>: 2.32ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', mnist_edpa/packer.h:12) [16]  (0 ns)
+	'getelementptr' operation ('packet_dest_V_addr', mnist_edpa/packer.h:21) [32]  (0 ns)
+	'load' operation ('tmp.dest.V', mnist_edpa/packer.h:21) on array 'packet.dest.V', mnist_edpa/packer.h:10 [33]  (2.32 ns)
+
+ <State 3>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'stream_in_V_V' (mnist_edpa/packer.h:14) [26]  (3.63 ns)
+	axis write on port 'stream_out_V_data_V' (mnist_edpa/packer.h:21) [34]  (0 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,925 @@
+
+
+================================================================
+== Vivado HLS Report for 'linear_activation'
+================================================================
+* Date:           Mon Apr  9 21:30:07 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_edpa
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  15.00|     14.91|        1.88|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  1705|  1705|  1705|  1705|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------+------+------+----------+-----------+-----------+------+----------+
+        |            |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+------+------+----------+-----------+-----------+------+----------+
+        |- NewInput  |  1570|  1570|         5|          2|          1|   784|    yes   |
+        |- Result    |   131|   131|         6|          2|          1|    64|    yes   |
+        +------------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 5
+  * Pipeline-1: initiation interval (II) = 2, depth = 6
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 2
+  Pipeline-0 : II = 2, D = 5, States = { 2 3 4 5 6 }
+  Pipeline-1 : II = 2, D = 6, States = { 8 9 10 11 12 13 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	7  / (exitcond2)
+	3  / (!exitcond2)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	2  / true
+7 --> 
+	8  / true
+8 --> 
+	14  / (exitcond)
+	9  / (!exitcond)
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	8  / true
+14 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_out_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str122, i32 0, i32 0, [1 x i8]* @p_str123, [1 x i8]* @p_str124, [1 x i8]* @p_str125, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str126, [1 x i8]* @p_str127)"
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str108, i32 0, i32 0, [1 x i8]* @p_str109, [1 x i8]* @p_str110, [1 x i8]* @p_str111, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str112, [1 x i8]* @p_str113)"
+ST_1 : Operation 17 [1/1] (1.76ns)   --->   "br label %.preheader21" [mnist_edpa/linear_activation.hpp:28]
+
+ <State 2> : 3.25ns
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_63_m_cr_V_1, %0 ]"
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%acc_62_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_62_m_cr_V_1, %0 ]"
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%acc_61_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_61_m_cr_V_1, %0 ]"
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%acc_60_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_60_m_cr_V_1, %0 ]"
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%acc_59_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_59_m_cr_V_1, %0 ]"
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%acc_58_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_58_m_cr_V_1, %0 ]"
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%acc_57_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_57_m_cr_V_1, %0 ]"
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%acc_56_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_56_m_cr_V_1, %0 ]"
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%acc_55_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_55_m_cr_V_1, %0 ]"
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%acc_54_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_54_m_cr_V_1, %0 ]"
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%acc_53_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_53_m_cr_V_1, %0 ]"
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%acc_52_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_52_m_cr_V_1, %0 ]"
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%acc_51_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_51_m_cr_V_1, %0 ]"
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%acc_50_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_50_m_cr_V_1, %0 ]"
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%acc_49_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_49_m_cr_V_1, %0 ]"
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%acc_48_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_48_m_cr_V_1, %0 ]"
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%acc_47_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_47_m_cr_V_1, %0 ]"
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%acc_46_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_46_m_cr_V_1, %0 ]"
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%acc_45_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_45_m_cr_V_1, %0 ]"
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%acc_44_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_44_m_cr_V_1, %0 ]"
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%acc_43_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_43_m_cr_V_1, %0 ]"
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%acc_42_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_42_m_cr_V_1, %0 ]"
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%acc_41_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_41_m_cr_V_1, %0 ]"
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%acc_40_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_40_m_cr_V_1, %0 ]"
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%acc_39_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_39_m_cr_V_1, %0 ]"
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%acc_38_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_38_m_cr_V_1, %0 ]"
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%acc_37_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_37_m_cr_V_1, %0 ]"
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%acc_36_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_36_m_cr_V_1, %0 ]"
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%acc_35_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_35_m_cr_V_1, %0 ]"
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%acc_34_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_34_m_cr_V_1, %0 ]"
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%acc_33_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_33_m_cr_V_1, %0 ]"
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%acc_32_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_32_m_cr_V_1, %0 ]"
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%acc_31_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_31_m_cr_V_1, %0 ]"
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%acc_30_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_30_m_cr_V_1, %0 ]"
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%acc_29_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_29_m_cr_V_1, %0 ]"
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%acc_28_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_28_m_cr_V_1, %0 ]"
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%acc_27_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_27_m_cr_V_1, %0 ]"
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%acc_26_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_26_m_cr_V_1, %0 ]"
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%acc_25_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_25_m_cr_V_1, %0 ]"
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%acc_24_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_24_m_cr_V_1, %0 ]"
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%acc_23_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_23_m_cr_V_1, %0 ]"
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%acc_22_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_22_m_cr_V_1, %0 ]"
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%acc_21_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_21_m_cr_V_1, %0 ]"
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%acc_20_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_20_m_cr_V_1, %0 ]"
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%acc_19_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_19_m_cr_V_1, %0 ]"
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%acc_18_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_18_m_cr_V_1, %0 ]"
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%acc_17_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_17_m_cr_V_1, %0 ]"
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%acc_16_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_16_m_cr_V_1, %0 ]"
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%acc_15_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_15_m_cr_V_1, %0 ]"
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%acc_14_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_14_m_cr_V_1, %0 ]"
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%acc_13_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_13_m_cr_V_1, %0 ]"
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%acc_12_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_12_m_cr_V_1, %0 ]"
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%acc_11_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_11_m_cr_V_1, %0 ]"
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%acc_10_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_10_m_cr_V_1, %0 ]"
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_9_m_cr_V_1, %0 ]"
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%acc_8_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_8_m_cr_V_1, %0 ]"
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%acc_7_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_7_m_cr_V_1, %0 ]"
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%acc_6_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_6_m_cr_V_1, %0 ]"
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%acc_5_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_5_m_cr_V_1, %0 ]"
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%acc_4_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_4_m_cr_V_1, %0 ]"
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%acc_3_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_3_m_cr_V_1, %0 ]"
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%acc_2_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_2_m_cr_V_1, %0 ]"
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%acc_1_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_1_m_cr_V_1, %0 ]"
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%acc_0_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_0_m_cr_V_1, %0 ]"
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%ii = phi i10 [ 0, %.preheader21.preheader ], [ %ii_2, %0 ]"
+ST_2 : Operation 83 [1/1] (1.77ns)   --->   "%exitcond2 = icmp eq i10 %ii, -240" [mnist_edpa/linear_activation.hpp:28]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 84 [1/1] (1.95ns)   --->   "%ii_2 = add i10 %ii, 1" [mnist_edpa/linear_activation.hpp:28]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "br i1 %exitcond2, label %.preheader.preheader, label %0" [mnist_edpa/linear_activation.hpp:28]
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%tmp_4 = zext i10 %ii to i64" [mnist_edpa/linear_activation.hpp:33]
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%L1_WEIGHTS_V_addr = getelementptr [784 x i1024]* @L1_WEIGHTS_V, i64 0, i64 %tmp_4" [mnist_edpa/linear_activation.hpp:33]
+ST_2 : Operation 88 [2/2] (3.25ns)   --->   "%L1_WEIGHTS_V_load = load i1024* %L1_WEIGHTS_V_addr, align 16" [mnist_edpa/linear_activation.hpp:33]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 64> <ROM>
+
+ <State 3> : 3.63ns
+ST_3 : Operation 89 [1/1] (3.63ns)   --->   "%tmp_V_2 = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %data_in_V_V)" [mnist_edpa/linear_activation.hpp:30]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_3 : Operation 90 [1/2] (3.25ns)   --->   "%L1_WEIGHTS_V_load = load i1024* %L1_WEIGHTS_V_addr, align 16" [mnist_edpa/linear_activation.hpp:33]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 64> <ROM>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "%tmp_68 = trunc i1024 %L1_WEIGHTS_V_load to i16" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 92 [1/1] (0.00ns)   --->   "%tmp_7 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 16, i32 31)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "%tmp_8 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 32, i32 47)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 94 [1/1] (0.00ns)   --->   "%tmp_9 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 48, i32 63)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 95 [1/1] (0.00ns)   --->   "%tmp_s = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 64, i32 79)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 96 [1/1] (0.00ns)   --->   "%tmp_1 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 80, i32 95)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%tmp_2 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 96, i32 111)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 98 [1/1] (0.00ns)   --->   "%tmp_10 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 112, i32 127)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "%tmp_11 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 128, i32 143)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%tmp_12 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 144, i32 159)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%tmp_13 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 160, i32 175)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%tmp_14 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 176, i32 191)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 103 [1/1] (0.00ns)   --->   "%tmp_15 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 192, i32 207)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_16 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 208, i32 223)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 105 [1/1] (0.00ns)   --->   "%tmp_17 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 224, i32 239)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%tmp_18 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 240, i32 255)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 107 [1/1] (0.00ns)   --->   "%tmp_19 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 256, i32 271)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%tmp_20 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 272, i32 287)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_21 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 288, i32 303)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%tmp_22 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 304, i32 319)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_23 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 320, i32 335)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%tmp_24 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 336, i32 351)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%tmp_25 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 352, i32 367)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%tmp_26 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 368, i32 383)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%tmp_27 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 384, i32 399)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%tmp_28 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 400, i32 415)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 117 [1/1] (0.00ns)   --->   "%tmp_29 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 416, i32 431)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%tmp_30 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 432, i32 447)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 119 [1/1] (0.00ns)   --->   "%tmp_31 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 448, i32 463)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 120 [1/1] (0.00ns)   --->   "%tmp_32 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 464, i32 479)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 121 [1/1] (0.00ns)   --->   "%tmp_33 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 480, i32 495)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "%tmp_34 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 496, i32 511)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 123 [1/1] (0.00ns)   --->   "%tmp_35 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 512, i32 527)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%tmp_36 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 528, i32 543)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%tmp_37 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 544, i32 559)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "%tmp_38 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 560, i32 575)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_39 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 576, i32 591)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%tmp_40 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 592, i32 607)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "%tmp_41 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 608, i32 623)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "%tmp_42 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 624, i32 639)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 131 [1/1] (0.00ns)   --->   "%tmp_43 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 640, i32 655)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%tmp_44 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 656, i32 671)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 133 [1/1] (0.00ns)   --->   "%tmp_45 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 672, i32 687)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%tmp_46 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 688, i32 703)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "%tmp_47 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 704, i32 719)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 136 [1/1] (0.00ns)   --->   "%tmp_48 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 720, i32 735)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_49 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 736, i32 751)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "%tmp_50 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 752, i32 767)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "%tmp_51 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 768, i32 783)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "%tmp_52 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 784, i32 799)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 141 [1/1] (0.00ns)   --->   "%tmp_53 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 800, i32 815)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 142 [1/1] (0.00ns)   --->   "%tmp_54 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 816, i32 831)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 143 [1/1] (0.00ns)   --->   "%tmp_55 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 832, i32 847)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 144 [1/1] (0.00ns)   --->   "%tmp_56 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 848, i32 863)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_57 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 864, i32 879)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 146 [1/1] (0.00ns)   --->   "%tmp_58 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 880, i32 895)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 147 [1/1] (0.00ns)   --->   "%tmp_59 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 896, i32 911)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 148 [1/1] (0.00ns)   --->   "%tmp_60 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 912, i32 927)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 149 [1/1] (0.00ns)   --->   "%tmp_61 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 928, i32 943)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 150 [1/1] (0.00ns)   --->   "%tmp_62 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 944, i32 959)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 151 [1/1] (0.00ns)   --->   "%tmp_63 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 960, i32 975)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%tmp_64 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 976, i32 991)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 153 [1/1] (0.00ns)   --->   "%tmp_65 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 992, i32 1007)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 154 [1/1] (0.00ns)   --->   "%tmp_66 = call i16 @_ssdm_op_PartSelect.i16.i1024.i32.i32(i1024 %L1_WEIGHTS_V_load, i32 1008, i32 1023)" [mnist_edpa/linear_activation.hpp:33]
+
+ <State 4> : 11.77ns
+ST_4 : Operation 155 [2/2] (11.7ns)   --->   "%acc_0_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_0_m_cr_V, i16 %tmp_V_2, i16 %tmp_68)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 156 [2/2] (11.7ns)   --->   "%acc_1_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_1_m_cr_V, i16 %tmp_V_2, i16 %tmp_7)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 157 [2/2] (11.7ns)   --->   "%acc_2_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_2_m_cr_V, i16 %tmp_V_2, i16 %tmp_8)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 158 [2/2] (11.7ns)   --->   "%acc_3_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_3_m_cr_V, i16 %tmp_V_2, i16 %tmp_9)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 159 [2/2] (11.7ns)   --->   "%acc_4_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_4_m_cr_V, i16 %tmp_V_2, i16 %tmp_s)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 160 [2/2] (11.7ns)   --->   "%acc_5_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_5_m_cr_V, i16 %tmp_V_2, i16 %tmp_1)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 161 [2/2] (11.7ns)   --->   "%acc_6_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_6_m_cr_V, i16 %tmp_V_2, i16 %tmp_2)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 162 [2/2] (11.7ns)   --->   "%acc_7_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_7_m_cr_V, i16 %tmp_V_2, i16 %tmp_10)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 163 [2/2] (11.7ns)   --->   "%acc_8_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_8_m_cr_V, i16 %tmp_V_2, i16 %tmp_11)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 164 [2/2] (11.7ns)   --->   "%acc_9_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_9_m_cr_V, i16 %tmp_V_2, i16 %tmp_12)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 165 [2/2] (11.7ns)   --->   "%acc_10_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_10_m_cr_V, i16 %tmp_V_2, i16 %tmp_13)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 166 [2/2] (11.7ns)   --->   "%acc_11_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_11_m_cr_V, i16 %tmp_V_2, i16 %tmp_14)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 167 [2/2] (11.7ns)   --->   "%acc_12_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_12_m_cr_V, i16 %tmp_V_2, i16 %tmp_15)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 168 [2/2] (11.7ns)   --->   "%acc_13_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_13_m_cr_V, i16 %tmp_V_2, i16 %tmp_16)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 169 [2/2] (11.7ns)   --->   "%acc_14_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_14_m_cr_V, i16 %tmp_V_2, i16 %tmp_17)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 170 [2/2] (11.7ns)   --->   "%acc_15_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_15_m_cr_V, i16 %tmp_V_2, i16 %tmp_18)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 171 [2/2] (11.7ns)   --->   "%acc_16_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_16_m_cr_V, i16 %tmp_V_2, i16 %tmp_19)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 172 [2/2] (11.7ns)   --->   "%acc_17_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_17_m_cr_V, i16 %tmp_V_2, i16 %tmp_20)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 173 [2/2] (11.7ns)   --->   "%acc_18_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_18_m_cr_V, i16 %tmp_V_2, i16 %tmp_21)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 174 [2/2] (11.7ns)   --->   "%acc_19_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_19_m_cr_V, i16 %tmp_V_2, i16 %tmp_22)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 175 [2/2] (11.7ns)   --->   "%acc_20_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_20_m_cr_V, i16 %tmp_V_2, i16 %tmp_23)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 176 [2/2] (11.7ns)   --->   "%acc_21_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_21_m_cr_V, i16 %tmp_V_2, i16 %tmp_24)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 177 [2/2] (11.7ns)   --->   "%acc_22_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_22_m_cr_V, i16 %tmp_V_2, i16 %tmp_25)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 178 [2/2] (11.7ns)   --->   "%acc_23_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_23_m_cr_V, i16 %tmp_V_2, i16 %tmp_26)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 179 [2/2] (11.7ns)   --->   "%acc_24_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_24_m_cr_V, i16 %tmp_V_2, i16 %tmp_27)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 180 [2/2] (11.7ns)   --->   "%acc_25_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_25_m_cr_V, i16 %tmp_V_2, i16 %tmp_28)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 181 [2/2] (11.7ns)   --->   "%acc_26_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_26_m_cr_V, i16 %tmp_V_2, i16 %tmp_29)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 182 [2/2] (11.7ns)   --->   "%acc_27_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_27_m_cr_V, i16 %tmp_V_2, i16 %tmp_30)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 183 [2/2] (11.7ns)   --->   "%acc_28_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_28_m_cr_V, i16 %tmp_V_2, i16 %tmp_31)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 184 [2/2] (11.7ns)   --->   "%acc_29_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_29_m_cr_V, i16 %tmp_V_2, i16 %tmp_32)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 185 [2/2] (11.7ns)   --->   "%acc_30_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_30_m_cr_V, i16 %tmp_V_2, i16 %tmp_33)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 186 [2/2] (11.7ns)   --->   "%acc_31_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_31_m_cr_V, i16 %tmp_V_2, i16 %tmp_34)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 5> : 11.77ns
+ST_5 : Operation 187 [1/2] (6.24ns)   --->   "%acc_0_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_0_m_cr_V, i16 %tmp_V_2, i16 %tmp_68)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 188 [1/2] (6.24ns)   --->   "%acc_1_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_1_m_cr_V, i16 %tmp_V_2, i16 %tmp_7)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 189 [1/2] (6.24ns)   --->   "%acc_2_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_2_m_cr_V, i16 %tmp_V_2, i16 %tmp_8)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 190 [1/2] (6.24ns)   --->   "%acc_3_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_3_m_cr_V, i16 %tmp_V_2, i16 %tmp_9)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 191 [1/2] (6.24ns)   --->   "%acc_4_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_4_m_cr_V, i16 %tmp_V_2, i16 %tmp_s)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 192 [1/2] (6.24ns)   --->   "%acc_5_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_5_m_cr_V, i16 %tmp_V_2, i16 %tmp_1)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 193 [1/2] (6.24ns)   --->   "%acc_6_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_6_m_cr_V, i16 %tmp_V_2, i16 %tmp_2)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 194 [1/2] (6.24ns)   --->   "%acc_7_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_7_m_cr_V, i16 %tmp_V_2, i16 %tmp_10)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 195 [1/2] (6.24ns)   --->   "%acc_8_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_8_m_cr_V, i16 %tmp_V_2, i16 %tmp_11)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 196 [1/2] (6.24ns)   --->   "%acc_9_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_9_m_cr_V, i16 %tmp_V_2, i16 %tmp_12)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 197 [1/2] (6.24ns)   --->   "%acc_10_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_10_m_cr_V, i16 %tmp_V_2, i16 %tmp_13)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 198 [1/2] (6.24ns)   --->   "%acc_11_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_11_m_cr_V, i16 %tmp_V_2, i16 %tmp_14)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 199 [1/2] (6.24ns)   --->   "%acc_12_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_12_m_cr_V, i16 %tmp_V_2, i16 %tmp_15)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 200 [1/2] (6.24ns)   --->   "%acc_13_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_13_m_cr_V, i16 %tmp_V_2, i16 %tmp_16)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 201 [1/2] (6.24ns)   --->   "%acc_14_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_14_m_cr_V, i16 %tmp_V_2, i16 %tmp_17)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 202 [1/2] (6.24ns)   --->   "%acc_15_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_15_m_cr_V, i16 %tmp_V_2, i16 %tmp_18)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 203 [1/2] (6.24ns)   --->   "%acc_16_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_16_m_cr_V, i16 %tmp_V_2, i16 %tmp_19)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 204 [1/2] (6.24ns)   --->   "%acc_17_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_17_m_cr_V, i16 %tmp_V_2, i16 %tmp_20)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 205 [1/2] (6.24ns)   --->   "%acc_18_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_18_m_cr_V, i16 %tmp_V_2, i16 %tmp_21)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 206 [1/2] (6.24ns)   --->   "%acc_19_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_19_m_cr_V, i16 %tmp_V_2, i16 %tmp_22)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 207 [1/2] (6.24ns)   --->   "%acc_20_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_20_m_cr_V, i16 %tmp_V_2, i16 %tmp_23)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 208 [1/2] (6.24ns)   --->   "%acc_21_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_21_m_cr_V, i16 %tmp_V_2, i16 %tmp_24)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 209 [1/2] (6.24ns)   --->   "%acc_22_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_22_m_cr_V, i16 %tmp_V_2, i16 %tmp_25)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 210 [1/2] (6.24ns)   --->   "%acc_23_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_23_m_cr_V, i16 %tmp_V_2, i16 %tmp_26)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 211 [1/2] (6.24ns)   --->   "%acc_24_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_24_m_cr_V, i16 %tmp_V_2, i16 %tmp_27)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 212 [1/2] (6.24ns)   --->   "%acc_25_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_25_m_cr_V, i16 %tmp_V_2, i16 %tmp_28)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 213 [1/2] (6.24ns)   --->   "%acc_26_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_26_m_cr_V, i16 %tmp_V_2, i16 %tmp_29)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 214 [1/2] (6.24ns)   --->   "%acc_27_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_27_m_cr_V, i16 %tmp_V_2, i16 %tmp_30)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 215 [1/2] (6.24ns)   --->   "%acc_28_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_28_m_cr_V, i16 %tmp_V_2, i16 %tmp_31)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 216 [1/2] (6.24ns)   --->   "%acc_29_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_29_m_cr_V, i16 %tmp_V_2, i16 %tmp_32)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 217 [1/2] (6.24ns)   --->   "%acc_30_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_30_m_cr_V, i16 %tmp_V_2, i16 %tmp_33)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 218 [1/2] (6.24ns)   --->   "%acc_31_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_31_m_cr_V, i16 %tmp_V_2, i16 %tmp_34)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 219 [2/2] (11.7ns)   --->   "%acc_32_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_32_m_cr_V, i16 %tmp_V_2, i16 %tmp_35)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 220 [2/2] (11.7ns)   --->   "%acc_33_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_33_m_cr_V, i16 %tmp_V_2, i16 %tmp_36)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 221 [2/2] (11.7ns)   --->   "%acc_34_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_34_m_cr_V, i16 %tmp_V_2, i16 %tmp_37)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 222 [2/2] (11.7ns)   --->   "%acc_35_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_35_m_cr_V, i16 %tmp_V_2, i16 %tmp_38)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 223 [2/2] (11.7ns)   --->   "%acc_36_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_36_m_cr_V, i16 %tmp_V_2, i16 %tmp_39)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 224 [2/2] (11.7ns)   --->   "%acc_37_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_37_m_cr_V, i16 %tmp_V_2, i16 %tmp_40)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 225 [2/2] (11.7ns)   --->   "%acc_38_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_38_m_cr_V, i16 %tmp_V_2, i16 %tmp_41)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 226 [2/2] (11.7ns)   --->   "%acc_39_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_39_m_cr_V, i16 %tmp_V_2, i16 %tmp_42)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 227 [2/2] (11.7ns)   --->   "%acc_40_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_40_m_cr_V, i16 %tmp_V_2, i16 %tmp_43)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 228 [2/2] (11.7ns)   --->   "%acc_41_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_41_m_cr_V, i16 %tmp_V_2, i16 %tmp_44)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 229 [2/2] (11.7ns)   --->   "%acc_42_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_42_m_cr_V, i16 %tmp_V_2, i16 %tmp_45)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 230 [2/2] (11.7ns)   --->   "%acc_43_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_43_m_cr_V, i16 %tmp_V_2, i16 %tmp_46)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 231 [2/2] (11.7ns)   --->   "%acc_44_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_44_m_cr_V, i16 %tmp_V_2, i16 %tmp_47)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 232 [2/2] (11.7ns)   --->   "%acc_45_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_45_m_cr_V, i16 %tmp_V_2, i16 %tmp_48)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 233 [2/2] (11.7ns)   --->   "%acc_46_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_46_m_cr_V, i16 %tmp_V_2, i16 %tmp_49)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 234 [2/2] (11.7ns)   --->   "%acc_47_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_47_m_cr_V, i16 %tmp_V_2, i16 %tmp_50)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 235 [2/2] (11.7ns)   --->   "%acc_48_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_48_m_cr_V, i16 %tmp_V_2, i16 %tmp_51)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 236 [2/2] (11.7ns)   --->   "%acc_49_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_49_m_cr_V, i16 %tmp_V_2, i16 %tmp_52)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 237 [2/2] (11.7ns)   --->   "%acc_50_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_50_m_cr_V, i16 %tmp_V_2, i16 %tmp_53)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 238 [2/2] (11.7ns)   --->   "%acc_51_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_51_m_cr_V, i16 %tmp_V_2, i16 %tmp_54)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 239 [2/2] (11.7ns)   --->   "%acc_52_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_52_m_cr_V, i16 %tmp_V_2, i16 %tmp_55)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 240 [2/2] (11.7ns)   --->   "%acc_53_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_53_m_cr_V, i16 %tmp_V_2, i16 %tmp_56)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 241 [2/2] (11.7ns)   --->   "%acc_54_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_54_m_cr_V, i16 %tmp_V_2, i16 %tmp_57)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 242 [2/2] (11.7ns)   --->   "%acc_55_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_55_m_cr_V, i16 %tmp_V_2, i16 %tmp_58)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 243 [2/2] (11.7ns)   --->   "%acc_56_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_56_m_cr_V, i16 %tmp_V_2, i16 %tmp_59)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 244 [2/2] (11.7ns)   --->   "%acc_57_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_57_m_cr_V, i16 %tmp_V_2, i16 %tmp_60)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 245 [2/2] (11.7ns)   --->   "%acc_58_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_58_m_cr_V, i16 %tmp_V_2, i16 %tmp_61)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 246 [2/2] (11.7ns)   --->   "%acc_59_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_59_m_cr_V, i16 %tmp_V_2, i16 %tmp_62)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 247 [2/2] (11.7ns)   --->   "%acc_60_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_60_m_cr_V, i16 %tmp_V_2, i16 %tmp_63)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 248 [2/2] (11.7ns)   --->   "%acc_61_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_61_m_cr_V, i16 %tmp_V_2, i16 %tmp_64)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 249 [2/2] (11.7ns)   --->   "%acc_62_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_62_m_cr_V, i16 %tmp_V_2, i16 %tmp_65)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 250 [2/2] (11.7ns)   --->   "%acc_63_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_63_m_cr_V, i16 %tmp_V_2, i16 %tmp_66)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 6> : 6.25ns
+ST_6 : Operation 251 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 784, i64 784, i64 784)"
+ST_6 : Operation 252 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str11) nounwind" [mnist_edpa/linear_activation.hpp:28]
+ST_6 : Operation 253 [1/1] (0.00ns)   --->   "%tmp_3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str11)" [mnist_edpa/linear_activation.hpp:28]
+ST_6 : Operation 254 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind" [mnist_edpa/linear_activation.hpp:29]
+ST_6 : Operation 255 [1/2] (6.24ns)   --->   "%acc_32_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_32_m_cr_V, i16 %tmp_V_2, i16 %tmp_35)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 256 [1/2] (6.24ns)   --->   "%acc_33_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_33_m_cr_V, i16 %tmp_V_2, i16 %tmp_36)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 257 [1/2] (6.24ns)   --->   "%acc_34_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_34_m_cr_V, i16 %tmp_V_2, i16 %tmp_37)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 258 [1/2] (6.24ns)   --->   "%acc_35_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_35_m_cr_V, i16 %tmp_V_2, i16 %tmp_38)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 259 [1/2] (6.24ns)   --->   "%acc_36_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_36_m_cr_V, i16 %tmp_V_2, i16 %tmp_39)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 260 [1/2] (6.24ns)   --->   "%acc_37_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_37_m_cr_V, i16 %tmp_V_2, i16 %tmp_40)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 261 [1/2] (6.24ns)   --->   "%acc_38_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_38_m_cr_V, i16 %tmp_V_2, i16 %tmp_41)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 262 [1/2] (6.24ns)   --->   "%acc_39_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_39_m_cr_V, i16 %tmp_V_2, i16 %tmp_42)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 263 [1/2] (6.24ns)   --->   "%acc_40_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_40_m_cr_V, i16 %tmp_V_2, i16 %tmp_43)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 264 [1/2] (6.24ns)   --->   "%acc_41_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_41_m_cr_V, i16 %tmp_V_2, i16 %tmp_44)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 265 [1/2] (6.24ns)   --->   "%acc_42_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_42_m_cr_V, i16 %tmp_V_2, i16 %tmp_45)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 266 [1/2] (6.24ns)   --->   "%acc_43_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_43_m_cr_V, i16 %tmp_V_2, i16 %tmp_46)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 267 [1/2] (6.24ns)   --->   "%acc_44_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_44_m_cr_V, i16 %tmp_V_2, i16 %tmp_47)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 268 [1/2] (6.24ns)   --->   "%acc_45_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_45_m_cr_V, i16 %tmp_V_2, i16 %tmp_48)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 269 [1/2] (6.24ns)   --->   "%acc_46_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_46_m_cr_V, i16 %tmp_V_2, i16 %tmp_49)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 270 [1/2] (6.24ns)   --->   "%acc_47_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_47_m_cr_V, i16 %tmp_V_2, i16 %tmp_50)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 271 [1/2] (6.24ns)   --->   "%acc_48_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_48_m_cr_V, i16 %tmp_V_2, i16 %tmp_51)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 272 [1/2] (6.24ns)   --->   "%acc_49_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_49_m_cr_V, i16 %tmp_V_2, i16 %tmp_52)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 273 [1/2] (6.24ns)   --->   "%acc_50_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_50_m_cr_V, i16 %tmp_V_2, i16 %tmp_53)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 274 [1/2] (6.24ns)   --->   "%acc_51_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_51_m_cr_V, i16 %tmp_V_2, i16 %tmp_54)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 275 [1/2] (6.24ns)   --->   "%acc_52_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_52_m_cr_V, i16 %tmp_V_2, i16 %tmp_55)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 276 [1/2] (6.24ns)   --->   "%acc_53_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_53_m_cr_V, i16 %tmp_V_2, i16 %tmp_56)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 277 [1/2] (6.24ns)   --->   "%acc_54_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_54_m_cr_V, i16 %tmp_V_2, i16 %tmp_57)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 278 [1/2] (6.24ns)   --->   "%acc_55_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_55_m_cr_V, i16 %tmp_V_2, i16 %tmp_58)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 279 [1/2] (6.24ns)   --->   "%acc_56_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_56_m_cr_V, i16 %tmp_V_2, i16 %tmp_59)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 280 [1/2] (6.24ns)   --->   "%acc_57_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_57_m_cr_V, i16 %tmp_V_2, i16 %tmp_60)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 281 [1/2] (6.24ns)   --->   "%acc_58_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_58_m_cr_V, i16 %tmp_V_2, i16 %tmp_61)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 282 [1/2] (6.24ns)   --->   "%acc_59_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_59_m_cr_V, i16 %tmp_V_2, i16 %tmp_62)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 283 [1/2] (6.24ns)   --->   "%acc_60_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_60_m_cr_V, i16 %tmp_V_2, i16 %tmp_63)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 284 [1/2] (6.24ns)   --->   "%acc_61_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_61_m_cr_V, i16 %tmp_V_2, i16 %tmp_64)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 285 [1/2] (6.24ns)   --->   "%acc_62_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_62_m_cr_V, i16 %tmp_V_2, i16 %tmp_65)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 286 [1/2] (6.24ns)   --->   "%acc_63_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_63_m_cr_V, i16 %tmp_V_2, i16 %tmp_66)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 287 [1/1] (0.00ns)   --->   "%empty_28 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str11, i32 %tmp_3)" [mnist_edpa/linear_activation.hpp:35]
+ST_6 : Operation 288 [1/1] (0.00ns)   --->   "br label %.preheader21" [mnist_edpa/linear_activation.hpp:28]
+
+ <State 7> : 1.77ns
+ST_7 : Operation 289 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_2 = alloca i80"
+ST_7 : Operation 290 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_3 = alloca i80"
+ST_7 : Operation 291 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_4 = alloca i80"
+ST_7 : Operation 292 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_5 = alloca i80"
+ST_7 : Operation 293 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_6 = alloca i80"
+ST_7 : Operation 294 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_7 = alloca i80"
+ST_7 : Operation 295 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_8 = alloca i80"
+ST_7 : Operation 296 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_9 = alloca i80"
+ST_7 : Operation 297 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_10 = alloca i80"
+ST_7 : Operation 298 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_11 = alloca i80"
+ST_7 : Operation 299 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_12 = alloca i80"
+ST_7 : Operation 300 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_13 = alloca i80"
+ST_7 : Operation 301 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_14 = alloca i80"
+ST_7 : Operation 302 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_15 = alloca i80"
+ST_7 : Operation 303 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_16 = alloca i80"
+ST_7 : Operation 304 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_17 = alloca i80"
+ST_7 : Operation 305 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_18 = alloca i80"
+ST_7 : Operation 306 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_19 = alloca i80"
+ST_7 : Operation 307 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_20 = alloca i80"
+ST_7 : Operation 308 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_21 = alloca i80"
+ST_7 : Operation 309 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_22 = alloca i80"
+ST_7 : Operation 310 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_23 = alloca i80"
+ST_7 : Operation 311 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_24 = alloca i80"
+ST_7 : Operation 312 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_25 = alloca i80"
+ST_7 : Operation 313 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_26 = alloca i80"
+ST_7 : Operation 314 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_27 = alloca i80"
+ST_7 : Operation 315 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_28 = alloca i80"
+ST_7 : Operation 316 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_29 = alloca i80"
+ST_7 : Operation 317 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_30 = alloca i80"
+ST_7 : Operation 318 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_31 = alloca i80"
+ST_7 : Operation 319 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_32 = alloca i80"
+ST_7 : Operation 320 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_33 = alloca i80"
+ST_7 : Operation 321 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_34 = alloca i80"
+ST_7 : Operation 322 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_35 = alloca i80"
+ST_7 : Operation 323 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_36 = alloca i80"
+ST_7 : Operation 324 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_37 = alloca i80"
+ST_7 : Operation 325 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_38 = alloca i80"
+ST_7 : Operation 326 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_39 = alloca i80"
+ST_7 : Operation 327 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_40 = alloca i80"
+ST_7 : Operation 328 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_41 = alloca i80"
+ST_7 : Operation 329 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_42 = alloca i80"
+ST_7 : Operation 330 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_43 = alloca i80"
+ST_7 : Operation 331 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_44 = alloca i80"
+ST_7 : Operation 332 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_45 = alloca i80"
+ST_7 : Operation 333 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_46 = alloca i80"
+ST_7 : Operation 334 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_47 = alloca i80"
+ST_7 : Operation 335 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_48 = alloca i80"
+ST_7 : Operation 336 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_49 = alloca i80"
+ST_7 : Operation 337 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_50 = alloca i80"
+ST_7 : Operation 338 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_51 = alloca i80"
+ST_7 : Operation 339 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_52 = alloca i80"
+ST_7 : Operation 340 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_53 = alloca i80"
+ST_7 : Operation 341 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_54 = alloca i80"
+ST_7 : Operation 342 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_55 = alloca i80"
+ST_7 : Operation 343 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_56 = alloca i80"
+ST_7 : Operation 344 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_57 = alloca i80"
+ST_7 : Operation 345 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_58 = alloca i80"
+ST_7 : Operation 346 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_59 = alloca i80"
+ST_7 : Operation 347 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_60 = alloca i80"
+ST_7 : Operation 348 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_61 = alloca i80"
+ST_7 : Operation 349 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_62 = alloca i80"
+ST_7 : Operation 350 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_63 = alloca i80"
+ST_7 : Operation 351 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_64 = alloca i80"
+ST_7 : Operation 352 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_65 = alloca i80"
+ST_7 : Operation 353 [1/1] (1.76ns)   --->   "store i80 %acc_63_m_cr_V, i80* %acc_63_m_cr_V_65" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 354 [1/1] (1.76ns)   --->   "store i80 %acc_62_m_cr_V, i80* %acc_63_m_cr_V_64" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 355 [1/1] (1.76ns)   --->   "store i80 %acc_61_m_cr_V, i80* %acc_63_m_cr_V_63" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 356 [1/1] (1.76ns)   --->   "store i80 %acc_60_m_cr_V, i80* %acc_63_m_cr_V_62" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 357 [1/1] (1.76ns)   --->   "store i80 %acc_59_m_cr_V, i80* %acc_63_m_cr_V_61" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 358 [1/1] (1.76ns)   --->   "store i80 %acc_58_m_cr_V, i80* %acc_63_m_cr_V_60" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 359 [1/1] (1.76ns)   --->   "store i80 %acc_57_m_cr_V, i80* %acc_63_m_cr_V_59" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 360 [1/1] (1.76ns)   --->   "store i80 %acc_56_m_cr_V, i80* %acc_63_m_cr_V_58" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 361 [1/1] (1.76ns)   --->   "store i80 %acc_55_m_cr_V, i80* %acc_63_m_cr_V_57" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 362 [1/1] (1.76ns)   --->   "store i80 %acc_54_m_cr_V, i80* %acc_63_m_cr_V_56" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 363 [1/1] (1.76ns)   --->   "store i80 %acc_53_m_cr_V, i80* %acc_63_m_cr_V_55" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 364 [1/1] (1.76ns)   --->   "store i80 %acc_52_m_cr_V, i80* %acc_63_m_cr_V_54" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 365 [1/1] (1.76ns)   --->   "store i80 %acc_51_m_cr_V, i80* %acc_63_m_cr_V_53" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 366 [1/1] (1.76ns)   --->   "store i80 %acc_50_m_cr_V, i80* %acc_63_m_cr_V_52" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 367 [1/1] (1.76ns)   --->   "store i80 %acc_49_m_cr_V, i80* %acc_63_m_cr_V_51" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 368 [1/1] (1.76ns)   --->   "store i80 %acc_48_m_cr_V, i80* %acc_63_m_cr_V_50" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 369 [1/1] (1.76ns)   --->   "store i80 %acc_47_m_cr_V, i80* %acc_63_m_cr_V_49" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 370 [1/1] (1.76ns)   --->   "store i80 %acc_46_m_cr_V, i80* %acc_63_m_cr_V_48" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 371 [1/1] (1.76ns)   --->   "store i80 %acc_45_m_cr_V, i80* %acc_63_m_cr_V_47" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 372 [1/1] (1.76ns)   --->   "store i80 %acc_44_m_cr_V, i80* %acc_63_m_cr_V_46" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 373 [1/1] (1.76ns)   --->   "store i80 %acc_43_m_cr_V, i80* %acc_63_m_cr_V_45" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 374 [1/1] (1.76ns)   --->   "store i80 %acc_42_m_cr_V, i80* %acc_63_m_cr_V_44" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 375 [1/1] (1.76ns)   --->   "store i80 %acc_41_m_cr_V, i80* %acc_63_m_cr_V_43" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 376 [1/1] (1.76ns)   --->   "store i80 %acc_40_m_cr_V, i80* %acc_63_m_cr_V_42" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 377 [1/1] (1.76ns)   --->   "store i80 %acc_39_m_cr_V, i80* %acc_63_m_cr_V_41" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 378 [1/1] (1.76ns)   --->   "store i80 %acc_38_m_cr_V, i80* %acc_63_m_cr_V_40" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 379 [1/1] (1.76ns)   --->   "store i80 %acc_37_m_cr_V, i80* %acc_63_m_cr_V_39" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 380 [1/1] (1.76ns)   --->   "store i80 %acc_36_m_cr_V, i80* %acc_63_m_cr_V_38" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 381 [1/1] (1.76ns)   --->   "store i80 %acc_35_m_cr_V, i80* %acc_63_m_cr_V_37" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 382 [1/1] (1.76ns)   --->   "store i80 %acc_34_m_cr_V, i80* %acc_63_m_cr_V_36" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 383 [1/1] (1.76ns)   --->   "store i80 %acc_33_m_cr_V, i80* %acc_63_m_cr_V_35" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 384 [1/1] (1.76ns)   --->   "store i80 %acc_32_m_cr_V, i80* %acc_63_m_cr_V_34" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 385 [1/1] (1.76ns)   --->   "store i80 %acc_31_m_cr_V, i80* %acc_63_m_cr_V_33" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 386 [1/1] (1.76ns)   --->   "store i80 %acc_30_m_cr_V, i80* %acc_63_m_cr_V_32" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 387 [1/1] (1.76ns)   --->   "store i80 %acc_29_m_cr_V, i80* %acc_63_m_cr_V_31" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 388 [1/1] (1.76ns)   --->   "store i80 %acc_28_m_cr_V, i80* %acc_63_m_cr_V_30" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 389 [1/1] (1.76ns)   --->   "store i80 %acc_27_m_cr_V, i80* %acc_63_m_cr_V_29" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 390 [1/1] (1.76ns)   --->   "store i80 %acc_26_m_cr_V, i80* %acc_63_m_cr_V_28" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 391 [1/1] (1.76ns)   --->   "store i80 %acc_25_m_cr_V, i80* %acc_63_m_cr_V_27" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 392 [1/1] (1.76ns)   --->   "store i80 %acc_24_m_cr_V, i80* %acc_63_m_cr_V_26" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 393 [1/1] (1.76ns)   --->   "store i80 %acc_23_m_cr_V, i80* %acc_63_m_cr_V_25" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 394 [1/1] (1.76ns)   --->   "store i80 %acc_22_m_cr_V, i80* %acc_63_m_cr_V_24" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 395 [1/1] (1.76ns)   --->   "store i80 %acc_21_m_cr_V, i80* %acc_63_m_cr_V_23" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 396 [1/1] (1.76ns)   --->   "store i80 %acc_20_m_cr_V, i80* %acc_63_m_cr_V_22" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 397 [1/1] (1.76ns)   --->   "store i80 %acc_19_m_cr_V, i80* %acc_63_m_cr_V_21" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 398 [1/1] (1.76ns)   --->   "store i80 %acc_18_m_cr_V, i80* %acc_63_m_cr_V_20" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 399 [1/1] (1.76ns)   --->   "store i80 %acc_17_m_cr_V, i80* %acc_63_m_cr_V_19" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 400 [1/1] (1.76ns)   --->   "store i80 %acc_16_m_cr_V, i80* %acc_63_m_cr_V_18" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 401 [1/1] (1.76ns)   --->   "store i80 %acc_15_m_cr_V, i80* %acc_63_m_cr_V_17" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 402 [1/1] (1.76ns)   --->   "store i80 %acc_14_m_cr_V, i80* %acc_63_m_cr_V_16" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 403 [1/1] (1.76ns)   --->   "store i80 %acc_13_m_cr_V, i80* %acc_63_m_cr_V_15" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 404 [1/1] (1.76ns)   --->   "store i80 %acc_12_m_cr_V, i80* %acc_63_m_cr_V_14" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 405 [1/1] (1.76ns)   --->   "store i80 %acc_11_m_cr_V, i80* %acc_63_m_cr_V_13" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 406 [1/1] (1.76ns)   --->   "store i80 %acc_10_m_cr_V, i80* %acc_63_m_cr_V_12" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 407 [1/1] (1.76ns)   --->   "store i80 %acc_9_m_cr_V, i80* %acc_63_m_cr_V_11" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 408 [1/1] (1.76ns)   --->   "store i80 %acc_8_m_cr_V, i80* %acc_63_m_cr_V_10" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 409 [1/1] (1.76ns)   --->   "store i80 %acc_7_m_cr_V, i80* %acc_63_m_cr_V_9" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 410 [1/1] (1.76ns)   --->   "store i80 %acc_6_m_cr_V, i80* %acc_63_m_cr_V_8" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 411 [1/1] (1.76ns)   --->   "store i80 %acc_5_m_cr_V, i80* %acc_63_m_cr_V_7" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 412 [1/1] (1.76ns)   --->   "store i80 %acc_4_m_cr_V, i80* %acc_63_m_cr_V_6" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 413 [1/1] (1.76ns)   --->   "store i80 %acc_3_m_cr_V, i80* %acc_63_m_cr_V_5" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 414 [1/1] (1.76ns)   --->   "store i80 %acc_2_m_cr_V, i80* %acc_63_m_cr_V_4" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 415 [1/1] (1.76ns)   --->   "store i80 %acc_1_m_cr_V, i80* %acc_63_m_cr_V_3" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 416 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V, i80* %acc_63_m_cr_V_2" [mnist_edpa/linear_activation.hpp:33]
+ST_7 : Operation 417 [1/1] (1.76ns)   --->   "br label %.preheader" [mnist_edpa/linear_activation.hpp:37]
+
+ <State 8> : 3.25ns
+ST_8 : Operation 418 [1/1] (0.00ns)   --->   "%ires = phi i7 [ %ires_1, %branch0 ], [ 0, %.preheader.preheader ]"
+ST_8 : Operation 419 [1/1] (1.48ns)   --->   "%exitcond = icmp eq i7 %ires, -64" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 420 [1/1] (1.87ns)   --->   "%ires_1 = add i7 %ires, 1" [mnist_edpa/linear_activation.hpp:37]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 421 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %2, label %1" [mnist_edpa/linear_activation.hpp:37]
+ST_8 : Operation 422 [1/1] (0.00ns)   --->   "%tmp_5 = zext i7 %ires to i64" [mnist_edpa/linear_activation.hpp:40]
+ST_8 : Operation 423 [1/1] (0.00ns)   --->   "%tmp_69 = trunc i7 %ires to i6" [mnist_edpa/linear_activation.hpp:37]
+ST_8 : Operation 424 [1/1] (0.00ns)   --->   "%L1_BIAS_V_addr = getelementptr [64 x i16]* @L1_BIAS_V, i64 0, i64 %tmp_5" [mnist_edpa/linear_activation.hpp:40]
+ST_8 : Operation 425 [2/2] (3.25ns)   --->   "%L1_BIAS_V_load = load i16* %L1_BIAS_V_addr, align 2" [mnist_edpa/linear_activation.hpp:40]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 64> <ROM>
+
+ <State 9> : 3.25ns
+ST_9 : Operation 426 [1/2] (3.25ns)   --->   "%L1_BIAS_V_load = load i16* %L1_BIAS_V_addr, align 2" [mnist_edpa/linear_activation.hpp:40]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 64> <ROM>
+
+ <State 10> : 14.91ns
+ST_10 : Operation 427 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_2_loa = load i80* %acc_63_m_cr_V_2"
+ST_10 : Operation 428 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_3_loa = load i80* %acc_63_m_cr_V_3"
+ST_10 : Operation 429 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_4_loa = load i80* %acc_63_m_cr_V_4"
+ST_10 : Operation 430 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_5_loa = load i80* %acc_63_m_cr_V_5"
+ST_10 : Operation 431 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_6_loa = load i80* %acc_63_m_cr_V_6"
+ST_10 : Operation 432 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_7_loa = load i80* %acc_63_m_cr_V_7"
+ST_10 : Operation 433 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_8_loa = load i80* %acc_63_m_cr_V_8"
+ST_10 : Operation 434 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_9_loa = load i80* %acc_63_m_cr_V_9"
+ST_10 : Operation 435 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_10_lo = load i80* %acc_63_m_cr_V_10"
+ST_10 : Operation 436 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_11_lo = load i80* %acc_63_m_cr_V_11"
+ST_10 : Operation 437 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_12_lo = load i80* %acc_63_m_cr_V_12"
+ST_10 : Operation 438 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_13_lo = load i80* %acc_63_m_cr_V_13"
+ST_10 : Operation 439 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_14_lo = load i80* %acc_63_m_cr_V_14"
+ST_10 : Operation 440 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_15_lo = load i80* %acc_63_m_cr_V_15"
+ST_10 : Operation 441 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_16_lo = load i80* %acc_63_m_cr_V_16"
+ST_10 : Operation 442 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_17_lo = load i80* %acc_63_m_cr_V_17"
+ST_10 : Operation 443 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_18_lo = load i80* %acc_63_m_cr_V_18"
+ST_10 : Operation 444 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_19_lo = load i80* %acc_63_m_cr_V_19"
+ST_10 : Operation 445 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_20_lo = load i80* %acc_63_m_cr_V_20"
+ST_10 : Operation 446 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_21_lo = load i80* %acc_63_m_cr_V_21"
+ST_10 : Operation 447 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_22_lo = load i80* %acc_63_m_cr_V_22"
+ST_10 : Operation 448 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_23_lo = load i80* %acc_63_m_cr_V_23"
+ST_10 : Operation 449 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_24_lo = load i80* %acc_63_m_cr_V_24"
+ST_10 : Operation 450 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_25_lo = load i80* %acc_63_m_cr_V_25"
+ST_10 : Operation 451 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_26_lo = load i80* %acc_63_m_cr_V_26"
+ST_10 : Operation 452 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_27_lo = load i80* %acc_63_m_cr_V_27"
+ST_10 : Operation 453 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_28_lo = load i80* %acc_63_m_cr_V_28"
+ST_10 : Operation 454 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_29_lo = load i80* %acc_63_m_cr_V_29"
+ST_10 : Operation 455 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_30_lo = load i80* %acc_63_m_cr_V_30"
+ST_10 : Operation 456 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_31_lo = load i80* %acc_63_m_cr_V_31"
+ST_10 : Operation 457 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_32_lo = load i80* %acc_63_m_cr_V_32"
+ST_10 : Operation 458 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_33_lo = load i80* %acc_63_m_cr_V_33"
+ST_10 : Operation 459 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_34_lo = load i80* %acc_63_m_cr_V_34"
+ST_10 : Operation 460 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_35_lo = load i80* %acc_63_m_cr_V_35"
+ST_10 : Operation 461 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_36_lo = load i80* %acc_63_m_cr_V_36"
+ST_10 : Operation 462 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_37_lo = load i80* %acc_63_m_cr_V_37"
+ST_10 : Operation 463 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_38_lo = load i80* %acc_63_m_cr_V_38"
+ST_10 : Operation 464 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_39_lo = load i80* %acc_63_m_cr_V_39"
+ST_10 : Operation 465 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_40_lo = load i80* %acc_63_m_cr_V_40"
+ST_10 : Operation 466 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_41_lo = load i80* %acc_63_m_cr_V_41"
+ST_10 : Operation 467 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_42_lo = load i80* %acc_63_m_cr_V_42"
+ST_10 : Operation 468 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_43_lo = load i80* %acc_63_m_cr_V_43"
+ST_10 : Operation 469 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_44_lo = load i80* %acc_63_m_cr_V_44"
+ST_10 : Operation 470 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_45_lo = load i80* %acc_63_m_cr_V_45"
+ST_10 : Operation 471 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_46_lo = load i80* %acc_63_m_cr_V_46"
+ST_10 : Operation 472 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_47_lo = load i80* %acc_63_m_cr_V_47"
+ST_10 : Operation 473 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_48_lo = load i80* %acc_63_m_cr_V_48"
+ST_10 : Operation 474 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_49_lo = load i80* %acc_63_m_cr_V_49"
+ST_10 : Operation 475 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_50_lo = load i80* %acc_63_m_cr_V_50"
+ST_10 : Operation 476 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_51_lo = load i80* %acc_63_m_cr_V_51"
+ST_10 : Operation 477 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_52_lo = load i80* %acc_63_m_cr_V_52"
+ST_10 : Operation 478 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_53_lo = load i80* %acc_63_m_cr_V_53"
+ST_10 : Operation 479 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_54_lo = load i80* %acc_63_m_cr_V_54"
+ST_10 : Operation 480 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_55_lo = load i80* %acc_63_m_cr_V_55"
+ST_10 : Operation 481 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_56_lo = load i80* %acc_63_m_cr_V_56"
+ST_10 : Operation 482 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_57_lo = load i80* %acc_63_m_cr_V_57"
+ST_10 : Operation 483 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_58_lo = load i80* %acc_63_m_cr_V_58"
+ST_10 : Operation 484 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_59_lo = load i80* %acc_63_m_cr_V_59"
+ST_10 : Operation 485 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_60_lo = load i80* %acc_63_m_cr_V_60"
+ST_10 : Operation 486 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_61_lo = load i80* %acc_63_m_cr_V_61"
+ST_10 : Operation 487 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_62_lo = load i80* %acc_63_m_cr_V_62"
+ST_10 : Operation 488 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_63_lo = load i80* %acc_63_m_cr_V_63"
+ST_10 : Operation 489 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_64_lo = load i80* %acc_63_m_cr_V_64"
+ST_10 : Operation 490 [1/1] (0.00ns)   --->   "%acc_63_m_cr_V_65_lo = load i80* %acc_63_m_cr_V_65"
+ST_10 : Operation 491 [1/1] (3.13ns)   --->   "%tmp = call i80 @_ssdm_op_Mux.ap_auto.64i80.i6(i80 %acc_63_m_cr_V_2_loa, i80 %acc_63_m_cr_V_3_loa, i80 %acc_63_m_cr_V_4_loa, i80 %acc_63_m_cr_V_5_loa, i80 %acc_63_m_cr_V_6_loa, i80 %acc_63_m_cr_V_7_loa, i80 %acc_63_m_cr_V_8_loa, i80 %acc_63_m_cr_V_9_loa, i80 %acc_63_m_cr_V_10_lo, i80 %acc_63_m_cr_V_11_lo, i80 %acc_63_m_cr_V_12_lo, i80 %acc_63_m_cr_V_13_lo, i80 %acc_63_m_cr_V_14_lo, i80 %acc_63_m_cr_V_15_lo, i80 %acc_63_m_cr_V_16_lo, i80 %acc_63_m_cr_V_17_lo, i80 %acc_63_m_cr_V_18_lo, i80 %acc_63_m_cr_V_19_lo, i80 %acc_63_m_cr_V_20_lo, i80 %acc_63_m_cr_V_21_lo, i80 %acc_63_m_cr_V_22_lo, i80 %acc_63_m_cr_V_23_lo, i80 %acc_63_m_cr_V_24_lo, i80 %acc_63_m_cr_V_25_lo, i80 %acc_63_m_cr_V_26_lo, i80 %acc_63_m_cr_V_27_lo, i80 %acc_63_m_cr_V_28_lo, i80 %acc_63_m_cr_V_29_lo, i80 %acc_63_m_cr_V_30_lo, i80 %acc_63_m_cr_V_31_lo, i80 %acc_63_m_cr_V_32_lo, i80 %acc_63_m_cr_V_33_lo, i80 %acc_63_m_cr_V_34_lo, i80 %acc_63_m_cr_V_35_lo, i80 %acc_63_m_cr_V_36_lo, i80 %acc_63_m_cr_V_37_lo, i80 %acc_63_m_cr_V_38_lo, i80 %acc_63_m_cr_V_39_lo, i80 %acc_63_m_cr_V_40_lo, i80 %acc_63_m_cr_V_41_lo, i80 %acc_63_m_cr_V_42_lo, i80 %acc_63_m_cr_V_43_lo, i80 %acc_63_m_cr_V_44_lo, i80 %acc_63_m_cr_V_45_lo, i80 %acc_63_m_cr_V_46_lo, i80 %acc_63_m_cr_V_47_lo, i80 %acc_63_m_cr_V_48_lo, i80 %acc_63_m_cr_V_49_lo, i80 %acc_63_m_cr_V_50_lo, i80 %acc_63_m_cr_V_51_lo, i80 %acc_63_m_cr_V_52_lo, i80 %acc_63_m_cr_V_53_lo, i80 %acc_63_m_cr_V_54_lo, i80 %acc_63_m_cr_V_55_lo, i80 %acc_63_m_cr_V_56_lo, i80 %acc_63_m_cr_V_57_lo, i80 %acc_63_m_cr_V_58_lo, i80 %acc_63_m_cr_V_59_lo, i80 %acc_63_m_cr_V_60_lo, i80 %acc_63_m_cr_V_61_lo, i80 %acc_63_m_cr_V_62_lo, i80 %acc_63_m_cr_V_63_lo, i80 %acc_63_m_cr_V_64_lo, i80 %acc_63_m_cr_V_65_lo, i6 %tmp_69)" [mnist_edpa/linear_activation.hpp:37]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 3.13> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 492 [2/2] (11.7ns)   --->   "%acc_0_m_cr_V_4 = call fastcc i80 @multiply_accumulate(i80 %tmp, i16 %L1_BIAS_V_load, i16 15360)" [mnist_edpa/linear_activation.hpp:40]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 493 [1/1] (1.55ns)   --->   "switch i6 %tmp_69, label %branch63 [
+    i6 0, label %branch0.pre
+    i6 1, label %branch1
+    i6 2, label %branch2
+    i6 3, label %branch3
+    i6 4, label %branch4
+    i6 5, label %branch5
+    i6 6, label %branch6
+    i6 7, label %branch7
+    i6 8, label %branch8
+    i6 9, label %branch9
+    i6 10, label %branch10
+    i6 11, label %branch11
+    i6 12, label %branch12
+    i6 13, label %branch13
+    i6 14, label %branch14
+    i6 15, label %branch15
+    i6 16, label %branch16
+    i6 17, label %branch17
+    i6 18, label %branch18
+    i6 19, label %branch19
+    i6 20, label %branch20
+    i6 21, label %branch21
+    i6 22, label %branch22
+    i6 23, label %branch23
+    i6 24, label %branch24
+    i6 25, label %branch25
+    i6 26, label %branch26
+    i6 27, label %branch27
+    i6 28, label %branch28
+    i6 29, label %branch29
+    i6 30, label %branch30
+    i6 31, label %branch31
+    i6 -32, label %branch32
+    i6 -31, label %branch33
+    i6 -30, label %branch34
+    i6 -29, label %branch35
+    i6 -28, label %branch36
+    i6 -27, label %branch37
+    i6 -26, label %branch38
+    i6 -25, label %branch39
+    i6 -24, label %branch40
+    i6 -23, label %branch41
+    i6 -22, label %branch42
+    i6 -21, label %branch43
+    i6 -20, label %branch44
+    i6 -19, label %branch45
+    i6 -18, label %branch46
+    i6 -17, label %branch47
+    i6 -16, label %branch48
+    i6 -15, label %branch49
+    i6 -14, label %branch50
+    i6 -13, label %branch51
+    i6 -12, label %branch52
+    i6 -11, label %branch53
+    i6 -10, label %branch54
+    i6 -9, label %branch55
+    i6 -8, label %branch56
+    i6 -7, label %branch57
+    i6 -6, label %branch58
+    i6 -5, label %branch59
+    i6 -4, label %branch60
+    i6 -3, label %branch61
+    i6 -2, label %branch62
+  ]" [mnist_edpa/linear_activation.hpp:40]
+
+ <State 11> : 8.01ns
+ST_11 : Operation 494 [1/1] (0.00ns)   --->   "%empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"
+ST_11 : Operation 495 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str13) nounwind" [mnist_edpa/linear_activation.hpp:37]
+ST_11 : Operation 496 [1/1] (0.00ns)   --->   "%tmp_67 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str13)" [mnist_edpa/linear_activation.hpp:37]
+ST_11 : Operation 497 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind" [mnist_edpa/linear_activation.hpp:38]
+ST_11 : Operation 498 [1/2] (6.24ns)   --->   "%acc_0_m_cr_V_4 = call fastcc i80 @multiply_accumulate(i80 %tmp, i16 %L1_BIAS_V_load, i16 15360)" [mnist_edpa/linear_activation.hpp:40]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 499 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_64" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 500 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 501 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_63" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 502 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 503 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_62" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 504 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 505 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_61" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 506 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 507 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_60" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 508 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 509 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_59" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 510 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 511 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_58" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 512 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 513 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_57" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 514 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 515 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_56" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 516 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 517 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_55" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 518 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 519 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_54" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 520 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 521 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_53" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 522 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 523 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_52" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 524 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 525 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_51" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 526 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 527 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_50" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 528 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 529 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_49" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 530 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 531 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_48" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 532 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 533 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_47" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 534 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 535 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_46" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 536 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 537 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_45" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 538 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 539 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_44" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 540 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 541 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_43" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 542 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 543 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_42" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 544 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 545 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_41" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 546 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 547 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_40" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 548 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 549 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_39" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 550 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 551 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_38" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 552 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 553 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_37" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 554 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 555 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_36" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 556 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 557 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_35" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 558 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 559 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_34" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 560 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 561 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_33" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 562 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 563 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_32" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 564 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 565 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_31" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 566 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 567 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_30" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 568 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 569 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_29" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 570 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 571 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_28" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 572 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 573 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_27" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 574 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 575 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_26" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 576 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 577 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_25" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 578 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 579 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_24" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 580 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 581 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_23" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 582 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 583 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_22" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 584 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 585 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_21" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 586 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 587 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_20" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 588 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 589 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_19" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 590 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 591 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_18" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 592 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 593 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_17" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 594 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 595 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_16" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 596 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 597 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_15" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 598 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 599 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_14" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 600 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 601 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_13" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 602 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 603 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_12" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 604 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 605 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_11" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 606 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 607 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_10" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 608 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 609 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_9" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 610 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 611 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_8" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 612 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 613 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_7" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 614 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 615 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_6" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 616 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 617 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_5" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 618 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 619 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_4" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 620 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 621 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_3" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 622 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 623 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_2" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 624 [1/1] (0.00ns)   --->   "br label %branch0"
+ST_11 : Operation 625 [1/1] (1.76ns)   --->   "store i80 %acc_0_m_cr_V_4, i80* %acc_63_m_cr_V_65" [mnist_edpa/linear_activation.hpp:40]
+ST_11 : Operation 626 [1/1] (0.00ns)   --->   "br label %branch0" [mnist_edpa/linear_activation.hpp:40]
+
+ <State 12> : 12.57ns
+ST_12 : Operation 627 [2/2] (12.5ns)   --->   "%tmp_V = call fastcc i16 @get_result(i80 %acc_0_m_cr_V_4)" [mnist_edpa/linear_activation.hpp:41]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 13> : 9.70ns
+ST_13 : Operation 628 [1/2] (6.06ns)   --->   "%tmp_V = call fastcc i16 @get_result(i80 %acc_0_m_cr_V_4)" [mnist_edpa/linear_activation.hpp:41]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_13 : Operation 629 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i16P(i16* %data_out_V_V, i16 %tmp_V)" [mnist_edpa/linear_activation.hpp:41]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_13 : Operation 630 [1/1] (0.00ns)   --->   "%empty_30 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str13, i32 %tmp_67)" [mnist_edpa/linear_activation.hpp:42]
+ST_13 : Operation 631 [1/1] (0.00ns)   --->   "br label %.preheader" [mnist_edpa/linear_activation.hpp:37]
+
+ <State 14> : 0.00ns
+ST_14 : Operation 632 [1/1] (0.00ns)   --->   "ret void" [mnist_edpa/linear_activation.hpp:43]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15ns, clock uncertainty: 1.88ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('acc[63].m_cr.V') with incoming values : ('acc[63].m_cr.V', mnist_edpa/linear_activation.hpp:33) [9]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('ii') with incoming values : ('ii', mnist_edpa/linear_activation.hpp:28) [73]  (0 ns)
+	'getelementptr' operation ('L1_WEIGHTS_V_addr', mnist_edpa/linear_activation.hpp:33) [84]  (0 ns)
+	'load' operation ('L1_WEIGHTS_V_load', mnist_edpa/linear_activation.hpp:33) on array 'L1_WEIGHTS_V' [85]  (3.25 ns)
+
+ <State 3>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'data_in_V_V' (mnist_edpa/linear_activation.hpp:30) [82]  (3.63 ns)
+
+ <State 4>: 11.8ns
+The critical path consists of the following:
+	'call' operation ('acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' [87]  (11.8 ns)
+
+ <State 5>: 11.8ns
+The critical path consists of the following:
+	'call' operation ('acc[32].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' [151]  (11.8 ns)
+
+ <State 6>: 6.25ns
+The critical path consists of the following:
+	'call' operation ('acc[32].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' [151]  (6.25 ns)
+
+ <State 7>: 1.77ns
+The critical path consists of the following:
+	'alloca' operation ('acc[63].m_cr.V') [217]  (0 ns)
+	'store' operation (mnist_edpa/linear_activation.hpp:33) of variable 'acc[0].m_cr.V' on local variable 'acc[63].m_cr.V' [344]  (1.77 ns)
+
+ <State 8>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('ires') with incoming values : ('ires', mnist_edpa/linear_activation.hpp:37) [347]  (0 ns)
+	'getelementptr' operation ('L1_BIAS_V_addr', mnist_edpa/linear_activation.hpp:40) [422]  (0 ns)
+	'load' operation ('L1_BIAS_V_load', mnist_edpa/linear_activation.hpp:40) on array 'L1_BIAS_V' [423]  (3.25 ns)
+
+ <State 9>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('L1_BIAS_V_load', mnist_edpa/linear_activation.hpp:40) on array 'L1_BIAS_V' [423]  (3.25 ns)
+
+ <State 10>: 14.9ns
+The critical path consists of the following:
+	'load' operation ('acc_63_m_cr_V_2_loa') on local variable 'acc[63].m_cr.V' [352]  (0 ns)
+	'mux' operation ('tmp', mnist_edpa/linear_activation.hpp:37) [424]  (3.14 ns)
+	'call' operation ('acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:40) to 'multiply_accumulate' [425]  (11.8 ns)
+
+ <State 11>: 8.01ns
+The critical path consists of the following:
+	'call' operation ('acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:40) to 'multiply_accumulate' [425]  (6.25 ns)
+	'store' operation (mnist_edpa/linear_activation.hpp:40) of variable 'acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:40 on local variable 'acc[63].m_cr.V' [428]  (1.77 ns)
+
+ <State 12>: 12.6ns
+The critical path consists of the following:
+	'call' operation ('tmp.V', mnist_edpa/linear_activation.hpp:41) to 'get_result' [620]  (12.6 ns)
+
+ <State 13>: 9.7ns
+The critical path consists of the following:
+	'call' operation ('tmp.V', mnist_edpa/linear_activation.hpp:41) to 'get_result' [620]  (6.07 ns)
+	fifo write on port 'data_out_V_V' (mnist_edpa/linear_activation.hpp:41) [621]  (3.63 ns)
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

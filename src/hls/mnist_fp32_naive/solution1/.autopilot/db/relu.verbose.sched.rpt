@@ -1,0 +1,153 @@
+
+
+================================================================
+== Vivado HLS Report for 'relu'
+================================================================
+* Date:           Tue Apr 10 00:18:51 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_fp32_naive
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.72|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  129|  129|  129|  129|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  128|  128|         2|          -|          -|    64|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+3 --> 
+	2  / true
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %data_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str66, i32 0, i32 0, [1 x i8]* @p_str67, [1 x i8]* @p_str68, [1 x i8]* @p_str69, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str70, [1 x i8]* @p_str71)"
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %data_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str59, i32 0, i32 0, [1 x i8]* @p_str60, [1 x i8]* @p_str61, [1 x i8]* @p_str62, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str63, [1 x i8]* @p_str64)"
+ST_1 : Operation 6 [1/1] (1.76ns)   --->   "br label %1" [mnist_fp32_naive/relu_activation.hpp:7]
+
+ <State 2> : 3.63ns
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%ii = phi i7 [ 0, %0 ], [ %ii_1, %5 ]"
+ST_2 : Operation 8 [1/1] (1.48ns)   --->   "%exitcond = icmp eq i7 %ii, -64" [mnist_fp32_naive/relu_activation.hpp:7]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"
+ST_2 : Operation 10 [1/1] (1.87ns)   --->   "%ii_1 = add i7 %ii, 1" [mnist_fp32_naive/relu_activation.hpp:7]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %6, label %2" [mnist_fp32_naive/relu_activation.hpp:7]
+ST_2 : Operation 12 [1/1] (3.63ns)   --->   "%tmp_1 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %data_in_V)" [mnist_fp32_naive/relu_activation.hpp:8]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "ret void" [mnist_fp32_naive/relu_activation.hpp:12]
+
+ <State 3> : 7.72ns
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%data_to_int = bitcast float %tmp_1 to i32" [mnist_fp32_naive/relu_activation.hpp:8]
+ST_3 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_4 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %data_to_int, i32 23, i32 30)" [mnist_fp32_naive/relu_activation.hpp:8]
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = trunc i32 %data_to_int to i23" [mnist_fp32_naive/relu_activation.hpp:8]
+ST_3 : Operation 17 [1/1] (1.55ns)   --->   "%notlhs = icmp ne i8 %tmp_4, -1" [mnist_fp32_naive/relu_activation.hpp:8]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 18 [1/1] (2.44ns)   --->   "%notrhs = icmp eq i23 %tmp, 0" [mnist_fp32_naive/relu_activation.hpp:8]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.44> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 19 [1/1] (0.00ns) (grouped into LUT with out node tmp_9)   --->   "%tmp_7 = or i1 %notrhs, %notlhs" [mnist_fp32_naive/relu_activation.hpp:8]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 20 [1/1] (6.78ns)   --->   "%tmp_8 = fcmp ogt float %tmp_1, 0.000000e+00" [mnist_fp32_naive/relu_activation.hpp:9]   --->   Core 105 'FCmp' <Latency = 0> <II = 1> <Delay = 6.78> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 21 [1/1] (0.93ns) (out node of the LUT)   --->   "%tmp_9 = and i1 %tmp_7, %tmp_8" [mnist_fp32_naive/relu_activation.hpp:9]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %tmp_9, label %3, label %4" [mnist_fp32_naive/relu_activation.hpp:9]
+ST_3 : Operation 23 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %data_out_V, float 0.000000e+00)" [mnist_fp32_naive/relu_activation.hpp:10]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br label %5"
+ST_3 : Operation 25 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %data_out_V, float %tmp_1)" [mnist_fp32_naive/relu_activation.hpp:9]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "br label %5" [mnist_fp32_naive/relu_activation.hpp:9]
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "br label %1" [mnist_fp32_naive/relu_activation.hpp:7]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('ii') with incoming values : ('ii', mnist_fp32_naive/relu_activation.hpp:7) [7]  (1.77 ns)
+
+ <State 2>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'data_in_V' (mnist_fp32_naive/relu_activation.hpp:8) [13]  (3.63 ns)
+
+ <State 3>: 7.72ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_8', mnist_fp32_naive/relu_activation.hpp:9) [20]  (6.79 ns)
+	'and' operation ('tmp_9', mnist_fp32_naive/relu_activation.hpp:9) [21]  (0.931 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

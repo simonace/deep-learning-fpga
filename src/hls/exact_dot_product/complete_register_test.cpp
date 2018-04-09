@@ -5,7 +5,7 @@
 
 #define SUMMANDS 50000
 
-int cr_test()
+int main()
 {
 	CompleteRegister cr;
 
@@ -18,21 +18,17 @@ int cr_test()
 	printf("%d bytes read to memory.\n", read);
 	printf("%d bytes per entry\n", sizeof(data_t));
 
-	half result;
-	half inter;
+	float result;
+	data_t expected = 0;
 	for (int i = 0; i < SUMMANDS; i++) {
 		cr.multiply_accumulate(mem[i], mem[SUMMANDS+i]);
-		inter.set_bits(cr.get_result());
-		if (i == 22327) {
-			std::cout << "Iteration #" << i+1 << ": " << std::endl;
-			std::cout << (float) inter << std::endl;
-		}
 	}
-	result.set_bits(cr.get_result());
+	result = cr.get_result();
 
 	std::cout << "Result: " << (float) result << std::endl;
+	std::cout << "Expected: " << (float) expected << std::endl;
 	cr.clear();
-	result.set_bits(cr.get_result());
+	result = cr.get_result();
 	std::cout << "Result: " << (float) result << std::endl;
 
 	fclose(fd);

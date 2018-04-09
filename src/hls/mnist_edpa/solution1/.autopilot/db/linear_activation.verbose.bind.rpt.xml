@@ -1,0 +1,80 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'linear_activation'" level="0">
+<item name = "Date">Mon Apr  9 21:30:08 2018
+</item>
+<item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
+<item name = "Project">mnist_edpa</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg400-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">15.00, 14.91, 1.88</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1705, 1705, 1705, 1705, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_get_result_fu_1555">get_result, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1561">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1569">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1577">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1585">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1593">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1601">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1609">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1617">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1625">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1633">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1641">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1649">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1657">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1665">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1673">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1681">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1689">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1697">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1705">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1713">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1721">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1729">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1737">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1745">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1753">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1761">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1769">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1777">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1785">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1793">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1801">multiply_accumulate, 1, 1, 1, 1, function</column>
+<column name="grp_multiply_accumulate_fu_1809">multiply_accumulate, 1, 1, 1, 1, function</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- NewInput">1570, 1570, 5, 2, 1, 784, yes</column>
+<column name="- Result">131, 131, 6, 2, 1, 64, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

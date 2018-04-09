@@ -11,8 +11,8 @@ add_files mnist/q_l1_w_data.h
 add_files mnist/q_l1_b_data.h
 add_files mnist/mnist.cpp
 add_files -tb mnist/mnist_test.cpp
-add_files -tb ../../keras-mnist/data/int8/x_test.dat
-add_files -tb ../../keras-mnist/data/int8/y_test.dat
+add_files -tb x_test.dat
+add_files -tb y_test.dat
 open_solution "base"
 set_part {xc7z020clg400-1} -tool vivado
 create_clock -period 10 -name default

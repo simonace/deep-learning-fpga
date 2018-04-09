@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1312" content="Analyzing design file &apos;mnist_fp32_naive/mnist_fp32_naive.cpp&apos; ..." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1465" content="Validating synthesis directives ..." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Pragmas Time (s): cpu = 00:00:39 ; elapsed = 00:00:24 . Memory (MB): peak = 362.477 ; gain = 13.375 ; free physical = 2499 ; free virtual = 9216" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Linking Time (s): cpu = 00:00:41 ; elapsed = 00:00:26 . Memory (MB): peak = 362.477 ; gain = 13.375 ; free physical = 2486 ; free virtual = 9217" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1467" content="Starting code transformations ..." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Standard Transforms Time (s): cpu = 00:00:42 ; elapsed = 00:00:27 . Memory (MB): peak = 363.367 ; gain = 14.266 ; free physical = 2471 ; free virtual = 9200" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1472" content="Checking synthesizability ..." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;fp_struct&lt;float&gt;::data&apos; into &apos;fp_struct&lt;float&gt;::to_float&apos; (/opt/Xilinx/Vivado/2017.4/common/technology/autopilot/hls/utils/x_hls_utils.h:464) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;fp_struct&lt;float&gt;::to_float&apos; into &apos;unpacker&lt;float, 32, 784&gt;&apos; (mnist_fp32_naive/unpacker.h:15) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;fp_struct&lt;float&gt;::data&apos; into &apos;packer&lt;float, 32, 10&gt;&apos; (mnist_fp32_naive/packer.h:16) automatically." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Checking Synthesizability Time (s): cpu = 00:00:42 ; elapsed = 00:00:27 . Memory (MB): peak = 491.348 ; gain = 142.246 ; free physical = 2450 ; free virtual = 9182" tag=""/>
+	<Message prefix="[XFORM 203-502]" severity="INFO" keynum="813" content="Unrolling all sub-loops inside loop &apos;NewInput&apos; (mnist_fp32_naive/linear_activation.hpp:24) in function &apos;linear_activation&lt;float, float, float, float, float, 64, 10&gt;&apos; for pipelining." tag=""/>
+	<Message prefix="[XFORM 203-502]" severity="INFO" keynum="813" content="Unrolling all sub-loops inside loop &apos;NewInput&apos; (mnist_fp32_naive/linear_activation.hpp:24) in function &apos;linear_activation&lt;float, float, float, float, float, 784, 64&gt;&apos; for pipelining." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Reset&apos; (mnist_fp32_naive/linear_activation.hpp:19) in function &apos;linear_activation&lt;float, float, float, float, float, 64, 10&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Product&apos; (mnist_fp32_naive/linear_activation.hpp:27) in function &apos;linear_activation&lt;float, float, float, float, float, 64, 10&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Reset&apos; (mnist_fp32_naive/linear_activation.hpp:19) in function &apos;linear_activation&lt;float, float, float, float, float, 784, 64&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-501]" severity="INFO" keynum="891" content="Unrolling loop &apos;Product&apos; (mnist_fp32_naive/linear_activation.hpp:27) in function &apos;linear_activation&lt;float, float, float, float, float, 784, 64&gt;&apos; completely." tag=""/>
+	<Message prefix="[XFORM 203-131]" severity="INFO" keynum="701" content="Reshaping array &apos;L2_WEIGHTS&apos;  in dimension 2 completely." tag=""/>
+	<Message prefix="[XFORM 203-131]" severity="INFO" keynum="701" content="Reshaping array &apos;L1_WEIGHTS&apos;  in dimension 2 completely." tag=""/>
+	<Message prefix="[XFORM 203-101]" severity="INFO" keynum="692" content="Partitioning array &apos;acc&apos; (mnist_fp32_naive/linear_activation.hpp:14) in dimension 1 completely." tag=""/>
+	<Message prefix="[XFORM 203-104]" severity="WARNING" keynum="694" content="Completely partitioning array &apos;acc&apos; (mnist_fp32_naive/linear_activation.hpp:14) accessed through non-constant indices on dimension 1 (mnist_fp32_naive/linear_activation.hpp:35:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." tag=""/>
+	<Message prefix="[XFORM 203-101]" severity="INFO" keynum="692" content="Partitioning array &apos;acc&apos; (mnist_fp32_naive/linear_activation.hpp:14) in dimension 1 completely." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;fp_struct&lt;float&gt;::data&apos; into &apos;fp_struct&lt;float&gt;::to_float&apos; (/opt/Xilinx/Vivado/2017.4/common/technology/autopilot/hls/utils/x_hls_utils.h:464) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;fp_struct&lt;float&gt;::to_float&apos; into &apos;unpacker&lt;float, 32, 784&gt;&apos; (mnist_fp32_naive/unpacker.h:15) automatically." tag=""/>
+	<Message prefix="[XFORM 203-602]" severity="INFO" keynum="794" content="Inlining function &apos;fp_struct&lt;float&gt;::data&apos; into &apos;packer&lt;float, 32, 10&gt;&apos; (mnist_fp32_naive/packer.h:16) automatically." tag=""/>
+	<Message prefix="[XFORM 203-712]" severity="INFO" keynum="801" content="Applying dataflow to function &apos;mnist_fp32_naive&apos; (mnist_fp32_naive/mnist_fp32_naive.cpp:14), detected/extracted 5 process function(s): 
+	 &apos;unpacker&lt;float, 32, 784&gt;&apos;
+	 &apos;linear_activation&lt;float, float, float, float, float, 784, 64&gt;&apos;
+	 &apos;relu&lt;float, float, 64&gt;&apos;
+	 &apos;linear_activation&lt;float, float, float, float, float, 64, 10&gt;&apos;
+	 &apos;packer&lt;float, 32, 10&gt;&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Pre-synthesis Time (s): cpu = 00:00:45 ; elapsed = 00:00:30 . Memory (MB): peak = 570.477 ; gain = 221.375 ; free physical = 2356 ; free virtual = 9103" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;unpacker&lt;float, 32, 784&gt;&apos; to &apos;unpacker&apos; (mnist_fp32_naive/unpacker.h:12:38)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;relu&lt;float, float, 64&gt;&apos; to &apos;relu&apos; (mnist_fp32_naive/relu_activation.hpp:7:29)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;packer&lt;float, 32, 10&gt;&apos; to &apos;packer&apos; (mnist_fp32_naive/packer.h:11:36)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;linear_activation&lt;float, float, float, float, float, 784, 64&gt;&apos; to &apos;linear_activation&apos; (mnist_fp32_naive/linear_activation.hpp:24:52)" tag=""/>
+	<Message prefix="[XFORM 203-631]" severity="WARNING" keynum="902" content="Renaming function &apos;linear_activation&lt;float, float, float, float, float, 64, 10&gt;&apos; to &apos;linear_activation.1&apos; (mnist_fp32_naive/linear_activation.hpp:24:52)" tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished Architecture Synthesis Time (s): cpu = 00:00:46 ; elapsed = 00:00:31 . Memory (MB): peak = 698.477 ; gain = 349.375 ; free physical = 2319 ; free virtual = 9072" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1317" content="Starting hardware synthesis ..." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1385" content="Synthesizing &apos;mnist_fp32_naive&apos; ..." tag=""/>
+	<Message prefix="[SYN 201-103]" severity="WARNING" keynum="534" content="Legalizing function name &apos;linear_activation.1&apos; to &apos;linear_activation_1&apos;." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;unpacker&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Unpack&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 31.25 seconds; current allocated memory: 251.929 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.02 seconds; current allocated memory: 252.066 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;linear_activation&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;NewInput&apos;." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 1)
+   between &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 2)
+   between &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 3)
+   between &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 4)
+   between &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[63]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 5, Depth = 15." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Result&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 8." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 1.07 seconds; current allocated memory: 254.944 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.55 seconds; current allocated memory: 257.708 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;relu&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.67 seconds; current allocated memory: 257.883 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.02 seconds; current allocated memory: 257.983 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;linear_activation_1&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;NewInput&apos;." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 1)
+   between &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 2)
+   between &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 3)
+   between &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-68]" severity="WARNING" keynum="100" content="Unable to enforce a carried constraint (II = 4)
+   between &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29) and &apos;fadd&apos; operation (&apos;acc[9]&apos;, mnist_fp32_naive/linear_activation.hpp:29)." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 5, Depth = 15." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Result&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 8." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.24 seconds; current allocated memory: 258.668 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.16 seconds; current allocated memory: 259.268 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;packer&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="107" content="Pipelining loop &apos;Pack&apos;." tag=""/>
+	<Message prefix="[SCHED 204-61]" severity="INFO" keynum="110" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.17 seconds; current allocated memory: 259.407 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.04 seconds; current allocated memory: 259.559 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1477" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-42]" severity="INFO" keynum="HLS_42_1438" content="-- Implementing module &apos;mnist_fp32_naive&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1478" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="139" content="Starting scheduling ..." tag=""/>
+	<Message prefix="[SCHED 204-11]" severity="INFO" keynum="138" content="Finished scheduling." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.05 seconds; current allocated memory: 259.729 MB." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="439" content="Starting micro-architecture generation ..." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="211" content="Performing variable lifetime analysis." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="210" content="Exploring resource sharing." tag=""/>
+	<Message prefix="[BIND 205-101]" severity="INFO" keynum="206" content="Binding ..." tag=""/>
+	<Message prefix="[BIND 205-100]" severity="INFO" keynum="438" content="Finished micro-architecture generation." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.38 seconds; current allocated memory: 259.983 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;unpacker&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;unpacker&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.24 seconds; current allocated memory: 260.668 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;linear_activation&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_L1_WEIGHTS&apos; to &apos;linear_activationbkb&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_L1_BIAS&apos; to &apos;linear_activationcud&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_fp32_naive_fadd_32ns_32ns_32_5_full_dsp_1&apos; to &apos;mnist_fp32_naive_dEe&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_fp32_naive_fmul_32ns_32ns_32_4_max_dsp_1&apos; to &apos;mnist_fp32_naive_eOg&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_fp32_naive_mux_646_32_1_1&apos; to &apos;mnist_fp32_naive_fYi&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_dEe&apos;: 13 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_eOg&apos;: 13 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_fYi&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;linear_activation&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.47 seconds; current allocated memory: 263.827 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;relu&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_fp32_naive_fcmp_32ns_32ns_1_1_1&apos; to &apos;mnist_fp32_naive_g8j&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_g8j&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;relu&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 1.06 seconds; current allocated memory: 270.416 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;linear_activation_1&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_1_L2_WEIGHTS&apos; to &apos;linear_activationhbi&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;linear_activation_1_L2_BIAS&apos; to &apos;linear_activationibs&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;mnist_fp32_naive_mux_104_32_1_1&apos; to &apos;mnist_fp32_naive_jbC&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_dEe&apos;: 2 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_eOg&apos;: 2 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="368" content="Generating core module &apos;mnist_fp32_naive_jbC&apos;: 1 instance(s)." tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;linear_activation_1&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.16 seconds; current allocated memory: 271.792 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;packer&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;packer_packet_user_V&apos; to &apos;packer_packet_usekbM&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;packer_packet_dest_V&apos; to &apos;packer_packet_deslbW&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;packer&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.32 seconds; current allocated memory: 274.107 MB." tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1483" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1484" content="-- Generating RTL for module &apos;mnist_fp32_naive&apos;" tag=""/>
+	<Message prefix="[HLS 200-10]" severity="INFO" keynum="HLS_10_1485" content="----------------------------------------------------------------" tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_data_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_keep_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_strb_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_user_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_last_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_id_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_in_V_dest_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_data_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_keep_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_strb_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_user_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_last_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_id_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on port &apos;mnist_fp32_naive/sdata_out_V_dest_V&apos; to &apos;axis&apos; (register, both mode)." tag=""/>
+	<Message prefix="[RTGEN 206-500]" severity="INFO" keynum="73" content="Setting interface mode on function &apos;mnist_fp32_naive&apos; to &apos;ap_ctrl_none&apos;." tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;start_for_linear_activation_U0&apos; to &apos;start_for_linear_mb6&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[SYN 201-210]" severity="INFO" keynum="402" content="Renamed object name &apos;start_for_linear_activation_1_U0&apos; to &apos;start_for_linear_ncg&apos; due to the length limit 20" tag=""/>
+	<Message prefix="[RTGEN 206-100]" severity="INFO" keynum="369" content="Finished creating RTL model for &apos;mnist_fp32_naive&apos;." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="474" content=" Elapsed time: 0.2 seconds; current allocated memory: 275.131 MB." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationbkb_rom&apos; using auto ROMs." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationcud_rom&apos; using auto ROMs." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationhbi_rom&apos; using auto ROMs." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;linear_activationibs_rom&apos; using distributed ROMs." tag=""/>
+	<Message prefix="[RTMG 210-274]" severity="WARNING" keynum="RTMG_274_1758" content="Memory &apos;packer_packet_usekbM&apos; is read-only, switch it to a ROM." tag=""/>
+	<Message prefix="[RTMG 210-279]" severity="INFO" keynum="RTMG_279_1793" content="Implementing memory &apos;packer_packet_usekbM_rom&apos; using distributed ROMs." tag=""/>
+	<Message prefix="[HLS 200-111]" severity="INFO" keynum="473" content="Finished generating all RTL models Time (s): cpu = 00:00:55 ; elapsed = 00:00:42 . Memory (MB): peak = 698.477 ; gain = 349.375 ; free physical = 2268 ; free virtual = 9030" tag=""/>
+	<Message prefix="[SYSC 207-301]" severity="INFO" keynum="SYSC_301_1065" content="Generating SystemC RTL for mnist_fp32_naive." tag=""/>
+	<Message prefix="[VHDL 208-304]" severity="INFO" keynum="VHDL_304_1066" content="Generating VHDL RTL for mnist_fp32_naive." tag=""/>
+	<Message prefix="[VLOG 209-307]" severity="INFO" keynum="VLOG_307_1067" content="Generating Verilog RTL for mnist_fp32_naive." tag=""/>
+	<Message prefix="[HLS 200-112]" severity="INFO" keynum="472" content="Total elapsed time: 41.79 seconds; peak allocated memory: 275.131 MB." tag=""/>
+</Messages>

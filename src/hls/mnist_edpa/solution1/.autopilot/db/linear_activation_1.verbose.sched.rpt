@@ -1,0 +1,373 @@
+
+
+================================================================
+== Vivado HLS Report for 'linear_activation_1'
+================================================================
+* Date:           Mon Apr  9 21:30:09 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_edpa
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  15.00|     14.40|        1.88|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  148|  148|  148|  148|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------+-----+-----+----------+-----------+-----------+------+----------+
+        |            |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- NewInput  |  130|  130|         5|          2|          1|    64|    yes   |
+        |- Result    |   14|   14|         6|          1|          1|    10|    yes   |
+        +------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 5
+  * Pipeline-1: initiation interval (II) = 1, depth = 6
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 14
+* Pipeline : 2
+  Pipeline-0 : II = 2, D = 5, States = { 2 3 4 5 6 }
+  Pipeline-1 : II = 1, D = 6, States = { 8 9 10 11 12 13 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	7  / (exitcond5)
+	3  / (!exitcond5)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	2  / true
+7 --> 
+	8  / true
+8 --> 
+	14  / (exitcond)
+	9  / (!exitcond)
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	8  / true
+14 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str129, i32 0, i32 0, [1 x i8]* @p_str130, [1 x i8]* @p_str131, [1 x i8]* @p_str132, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str133, [1 x i8]* @p_str134)"
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_out_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str115, i32 0, i32 0, [1 x i8]* @p_str116, [1 x i8]* @p_str117, [1 x i8]* @p_str118, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str119, [1 x i8]* @p_str120)"
+ST_1 : Operation 17 [1/1] (1.76ns)   --->   "br label %.preheader21" [mnist_edpa/linear_activation.hpp:28]
+
+ <State 2> : 3.25ns
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_9_m_cr_V_2, %0 ]"
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%acc_8_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_8_m_cr_V_2, %0 ]"
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%acc_7_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_7_m_cr_V_1, %0 ]"
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%acc_6_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_6_m_cr_V_1, %0 ]"
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%acc_5_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_5_m_cr_V_1, %0 ]"
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%acc_4_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_4_m_cr_V_1, %0 ]"
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%acc_3_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_3_m_cr_V_1, %0 ]"
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%acc_2_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_2_m_cr_V_1, %0 ]"
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%acc_1_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_1_m_cr_V_1, %0 ]"
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%acc_0_m_cr_V = phi i80 [ 0, %.preheader21.preheader ], [ %acc_0_m_cr_V_1, %0 ]"
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%ii = phi i7 [ 0, %.preheader21.preheader ], [ %ii_2, %0 ]"
+ST_2 : Operation 29 [1/1] (1.48ns)   --->   "%exitcond5 = icmp eq i7 %ii, -64" [mnist_edpa/linear_activation.hpp:28]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (1.87ns)   --->   "%ii_2 = add i7 %ii, 1" [mnist_edpa/linear_activation.hpp:28]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "br i1 %exitcond5, label %.preheader.preheader, label %0" [mnist_edpa/linear_activation.hpp:28]
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%tmp_1 = zext i7 %ii to i64" [mnist_edpa/linear_activation.hpp:33]
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%L2_WEIGHTS_V_addr = getelementptr [64 x i160]* @L2_WEIGHTS_V, i64 0, i64 %tmp_1" [mnist_edpa/linear_activation.hpp:33]
+ST_2 : Operation 34 [2/2] (3.25ns)   --->   "%L2_WEIGHTS_V_load = load i160* %L2_WEIGHTS_V_addr, align 8" [mnist_edpa/linear_activation.hpp:33]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 10> <ROM>
+
+ <State 3> : 3.63ns
+ST_3 : Operation 35 [1/1] (3.63ns)   --->   "%tmp_V_1 = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %data_in_V_V)" [mnist_edpa/linear_activation.hpp:30]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_3 : Operation 36 [1/2] (3.25ns)   --->   "%L2_WEIGHTS_V_load = load i160* %L2_WEIGHTS_V_addr, align 8" [mnist_edpa/linear_activation.hpp:33]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 10> <ROM>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_14 = trunc i160 %L2_WEIGHTS_V_load to i16" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_4 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 16, i32 31)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%tmp_5 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 32, i32 47)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%tmp_6 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 48, i32 63)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%tmp_7 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 64, i32 79)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%tmp_8 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 80, i32 95)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_9 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 96, i32 111)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%tmp_3 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 112, i32 127)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "%tmp_10 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 128, i32 143)" [mnist_edpa/linear_activation.hpp:33]
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_11 = call i16 @_ssdm_op_PartSelect.i16.i160.i32.i32(i160 %L2_WEIGHTS_V_load, i32 144, i32 159)" [mnist_edpa/linear_activation.hpp:33]
+
+ <State 4> : 11.77ns
+ST_4 : Operation 47 [2/2] (11.7ns)   --->   "%acc_0_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_0_m_cr_V, i16 %tmp_V_1, i16 %tmp_14)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 48 [2/2] (11.7ns)   --->   "%acc_1_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_1_m_cr_V, i16 %tmp_V_1, i16 %tmp_4)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 49 [2/2] (11.7ns)   --->   "%acc_2_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_2_m_cr_V, i16 %tmp_V_1, i16 %tmp_5)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 50 [2/2] (11.7ns)   --->   "%acc_3_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_3_m_cr_V, i16 %tmp_V_1, i16 %tmp_6)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 51 [2/2] (11.7ns)   --->   "%acc_4_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_4_m_cr_V, i16 %tmp_V_1, i16 %tmp_7)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 5> : 11.77ns
+ST_5 : Operation 52 [1/2] (6.24ns)   --->   "%acc_0_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_0_m_cr_V, i16 %tmp_V_1, i16 %tmp_14)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 53 [1/2] (6.24ns)   --->   "%acc_1_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_1_m_cr_V, i16 %tmp_V_1, i16 %tmp_4)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 54 [1/2] (6.24ns)   --->   "%acc_2_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_2_m_cr_V, i16 %tmp_V_1, i16 %tmp_5)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 55 [1/2] (6.24ns)   --->   "%acc_3_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_3_m_cr_V, i16 %tmp_V_1, i16 %tmp_6)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 56 [1/2] (6.24ns)   --->   "%acc_4_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_4_m_cr_V, i16 %tmp_V_1, i16 %tmp_7)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 57 [2/2] (11.7ns)   --->   "%acc_5_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_5_m_cr_V, i16 %tmp_V_1, i16 %tmp_8)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 58 [2/2] (11.7ns)   --->   "%acc_6_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_6_m_cr_V, i16 %tmp_V_1, i16 %tmp_9)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 59 [2/2] (11.7ns)   --->   "%acc_7_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_7_m_cr_V, i16 %tmp_V_1, i16 %tmp_3)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 60 [2/2] (11.7ns)   --->   "%acc_8_m_cr_V_2 = call fastcc i80 @multiply_accumulate(i80 %acc_8_m_cr_V, i16 %tmp_V_1, i16 %tmp_10)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 61 [2/2] (11.7ns)   --->   "%acc_9_m_cr_V_2 = call fastcc i80 @multiply_accumulate(i80 %acc_9_m_cr_V, i16 %tmp_V_1, i16 %tmp_11)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 6> : 6.25ns
+ST_6 : Operation 62 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str11) nounwind" [mnist_edpa/linear_activation.hpp:28]
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str11)" [mnist_edpa/linear_activation.hpp:28]
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind" [mnist_edpa/linear_activation.hpp:29]
+ST_6 : Operation 66 [1/2] (6.24ns)   --->   "%acc_5_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_5_m_cr_V, i16 %tmp_V_1, i16 %tmp_8)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 67 [1/2] (6.24ns)   --->   "%acc_6_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_6_m_cr_V, i16 %tmp_V_1, i16 %tmp_9)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 68 [1/2] (6.24ns)   --->   "%acc_7_m_cr_V_1 = call fastcc i80 @multiply_accumulate(i80 %acc_7_m_cr_V, i16 %tmp_V_1, i16 %tmp_3)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 69 [1/2] (6.24ns)   --->   "%acc_8_m_cr_V_2 = call fastcc i80 @multiply_accumulate(i80 %acc_8_m_cr_V, i16 %tmp_V_1, i16 %tmp_10)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 70 [1/2] (6.24ns)   --->   "%acc_9_m_cr_V_2 = call fastcc i80 @multiply_accumulate(i80 %acc_9_m_cr_V, i16 %tmp_V_1, i16 %tmp_11)" [mnist_edpa/linear_activation.hpp:33]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str11, i32 %tmp_s)" [mnist_edpa/linear_activation.hpp:35]
+ST_6 : Operation 72 [1/1] (0.00ns)   --->   "br label %.preheader21" [mnist_edpa/linear_activation.hpp:28]
+
+ <State 7> : 1.77ns
+ST_7 : Operation 73 [1/1] (1.76ns)   --->   "br label %.preheader" [mnist_edpa/linear_activation.hpp:37]
+
+ <State 8> : 3.25ns
+ST_8 : Operation 74 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_1 = phi i80 [ %acc_9_m_cr_V_5, %_ifconv ], [ %acc_9_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 75 [1/1] (0.00ns)   --->   "%acc_8_m_cr_V_1 = phi i80 [ %acc_9_m_cr_V_6, %_ifconv ], [ %acc_8_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 76 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_7 = phi i80 [ %acc_9_m_cr_V_8, %_ifconv ], [ %acc_7_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 77 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_9 = phi i80 [ %acc_9_m_cr_V_10, %_ifconv ], [ %acc_6_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 78 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_18 = phi i80 [ %acc_9_m_cr_V_12, %_ifconv ], [ %acc_5_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 79 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_3 = phi i80 [ %acc_9_m_cr_V_14, %_ifconv ], [ %acc_4_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 80 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_4 = phi i80 [ %acc_9_m_cr_V_16, %_ifconv ], [ %acc_3_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 81 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_11 = phi i80 [ %acc_9_m_cr_V_19, %_ifconv ], [ %acc_2_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 82 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_13 = phi i80 [ %acc_9_m_cr_V_21, %_ifconv ], [ %acc_1_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 83 [1/1] (0.00ns)   --->   "%acc_9_m_cr_V_15 = phi i80 [ %acc_9_m_cr_V_22, %_ifconv ], [ %acc_0_m_cr_V, %.preheader.preheader ]"
+ST_8 : Operation 84 [1/1] (0.00ns)   --->   "%ires = phi i4 [ %ires_1, %_ifconv ], [ 0, %.preheader.preheader ]"
+ST_8 : Operation 85 [1/1] (1.30ns)   --->   "%exitcond = icmp eq i4 %ires, -6" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 86 [1/1] (1.73ns)   --->   "%ires_1 = add i4 %ires, 1" [mnist_edpa/linear_activation.hpp:37]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.73> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 87 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %1, label %_ifconv" [mnist_edpa/linear_activation.hpp:37]
+ST_8 : Operation 88 [1/1] (0.00ns)   --->   "%tmp_2 = zext i4 %ires to i64" [mnist_edpa/linear_activation.hpp:40]
+ST_8 : Operation 89 [1/1] (0.00ns)   --->   "%L2_BIAS_V_addr = getelementptr [10 x i16]* @L2_BIAS_V, i64 0, i64 %tmp_2" [mnist_edpa/linear_activation.hpp:40]
+ST_8 : Operation 90 [2/2] (3.25ns)   --->   "%L2_BIAS_V_load = load i16* %L2_BIAS_V_addr, align 2" [mnist_edpa/linear_activation.hpp:40]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 10> <ROM>
+
+ <State 9> : 3.25ns
+ST_9 : Operation 91 [1/2] (3.25ns)   --->   "%L2_BIAS_V_load = load i16* %L2_BIAS_V_addr, align 2" [mnist_edpa/linear_activation.hpp:40]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 16> <Depth = 10> <ROM>
+
+ <State 10> : 14.40ns
+ST_10 : Operation 92 [1/1] (2.63ns)   --->   "%tmp = call i80 @_ssdm_op_Mux.ap_auto.10i80.i4(i80 %acc_9_m_cr_V_15, i80 %acc_9_m_cr_V_13, i80 %acc_9_m_cr_V_11, i80 %acc_9_m_cr_V_4, i80 %acc_9_m_cr_V_3, i80 %acc_9_m_cr_V_18, i80 %acc_9_m_cr_V_9, i80 %acc_9_m_cr_V_7, i80 %acc_8_m_cr_V_1, i80 %acc_9_m_cr_V_1, i4 %ires)" [mnist_edpa/linear_activation.hpp:37]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 2.63> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 93 [2/2] (11.7ns)   --->   "%acc_9_m_cr_V_23 = call fastcc i80 @multiply_accumulate(i80 %tmp, i16 %L2_BIAS_V_load, i16 15360)" [mnist_edpa/linear_activation.hpp:40]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 11> : 8.98ns
+ST_11 : Operation 94 [1/2] (6.24ns)   --->   "%acc_9_m_cr_V_23 = call fastcc i80 @multiply_accumulate(i80 %tmp, i16 %L2_BIAS_V_load, i16 15360)" [mnist_edpa/linear_activation.hpp:40]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 95 [1/1] (1.30ns)   --->   "%sel_tmp = icmp eq i4 %ires, -8" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 96 [1/1] (1.30ns)   --->   "%sel_tmp2 = icmp eq i4 %ires, 7" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 97 [1/1] (1.30ns)   --->   "%sel_tmp4 = icmp eq i4 %ires, 6" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 98 [1/1] (1.30ns)   --->   "%sel_tmp6 = icmp eq i4 %ires, 5" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 99 [1/1] (1.30ns)   --->   "%sel_tmp8 = icmp eq i4 %ires, 4" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 100 [1/1] (1.30ns)   --->   "%sel_tmp1 = icmp eq i4 %ires, 3" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 101 [1/1] (1.30ns)   --->   "%sel_tmp3 = icmp eq i4 %ires, 2" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 102 [1/1] (1.30ns)   --->   "%sel_tmp5 = icmp eq i4 %ires, 1" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 103 [1/1] (1.30ns)   --->   "%sel_tmp7 = icmp eq i4 %ires, 0" [mnist_edpa/linear_activation.hpp:37]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.30> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 104 [1/1] (0.93ns)   --->   "%or_cond = or i1 %sel_tmp7, %sel_tmp5" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 105 [1/1] (0.00ns) (grouped into LUT with out node or_cond4)   --->   "%or_cond1 = or i1 %sel_tmp3, %sel_tmp1" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 106 [1/1] (0.93ns)   --->   "%or_cond2 = or i1 %sel_tmp8, %sel_tmp6" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 107 [1/1] (0.00ns) (grouped into LUT with out node or_cond6)   --->   "%or_cond3 = or i1 %sel_tmp4, %sel_tmp2" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 108 [1/1] (0.00ns) (grouped into LUT with out node acc_9_m_cr_V_5)   --->   "%newSel = select i1 %sel_tmp, i80 %acc_9_m_cr_V_1, i80 %acc_9_m_cr_V_23" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 109 [1/1] (0.93ns) (out node of the LUT)   --->   "%or_cond4 = or i1 %or_cond, %or_cond1" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 110 [1/1] (0.00ns) (grouped into LUT with out node or_cond6)   --->   "%or_cond5 = or i1 %or_cond2, %or_cond3" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 111 [1/1] (0.93ns) (out node of the LUT)   --->   "%or_cond6 = or i1 %or_cond4, %or_cond5" [mnist_edpa/linear_activation.hpp:37]   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.93> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 112 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_5 = select i1 %or_cond6, i80 %acc_9_m_cr_V_1, i80 %newSel" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 113 [1/1] (0.00ns) (grouped into LUT with out node acc_9_m_cr_V_6)   --->   "%newSel2 = select i1 %sel_tmp, i80 %acc_9_m_cr_V_23, i80 %acc_8_m_cr_V_1" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 114 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_6 = select i1 %or_cond6, i80 %acc_8_m_cr_V_1, i80 %newSel2" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 115 [1/1] (0.00ns) (grouped into LUT with out node newSel5)   --->   "%newSel4 = select i1 %sel_tmp4, i80 %acc_9_m_cr_V_7, i80 %acc_9_m_cr_V_23" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 116 [1/1] (1.37ns) (out node of the LUT)   --->   "%newSel5 = select i1 %or_cond2, i80 %acc_9_m_cr_V_7, i80 %newSel4" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 117 [1/1] (0.00ns) (grouped into LUT with out node acc_9_m_cr_V_8)   --->   "%newSel6 = select i1 %or_cond4, i80 %acc_9_m_cr_V_7, i80 %newSel5" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 118 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_8 = select i1 %or_cond6, i80 %newSel6, i80 %acc_9_m_cr_V_7" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 119 [1/1] (0.00ns) (grouped into LUT with out node newSel9)   --->   "%newSel8 = select i1 %sel_tmp4, i80 %acc_9_m_cr_V_23, i80 %acc_9_m_cr_V_9" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 120 [1/1] (1.37ns) (out node of the LUT)   --->   "%newSel9 = select i1 %or_cond2, i80 %acc_9_m_cr_V_9, i80 %newSel8" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 121 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_10 = select i1 %or_cond4, i80 %acc_9_m_cr_V_9, i80 %newSel9" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 122 [1/1] (0.00ns) (grouped into LUT with out node newSel3)   --->   "%newSel1 = select i1 %sel_tmp8, i80 %acc_9_m_cr_V_18, i80 %acc_9_m_cr_V_23" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 123 [1/1] (1.37ns) (out node of the LUT)   --->   "%newSel3 = select i1 %or_cond2, i80 %newSel1, i80 %acc_9_m_cr_V_18" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 124 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_12 = select i1 %or_cond4, i80 %acc_9_m_cr_V_18, i80 %newSel3" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 125 [1/1] (0.00ns) (grouped into LUT with out node acc_9_m_cr_V_14)   --->   "%newSel7 = select i1 %sel_tmp8, i80 %acc_9_m_cr_V_23, i80 %acc_9_m_cr_V_3" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 126 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_14 = select i1 %or_cond4, i80 %acc_9_m_cr_V_3, i80 %newSel7" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 127 [1/1] (0.00ns) (grouped into LUT with out node newSel11)   --->   "%newSel10 = select i1 %sel_tmp3, i80 %acc_9_m_cr_V_4, i80 %acc_9_m_cr_V_23" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 128 [1/1] (1.37ns) (out node of the LUT)   --->   "%newSel11 = select i1 %or_cond, i80 %acc_9_m_cr_V_4, i80 %newSel10" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 129 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_16 = select i1 %or_cond4, i80 %newSel11, i80 %acc_9_m_cr_V_4" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 130 [1/1] (0.00ns) (grouped into LUT with out node acc_9_m_cr_V_19)   --->   "%newSel12 = select i1 %sel_tmp3, i80 %acc_9_m_cr_V_23, i80 %acc_9_m_cr_V_11" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 131 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_19 = select i1 %or_cond, i80 %acc_9_m_cr_V_11, i80 %newSel12" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 132 [1/1] (0.00ns) (grouped into LUT with out node acc_9_m_cr_V_21)   --->   "%acc_9_m_cr_V_20 = select i1 %sel_tmp5, i80 %acc_9_m_cr_V_23, i80 %acc_9_m_cr_V_13" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 133 [1/1] (1.37ns) (out node of the LUT)   --->   "%acc_9_m_cr_V_21 = select i1 %sel_tmp7, i80 %acc_9_m_cr_V_13, i80 %acc_9_m_cr_V_20" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_11 : Operation 134 [1/1] (1.37ns)   --->   "%acc_9_m_cr_V_22 = select i1 %sel_tmp7, i80 %acc_9_m_cr_V_23, i80 %acc_9_m_cr_V_15" [mnist_edpa/linear_activation.hpp:37]   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 1.37> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+
+ <State 12> : 12.57ns
+ST_12 : Operation 135 [2/2] (12.5ns)   --->   "%tmp_V = call fastcc i16 @get_result(i80 %acc_9_m_cr_V_23)" [mnist_edpa/linear_activation.hpp:41]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+ <State 13> : 9.70ns
+ST_13 : Operation 136 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 10, i64 10, i64 10)"
+ST_13 : Operation 137 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str13) nounwind" [mnist_edpa/linear_activation.hpp:37]
+ST_13 : Operation 138 [1/1] (0.00ns)   --->   "%tmp_12 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str13)" [mnist_edpa/linear_activation.hpp:37]
+ST_13 : Operation 139 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str6) nounwind" [mnist_edpa/linear_activation.hpp:38]
+ST_13 : Operation 140 [1/2] (6.06ns)   --->   "%tmp_V = call fastcc i16 @get_result(i80 %acc_9_m_cr_V_23)" [mnist_edpa/linear_activation.hpp:41]   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_13 : Operation 141 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i16P(i16* %data_out_V_V, i16 %tmp_V)" [mnist_edpa/linear_activation.hpp:41]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_13 : Operation 142 [1/1] (0.00ns)   --->   "%empty_27 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str13, i32 %tmp_12)" [mnist_edpa/linear_activation.hpp:42]
+ST_13 : Operation 143 [1/1] (0.00ns)   --->   "br label %.preheader" [mnist_edpa/linear_activation.hpp:37]
+
+ <State 14> : 0.00ns
+ST_14 : Operation 144 [1/1] (0.00ns)   --->   "ret void" [mnist_edpa/linear_activation.hpp:43]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15ns, clock uncertainty: 1.88ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('acc[9].m_cr.V') with incoming values : ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:33) [9]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('ii') with incoming values : ('ii', mnist_edpa/linear_activation.hpp:28) [19]  (0 ns)
+	'getelementptr' operation ('L2_WEIGHTS_V_addr', mnist_edpa/linear_activation.hpp:33) [30]  (0 ns)
+	'load' operation ('L2_WEIGHTS_V_load', mnist_edpa/linear_activation.hpp:33) on array 'L2_WEIGHTS_V' [31]  (3.25 ns)
+
+ <State 3>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'data_in_V_V' (mnist_edpa/linear_activation.hpp:30) [28]  (3.63 ns)
+
+ <State 4>: 11.8ns
+The critical path consists of the following:
+	'call' operation ('acc[0].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' [33]  (11.8 ns)
+
+ <State 5>: 11.8ns
+The critical path consists of the following:
+	'call' operation ('acc[5].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' [43]  (11.8 ns)
+
+ <State 6>: 6.25ns
+The critical path consists of the following:
+	'call' operation ('acc[5].m_cr.V', mnist_edpa/linear_activation.hpp:33) to 'multiply_accumulate' [43]  (6.25 ns)
+
+ <State 7>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('acc[9].m_cr.V') with incoming values : ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:33) ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:37) [57]  (1.77 ns)
+
+ <State 8>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('ires') with incoming values : ('ires', mnist_edpa/linear_activation.hpp:37) [67]  (0 ns)
+	'getelementptr' operation ('L2_BIAS_V_addr', mnist_edpa/linear_activation.hpp:40) [77]  (0 ns)
+	'load' operation ('L2_BIAS_V_load', mnist_edpa/linear_activation.hpp:40) on array 'L2_BIAS_V' [78]  (3.25 ns)
+
+ <State 9>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('L2_BIAS_V_load', mnist_edpa/linear_activation.hpp:40) on array 'L2_BIAS_V' [78]  (3.25 ns)
+
+ <State 10>: 14.4ns
+The critical path consists of the following:
+	'mux' operation ('tmp', mnist_edpa/linear_activation.hpp:37) [79]  (2.63 ns)
+	'call' operation ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:40) to 'multiply_accumulate' [80]  (11.8 ns)
+
+ <State 11>: 8.98ns
+The critical path consists of the following:
+	'call' operation ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:40) to 'multiply_accumulate' [80]  (6.25 ns)
+	'select' operation ('newSel10', mnist_edpa/linear_activation.hpp:37) [113]  (0 ns)
+	'select' operation ('newSel11', mnist_edpa/linear_activation.hpp:37) [114]  (1.37 ns)
+	'select' operation ('acc[9].m_cr.V', mnist_edpa/linear_activation.hpp:37) [115]  (1.37 ns)
+
+ <State 12>: 12.6ns
+The critical path consists of the following:
+	'call' operation ('tmp.V', mnist_edpa/linear_activation.hpp:41) to 'get_result' [121]  (12.6 ns)
+
+ <State 13>: 9.7ns
+The critical path consists of the following:
+	'call' operation ('tmp.V', mnist_edpa/linear_activation.hpp:41) to 'get_result' [121]  (6.07 ns)
+	fifo write on port 'data_out_V_V' (mnist_edpa/linear_activation.hpp:41) [122]  (3.63 ns)
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

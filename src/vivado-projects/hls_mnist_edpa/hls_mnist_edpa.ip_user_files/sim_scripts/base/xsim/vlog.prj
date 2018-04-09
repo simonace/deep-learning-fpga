@@ -1,0 +1,37 @@
+verilog xil_defaultlib --include "../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/ec67/hdl" --include "../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/02c8/hdl/verilog" --include "../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/1313/hdl" --include "../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/0ab1/hdl" \
+"../../../bd/base/ip/base_processing_system7_0_0/base_processing_system7_0_0_sim_netlist.v" \
+"../../../bd/base/ip/base_axi_dma_0_0/base_axi_dma_0_0_sim_netlist.v" \
+"../../../bd/base/ip/base_xbar_0/sim/base_xbar_0.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationfYi.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/fifo_w16_d1_A.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer_packet_useibs.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/get_result.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/relu.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mux_104hbi.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationcud.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mux_646eOg.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation_1.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/multiply_accumulate.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/unpacker.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationdEe.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_relu_U0.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activation.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_packer_U0.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_lbW.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/mnist_edp_mul_mulbkb.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/packer.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/start_for_linear_kbM.v" \
+"../../../../hls_mnist_edpa.srcs/sources_1/bd/base/ipshared/3dde/hdl/verilog/linear_activationg8j.v" \
+"../../../bd/base/ip/base_mnist_edp_0_0/sim/base_mnist_edp_0_0.v" \
+"../../../bd/base/ip/base_rst_ps7_0_50M_0/base_rst_ps7_0_50M_0_sim_netlist.v" \
+"../../../bd/base/sim/base.v" \
+"../../../bd/base/ip/base_axis_dwidth_converter_0_0/sim/base_axis_dwidth_converter_0_0.v" \
+"../../../bd/base/ip/base_auto_pc_1/sim/base_auto_pc_1.v" \
+"../../../bd/base/ip/base_auto_pc_0/sim/base_auto_pc_0.v" \
+"../../../bd/base/ip/base_auto_us_1/sim/base_auto_us_1.v" \
+"../../../bd/base/ip/base_auto_us_0/sim/base_auto_us_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

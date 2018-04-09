@@ -1,0 +1,137 @@
+
+
+================================================================
+== Vivado HLS Report for 'relu'
+================================================================
+* Date:           Mon Apr  9 21:30:09 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_edpa
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  15.00|      7.27|        1.88|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   65|   65|   65|   65|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   64|   64|         1|          -|          -|    64|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (!exitcond)
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_out_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str129, i32 0, i32 0, [1 x i8]* @p_str130, [1 x i8]* @p_str131, [1 x i8]* @p_str132, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str133, [1 x i8]* @p_str134)"
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i16* %data_in_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str122, i32 0, i32 0, [1 x i8]* @p_str123, [1 x i8]* @p_str124, [1 x i8]* @p_str125, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str126, [1 x i8]* @p_str127)"
+ST_1 : Operation 5 [1/1] (1.76ns)   --->   "br label %1" [mnist_edpa/relu_activation.hpp:7]
+
+ <State 2> : 7.27ns
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%ii = phi i7 [ 0, %0 ], [ %ii_1, %5 ]"
+ST_2 : Operation 7 [1/1] (1.48ns)   --->   "%exitcond = icmp eq i7 %ii, -64" [mnist_edpa/relu_activation.hpp:7]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"
+ST_2 : Operation 9 [1/1] (1.87ns)   --->   "%ii_1 = add i7 %ii, 1" [mnist_edpa/relu_activation.hpp:7]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %6, label %2" [mnist_edpa/relu_activation.hpp:7]
+ST_2 : Operation 11 [1/1] (3.63ns)   --->   "%tmp_V = call i16 @_ssdm_op_Read.ap_fifo.volatile.i16P(i16* %data_in_V_V)" [mnist_edpa/relu_activation.hpp:8]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%tmp = call i1 @_ssdm_op_BitSelect.i1.i16.i32(i16 %tmp_V, i32 15)" [mnist_edpa/relu_activation.hpp:9]
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %tmp, label %4, label %3" [mnist_edpa/relu_activation.hpp:9]
+ST_2 : Operation 14 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i16P(i16* %data_out_V_V, i16 %tmp_V)" [mnist_edpa/relu_activation.hpp:9]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "br label %5" [mnist_edpa/relu_activation.hpp:9]
+ST_2 : Operation 16 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i16P(i16* %data_out_V_V, i16 0)" [mnist_edpa/relu_activation.hpp:10]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 1> <FIFO>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br label %5"
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "br label %1" [mnist_edpa/relu_activation.hpp:7]
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "ret void" [mnist_edpa/relu_activation.hpp:12]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 15ns, clock uncertainty: 1.88ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('ii') with incoming values : ('ii', mnist_edpa/relu_activation.hpp:7) [7]  (1.77 ns)
+
+ <State 2>: 7.27ns
+The critical path consists of the following:
+	fifo read on port 'data_in_V_V' (mnist_edpa/relu_activation.hpp:8) [13]  (3.63 ns)
+	fifo write on port 'data_out_V_V' (mnist_edpa/relu_activation.hpp:9) [17]  (3.63 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

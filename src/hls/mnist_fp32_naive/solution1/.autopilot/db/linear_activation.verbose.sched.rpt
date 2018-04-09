@@ -1,0 +1,1156 @@
+
+
+================================================================
+== Vivado HLS Report for 'linear_activation'
+================================================================
+* Date:           Tue Apr 10 00:18:50 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_fp32_naive
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      7.26|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  4003|  4003|  4003|  4003|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------+------+------+----------+-----------+-----------+------+----------+
+        |            |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name |  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------+------+------+----------+-----------+-----------+------+----------+
+        |- NewInput  |  3929|  3929|        15|          5|          1|   784|    yes   |
+        |- Result    |    70|    70|         8|          1|          1|    64|    yes   |
+        +------------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 5, depth = 15
+  * Pipeline-1: initiation interval (II) = 1, depth = 8
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 26
+* Pipeline : 2
+  Pipeline-0 : II = 5, D = 15, States = { 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 }
+  Pipeline-1 : II = 1, D = 8, States = { 18 19 20 21 22 23 24 25 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	17  / (exitcond5)
+	3  / (!exitcond5)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	2  / true
+17 --> 
+	18  / true
+18 --> 
+	26  / (exitcond)
+	19  / (!exitcond)
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	18  / true
+26 --> 
+
+* FSM state operations: 
+
+ <State 1> : 1.77ns
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %data_out_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str59, i32 0, i32 0, [1 x i8]* @p_str60, [1 x i8]* @p_str61, [1 x i8]* @p_str62, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str63, [1 x i8]* @p_str64)"
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(float* %data_in_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str45, i32 0, i32 0, [1 x i8]* @p_str46, [1 x i8]* @p_str47, [1 x i8]* @p_str48, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str49, [1 x i8]* @p_str50)"
+ST_1 : Operation 29 [1/1] (1.76ns)   --->   "br label %.preheader7" [mnist_fp32_naive/linear_activation.hpp:24]
+
+ <State 2> : 3.25ns
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%acc_63 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_63_1, %0 ]"
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%acc_62 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_62_1, %0 ]"
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%acc_61 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_61_1, %0 ]"
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%acc_60 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_60_1, %0 ]"
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "%acc_59 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_59_1, %0 ]"
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%acc_58 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_58_1, %0 ]"
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%acc_57 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_57_1, %0 ]"
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%acc_56 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_56_1, %0 ]"
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%acc_55 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_55_1, %0 ]"
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%acc_54 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_54_1, %0 ]"
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%acc_53 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_53_1, %0 ]"
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%acc_52 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_52_1, %0 ]"
+ST_2 : Operation 42 [1/1] (0.00ns)   --->   "%acc_51 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_51_1, %0 ]"
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%acc_50 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_50_1, %0 ]"
+ST_2 : Operation 44 [1/1] (0.00ns)   --->   "%acc_49 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_49_1, %0 ]"
+ST_2 : Operation 45 [1/1] (0.00ns)   --->   "%acc_48 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_48_1, %0 ]"
+ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%acc_47 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_47_1, %0 ]"
+ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%acc_46 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_46_1, %0 ]"
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%acc_45 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_45_1, %0 ]"
+ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%acc_44 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_44_1, %0 ]"
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%acc_43 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_43_1, %0 ]"
+ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%acc_42 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_42_1, %0 ]"
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%acc_41 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_41_1, %0 ]"
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%acc_40 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_40_1, %0 ]"
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%acc_39 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_39_1, %0 ]"
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%acc_38 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_38_1, %0 ]"
+ST_2 : Operation 56 [1/1] (0.00ns)   --->   "%acc_37 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_37_1, %0 ]"
+ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%acc_36 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_36_1, %0 ]"
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%acc_35 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_35_1, %0 ]"
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%acc_34 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_34_1, %0 ]"
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%acc_33 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_33_1, %0 ]"
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%acc_32 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_32_1, %0 ]"
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%acc_31 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_31_1, %0 ]"
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%acc_30 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_30_1, %0 ]"
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%acc_29 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_29_1, %0 ]"
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%acc_28 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_28_1, %0 ]"
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%acc_27 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_27_1, %0 ]"
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%acc_26 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_26_1, %0 ]"
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%acc_25 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_25_1, %0 ]"
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%acc_24 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_24_1, %0 ]"
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%acc_23 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_23_1, %0 ]"
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%acc_22 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_22_1, %0 ]"
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%acc_21 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_21_1, %0 ]"
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%acc_20 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_20_1, %0 ]"
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%acc_19 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_19_1, %0 ]"
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%acc_18 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_18_1, %0 ]"
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%acc_17 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_17_1, %0 ]"
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%acc_16 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_16_1, %0 ]"
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%acc_15 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_15_1, %0 ]"
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%acc_14 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_14_1, %0 ]"
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%acc_13 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_13_1, %0 ]"
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%acc_12 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_12_1, %0 ]"
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%acc_11 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_11_1, %0 ]"
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%acc_10 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_10_1, %0 ]"
+ST_2 : Operation 84 [1/1] (0.00ns)   --->   "%acc_9 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_9_1, %0 ]"
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%acc_8 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_8_1, %0 ]"
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%acc_7 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_7_1, %0 ]"
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%acc_6 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_6_1, %0 ]"
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%acc_5 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_5_1, %0 ]"
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%acc_4 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_4_1, %0 ]"
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%acc_3 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_3_1, %0 ]"
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%acc_2 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_2_1, %0 ]"
+ST_2 : Operation 92 [1/1] (0.00ns)   --->   "%acc_1 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_1_1, %0 ]"
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%acc_0 = phi float [ 0.000000e+00, %.preheader7.preheader ], [ %acc_0_1, %0 ]"
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%ii = phi i10 [ 0, %.preheader7.preheader ], [ %ii_2, %0 ]"
+ST_2 : Operation 95 [1/1] (1.77ns)   --->   "%exitcond5 = icmp eq i10 %ii, -240" [mnist_fp32_naive/linear_activation.hpp:24]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 96 [1/1] (1.95ns)   --->   "%ii_2 = add i10 %ii, 1" [mnist_fp32_naive/linear_activation.hpp:24]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 97 [1/1] (0.00ns)   --->   "br i1 %exitcond5, label %.preheader.preheader, label %0" [mnist_fp32_naive/linear_activation.hpp:24]
+ST_2 : Operation 98 [1/1] (0.00ns)   --->   "%tmp_s = zext i10 %ii to i64" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_2 : Operation 99 [1/1] (0.00ns)   --->   "%L1_WEIGHTS_addr = getelementptr [784 x i2048]* @L1_WEIGHTS, i64 0, i64 %tmp_s" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_2 : Operation 100 [2/2] (3.25ns)   --->   "%L1_WEIGHTS_load = load i2048* %L1_WEIGHTS_addr, align 16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+
+ <State 3> : 3.63ns
+ST_3 : Operation 101 [1/1] (3.63ns)   --->   "%tmp_139 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %data_in_V)" [mnist_fp32_naive/linear_activation.hpp:26]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_3 : Operation 102 [1/2] (3.25ns)   --->   "%L1_WEIGHTS_load = load i2048* %L1_WEIGHTS_addr, align 16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+ST_3 : Operation 103 [1/1] (0.00ns)   --->   "%tmp_137 = trunc i2048 %L1_WEIGHTS_load to i32" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%tmp_1 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 32, i32 63)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 105 [1/1] (0.00ns)   --->   "%tmp_10 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 64, i32 95)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%tmp_12 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 96, i32 127)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 107 [1/1] (0.00ns)   --->   "%tmp_14 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 128, i32 159)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 108 [1/1] (0.00ns)   --->   "%tmp_16 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 160, i32 191)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 109 [1/1] (0.00ns)   --->   "%tmp_18 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 192, i32 223)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 110 [1/1] (0.00ns)   --->   "%tmp_20 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 224, i32 255)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%tmp_22 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 256, i32 287)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 112 [1/1] (0.00ns)   --->   "%tmp_24 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 288, i32 319)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%tmp_26 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 320, i32 351)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%tmp_28 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 352, i32 383)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%tmp_30 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 384, i32 415)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%tmp_32 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 416, i32 447)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 117 [1/1] (0.00ns)   --->   "%tmp_34 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 448, i32 479)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%tmp_36 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 480, i32 511)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 119 [1/1] (0.00ns)   --->   "%tmp_38 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 512, i32 543)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 120 [1/1] (0.00ns)   --->   "%tmp_40 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 544, i32 575)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 121 [1/1] (0.00ns)   --->   "%tmp_42 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 576, i32 607)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "%tmp_44 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 608, i32 639)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 123 [1/1] (0.00ns)   --->   "%tmp_46 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 640, i32 671)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%tmp_48 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 672, i32 703)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%tmp_50 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 704, i32 735)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "%tmp_52 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 736, i32 767)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 127 [1/1] (0.00ns)   --->   "%tmp_54 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 768, i32 799)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%tmp_56 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 800, i32 831)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "%tmp_58 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 832, i32 863)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "%tmp_60 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 864, i32 895)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 131 [1/1] (0.00ns)   --->   "%tmp_62 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 896, i32 927)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%tmp_64 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 928, i32 959)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 133 [1/1] (0.00ns)   --->   "%tmp_66 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 960, i32 991)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%tmp_68 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 992, i32 1023)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "%tmp_70 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1024, i32 1055)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 136 [1/1] (0.00ns)   --->   "%tmp_72 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1056, i32 1087)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "%tmp_74 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1088, i32 1119)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "%tmp_76 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1120, i32 1151)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "%tmp_78 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1152, i32 1183)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "%tmp_80 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1184, i32 1215)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 141 [1/1] (0.00ns)   --->   "%tmp_82 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1216, i32 1247)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 142 [1/1] (0.00ns)   --->   "%tmp_84 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1248, i32 1279)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 143 [1/1] (0.00ns)   --->   "%tmp_86 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1280, i32 1311)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 144 [1/1] (0.00ns)   --->   "%tmp_88 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1312, i32 1343)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 145 [1/1] (0.00ns)   --->   "%tmp_90 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1344, i32 1375)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 146 [1/1] (0.00ns)   --->   "%tmp_92 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1376, i32 1407)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 147 [1/1] (0.00ns)   --->   "%tmp_94 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1408, i32 1439)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 148 [1/1] (0.00ns)   --->   "%tmp_96 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1440, i32 1471)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 149 [1/1] (0.00ns)   --->   "%tmp_98 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1472, i32 1503)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 150 [1/1] (0.00ns)   --->   "%tmp_100 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1504, i32 1535)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 151 [1/1] (0.00ns)   --->   "%tmp_102 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1536, i32 1567)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%tmp_104 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1568, i32 1599)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 153 [1/1] (0.00ns)   --->   "%tmp_106 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1600, i32 1631)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 154 [1/1] (0.00ns)   --->   "%tmp_108 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1632, i32 1663)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 155 [1/1] (0.00ns)   --->   "%tmp_110 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1664, i32 1695)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_112 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1696, i32 1727)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 157 [1/1] (0.00ns)   --->   "%tmp_114 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1728, i32 1759)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 158 [1/1] (0.00ns)   --->   "%tmp_116 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1760, i32 1791)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 159 [1/1] (0.00ns)   --->   "%tmp_118 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1792, i32 1823)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 160 [1/1] (0.00ns)   --->   "%tmp_120 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1824, i32 1855)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 161 [1/1] (0.00ns)   --->   "%tmp_122 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1856, i32 1887)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 162 [1/1] (0.00ns)   --->   "%tmp_124 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1888, i32 1919)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 163 [1/1] (0.00ns)   --->   "%tmp_126 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1920, i32 1951)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 164 [1/1] (0.00ns)   --->   "%tmp_128 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1952, i32 1983)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 165 [1/1] (0.00ns)   --->   "%tmp_130 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 1984, i32 2015)" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_3 : Operation 166 [1/1] (0.00ns)   --->   "%tmp_132 = call i32 @_ssdm_op_PartSelect.i32.i2048.i32.i32(i2048 %L1_WEIGHTS_load, i32 2016, i32 2047)" [mnist_fp32_naive/linear_activation.hpp:29]
+
+ <State 4> : 5.70ns
+ST_4 : Operation 167 [1/1] (0.00ns)   --->   "%tmp_9 = bitcast i32 %tmp_137 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 168 [4/4] (5.70ns)   --->   "%tmp_5 = fmul float %tmp_139, %tmp_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 169 [1/1] (0.00ns)   --->   "%tmp_4 = bitcast i32 %tmp_1 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 170 [4/4] (5.70ns)   --->   "%tmp_5_1 = fmul float %tmp_139, %tmp_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 171 [1/1] (0.00ns)   --->   "%tmp_11 = bitcast i32 %tmp_10 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 172 [4/4] (5.70ns)   --->   "%tmp_5_2 = fmul float %tmp_139, %tmp_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 173 [1/1] (0.00ns)   --->   "%tmp_13 = bitcast i32 %tmp_12 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 174 [4/4] (5.70ns)   --->   "%tmp_5_3 = fmul float %tmp_139, %tmp_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 175 [1/1] (0.00ns)   --->   "%tmp_15 = bitcast i32 %tmp_14 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 176 [4/4] (5.70ns)   --->   "%tmp_5_4 = fmul float %tmp_139, %tmp_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 177 [1/1] (0.00ns)   --->   "%tmp_17 = bitcast i32 %tmp_16 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 178 [4/4] (5.70ns)   --->   "%tmp_5_5 = fmul float %tmp_139, %tmp_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 179 [1/1] (0.00ns)   --->   "%tmp_19 = bitcast i32 %tmp_18 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 180 [4/4] (5.70ns)   --->   "%tmp_5_6 = fmul float %tmp_139, %tmp_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 181 [1/1] (0.00ns)   --->   "%tmp_21 = bitcast i32 %tmp_20 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 182 [4/4] (5.70ns)   --->   "%tmp_5_7 = fmul float %tmp_139, %tmp_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 183 [1/1] (0.00ns)   --->   "%tmp_23 = bitcast i32 %tmp_22 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 184 [4/4] (5.70ns)   --->   "%tmp_5_8 = fmul float %tmp_139, %tmp_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 185 [1/1] (0.00ns)   --->   "%tmp_25 = bitcast i32 %tmp_24 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 186 [4/4] (5.70ns)   --->   "%tmp_5_9 = fmul float %tmp_139, %tmp_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 187 [1/1] (0.00ns)   --->   "%tmp_27 = bitcast i32 %tmp_26 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 188 [4/4] (5.70ns)   --->   "%tmp_5_s = fmul float %tmp_139, %tmp_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 189 [1/1] (0.00ns)   --->   "%tmp_29 = bitcast i32 %tmp_28 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 190 [4/4] (5.70ns)   --->   "%tmp_5_10 = fmul float %tmp_139, %tmp_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 191 [1/1] (0.00ns)   --->   "%tmp_31 = bitcast i32 %tmp_30 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_4 : Operation 192 [4/4] (5.70ns)   --->   "%tmp_5_11 = fmul float %tmp_139, %tmp_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 5> : 5.70ns
+ST_5 : Operation 193 [3/4] (5.70ns)   --->   "%tmp_5 = fmul float %tmp_139, %tmp_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 194 [3/4] (5.70ns)   --->   "%tmp_5_1 = fmul float %tmp_139, %tmp_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 195 [3/4] (5.70ns)   --->   "%tmp_5_2 = fmul float %tmp_139, %tmp_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 196 [3/4] (5.70ns)   --->   "%tmp_5_3 = fmul float %tmp_139, %tmp_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 197 [3/4] (5.70ns)   --->   "%tmp_5_4 = fmul float %tmp_139, %tmp_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 198 [3/4] (5.70ns)   --->   "%tmp_5_5 = fmul float %tmp_139, %tmp_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 199 [3/4] (5.70ns)   --->   "%tmp_5_6 = fmul float %tmp_139, %tmp_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 200 [3/4] (5.70ns)   --->   "%tmp_5_7 = fmul float %tmp_139, %tmp_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 201 [3/4] (5.70ns)   --->   "%tmp_5_8 = fmul float %tmp_139, %tmp_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 202 [3/4] (5.70ns)   --->   "%tmp_5_9 = fmul float %tmp_139, %tmp_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 203 [3/4] (5.70ns)   --->   "%tmp_5_s = fmul float %tmp_139, %tmp_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 204 [3/4] (5.70ns)   --->   "%tmp_5_10 = fmul float %tmp_139, %tmp_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 205 [3/4] (5.70ns)   --->   "%tmp_5_11 = fmul float %tmp_139, %tmp_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 206 [1/1] (0.00ns)   --->   "%tmp_33 = bitcast i32 %tmp_32 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 207 [4/4] (5.70ns)   --->   "%tmp_5_12 = fmul float %tmp_139, %tmp_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 208 [1/1] (0.00ns)   --->   "%tmp_35 = bitcast i32 %tmp_34 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 209 [4/4] (5.70ns)   --->   "%tmp_5_13 = fmul float %tmp_139, %tmp_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 210 [1/1] (0.00ns)   --->   "%tmp_37 = bitcast i32 %tmp_36 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 211 [4/4] (5.70ns)   --->   "%tmp_5_14 = fmul float %tmp_139, %tmp_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 212 [1/1] (0.00ns)   --->   "%tmp_39 = bitcast i32 %tmp_38 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 213 [4/4] (5.70ns)   --->   "%tmp_5_15 = fmul float %tmp_139, %tmp_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 214 [1/1] (0.00ns)   --->   "%tmp_41 = bitcast i32 %tmp_40 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 215 [4/4] (5.70ns)   --->   "%tmp_5_16 = fmul float %tmp_139, %tmp_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 216 [1/1] (0.00ns)   --->   "%tmp_43 = bitcast i32 %tmp_42 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 217 [4/4] (5.70ns)   --->   "%tmp_5_17 = fmul float %tmp_139, %tmp_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 218 [1/1] (0.00ns)   --->   "%tmp_45 = bitcast i32 %tmp_44 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 219 [4/4] (5.70ns)   --->   "%tmp_5_18 = fmul float %tmp_139, %tmp_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 220 [1/1] (0.00ns)   --->   "%tmp_47 = bitcast i32 %tmp_46 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 221 [4/4] (5.70ns)   --->   "%tmp_5_19 = fmul float %tmp_139, %tmp_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 222 [1/1] (0.00ns)   --->   "%tmp_49 = bitcast i32 %tmp_48 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 223 [4/4] (5.70ns)   --->   "%tmp_5_20 = fmul float %tmp_139, %tmp_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 224 [1/1] (0.00ns)   --->   "%tmp_51 = bitcast i32 %tmp_50 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 225 [4/4] (5.70ns)   --->   "%tmp_5_21 = fmul float %tmp_139, %tmp_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 226 [1/1] (0.00ns)   --->   "%tmp_53 = bitcast i32 %tmp_52 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 227 [4/4] (5.70ns)   --->   "%tmp_5_22 = fmul float %tmp_139, %tmp_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 228 [1/1] (0.00ns)   --->   "%tmp_55 = bitcast i32 %tmp_54 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 229 [4/4] (5.70ns)   --->   "%tmp_5_23 = fmul float %tmp_139, %tmp_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 230 [1/1] (0.00ns)   --->   "%tmp_57 = bitcast i32 %tmp_56 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_5 : Operation 231 [4/4] (5.70ns)   --->   "%tmp_5_24 = fmul float %tmp_139, %tmp_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 6> : 5.70ns
+ST_6 : Operation 232 [2/4] (5.70ns)   --->   "%tmp_5 = fmul float %tmp_139, %tmp_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 233 [2/4] (5.70ns)   --->   "%tmp_5_1 = fmul float %tmp_139, %tmp_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 234 [2/4] (5.70ns)   --->   "%tmp_5_2 = fmul float %tmp_139, %tmp_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 235 [2/4] (5.70ns)   --->   "%tmp_5_3 = fmul float %tmp_139, %tmp_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 236 [2/4] (5.70ns)   --->   "%tmp_5_4 = fmul float %tmp_139, %tmp_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 237 [2/4] (5.70ns)   --->   "%tmp_5_5 = fmul float %tmp_139, %tmp_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 238 [2/4] (5.70ns)   --->   "%tmp_5_6 = fmul float %tmp_139, %tmp_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 239 [2/4] (5.70ns)   --->   "%tmp_5_7 = fmul float %tmp_139, %tmp_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 240 [2/4] (5.70ns)   --->   "%tmp_5_8 = fmul float %tmp_139, %tmp_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 241 [2/4] (5.70ns)   --->   "%tmp_5_9 = fmul float %tmp_139, %tmp_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 242 [2/4] (5.70ns)   --->   "%tmp_5_s = fmul float %tmp_139, %tmp_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 243 [2/4] (5.70ns)   --->   "%tmp_5_10 = fmul float %tmp_139, %tmp_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 244 [2/4] (5.70ns)   --->   "%tmp_5_11 = fmul float %tmp_139, %tmp_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 245 [3/4] (5.70ns)   --->   "%tmp_5_12 = fmul float %tmp_139, %tmp_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 246 [3/4] (5.70ns)   --->   "%tmp_5_13 = fmul float %tmp_139, %tmp_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 247 [3/4] (5.70ns)   --->   "%tmp_5_14 = fmul float %tmp_139, %tmp_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 248 [3/4] (5.70ns)   --->   "%tmp_5_15 = fmul float %tmp_139, %tmp_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 249 [3/4] (5.70ns)   --->   "%tmp_5_16 = fmul float %tmp_139, %tmp_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 250 [3/4] (5.70ns)   --->   "%tmp_5_17 = fmul float %tmp_139, %tmp_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 251 [3/4] (5.70ns)   --->   "%tmp_5_18 = fmul float %tmp_139, %tmp_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 252 [3/4] (5.70ns)   --->   "%tmp_5_19 = fmul float %tmp_139, %tmp_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 253 [3/4] (5.70ns)   --->   "%tmp_5_20 = fmul float %tmp_139, %tmp_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 254 [3/4] (5.70ns)   --->   "%tmp_5_21 = fmul float %tmp_139, %tmp_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 255 [3/4] (5.70ns)   --->   "%tmp_5_22 = fmul float %tmp_139, %tmp_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 256 [3/4] (5.70ns)   --->   "%tmp_5_23 = fmul float %tmp_139, %tmp_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 257 [3/4] (5.70ns)   --->   "%tmp_5_24 = fmul float %tmp_139, %tmp_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 258 [1/1] (0.00ns)   --->   "%tmp_59 = bitcast i32 %tmp_58 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 259 [4/4] (5.70ns)   --->   "%tmp_5_25 = fmul float %tmp_139, %tmp_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 260 [1/1] (0.00ns)   --->   "%tmp_61 = bitcast i32 %tmp_60 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 261 [4/4] (5.70ns)   --->   "%tmp_5_26 = fmul float %tmp_139, %tmp_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 262 [1/1] (0.00ns)   --->   "%tmp_63 = bitcast i32 %tmp_62 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 263 [4/4] (5.70ns)   --->   "%tmp_5_27 = fmul float %tmp_139, %tmp_63" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 264 [1/1] (0.00ns)   --->   "%tmp_65 = bitcast i32 %tmp_64 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 265 [4/4] (5.70ns)   --->   "%tmp_5_28 = fmul float %tmp_139, %tmp_65" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 266 [1/1] (0.00ns)   --->   "%tmp_67 = bitcast i32 %tmp_66 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 267 [4/4] (5.70ns)   --->   "%tmp_5_29 = fmul float %tmp_139, %tmp_67" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 268 [1/1] (0.00ns)   --->   "%tmp_69 = bitcast i32 %tmp_68 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 269 [4/4] (5.70ns)   --->   "%tmp_5_30 = fmul float %tmp_139, %tmp_69" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 270 [1/1] (0.00ns)   --->   "%tmp_71 = bitcast i32 %tmp_70 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 271 [4/4] (5.70ns)   --->   "%tmp_5_31 = fmul float %tmp_139, %tmp_71" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 272 [1/1] (0.00ns)   --->   "%tmp_73 = bitcast i32 %tmp_72 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 273 [4/4] (5.70ns)   --->   "%tmp_5_32 = fmul float %tmp_139, %tmp_73" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 274 [1/1] (0.00ns)   --->   "%tmp_75 = bitcast i32 %tmp_74 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 275 [4/4] (5.70ns)   --->   "%tmp_5_33 = fmul float %tmp_139, %tmp_75" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 276 [1/1] (0.00ns)   --->   "%tmp_77 = bitcast i32 %tmp_76 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 277 [4/4] (5.70ns)   --->   "%tmp_5_34 = fmul float %tmp_139, %tmp_77" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 278 [1/1] (0.00ns)   --->   "%tmp_79 = bitcast i32 %tmp_78 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 279 [4/4] (5.70ns)   --->   "%tmp_5_35 = fmul float %tmp_139, %tmp_79" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 280 [1/1] (0.00ns)   --->   "%tmp_81 = bitcast i32 %tmp_80 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 281 [4/4] (5.70ns)   --->   "%tmp_5_36 = fmul float %tmp_139, %tmp_81" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 282 [1/1] (0.00ns)   --->   "%tmp_83 = bitcast i32 %tmp_82 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_6 : Operation 283 [4/4] (5.70ns)   --->   "%tmp_5_37 = fmul float %tmp_139, %tmp_83" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 7> : 5.70ns
+ST_7 : Operation 284 [1/4] (5.70ns)   --->   "%tmp_5 = fmul float %tmp_139, %tmp_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 285 [1/4] (5.70ns)   --->   "%tmp_5_1 = fmul float %tmp_139, %tmp_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 286 [1/4] (5.70ns)   --->   "%tmp_5_2 = fmul float %tmp_139, %tmp_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 287 [1/4] (5.70ns)   --->   "%tmp_5_3 = fmul float %tmp_139, %tmp_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 288 [1/4] (5.70ns)   --->   "%tmp_5_4 = fmul float %tmp_139, %tmp_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 289 [1/4] (5.70ns)   --->   "%tmp_5_5 = fmul float %tmp_139, %tmp_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 290 [1/4] (5.70ns)   --->   "%tmp_5_6 = fmul float %tmp_139, %tmp_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 291 [1/4] (5.70ns)   --->   "%tmp_5_7 = fmul float %tmp_139, %tmp_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 292 [1/4] (5.70ns)   --->   "%tmp_5_8 = fmul float %tmp_139, %tmp_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 293 [1/4] (5.70ns)   --->   "%tmp_5_9 = fmul float %tmp_139, %tmp_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 294 [1/4] (5.70ns)   --->   "%tmp_5_s = fmul float %tmp_139, %tmp_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 295 [1/4] (5.70ns)   --->   "%tmp_5_10 = fmul float %tmp_139, %tmp_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 296 [1/4] (5.70ns)   --->   "%tmp_5_11 = fmul float %tmp_139, %tmp_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 297 [2/4] (5.70ns)   --->   "%tmp_5_12 = fmul float %tmp_139, %tmp_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 298 [2/4] (5.70ns)   --->   "%tmp_5_13 = fmul float %tmp_139, %tmp_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 299 [2/4] (5.70ns)   --->   "%tmp_5_14 = fmul float %tmp_139, %tmp_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 300 [2/4] (5.70ns)   --->   "%tmp_5_15 = fmul float %tmp_139, %tmp_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 301 [2/4] (5.70ns)   --->   "%tmp_5_16 = fmul float %tmp_139, %tmp_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 302 [2/4] (5.70ns)   --->   "%tmp_5_17 = fmul float %tmp_139, %tmp_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 303 [2/4] (5.70ns)   --->   "%tmp_5_18 = fmul float %tmp_139, %tmp_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 304 [2/4] (5.70ns)   --->   "%tmp_5_19 = fmul float %tmp_139, %tmp_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 305 [2/4] (5.70ns)   --->   "%tmp_5_20 = fmul float %tmp_139, %tmp_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 306 [2/4] (5.70ns)   --->   "%tmp_5_21 = fmul float %tmp_139, %tmp_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 307 [2/4] (5.70ns)   --->   "%tmp_5_22 = fmul float %tmp_139, %tmp_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 308 [2/4] (5.70ns)   --->   "%tmp_5_23 = fmul float %tmp_139, %tmp_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 309 [2/4] (5.70ns)   --->   "%tmp_5_24 = fmul float %tmp_139, %tmp_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 310 [3/4] (5.70ns)   --->   "%tmp_5_25 = fmul float %tmp_139, %tmp_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 311 [3/4] (5.70ns)   --->   "%tmp_5_26 = fmul float %tmp_139, %tmp_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 312 [3/4] (5.70ns)   --->   "%tmp_5_27 = fmul float %tmp_139, %tmp_63" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 313 [3/4] (5.70ns)   --->   "%tmp_5_28 = fmul float %tmp_139, %tmp_65" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 314 [3/4] (5.70ns)   --->   "%tmp_5_29 = fmul float %tmp_139, %tmp_67" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 315 [3/4] (5.70ns)   --->   "%tmp_5_30 = fmul float %tmp_139, %tmp_69" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 316 [3/4] (5.70ns)   --->   "%tmp_5_31 = fmul float %tmp_139, %tmp_71" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 317 [3/4] (5.70ns)   --->   "%tmp_5_32 = fmul float %tmp_139, %tmp_73" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 318 [3/4] (5.70ns)   --->   "%tmp_5_33 = fmul float %tmp_139, %tmp_75" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 319 [3/4] (5.70ns)   --->   "%tmp_5_34 = fmul float %tmp_139, %tmp_77" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 320 [3/4] (5.70ns)   --->   "%tmp_5_35 = fmul float %tmp_139, %tmp_79" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 321 [3/4] (5.70ns)   --->   "%tmp_5_36 = fmul float %tmp_139, %tmp_81" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 322 [3/4] (5.70ns)   --->   "%tmp_5_37 = fmul float %tmp_139, %tmp_83" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 323 [1/1] (0.00ns)   --->   "%tmp_85 = bitcast i32 %tmp_84 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 324 [4/4] (5.70ns)   --->   "%tmp_5_38 = fmul float %tmp_139, %tmp_85" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 325 [1/1] (0.00ns)   --->   "%tmp_87 = bitcast i32 %tmp_86 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 326 [4/4] (5.70ns)   --->   "%tmp_5_39 = fmul float %tmp_139, %tmp_87" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 327 [1/1] (0.00ns)   --->   "%tmp_89 = bitcast i32 %tmp_88 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 328 [4/4] (5.70ns)   --->   "%tmp_5_40 = fmul float %tmp_139, %tmp_89" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 329 [1/1] (0.00ns)   --->   "%tmp_91 = bitcast i32 %tmp_90 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 330 [4/4] (5.70ns)   --->   "%tmp_5_41 = fmul float %tmp_139, %tmp_91" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 331 [1/1] (0.00ns)   --->   "%tmp_93 = bitcast i32 %tmp_92 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 332 [4/4] (5.70ns)   --->   "%tmp_5_42 = fmul float %tmp_139, %tmp_93" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 333 [1/1] (0.00ns)   --->   "%tmp_95 = bitcast i32 %tmp_94 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 334 [4/4] (5.70ns)   --->   "%tmp_5_43 = fmul float %tmp_139, %tmp_95" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 335 [1/1] (0.00ns)   --->   "%tmp_97 = bitcast i32 %tmp_96 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 336 [4/4] (5.70ns)   --->   "%tmp_5_44 = fmul float %tmp_139, %tmp_97" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 337 [1/1] (0.00ns)   --->   "%tmp_99 = bitcast i32 %tmp_98 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 338 [4/4] (5.70ns)   --->   "%tmp_5_45 = fmul float %tmp_139, %tmp_99" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 339 [1/1] (0.00ns)   --->   "%tmp_101 = bitcast i32 %tmp_100 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 340 [4/4] (5.70ns)   --->   "%tmp_5_46 = fmul float %tmp_139, %tmp_101" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 341 [1/1] (0.00ns)   --->   "%tmp_103 = bitcast i32 %tmp_102 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 342 [4/4] (5.70ns)   --->   "%tmp_5_47 = fmul float %tmp_139, %tmp_103" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 343 [1/1] (0.00ns)   --->   "%tmp_105 = bitcast i32 %tmp_104 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 344 [4/4] (5.70ns)   --->   "%tmp_5_48 = fmul float %tmp_139, %tmp_105" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 345 [1/1] (0.00ns)   --->   "%tmp_107 = bitcast i32 %tmp_106 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 346 [4/4] (5.70ns)   --->   "%tmp_5_49 = fmul float %tmp_139, %tmp_107" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 347 [1/1] (0.00ns)   --->   "%tmp_109 = bitcast i32 %tmp_108 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_7 : Operation 348 [4/4] (5.70ns)   --->   "%tmp_5_50 = fmul float %tmp_139, %tmp_109" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 8> : 7.26ns
+ST_8 : Operation 349 [5/5] (7.25ns)   --->   "%acc_0_1 = fadd float %acc_0, %tmp_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 350 [5/5] (7.25ns)   --->   "%acc_1_1 = fadd float %acc_1, %tmp_5_1" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 351 [5/5] (7.25ns)   --->   "%acc_2_1 = fadd float %acc_2, %tmp_5_2" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 352 [5/5] (7.25ns)   --->   "%acc_3_1 = fadd float %acc_3, %tmp_5_3" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 353 [5/5] (7.25ns)   --->   "%acc_4_1 = fadd float %acc_4, %tmp_5_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 354 [5/5] (7.25ns)   --->   "%acc_5_1 = fadd float %acc_5, %tmp_5_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 355 [5/5] (7.25ns)   --->   "%acc_6_1 = fadd float %acc_6, %tmp_5_6" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 356 [5/5] (7.25ns)   --->   "%acc_7_1 = fadd float %acc_7, %tmp_5_7" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 357 [5/5] (7.25ns)   --->   "%acc_8_1 = fadd float %acc_8, %tmp_5_8" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 358 [5/5] (7.25ns)   --->   "%acc_9_1 = fadd float %acc_9, %tmp_5_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 359 [5/5] (7.25ns)   --->   "%acc_10_1 = fadd float %acc_10, %tmp_5_s" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 360 [5/5] (7.25ns)   --->   "%acc_11_1 = fadd float %acc_11, %tmp_5_10" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 361 [5/5] (7.25ns)   --->   "%acc_12_1 = fadd float %acc_12, %tmp_5_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 362 [1/4] (5.70ns)   --->   "%tmp_5_12 = fmul float %tmp_139, %tmp_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 363 [1/4] (5.70ns)   --->   "%tmp_5_13 = fmul float %tmp_139, %tmp_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 364 [1/4] (5.70ns)   --->   "%tmp_5_14 = fmul float %tmp_139, %tmp_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 365 [1/4] (5.70ns)   --->   "%tmp_5_15 = fmul float %tmp_139, %tmp_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 366 [1/4] (5.70ns)   --->   "%tmp_5_16 = fmul float %tmp_139, %tmp_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 367 [1/4] (5.70ns)   --->   "%tmp_5_17 = fmul float %tmp_139, %tmp_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 368 [1/4] (5.70ns)   --->   "%tmp_5_18 = fmul float %tmp_139, %tmp_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 369 [1/4] (5.70ns)   --->   "%tmp_5_19 = fmul float %tmp_139, %tmp_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 370 [1/4] (5.70ns)   --->   "%tmp_5_20 = fmul float %tmp_139, %tmp_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 371 [1/4] (5.70ns)   --->   "%tmp_5_21 = fmul float %tmp_139, %tmp_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 372 [1/4] (5.70ns)   --->   "%tmp_5_22 = fmul float %tmp_139, %tmp_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 373 [1/4] (5.70ns)   --->   "%tmp_5_23 = fmul float %tmp_139, %tmp_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 374 [1/4] (5.70ns)   --->   "%tmp_5_24 = fmul float %tmp_139, %tmp_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 375 [2/4] (5.70ns)   --->   "%tmp_5_25 = fmul float %tmp_139, %tmp_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 376 [2/4] (5.70ns)   --->   "%tmp_5_26 = fmul float %tmp_139, %tmp_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 377 [2/4] (5.70ns)   --->   "%tmp_5_27 = fmul float %tmp_139, %tmp_63" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 378 [2/4] (5.70ns)   --->   "%tmp_5_28 = fmul float %tmp_139, %tmp_65" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 379 [2/4] (5.70ns)   --->   "%tmp_5_29 = fmul float %tmp_139, %tmp_67" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 380 [2/4] (5.70ns)   --->   "%tmp_5_30 = fmul float %tmp_139, %tmp_69" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 381 [2/4] (5.70ns)   --->   "%tmp_5_31 = fmul float %tmp_139, %tmp_71" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 382 [2/4] (5.70ns)   --->   "%tmp_5_32 = fmul float %tmp_139, %tmp_73" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 383 [2/4] (5.70ns)   --->   "%tmp_5_33 = fmul float %tmp_139, %tmp_75" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 384 [2/4] (5.70ns)   --->   "%tmp_5_34 = fmul float %tmp_139, %tmp_77" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 385 [2/4] (5.70ns)   --->   "%tmp_5_35 = fmul float %tmp_139, %tmp_79" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 386 [2/4] (5.70ns)   --->   "%tmp_5_36 = fmul float %tmp_139, %tmp_81" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 387 [2/4] (5.70ns)   --->   "%tmp_5_37 = fmul float %tmp_139, %tmp_83" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 388 [3/4] (5.70ns)   --->   "%tmp_5_38 = fmul float %tmp_139, %tmp_85" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 389 [3/4] (5.70ns)   --->   "%tmp_5_39 = fmul float %tmp_139, %tmp_87" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 390 [3/4] (5.70ns)   --->   "%tmp_5_40 = fmul float %tmp_139, %tmp_89" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 391 [3/4] (5.70ns)   --->   "%tmp_5_41 = fmul float %tmp_139, %tmp_91" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 392 [3/4] (5.70ns)   --->   "%tmp_5_42 = fmul float %tmp_139, %tmp_93" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 393 [3/4] (5.70ns)   --->   "%tmp_5_43 = fmul float %tmp_139, %tmp_95" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 394 [3/4] (5.70ns)   --->   "%tmp_5_44 = fmul float %tmp_139, %tmp_97" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 395 [3/4] (5.70ns)   --->   "%tmp_5_45 = fmul float %tmp_139, %tmp_99" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 396 [3/4] (5.70ns)   --->   "%tmp_5_46 = fmul float %tmp_139, %tmp_101" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 397 [3/4] (5.70ns)   --->   "%tmp_5_47 = fmul float %tmp_139, %tmp_103" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 398 [3/4] (5.70ns)   --->   "%tmp_5_48 = fmul float %tmp_139, %tmp_105" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 399 [3/4] (5.70ns)   --->   "%tmp_5_49 = fmul float %tmp_139, %tmp_107" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 400 [3/4] (5.70ns)   --->   "%tmp_5_50 = fmul float %tmp_139, %tmp_109" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 401 [1/1] (0.00ns)   --->   "%tmp_111 = bitcast i32 %tmp_110 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 402 [4/4] (5.70ns)   --->   "%tmp_5_51 = fmul float %tmp_139, %tmp_111" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 403 [1/1] (0.00ns)   --->   "%tmp_113 = bitcast i32 %tmp_112 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 404 [4/4] (5.70ns)   --->   "%tmp_5_52 = fmul float %tmp_139, %tmp_113" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 405 [1/1] (0.00ns)   --->   "%tmp_115 = bitcast i32 %tmp_114 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 406 [4/4] (5.70ns)   --->   "%tmp_5_53 = fmul float %tmp_139, %tmp_115" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 407 [1/1] (0.00ns)   --->   "%tmp_117 = bitcast i32 %tmp_116 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 408 [4/4] (5.70ns)   --->   "%tmp_5_54 = fmul float %tmp_139, %tmp_117" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 409 [1/1] (0.00ns)   --->   "%tmp_119 = bitcast i32 %tmp_118 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 410 [4/4] (5.70ns)   --->   "%tmp_5_55 = fmul float %tmp_139, %tmp_119" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 411 [1/1] (0.00ns)   --->   "%tmp_121 = bitcast i32 %tmp_120 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 412 [4/4] (5.70ns)   --->   "%tmp_5_56 = fmul float %tmp_139, %tmp_121" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 413 [1/1] (0.00ns)   --->   "%tmp_123 = bitcast i32 %tmp_122 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 414 [4/4] (5.70ns)   --->   "%tmp_5_57 = fmul float %tmp_139, %tmp_123" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 415 [1/1] (0.00ns)   --->   "%tmp_125 = bitcast i32 %tmp_124 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 416 [4/4] (5.70ns)   --->   "%tmp_5_58 = fmul float %tmp_139, %tmp_125" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 417 [1/1] (0.00ns)   --->   "%tmp_127 = bitcast i32 %tmp_126 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 418 [4/4] (5.70ns)   --->   "%tmp_5_59 = fmul float %tmp_139, %tmp_127" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 419 [1/1] (0.00ns)   --->   "%tmp_129 = bitcast i32 %tmp_128 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 420 [4/4] (5.70ns)   --->   "%tmp_5_60 = fmul float %tmp_139, %tmp_129" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 421 [1/1] (0.00ns)   --->   "%tmp_131 = bitcast i32 %tmp_130 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 422 [4/4] (5.70ns)   --->   "%tmp_5_61 = fmul float %tmp_139, %tmp_131" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 423 [1/1] (0.00ns)   --->   "%tmp_133 = bitcast i32 %tmp_132 to float" [mnist_fp32_naive/linear_activation.hpp:29]
+ST_8 : Operation 424 [4/4] (5.70ns)   --->   "%tmp_5_62 = fmul float %tmp_139, %tmp_133" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 9> : 7.26ns
+ST_9 : Operation 425 [4/5] (7.25ns)   --->   "%acc_0_1 = fadd float %acc_0, %tmp_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 426 [4/5] (7.25ns)   --->   "%acc_1_1 = fadd float %acc_1, %tmp_5_1" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 427 [4/5] (7.25ns)   --->   "%acc_2_1 = fadd float %acc_2, %tmp_5_2" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 428 [4/5] (7.25ns)   --->   "%acc_3_1 = fadd float %acc_3, %tmp_5_3" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 429 [4/5] (7.25ns)   --->   "%acc_4_1 = fadd float %acc_4, %tmp_5_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 430 [4/5] (7.25ns)   --->   "%acc_5_1 = fadd float %acc_5, %tmp_5_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 431 [4/5] (7.25ns)   --->   "%acc_6_1 = fadd float %acc_6, %tmp_5_6" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 432 [4/5] (7.25ns)   --->   "%acc_7_1 = fadd float %acc_7, %tmp_5_7" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 433 [4/5] (7.25ns)   --->   "%acc_8_1 = fadd float %acc_8, %tmp_5_8" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 434 [4/5] (7.25ns)   --->   "%acc_9_1 = fadd float %acc_9, %tmp_5_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 435 [4/5] (7.25ns)   --->   "%acc_10_1 = fadd float %acc_10, %tmp_5_s" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 436 [4/5] (7.25ns)   --->   "%acc_11_1 = fadd float %acc_11, %tmp_5_10" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 437 [4/5] (7.25ns)   --->   "%acc_12_1 = fadd float %acc_12, %tmp_5_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 438 [5/5] (7.25ns)   --->   "%acc_13_1 = fadd float %acc_13, %tmp_5_12" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 439 [5/5] (7.25ns)   --->   "%acc_14_1 = fadd float %acc_14, %tmp_5_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 440 [5/5] (7.25ns)   --->   "%acc_15_1 = fadd float %acc_15, %tmp_5_14" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 441 [5/5] (7.25ns)   --->   "%acc_16_1 = fadd float %acc_16, %tmp_5_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 442 [5/5] (7.25ns)   --->   "%acc_17_1 = fadd float %acc_17, %tmp_5_16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 443 [5/5] (7.25ns)   --->   "%acc_18_1 = fadd float %acc_18, %tmp_5_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 444 [5/5] (7.25ns)   --->   "%acc_19_1 = fadd float %acc_19, %tmp_5_18" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 445 [5/5] (7.25ns)   --->   "%acc_20_1 = fadd float %acc_20, %tmp_5_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 446 [5/5] (7.25ns)   --->   "%acc_21_1 = fadd float %acc_21, %tmp_5_20" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 447 [5/5] (7.25ns)   --->   "%acc_22_1 = fadd float %acc_22, %tmp_5_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 448 [5/5] (7.25ns)   --->   "%acc_23_1 = fadd float %acc_23, %tmp_5_22" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 449 [5/5] (7.25ns)   --->   "%acc_24_1 = fadd float %acc_24, %tmp_5_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 450 [5/5] (7.25ns)   --->   "%acc_25_1 = fadd float %acc_25, %tmp_5_24" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 451 [1/4] (5.70ns)   --->   "%tmp_5_25 = fmul float %tmp_139, %tmp_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 452 [1/4] (5.70ns)   --->   "%tmp_5_26 = fmul float %tmp_139, %tmp_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 453 [1/4] (5.70ns)   --->   "%tmp_5_27 = fmul float %tmp_139, %tmp_63" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 454 [1/4] (5.70ns)   --->   "%tmp_5_28 = fmul float %tmp_139, %tmp_65" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 455 [1/4] (5.70ns)   --->   "%tmp_5_29 = fmul float %tmp_139, %tmp_67" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 456 [1/4] (5.70ns)   --->   "%tmp_5_30 = fmul float %tmp_139, %tmp_69" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 457 [1/4] (5.70ns)   --->   "%tmp_5_31 = fmul float %tmp_139, %tmp_71" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 458 [1/4] (5.70ns)   --->   "%tmp_5_32 = fmul float %tmp_139, %tmp_73" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 459 [1/4] (5.70ns)   --->   "%tmp_5_33 = fmul float %tmp_139, %tmp_75" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 460 [1/4] (5.70ns)   --->   "%tmp_5_34 = fmul float %tmp_139, %tmp_77" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 461 [1/4] (5.70ns)   --->   "%tmp_5_35 = fmul float %tmp_139, %tmp_79" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 462 [1/4] (5.70ns)   --->   "%tmp_5_36 = fmul float %tmp_139, %tmp_81" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 463 [1/4] (5.70ns)   --->   "%tmp_5_37 = fmul float %tmp_139, %tmp_83" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 464 [2/4] (5.70ns)   --->   "%tmp_5_38 = fmul float %tmp_139, %tmp_85" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 465 [2/4] (5.70ns)   --->   "%tmp_5_39 = fmul float %tmp_139, %tmp_87" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 466 [2/4] (5.70ns)   --->   "%tmp_5_40 = fmul float %tmp_139, %tmp_89" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 467 [2/4] (5.70ns)   --->   "%tmp_5_41 = fmul float %tmp_139, %tmp_91" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 468 [2/4] (5.70ns)   --->   "%tmp_5_42 = fmul float %tmp_139, %tmp_93" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 469 [2/4] (5.70ns)   --->   "%tmp_5_43 = fmul float %tmp_139, %tmp_95" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 470 [2/4] (5.70ns)   --->   "%tmp_5_44 = fmul float %tmp_139, %tmp_97" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 471 [2/4] (5.70ns)   --->   "%tmp_5_45 = fmul float %tmp_139, %tmp_99" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 472 [2/4] (5.70ns)   --->   "%tmp_5_46 = fmul float %tmp_139, %tmp_101" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 473 [2/4] (5.70ns)   --->   "%tmp_5_47 = fmul float %tmp_139, %tmp_103" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 474 [2/4] (5.70ns)   --->   "%tmp_5_48 = fmul float %tmp_139, %tmp_105" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 475 [2/4] (5.70ns)   --->   "%tmp_5_49 = fmul float %tmp_139, %tmp_107" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 476 [2/4] (5.70ns)   --->   "%tmp_5_50 = fmul float %tmp_139, %tmp_109" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 477 [3/4] (5.70ns)   --->   "%tmp_5_51 = fmul float %tmp_139, %tmp_111" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 478 [3/4] (5.70ns)   --->   "%tmp_5_52 = fmul float %tmp_139, %tmp_113" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 479 [3/4] (5.70ns)   --->   "%tmp_5_53 = fmul float %tmp_139, %tmp_115" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 480 [3/4] (5.70ns)   --->   "%tmp_5_54 = fmul float %tmp_139, %tmp_117" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 481 [3/4] (5.70ns)   --->   "%tmp_5_55 = fmul float %tmp_139, %tmp_119" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 482 [3/4] (5.70ns)   --->   "%tmp_5_56 = fmul float %tmp_139, %tmp_121" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 483 [3/4] (5.70ns)   --->   "%tmp_5_57 = fmul float %tmp_139, %tmp_123" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 484 [3/4] (5.70ns)   --->   "%tmp_5_58 = fmul float %tmp_139, %tmp_125" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 485 [3/4] (5.70ns)   --->   "%tmp_5_59 = fmul float %tmp_139, %tmp_127" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 486 [3/4] (5.70ns)   --->   "%tmp_5_60 = fmul float %tmp_139, %tmp_129" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 487 [3/4] (5.70ns)   --->   "%tmp_5_61 = fmul float %tmp_139, %tmp_131" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 488 [3/4] (5.70ns)   --->   "%tmp_5_62 = fmul float %tmp_139, %tmp_133" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 10> : 7.26ns
+ST_10 : Operation 489 [3/5] (7.25ns)   --->   "%acc_0_1 = fadd float %acc_0, %tmp_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 490 [3/5] (7.25ns)   --->   "%acc_1_1 = fadd float %acc_1, %tmp_5_1" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 491 [3/5] (7.25ns)   --->   "%acc_2_1 = fadd float %acc_2, %tmp_5_2" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 492 [3/5] (7.25ns)   --->   "%acc_3_1 = fadd float %acc_3, %tmp_5_3" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 493 [3/5] (7.25ns)   --->   "%acc_4_1 = fadd float %acc_4, %tmp_5_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 494 [3/5] (7.25ns)   --->   "%acc_5_1 = fadd float %acc_5, %tmp_5_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 495 [3/5] (7.25ns)   --->   "%acc_6_1 = fadd float %acc_6, %tmp_5_6" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 496 [3/5] (7.25ns)   --->   "%acc_7_1 = fadd float %acc_7, %tmp_5_7" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 497 [3/5] (7.25ns)   --->   "%acc_8_1 = fadd float %acc_8, %tmp_5_8" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 498 [3/5] (7.25ns)   --->   "%acc_9_1 = fadd float %acc_9, %tmp_5_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 499 [3/5] (7.25ns)   --->   "%acc_10_1 = fadd float %acc_10, %tmp_5_s" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 500 [3/5] (7.25ns)   --->   "%acc_11_1 = fadd float %acc_11, %tmp_5_10" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 501 [3/5] (7.25ns)   --->   "%acc_12_1 = fadd float %acc_12, %tmp_5_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 502 [4/5] (7.25ns)   --->   "%acc_13_1 = fadd float %acc_13, %tmp_5_12" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 503 [4/5] (7.25ns)   --->   "%acc_14_1 = fadd float %acc_14, %tmp_5_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 504 [4/5] (7.25ns)   --->   "%acc_15_1 = fadd float %acc_15, %tmp_5_14" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 505 [4/5] (7.25ns)   --->   "%acc_16_1 = fadd float %acc_16, %tmp_5_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 506 [4/5] (7.25ns)   --->   "%acc_17_1 = fadd float %acc_17, %tmp_5_16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 507 [4/5] (7.25ns)   --->   "%acc_18_1 = fadd float %acc_18, %tmp_5_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 508 [4/5] (7.25ns)   --->   "%acc_19_1 = fadd float %acc_19, %tmp_5_18" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 509 [4/5] (7.25ns)   --->   "%acc_20_1 = fadd float %acc_20, %tmp_5_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 510 [4/5] (7.25ns)   --->   "%acc_21_1 = fadd float %acc_21, %tmp_5_20" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 511 [4/5] (7.25ns)   --->   "%acc_22_1 = fadd float %acc_22, %tmp_5_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 512 [4/5] (7.25ns)   --->   "%acc_23_1 = fadd float %acc_23, %tmp_5_22" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 513 [4/5] (7.25ns)   --->   "%acc_24_1 = fadd float %acc_24, %tmp_5_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 514 [4/5] (7.25ns)   --->   "%acc_25_1 = fadd float %acc_25, %tmp_5_24" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 515 [5/5] (7.25ns)   --->   "%acc_26_1 = fadd float %acc_26, %tmp_5_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 516 [5/5] (7.25ns)   --->   "%acc_27_1 = fadd float %acc_27, %tmp_5_26" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 517 [5/5] (7.25ns)   --->   "%acc_28_1 = fadd float %acc_28, %tmp_5_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 518 [5/5] (7.25ns)   --->   "%acc_29_1 = fadd float %acc_29, %tmp_5_28" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 519 [5/5] (7.25ns)   --->   "%acc_30_1 = fadd float %acc_30, %tmp_5_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 520 [5/5] (7.25ns)   --->   "%acc_31_1 = fadd float %acc_31, %tmp_5_30" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 521 [5/5] (7.25ns)   --->   "%acc_32_1 = fadd float %acc_32, %tmp_5_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 522 [5/5] (7.25ns)   --->   "%acc_33_1 = fadd float %acc_33, %tmp_5_32" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 523 [5/5] (7.25ns)   --->   "%acc_34_1 = fadd float %acc_34, %tmp_5_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 524 [5/5] (7.25ns)   --->   "%acc_35_1 = fadd float %acc_35, %tmp_5_34" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 525 [5/5] (7.25ns)   --->   "%acc_36_1 = fadd float %acc_36, %tmp_5_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 526 [5/5] (7.25ns)   --->   "%acc_37_1 = fadd float %acc_37, %tmp_5_36" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 527 [5/5] (7.25ns)   --->   "%acc_38_1 = fadd float %acc_38, %tmp_5_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 528 [1/4] (5.70ns)   --->   "%tmp_5_38 = fmul float %tmp_139, %tmp_85" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 529 [1/4] (5.70ns)   --->   "%tmp_5_39 = fmul float %tmp_139, %tmp_87" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 530 [1/4] (5.70ns)   --->   "%tmp_5_40 = fmul float %tmp_139, %tmp_89" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 531 [1/4] (5.70ns)   --->   "%tmp_5_41 = fmul float %tmp_139, %tmp_91" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 532 [1/4] (5.70ns)   --->   "%tmp_5_42 = fmul float %tmp_139, %tmp_93" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 533 [1/4] (5.70ns)   --->   "%tmp_5_43 = fmul float %tmp_139, %tmp_95" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 534 [1/4] (5.70ns)   --->   "%tmp_5_44 = fmul float %tmp_139, %tmp_97" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 535 [1/4] (5.70ns)   --->   "%tmp_5_45 = fmul float %tmp_139, %tmp_99" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 536 [1/4] (5.70ns)   --->   "%tmp_5_46 = fmul float %tmp_139, %tmp_101" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 537 [1/4] (5.70ns)   --->   "%tmp_5_47 = fmul float %tmp_139, %tmp_103" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 538 [1/4] (5.70ns)   --->   "%tmp_5_48 = fmul float %tmp_139, %tmp_105" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 539 [1/4] (5.70ns)   --->   "%tmp_5_49 = fmul float %tmp_139, %tmp_107" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 540 [1/4] (5.70ns)   --->   "%tmp_5_50 = fmul float %tmp_139, %tmp_109" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 541 [2/4] (5.70ns)   --->   "%tmp_5_51 = fmul float %tmp_139, %tmp_111" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 542 [2/4] (5.70ns)   --->   "%tmp_5_52 = fmul float %tmp_139, %tmp_113" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 543 [2/4] (5.70ns)   --->   "%tmp_5_53 = fmul float %tmp_139, %tmp_115" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 544 [2/4] (5.70ns)   --->   "%tmp_5_54 = fmul float %tmp_139, %tmp_117" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 545 [2/4] (5.70ns)   --->   "%tmp_5_55 = fmul float %tmp_139, %tmp_119" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 546 [2/4] (5.70ns)   --->   "%tmp_5_56 = fmul float %tmp_139, %tmp_121" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 547 [2/4] (5.70ns)   --->   "%tmp_5_57 = fmul float %tmp_139, %tmp_123" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 548 [2/4] (5.70ns)   --->   "%tmp_5_58 = fmul float %tmp_139, %tmp_125" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 549 [2/4] (5.70ns)   --->   "%tmp_5_59 = fmul float %tmp_139, %tmp_127" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 550 [2/4] (5.70ns)   --->   "%tmp_5_60 = fmul float %tmp_139, %tmp_129" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 551 [2/4] (5.70ns)   --->   "%tmp_5_61 = fmul float %tmp_139, %tmp_131" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 552 [2/4] (5.70ns)   --->   "%tmp_5_62 = fmul float %tmp_139, %tmp_133" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 11> : 7.26ns
+ST_11 : Operation 553 [2/5] (7.25ns)   --->   "%acc_0_1 = fadd float %acc_0, %tmp_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 554 [2/5] (7.25ns)   --->   "%acc_1_1 = fadd float %acc_1, %tmp_5_1" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 555 [2/5] (7.25ns)   --->   "%acc_2_1 = fadd float %acc_2, %tmp_5_2" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 556 [2/5] (7.25ns)   --->   "%acc_3_1 = fadd float %acc_3, %tmp_5_3" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 557 [2/5] (7.25ns)   --->   "%acc_4_1 = fadd float %acc_4, %tmp_5_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 558 [2/5] (7.25ns)   --->   "%acc_5_1 = fadd float %acc_5, %tmp_5_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 559 [2/5] (7.25ns)   --->   "%acc_6_1 = fadd float %acc_6, %tmp_5_6" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 560 [2/5] (7.25ns)   --->   "%acc_7_1 = fadd float %acc_7, %tmp_5_7" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 561 [2/5] (7.25ns)   --->   "%acc_8_1 = fadd float %acc_8, %tmp_5_8" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 562 [2/5] (7.25ns)   --->   "%acc_9_1 = fadd float %acc_9, %tmp_5_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 563 [2/5] (7.25ns)   --->   "%acc_10_1 = fadd float %acc_10, %tmp_5_s" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 564 [2/5] (7.25ns)   --->   "%acc_11_1 = fadd float %acc_11, %tmp_5_10" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 565 [2/5] (7.25ns)   --->   "%acc_12_1 = fadd float %acc_12, %tmp_5_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 566 [3/5] (7.25ns)   --->   "%acc_13_1 = fadd float %acc_13, %tmp_5_12" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 567 [3/5] (7.25ns)   --->   "%acc_14_1 = fadd float %acc_14, %tmp_5_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 568 [3/5] (7.25ns)   --->   "%acc_15_1 = fadd float %acc_15, %tmp_5_14" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 569 [3/5] (7.25ns)   --->   "%acc_16_1 = fadd float %acc_16, %tmp_5_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 570 [3/5] (7.25ns)   --->   "%acc_17_1 = fadd float %acc_17, %tmp_5_16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 571 [3/5] (7.25ns)   --->   "%acc_18_1 = fadd float %acc_18, %tmp_5_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 572 [3/5] (7.25ns)   --->   "%acc_19_1 = fadd float %acc_19, %tmp_5_18" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 573 [3/5] (7.25ns)   --->   "%acc_20_1 = fadd float %acc_20, %tmp_5_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 574 [3/5] (7.25ns)   --->   "%acc_21_1 = fadd float %acc_21, %tmp_5_20" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 575 [3/5] (7.25ns)   --->   "%acc_22_1 = fadd float %acc_22, %tmp_5_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 576 [3/5] (7.25ns)   --->   "%acc_23_1 = fadd float %acc_23, %tmp_5_22" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 577 [3/5] (7.25ns)   --->   "%acc_24_1 = fadd float %acc_24, %tmp_5_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 578 [3/5] (7.25ns)   --->   "%acc_25_1 = fadd float %acc_25, %tmp_5_24" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 579 [4/5] (7.25ns)   --->   "%acc_26_1 = fadd float %acc_26, %tmp_5_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 580 [4/5] (7.25ns)   --->   "%acc_27_1 = fadd float %acc_27, %tmp_5_26" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 581 [4/5] (7.25ns)   --->   "%acc_28_1 = fadd float %acc_28, %tmp_5_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 582 [4/5] (7.25ns)   --->   "%acc_29_1 = fadd float %acc_29, %tmp_5_28" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 583 [4/5] (7.25ns)   --->   "%acc_30_1 = fadd float %acc_30, %tmp_5_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 584 [4/5] (7.25ns)   --->   "%acc_31_1 = fadd float %acc_31, %tmp_5_30" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 585 [4/5] (7.25ns)   --->   "%acc_32_1 = fadd float %acc_32, %tmp_5_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 586 [4/5] (7.25ns)   --->   "%acc_33_1 = fadd float %acc_33, %tmp_5_32" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 587 [4/5] (7.25ns)   --->   "%acc_34_1 = fadd float %acc_34, %tmp_5_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 588 [4/5] (7.25ns)   --->   "%acc_35_1 = fadd float %acc_35, %tmp_5_34" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 589 [4/5] (7.25ns)   --->   "%acc_36_1 = fadd float %acc_36, %tmp_5_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 590 [4/5] (7.25ns)   --->   "%acc_37_1 = fadd float %acc_37, %tmp_5_36" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 591 [4/5] (7.25ns)   --->   "%acc_38_1 = fadd float %acc_38, %tmp_5_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 592 [5/5] (7.25ns)   --->   "%acc_39_1 = fadd float %acc_39, %tmp_5_38" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 593 [5/5] (7.25ns)   --->   "%acc_40_1 = fadd float %acc_40, %tmp_5_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 594 [5/5] (7.25ns)   --->   "%acc_41_1 = fadd float %acc_41, %tmp_5_40" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 595 [5/5] (7.25ns)   --->   "%acc_42_1 = fadd float %acc_42, %tmp_5_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 596 [5/5] (7.25ns)   --->   "%acc_43_1 = fadd float %acc_43, %tmp_5_42" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 597 [5/5] (7.25ns)   --->   "%acc_44_1 = fadd float %acc_44, %tmp_5_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 598 [5/5] (7.25ns)   --->   "%acc_45_1 = fadd float %acc_45, %tmp_5_44" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 599 [5/5] (7.25ns)   --->   "%acc_46_1 = fadd float %acc_46, %tmp_5_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 600 [5/5] (7.25ns)   --->   "%acc_47_1 = fadd float %acc_47, %tmp_5_46" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 601 [5/5] (7.25ns)   --->   "%acc_48_1 = fadd float %acc_48, %tmp_5_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 602 [5/5] (7.25ns)   --->   "%acc_49_1 = fadd float %acc_49, %tmp_5_48" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 603 [5/5] (7.25ns)   --->   "%acc_50_1 = fadd float %acc_50, %tmp_5_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 604 [5/5] (7.25ns)   --->   "%acc_51_1 = fadd float %acc_51, %tmp_5_50" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 605 [1/4] (5.70ns)   --->   "%tmp_5_51 = fmul float %tmp_139, %tmp_111" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 606 [1/4] (5.70ns)   --->   "%tmp_5_52 = fmul float %tmp_139, %tmp_113" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 607 [1/4] (5.70ns)   --->   "%tmp_5_53 = fmul float %tmp_139, %tmp_115" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 608 [1/4] (5.70ns)   --->   "%tmp_5_54 = fmul float %tmp_139, %tmp_117" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 609 [1/4] (5.70ns)   --->   "%tmp_5_55 = fmul float %tmp_139, %tmp_119" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 610 [1/4] (5.70ns)   --->   "%tmp_5_56 = fmul float %tmp_139, %tmp_121" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 611 [1/4] (5.70ns)   --->   "%tmp_5_57 = fmul float %tmp_139, %tmp_123" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 612 [1/4] (5.70ns)   --->   "%tmp_5_58 = fmul float %tmp_139, %tmp_125" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 613 [1/4] (5.70ns)   --->   "%tmp_5_59 = fmul float %tmp_139, %tmp_127" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 614 [1/4] (5.70ns)   --->   "%tmp_5_60 = fmul float %tmp_139, %tmp_129" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 615 [1/4] (5.70ns)   --->   "%tmp_5_61 = fmul float %tmp_139, %tmp_131" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 616 [1/4] (5.70ns)   --->   "%tmp_5_62 = fmul float %tmp_139, %tmp_133" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 100 'FMul' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+ <State 12> : 7.26ns
+ST_12 : Operation 617 [1/5] (7.25ns)   --->   "%acc_0_1 = fadd float %acc_0, %tmp_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 618 [1/5] (7.25ns)   --->   "%acc_1_1 = fadd float %acc_1, %tmp_5_1" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 619 [1/5] (7.25ns)   --->   "%acc_2_1 = fadd float %acc_2, %tmp_5_2" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 620 [1/5] (7.25ns)   --->   "%acc_3_1 = fadd float %acc_3, %tmp_5_3" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 621 [1/5] (7.25ns)   --->   "%acc_4_1 = fadd float %acc_4, %tmp_5_4" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 622 [1/5] (7.25ns)   --->   "%acc_5_1 = fadd float %acc_5, %tmp_5_5" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 623 [1/5] (7.25ns)   --->   "%acc_6_1 = fadd float %acc_6, %tmp_5_6" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 624 [1/5] (7.25ns)   --->   "%acc_7_1 = fadd float %acc_7, %tmp_5_7" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 625 [1/5] (7.25ns)   --->   "%acc_8_1 = fadd float %acc_8, %tmp_5_8" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 626 [1/5] (7.25ns)   --->   "%acc_9_1 = fadd float %acc_9, %tmp_5_9" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 627 [1/5] (7.25ns)   --->   "%acc_10_1 = fadd float %acc_10, %tmp_5_s" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 628 [1/5] (7.25ns)   --->   "%acc_11_1 = fadd float %acc_11, %tmp_5_10" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 629 [1/5] (7.25ns)   --->   "%acc_12_1 = fadd float %acc_12, %tmp_5_11" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 630 [2/5] (7.25ns)   --->   "%acc_13_1 = fadd float %acc_13, %tmp_5_12" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 631 [2/5] (7.25ns)   --->   "%acc_14_1 = fadd float %acc_14, %tmp_5_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 632 [2/5] (7.25ns)   --->   "%acc_15_1 = fadd float %acc_15, %tmp_5_14" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 633 [2/5] (7.25ns)   --->   "%acc_16_1 = fadd float %acc_16, %tmp_5_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 634 [2/5] (7.25ns)   --->   "%acc_17_1 = fadd float %acc_17, %tmp_5_16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 635 [2/5] (7.25ns)   --->   "%acc_18_1 = fadd float %acc_18, %tmp_5_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 636 [2/5] (7.25ns)   --->   "%acc_19_1 = fadd float %acc_19, %tmp_5_18" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 637 [2/5] (7.25ns)   --->   "%acc_20_1 = fadd float %acc_20, %tmp_5_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 638 [2/5] (7.25ns)   --->   "%acc_21_1 = fadd float %acc_21, %tmp_5_20" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 639 [2/5] (7.25ns)   --->   "%acc_22_1 = fadd float %acc_22, %tmp_5_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 640 [2/5] (7.25ns)   --->   "%acc_23_1 = fadd float %acc_23, %tmp_5_22" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 641 [2/5] (7.25ns)   --->   "%acc_24_1 = fadd float %acc_24, %tmp_5_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 642 [2/5] (7.25ns)   --->   "%acc_25_1 = fadd float %acc_25, %tmp_5_24" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 643 [3/5] (7.25ns)   --->   "%acc_26_1 = fadd float %acc_26, %tmp_5_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 644 [3/5] (7.25ns)   --->   "%acc_27_1 = fadd float %acc_27, %tmp_5_26" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 645 [3/5] (7.25ns)   --->   "%acc_28_1 = fadd float %acc_28, %tmp_5_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 646 [3/5] (7.25ns)   --->   "%acc_29_1 = fadd float %acc_29, %tmp_5_28" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 647 [3/5] (7.25ns)   --->   "%acc_30_1 = fadd float %acc_30, %tmp_5_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 648 [3/5] (7.25ns)   --->   "%acc_31_1 = fadd float %acc_31, %tmp_5_30" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 649 [3/5] (7.25ns)   --->   "%acc_32_1 = fadd float %acc_32, %tmp_5_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 650 [3/5] (7.25ns)   --->   "%acc_33_1 = fadd float %acc_33, %tmp_5_32" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 651 [3/5] (7.25ns)   --->   "%acc_34_1 = fadd float %acc_34, %tmp_5_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 652 [3/5] (7.25ns)   --->   "%acc_35_1 = fadd float %acc_35, %tmp_5_34" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 653 [3/5] (7.25ns)   --->   "%acc_36_1 = fadd float %acc_36, %tmp_5_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 654 [3/5] (7.25ns)   --->   "%acc_37_1 = fadd float %acc_37, %tmp_5_36" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 655 [3/5] (7.25ns)   --->   "%acc_38_1 = fadd float %acc_38, %tmp_5_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 656 [4/5] (7.25ns)   --->   "%acc_39_1 = fadd float %acc_39, %tmp_5_38" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 657 [4/5] (7.25ns)   --->   "%acc_40_1 = fadd float %acc_40, %tmp_5_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 658 [4/5] (7.25ns)   --->   "%acc_41_1 = fadd float %acc_41, %tmp_5_40" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 659 [4/5] (7.25ns)   --->   "%acc_42_1 = fadd float %acc_42, %tmp_5_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 660 [4/5] (7.25ns)   --->   "%acc_43_1 = fadd float %acc_43, %tmp_5_42" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 661 [4/5] (7.25ns)   --->   "%acc_44_1 = fadd float %acc_44, %tmp_5_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 662 [4/5] (7.25ns)   --->   "%acc_45_1 = fadd float %acc_45, %tmp_5_44" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 663 [4/5] (7.25ns)   --->   "%acc_46_1 = fadd float %acc_46, %tmp_5_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 664 [4/5] (7.25ns)   --->   "%acc_47_1 = fadd float %acc_47, %tmp_5_46" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 665 [4/5] (7.25ns)   --->   "%acc_48_1 = fadd float %acc_48, %tmp_5_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 666 [4/5] (7.25ns)   --->   "%acc_49_1 = fadd float %acc_49, %tmp_5_48" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 667 [4/5] (7.25ns)   --->   "%acc_50_1 = fadd float %acc_50, %tmp_5_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 668 [4/5] (7.25ns)   --->   "%acc_51_1 = fadd float %acc_51, %tmp_5_50" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 669 [5/5] (7.25ns)   --->   "%acc_52_1 = fadd float %acc_52, %tmp_5_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 670 [5/5] (7.25ns)   --->   "%acc_53_1 = fadd float %acc_53, %tmp_5_52" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 671 [5/5] (7.25ns)   --->   "%acc_54_1 = fadd float %acc_54, %tmp_5_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 672 [5/5] (7.25ns)   --->   "%acc_55_1 = fadd float %acc_55, %tmp_5_54" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 673 [5/5] (7.25ns)   --->   "%acc_56_1 = fadd float %acc_56, %tmp_5_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 674 [5/5] (7.25ns)   --->   "%acc_57_1 = fadd float %acc_57, %tmp_5_56" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 675 [5/5] (7.25ns)   --->   "%acc_58_1 = fadd float %acc_58, %tmp_5_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 676 [5/5] (7.25ns)   --->   "%acc_59_1 = fadd float %acc_59, %tmp_5_58" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 677 [5/5] (7.25ns)   --->   "%acc_60_1 = fadd float %acc_60, %tmp_5_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 678 [5/5] (7.25ns)   --->   "%acc_61_1 = fadd float %acc_61, %tmp_5_60" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 679 [5/5] (7.25ns)   --->   "%acc_62_1 = fadd float %acc_62, %tmp_5_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 680 [5/5] (7.25ns)   --->   "%acc_63_1 = fadd float %acc_63, %tmp_5_62" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 13> : 7.26ns
+ST_13 : Operation 681 [1/5] (7.25ns)   --->   "%acc_13_1 = fadd float %acc_13, %tmp_5_12" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 682 [1/5] (7.25ns)   --->   "%acc_14_1 = fadd float %acc_14, %tmp_5_13" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 683 [1/5] (7.25ns)   --->   "%acc_15_1 = fadd float %acc_15, %tmp_5_14" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 684 [1/5] (7.25ns)   --->   "%acc_16_1 = fadd float %acc_16, %tmp_5_15" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 685 [1/5] (7.25ns)   --->   "%acc_17_1 = fadd float %acc_17, %tmp_5_16" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 686 [1/5] (7.25ns)   --->   "%acc_18_1 = fadd float %acc_18, %tmp_5_17" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 687 [1/5] (7.25ns)   --->   "%acc_19_1 = fadd float %acc_19, %tmp_5_18" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 688 [1/5] (7.25ns)   --->   "%acc_20_1 = fadd float %acc_20, %tmp_5_19" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 689 [1/5] (7.25ns)   --->   "%acc_21_1 = fadd float %acc_21, %tmp_5_20" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 690 [1/5] (7.25ns)   --->   "%acc_22_1 = fadd float %acc_22, %tmp_5_21" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 691 [1/5] (7.25ns)   --->   "%acc_23_1 = fadd float %acc_23, %tmp_5_22" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 692 [1/5] (7.25ns)   --->   "%acc_24_1 = fadd float %acc_24, %tmp_5_23" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 693 [1/5] (7.25ns)   --->   "%acc_25_1 = fadd float %acc_25, %tmp_5_24" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 694 [2/5] (7.25ns)   --->   "%acc_26_1 = fadd float %acc_26, %tmp_5_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 695 [2/5] (7.25ns)   --->   "%acc_27_1 = fadd float %acc_27, %tmp_5_26" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 696 [2/5] (7.25ns)   --->   "%acc_28_1 = fadd float %acc_28, %tmp_5_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 697 [2/5] (7.25ns)   --->   "%acc_29_1 = fadd float %acc_29, %tmp_5_28" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 698 [2/5] (7.25ns)   --->   "%acc_30_1 = fadd float %acc_30, %tmp_5_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 699 [2/5] (7.25ns)   --->   "%acc_31_1 = fadd float %acc_31, %tmp_5_30" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 700 [2/5] (7.25ns)   --->   "%acc_32_1 = fadd float %acc_32, %tmp_5_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 701 [2/5] (7.25ns)   --->   "%acc_33_1 = fadd float %acc_33, %tmp_5_32" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 702 [2/5] (7.25ns)   --->   "%acc_34_1 = fadd float %acc_34, %tmp_5_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 703 [2/5] (7.25ns)   --->   "%acc_35_1 = fadd float %acc_35, %tmp_5_34" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 704 [2/5] (7.25ns)   --->   "%acc_36_1 = fadd float %acc_36, %tmp_5_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 705 [2/5] (7.25ns)   --->   "%acc_37_1 = fadd float %acc_37, %tmp_5_36" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 706 [2/5] (7.25ns)   --->   "%acc_38_1 = fadd float %acc_38, %tmp_5_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 707 [3/5] (7.25ns)   --->   "%acc_39_1 = fadd float %acc_39, %tmp_5_38" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 708 [3/5] (7.25ns)   --->   "%acc_40_1 = fadd float %acc_40, %tmp_5_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 709 [3/5] (7.25ns)   --->   "%acc_41_1 = fadd float %acc_41, %tmp_5_40" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 710 [3/5] (7.25ns)   --->   "%acc_42_1 = fadd float %acc_42, %tmp_5_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 711 [3/5] (7.25ns)   --->   "%acc_43_1 = fadd float %acc_43, %tmp_5_42" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 712 [3/5] (7.25ns)   --->   "%acc_44_1 = fadd float %acc_44, %tmp_5_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 713 [3/5] (7.25ns)   --->   "%acc_45_1 = fadd float %acc_45, %tmp_5_44" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 714 [3/5] (7.25ns)   --->   "%acc_46_1 = fadd float %acc_46, %tmp_5_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 715 [3/5] (7.25ns)   --->   "%acc_47_1 = fadd float %acc_47, %tmp_5_46" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 716 [3/5] (7.25ns)   --->   "%acc_48_1 = fadd float %acc_48, %tmp_5_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 717 [3/5] (7.25ns)   --->   "%acc_49_1 = fadd float %acc_49, %tmp_5_48" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 718 [3/5] (7.25ns)   --->   "%acc_50_1 = fadd float %acc_50, %tmp_5_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 719 [3/5] (7.25ns)   --->   "%acc_51_1 = fadd float %acc_51, %tmp_5_50" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 720 [4/5] (7.25ns)   --->   "%acc_52_1 = fadd float %acc_52, %tmp_5_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 721 [4/5] (7.25ns)   --->   "%acc_53_1 = fadd float %acc_53, %tmp_5_52" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 722 [4/5] (7.25ns)   --->   "%acc_54_1 = fadd float %acc_54, %tmp_5_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 723 [4/5] (7.25ns)   --->   "%acc_55_1 = fadd float %acc_55, %tmp_5_54" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 724 [4/5] (7.25ns)   --->   "%acc_56_1 = fadd float %acc_56, %tmp_5_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 725 [4/5] (7.25ns)   --->   "%acc_57_1 = fadd float %acc_57, %tmp_5_56" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 726 [4/5] (7.25ns)   --->   "%acc_58_1 = fadd float %acc_58, %tmp_5_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 727 [4/5] (7.25ns)   --->   "%acc_59_1 = fadd float %acc_59, %tmp_5_58" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 728 [4/5] (7.25ns)   --->   "%acc_60_1 = fadd float %acc_60, %tmp_5_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 729 [4/5] (7.25ns)   --->   "%acc_61_1 = fadd float %acc_61, %tmp_5_60" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 730 [4/5] (7.25ns)   --->   "%acc_62_1 = fadd float %acc_62, %tmp_5_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 731 [4/5] (7.25ns)   --->   "%acc_63_1 = fadd float %acc_63, %tmp_5_62" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 14> : 7.26ns
+ST_14 : Operation 732 [1/5] (7.25ns)   --->   "%acc_26_1 = fadd float %acc_26, %tmp_5_25" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 733 [1/5] (7.25ns)   --->   "%acc_27_1 = fadd float %acc_27, %tmp_5_26" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 734 [1/5] (7.25ns)   --->   "%acc_28_1 = fadd float %acc_28, %tmp_5_27" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 735 [1/5] (7.25ns)   --->   "%acc_29_1 = fadd float %acc_29, %tmp_5_28" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 736 [1/5] (7.25ns)   --->   "%acc_30_1 = fadd float %acc_30, %tmp_5_29" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 737 [1/5] (7.25ns)   --->   "%acc_31_1 = fadd float %acc_31, %tmp_5_30" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 738 [1/5] (7.25ns)   --->   "%acc_32_1 = fadd float %acc_32, %tmp_5_31" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 739 [1/5] (7.25ns)   --->   "%acc_33_1 = fadd float %acc_33, %tmp_5_32" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 740 [1/5] (7.25ns)   --->   "%acc_34_1 = fadd float %acc_34, %tmp_5_33" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 741 [1/5] (7.25ns)   --->   "%acc_35_1 = fadd float %acc_35, %tmp_5_34" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 742 [1/5] (7.25ns)   --->   "%acc_36_1 = fadd float %acc_36, %tmp_5_35" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 743 [1/5] (7.25ns)   --->   "%acc_37_1 = fadd float %acc_37, %tmp_5_36" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 744 [1/5] (7.25ns)   --->   "%acc_38_1 = fadd float %acc_38, %tmp_5_37" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 745 [2/5] (7.25ns)   --->   "%acc_39_1 = fadd float %acc_39, %tmp_5_38" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 746 [2/5] (7.25ns)   --->   "%acc_40_1 = fadd float %acc_40, %tmp_5_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 747 [2/5] (7.25ns)   --->   "%acc_41_1 = fadd float %acc_41, %tmp_5_40" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 748 [2/5] (7.25ns)   --->   "%acc_42_1 = fadd float %acc_42, %tmp_5_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 749 [2/5] (7.25ns)   --->   "%acc_43_1 = fadd float %acc_43, %tmp_5_42" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 750 [2/5] (7.25ns)   --->   "%acc_44_1 = fadd float %acc_44, %tmp_5_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 751 [2/5] (7.25ns)   --->   "%acc_45_1 = fadd float %acc_45, %tmp_5_44" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 752 [2/5] (7.25ns)   --->   "%acc_46_1 = fadd float %acc_46, %tmp_5_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 753 [2/5] (7.25ns)   --->   "%acc_47_1 = fadd float %acc_47, %tmp_5_46" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 754 [2/5] (7.25ns)   --->   "%acc_48_1 = fadd float %acc_48, %tmp_5_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 755 [2/5] (7.25ns)   --->   "%acc_49_1 = fadd float %acc_49, %tmp_5_48" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 756 [2/5] (7.25ns)   --->   "%acc_50_1 = fadd float %acc_50, %tmp_5_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 757 [2/5] (7.25ns)   --->   "%acc_51_1 = fadd float %acc_51, %tmp_5_50" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 758 [3/5] (7.25ns)   --->   "%acc_52_1 = fadd float %acc_52, %tmp_5_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 759 [3/5] (7.25ns)   --->   "%acc_53_1 = fadd float %acc_53, %tmp_5_52" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 760 [3/5] (7.25ns)   --->   "%acc_54_1 = fadd float %acc_54, %tmp_5_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 761 [3/5] (7.25ns)   --->   "%acc_55_1 = fadd float %acc_55, %tmp_5_54" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 762 [3/5] (7.25ns)   --->   "%acc_56_1 = fadd float %acc_56, %tmp_5_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 763 [3/5] (7.25ns)   --->   "%acc_57_1 = fadd float %acc_57, %tmp_5_56" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 764 [3/5] (7.25ns)   --->   "%acc_58_1 = fadd float %acc_58, %tmp_5_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 765 [3/5] (7.25ns)   --->   "%acc_59_1 = fadd float %acc_59, %tmp_5_58" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 766 [3/5] (7.25ns)   --->   "%acc_60_1 = fadd float %acc_60, %tmp_5_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 767 [3/5] (7.25ns)   --->   "%acc_61_1 = fadd float %acc_61, %tmp_5_60" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 768 [3/5] (7.25ns)   --->   "%acc_62_1 = fadd float %acc_62, %tmp_5_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 769 [3/5] (7.25ns)   --->   "%acc_63_1 = fadd float %acc_63, %tmp_5_62" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 15> : 7.26ns
+ST_15 : Operation 770 [1/5] (7.25ns)   --->   "%acc_39_1 = fadd float %acc_39, %tmp_5_38" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 771 [1/5] (7.25ns)   --->   "%acc_40_1 = fadd float %acc_40, %tmp_5_39" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 772 [1/5] (7.25ns)   --->   "%acc_41_1 = fadd float %acc_41, %tmp_5_40" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 773 [1/5] (7.25ns)   --->   "%acc_42_1 = fadd float %acc_42, %tmp_5_41" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 774 [1/5] (7.25ns)   --->   "%acc_43_1 = fadd float %acc_43, %tmp_5_42" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 775 [1/5] (7.25ns)   --->   "%acc_44_1 = fadd float %acc_44, %tmp_5_43" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 776 [1/5] (7.25ns)   --->   "%acc_45_1 = fadd float %acc_45, %tmp_5_44" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 777 [1/5] (7.25ns)   --->   "%acc_46_1 = fadd float %acc_46, %tmp_5_45" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 778 [1/5] (7.25ns)   --->   "%acc_47_1 = fadd float %acc_47, %tmp_5_46" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 779 [1/5] (7.25ns)   --->   "%acc_48_1 = fadd float %acc_48, %tmp_5_47" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 780 [1/5] (7.25ns)   --->   "%acc_49_1 = fadd float %acc_49, %tmp_5_48" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 781 [1/5] (7.25ns)   --->   "%acc_50_1 = fadd float %acc_50, %tmp_5_49" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 782 [1/5] (7.25ns)   --->   "%acc_51_1 = fadd float %acc_51, %tmp_5_50" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 783 [2/5] (7.25ns)   --->   "%acc_52_1 = fadd float %acc_52, %tmp_5_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 784 [2/5] (7.25ns)   --->   "%acc_53_1 = fadd float %acc_53, %tmp_5_52" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 785 [2/5] (7.25ns)   --->   "%acc_54_1 = fadd float %acc_54, %tmp_5_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 786 [2/5] (7.25ns)   --->   "%acc_55_1 = fadd float %acc_55, %tmp_5_54" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 787 [2/5] (7.25ns)   --->   "%acc_56_1 = fadd float %acc_56, %tmp_5_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 788 [2/5] (7.25ns)   --->   "%acc_57_1 = fadd float %acc_57, %tmp_5_56" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 789 [2/5] (7.25ns)   --->   "%acc_58_1 = fadd float %acc_58, %tmp_5_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 790 [2/5] (7.25ns)   --->   "%acc_59_1 = fadd float %acc_59, %tmp_5_58" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 791 [2/5] (7.25ns)   --->   "%acc_60_1 = fadd float %acc_60, %tmp_5_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 792 [2/5] (7.25ns)   --->   "%acc_61_1 = fadd float %acc_61, %tmp_5_60" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 793 [2/5] (7.25ns)   --->   "%acc_62_1 = fadd float %acc_62, %tmp_5_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 794 [2/5] (7.25ns)   --->   "%acc_63_1 = fadd float %acc_63, %tmp_5_62" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 16> : 7.26ns
+ST_16 : Operation 795 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 784, i64 784, i64 784)"
+ST_16 : Operation 796 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([9 x i8]* @p_str7) nounwind" [mnist_fp32_naive/linear_activation.hpp:24]
+ST_16 : Operation 797 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([9 x i8]* @p_str7)" [mnist_fp32_naive/linear_activation.hpp:24]
+ST_16 : Operation 798 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [mnist_fp32_naive/linear_activation.hpp:25]
+ST_16 : Operation 799 [1/5] (7.25ns)   --->   "%acc_52_1 = fadd float %acc_52, %tmp_5_51" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 800 [1/5] (7.25ns)   --->   "%acc_53_1 = fadd float %acc_53, %tmp_5_52" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 801 [1/5] (7.25ns)   --->   "%acc_54_1 = fadd float %acc_54, %tmp_5_53" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 802 [1/5] (7.25ns)   --->   "%acc_55_1 = fadd float %acc_55, %tmp_5_54" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 803 [1/5] (7.25ns)   --->   "%acc_56_1 = fadd float %acc_56, %tmp_5_55" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 804 [1/5] (7.25ns)   --->   "%acc_57_1 = fadd float %acc_57, %tmp_5_56" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 805 [1/5] (7.25ns)   --->   "%acc_58_1 = fadd float %acc_58, %tmp_5_57" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 806 [1/5] (7.25ns)   --->   "%acc_59_1 = fadd float %acc_59, %tmp_5_58" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 807 [1/5] (7.25ns)   --->   "%acc_60_1 = fadd float %acc_60, %tmp_5_59" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 808 [1/5] (7.25ns)   --->   "%acc_61_1 = fadd float %acc_61, %tmp_5_60" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 809 [1/5] (7.25ns)   --->   "%acc_62_1 = fadd float %acc_62, %tmp_5_61" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 810 [1/5] (7.25ns)   --->   "%acc_63_1 = fadd float %acc_63, %tmp_5_62" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 811 [1/1] (0.00ns)   --->   "%empty_19 = call i32 (...)* @_ssdm_op_SpecRegionEnd([9 x i8]* @p_str7, i32 %tmp)" [mnist_fp32_naive/linear_activation.hpp:31]
+ST_16 : Operation 812 [1/1] (0.00ns)   --->   "br label %.preheader7" [mnist_fp32_naive/linear_activation.hpp:24]
+
+ <State 17> : 1.77ns
+ST_17 : Operation 813 [1/1] (1.76ns)   --->   "br label %.preheader" [mnist_fp32_naive/linear_activation.hpp:33]
+
+ <State 18> : 3.25ns
+ST_18 : Operation 814 [1/1] (0.00ns)   --->   "%ires = phi i7 [ %ires_1, %1 ], [ 0, %.preheader.preheader ]"
+ST_18 : Operation 815 [1/1] (1.48ns)   --->   "%exitcond = icmp eq i7 %ires, -64" [mnist_fp32_naive/linear_activation.hpp:33]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.48> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 816 [1/1] (1.87ns)   --->   "%ires_1 = add i7 %ires, 1" [mnist_fp32_naive/linear_activation.hpp:33]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 817 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %2, label %1" [mnist_fp32_naive/linear_activation.hpp:33]
+ST_18 : Operation 818 [1/1] (0.00ns)   --->   "%tmp_2 = zext i7 %ires to i64" [mnist_fp32_naive/linear_activation.hpp:35]
+ST_18 : Operation 819 [1/1] (0.00ns)   --->   "%tmp_138 = trunc i7 %ires to i6" [mnist_fp32_naive/linear_activation.hpp:33]
+ST_18 : Operation 820 [1/1] (0.00ns)   --->   "%L1_BIAS_addr = getelementptr inbounds [64 x float]* @L1_BIAS, i64 0, i64 %tmp_2" [mnist_fp32_naive/linear_activation.hpp:35]
+ST_18 : Operation 821 [2/2] (3.25ns)   --->   "%L1_BIAS_load = load float* %L1_BIAS_addr, align 4" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+
+ <State 19> : 3.25ns
+ST_19 : Operation 822 [1/1] (3.13ns)   --->   "%tmp_135 = call float @_ssdm_op_Mux.ap_auto.64float.i6(float %acc_0, float %acc_1, float %acc_2, float %acc_3, float %acc_4, float %acc_5, float %acc_6, float %acc_7, float %acc_8, float %acc_9, float %acc_10, float %acc_11, float %acc_12, float %acc_13, float %acc_14, float %acc_15, float %acc_16, float %acc_17, float %acc_18, float %acc_19, float %acc_20, float %acc_21, float %acc_22, float %acc_23, float %acc_24, float %acc_25, float %acc_26, float %acc_27, float %acc_28, float %acc_29, float %acc_30, float %acc_31, float %acc_32, float %acc_33, float %acc_34, float %acc_35, float %acc_36, float %acc_37, float %acc_38, float %acc_39, float %acc_40, float %acc_41, float %acc_42, float %acc_43, float %acc_44, float %acc_45, float %acc_46, float %acc_47, float %acc_48, float %acc_49, float %acc_50, float %acc_51, float %acc_52, float %acc_53, float %acc_54, float %acc_55, float %acc_56, float %acc_57, float %acc_58, float %acc_59, float %acc_60, float %acc_61, float %acc_62, float %acc_63, i6 %tmp_138)" [mnist_fp32_naive/linear_activation.hpp:29]   --->   Core 31 'MuxnS' <Latency = 0> <II = 1> <Delay = 3.13> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 823 [1/2] (3.25ns)   --->   "%L1_BIAS_load = load float* %L1_BIAS_addr, align 4" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 48 'ROM_nP' <Latency = 1> <II = 1> <Delay = 3.25> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 64> <ROM>
+
+ <State 20> : 7.26ns
+ST_20 : Operation 824 [5/5] (7.25ns)   --->   "%tmp_3 = fadd float %tmp_135, %L1_BIAS_load" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 21> : 7.26ns
+ST_21 : Operation 825 [4/5] (7.25ns)   --->   "%tmp_3 = fadd float %tmp_135, %L1_BIAS_load" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 22> : 7.26ns
+ST_22 : Operation 826 [3/5] (7.25ns)   --->   "%tmp_3 = fadd float %tmp_135, %L1_BIAS_load" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 23> : 7.26ns
+ST_23 : Operation 827 [2/5] (7.25ns)   --->   "%tmp_3 = fadd float %tmp_135, %L1_BIAS_load" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 24> : 7.26ns
+ST_24 : Operation 828 [1/5] (7.25ns)   --->   "%tmp_3 = fadd float %tmp_135, %L1_BIAS_load" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 99 'FAddSub' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+ <State 25> : 3.63ns
+ST_25 : Operation 829 [1/1] (0.00ns)   --->   "%empty_20 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"
+ST_25 : Operation 830 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([7 x i8]* @p_str9) nounwind" [mnist_fp32_naive/linear_activation.hpp:33]
+ST_25 : Operation 831 [1/1] (0.00ns)   --->   "%tmp_134 = call i32 (...)* @_ssdm_op_SpecRegionBegin([7 x i8]* @p_str9)" [mnist_fp32_naive/linear_activation.hpp:33]
+ST_25 : Operation 832 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str2) nounwind" [mnist_fp32_naive/linear_activation.hpp:34]
+ST_25 : Operation 833 [1/1] (3.63ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %data_out_V, float %tmp_3)" [mnist_fp32_naive/linear_activation.hpp:35]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
+ST_25 : Operation 834 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecRegionEnd([7 x i8]* @p_str9, i32 %tmp_134)" [mnist_fp32_naive/linear_activation.hpp:36]
+ST_25 : Operation 835 [1/1] (0.00ns)   --->   "br label %.preheader" [mnist_fp32_naive/linear_activation.hpp:33]
+
+ <State 26> : 0.00ns
+ST_26 : Operation 836 [1/1] (0.00ns)   --->   "ret void" [mnist_fp32_naive/linear_activation.hpp:37]
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('acc[63]') with incoming values : ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29) [9]  (1.77 ns)
+
+ <State 2>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('ii') with incoming values : ('ii', mnist_fp32_naive/linear_activation.hpp:24) [73]  (0 ns)
+	'getelementptr' operation ('L1_WEIGHTS_addr', mnist_fp32_naive/linear_activation.hpp:29) [84]  (0 ns)
+	'load' operation ('L1_WEIGHTS_load', mnist_fp32_naive/linear_activation.hpp:29) on array 'L1_WEIGHTS' [85]  (3.25 ns)
+
+ <State 3>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'data_in_V' (mnist_fp32_naive/linear_activation.hpp:26) [82]  (3.63 ns)
+
+ <State 4>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_5', mnist_fp32_naive/linear_activation.hpp:29) [88]  (5.7 ns)
+
+ <State 5>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_5', mnist_fp32_naive/linear_activation.hpp:29) [88]  (5.7 ns)
+
+ <State 6>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_5', mnist_fp32_naive/linear_activation.hpp:29) [88]  (5.7 ns)
+
+ <State 7>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_5', mnist_fp32_naive/linear_activation.hpp:29) [88]  (5.7 ns)
+
+ <State 8>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[0]', mnist_fp32_naive/linear_activation.hpp:29) [89]  (7.26 ns)
+
+ <State 9>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[0]', mnist_fp32_naive/linear_activation.hpp:29) [89]  (7.26 ns)
+
+ <State 10>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[0]', mnist_fp32_naive/linear_activation.hpp:29) [89]  (7.26 ns)
+
+ <State 11>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[0]', mnist_fp32_naive/linear_activation.hpp:29) [89]  (7.26 ns)
+
+ <State 12>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[0]', mnist_fp32_naive/linear_activation.hpp:29) [89]  (7.26 ns)
+
+ <State 13>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[13]', mnist_fp32_naive/linear_activation.hpp:29) [141]  (7.26 ns)
+
+ <State 14>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[26]', mnist_fp32_naive/linear_activation.hpp:29) [193]  (7.26 ns)
+
+ <State 15>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[39]', mnist_fp32_naive/linear_activation.hpp:29) [245]  (7.26 ns)
+
+ <State 16>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('acc[52]', mnist_fp32_naive/linear_activation.hpp:29) [297]  (7.26 ns)
+
+ <State 17>: 1.77ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('ires') with incoming values : ('ires', mnist_fp32_naive/linear_activation.hpp:33) [347]  (1.77 ns)
+
+ <State 18>: 3.25ns
+The critical path consists of the following:
+	'phi' operation ('ires') with incoming values : ('ires', mnist_fp32_naive/linear_activation.hpp:33) [347]  (0 ns)
+	'getelementptr' operation ('L1_BIAS_addr', mnist_fp32_naive/linear_activation.hpp:35) [359]  (0 ns)
+	'load' operation ('L1_BIAS_load', mnist_fp32_naive/linear_activation.hpp:35) on array 'L1_BIAS' [360]  (3.25 ns)
+
+ <State 19>: 3.25ns
+The critical path consists of the following:
+	'load' operation ('L1_BIAS_load', mnist_fp32_naive/linear_activation.hpp:35) on array 'L1_BIAS' [360]  (3.25 ns)
+
+ <State 20>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', mnist_fp32_naive/linear_activation.hpp:35) [361]  (7.26 ns)
+
+ <State 21>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', mnist_fp32_naive/linear_activation.hpp:35) [361]  (7.26 ns)
+
+ <State 22>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', mnist_fp32_naive/linear_activation.hpp:35) [361]  (7.26 ns)
+
+ <State 23>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', mnist_fp32_naive/linear_activation.hpp:35) [361]  (7.26 ns)
+
+ <State 24>: 7.26ns
+The critical path consists of the following:
+	'fadd' operation ('tmp', mnist_fp32_naive/linear_activation.hpp:35) [361]  (7.26 ns)
+
+ <State 25>: 3.63ns
+The critical path consists of the following:
+	fifo write on port 'data_out_V' (mnist_fp32_naive/linear_activation.hpp:35) [362]  (3.63 ns)
+
+ <State 26>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

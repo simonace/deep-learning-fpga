@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# 
+# Start of session at: Tue Apr 10 01:36:45 2018
+# Process ID: 31757
+# Current directory: /home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.sdk/webtalk/webtalk.log
+# Journal file: /home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

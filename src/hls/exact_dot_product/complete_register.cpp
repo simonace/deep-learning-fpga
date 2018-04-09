@@ -1,6 +1,5 @@
 #include "complete_register.hpp"
 
-
 /**
  * Long shift implementation of a Complete Register for exact dot product accumulation.
  */
@@ -14,7 +13,7 @@ public:
 	/**
 	 * Returns the normalized float from the complete register.
 	 */
-	data_t get_result()
+	result_data_t get_result()
 	{
 		ap_uint<1> sign = m_cr.get_bit(127);
 
@@ -51,7 +50,7 @@ public:
 			}
 		}
 
-		data_t result = (sign, exponent, mantissa);
+		result_data_t result = (sign, exponent, mantissa);
 
 		return result;
 	}

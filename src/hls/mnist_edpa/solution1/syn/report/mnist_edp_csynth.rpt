@@ -1,0 +1,146 @@
+
+
+================================================================
+== Vivado HLS Report for 'mnist_edp'
+================================================================
+* Date:           Mon Apr  9 21:30:15 2018
+
+* Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
+* Project:        mnist_edpa
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  15.00|     14.91|        1.88|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+----------+
+    |   Latency   |   Interval  | Pipeline |
+    |  min |  max |  min |  max |   Type   |
+    +------+------+------+------+----------+
+    |  1706|  1706|  1706|  1706| dataflow |
+    +------+------+------+------+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------+---------------------+------+------+------+------+---------+
+        |                        |                     |   Latency   |   Interval  | Pipeline|
+        |        Instance        |        Module       |  min |  max |  min |  max |   Type  |
+        +------------------------+---------------------+------+------+------+------+---------+
+        |linear_activation_U0    |linear_activation    |  1705|  1705|  1705|  1705|   none  |
+        |linear_activation_1_U0  |linear_activation_1  |   148|   148|   148|   148|   none  |
+        |packer_U0               |packer               |    13|    13|    13|    13|   none  |
+        |unpacker_U0             |unpacker             |   786|   786|   786|   786|   none  |
+        |relu_U0                 |relu                 |    65|    65|    65|    65|   none  |
+        +------------------------+---------------------+------+------+------+------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       -|      -|
+|FIFO             |        0|      -|      20|    112|
+|Instance         |       63|     37|   21346|  29006|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|      -|
+|Register         |        -|      -|       -|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |       63|     37|   21366|  29118|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |       22|     16|      20|     54|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +------------------------+---------------------+---------+-------+-------+-------+
+    |        Instance        |        Module       | BRAM_18K| DSP48E|   FF  |  LUT  |
+    +------------------------+---------------------+---------+-------+-------+-------+
+    |linear_activation_U0    |linear_activation    |       58|     32|  17871|  21451|
+    |linear_activation_1_U0  |linear_activation_1  |        5|      5|   3322|   6749|
+    |packer_U0               |packer               |        0|      0|     86|    451|
+    |relu_U0                 |relu                 |        0|      0|     11|    141|
+    |unpacker_U0             |unpacker             |        0|      0|     56|    214|
+    +------------------------+---------------------+---------+-------+-------+-------+
+    |Total                   |                     |       63|     37|  21346|  29006|
+    +------------------------+---------------------+---------+-------+-------+-------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-----------------+---------+---+----+------+-----+---------+
+    |       Name      | BRAM_18K| FF| LUT| Depth| Bits| Size:D*B|
+    +-----------------+---------+---+----+------+-----+---------+
+    |data_in_V_V_U    |        0|  5|  28|     1|   16|       16|
+    |data_out_V_V_U   |        0|  5|  28|     1|   16|       16|
+    |l1_relu_V_V_U    |        0|  5|  28|     1|   16|       16|
+    |l1_result_V_V_U  |        0|  5|  28|     1|   16|       16|
+    +-----------------+---------+---+----+------+-----+---------+
+    |Total            |        0| 20| 112|     4|   64|       64|
+    +-----------------+---------+---+----+------+-----+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------+-----+-----+--------------+--------------------+--------------+
+|     RTL Ports    | Dir | Bits|   Protocol   |    Source Object   |    C Type    |
++------------------+-----+-----+--------------+--------------------+--------------+
+|sdata_in_TDATA    |  in |   16|     axis     |  sdata_in_V_data_V |    pointer   |
+|sdata_in_TKEEP    |  in |    2|     axis     |  sdata_in_V_keep_V |    pointer   |
+|sdata_in_TSTRB    |  in |    2|     axis     |  sdata_in_V_strb_V |    pointer   |
+|sdata_in_TUSER    |  in |    1|     axis     |  sdata_in_V_user_V |    pointer   |
+|sdata_in_TLAST    |  in |    1|     axis     |  sdata_in_V_last_V |    pointer   |
+|sdata_in_TID      |  in |    1|     axis     |   sdata_in_V_id_V  |    pointer   |
+|sdata_in_TDEST    |  in |    1|     axis     |  sdata_in_V_dest_V |    pointer   |
+|sdata_in_TVALID   |  in |    1|     axis     |  sdata_in_V_dest_V |    pointer   |
+|sdata_in_TREADY   | out |    1|     axis     |  sdata_in_V_dest_V |    pointer   |
+|sdata_out_TDATA   | out |   16|     axis     | sdata_out_V_data_V |    pointer   |
+|sdata_out_TKEEP   | out |    2|     axis     | sdata_out_V_keep_V |    pointer   |
+|sdata_out_TSTRB   | out |    2|     axis     | sdata_out_V_strb_V |    pointer   |
+|sdata_out_TUSER   | out |    1|     axis     | sdata_out_V_user_V |    pointer   |
+|sdata_out_TLAST   | out |    1|     axis     | sdata_out_V_last_V |    pointer   |
+|sdata_out_TID     | out |    1|     axis     |  sdata_out_V_id_V  |    pointer   |
+|sdata_out_TDEST   | out |    1|     axis     | sdata_out_V_dest_V |    pointer   |
+|sdata_out_TVALID  | out |    1|     axis     | sdata_out_V_dest_V |    pointer   |
+|sdata_out_TREADY  |  in |    1|     axis     | sdata_out_V_dest_V |    pointer   |
+|ap_clk            |  in |    1| ap_ctrl_none |      mnist_edp     | return value |
+|ap_rst_n          |  in |    1| ap_ctrl_none |      mnist_edp     | return value |
++------------------+-----+-----+--------------+--------------------+--------------+
+

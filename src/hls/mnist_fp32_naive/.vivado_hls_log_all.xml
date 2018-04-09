@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTMG 210-274] Memory 'packer_packet_usekbM' is read-only, switch it to a ROM." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:59.552+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 4)&#xA;   between 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:52.139+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)&#xA;   between 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:52.127+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 2)&#xA;   between 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:52.118+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)&#xA;   between 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[9]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:52.102+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 4)&#xA;   between 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:50.615+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)&#xA;   between 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:50.544+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 2)&#xA;   between 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:50.533+0800" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)&#xA;   between 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29) and 'fadd' operation ('acc[63]', mnist_fp32_naive/linear_activation.hpp:29)." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:50.527+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'linear_activation.1' to 'linear_activation_1'." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:49.508+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'linear_activation&lt;float, float, float, float, float, 64, 10>' to 'linear_activation.1' (mnist_fp32_naive/linear_activation.hpp:24:52)" projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:49.470+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'linear_activation&lt;float, float, float, float, float, 784, 64>' to 'linear_activation' (mnist_fp32_naive/linear_activation.hpp:24:52)" projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:48.319+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'packer&lt;float, 32, 10>' to 'packer' (mnist_fp32_naive/packer.h:11:36)" projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:48.312+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'relu&lt;float, float, 64>' to 'relu' (mnist_fp32_naive/relu_activation.hpp:7:29)" projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:48.298+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'unpacker&lt;float, 32, 784>' to 'unpacker' (mnist_fp32_naive/unpacker.h:12:38)" projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:48.284+0800" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-104] Completely partitioning array 'acc' (mnist_fp32_naive/linear_activation.hpp:14) accessed through non-constant indices on dimension 1 (mnist_fp32_naive/linear_activation.hpp:35:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:18:46.245+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'mnist_fp32_naive_ap_fmul_2_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:23:46.612+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'mnist_fp32_naive_ap_fcmp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:23:45.150+0800" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'mnist_fp32_naive_ap_fadd_3_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="mnist_fp32_naive" solutionName="solution1" date="2018-04-10T00:23:43.883+0800" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

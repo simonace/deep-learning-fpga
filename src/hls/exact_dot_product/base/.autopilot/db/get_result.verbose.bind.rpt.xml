@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'get_result'" level="0">
-<item name = "Date">Tue Apr  3 14:51:54 2018
+<item name = "Date">Mon Apr  9 09:45:19 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">exact_dot_product</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">5.00, 4.11, 0.62</column>
+<column name="ap_clk">5.00, 4.06, 0.62</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">4, 4, 1, 1, function</column>
+<column name="">3, 26, 3, 26, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,6 +35,8 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- GetMantissa">10, 10, 1, -, -, 10, no</column>
+<column name="- FlipMantissa">10, 10, 1, -, -, 10, no</column>
 </table>
 </item>
 </section>

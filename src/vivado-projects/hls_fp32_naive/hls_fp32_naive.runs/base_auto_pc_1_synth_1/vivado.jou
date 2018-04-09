@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Apr 10 01:20:43 2018
+# Process ID: 25787
+# Current directory: /home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.runs/base_auto_pc_1_synth_1
+# Command line: vivado -log base_auto_pc_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_auto_pc_1.tcl
+# Log file: /home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.runs/base_auto_pc_1_synth_1/base_auto_pc_1.vds
+# Journal file: /home/xbili/Code/FPGA/vivado-projects/hls_fp32_naive/hls_fp32_naive.runs/base_auto_pc_1_synth_1/vivado.jou
+#-----------------------------------------------------------
+source base_auto_pc_1.tcl -notrace

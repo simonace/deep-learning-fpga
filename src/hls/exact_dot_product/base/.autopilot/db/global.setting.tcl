@@ -1,5 +1,5 @@
 
-set TopModule "neural_network"
+set TopModule "exact_dot_product"
 set ClockPeriod "5.000000"
 set ClockList {ap_clk}
 set multiClockList {}
@@ -14,7 +14,7 @@ set FftOrFirFlag 0
 set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
-set HasDSPModule 1
+set HasDSPModule 0
 set ResetLevelFlag 0
 set ResetStyle "control"
 set ResetSyncFlag 1
@@ -41,15 +41,15 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg400:-1"
-set SourceFiles {sc {} c {../neural_network.cpp ../complete_register.cpp}}
+set SourceFiles {sc {} c {../exact_dot_product.cpp ../complete_register.cpp}}
 set SourceFlags {sc {} c {{} {}}}
 set DirectiveFile {/home/xbili/Code/FPGA/deep-learning-fpga/src/hls/exact_dot_product/base/base.directive}
-set TBFiles {verilog {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} bc {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} sc {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} vhdl {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp} c {} cas {../../../../../../keras-mnist/data/fp16/test.dat ../../../../../../keras-mnist/data/fp16/nn.dat ../neural_network_test.cpp ../complete_register_test.cpp}}
+set TBFiles {verilog ../complete_register_test.cpp bc ../complete_register_test.cpp vhdl ../complete_register_test.cpp sc ../complete_register_test.cpp cas ../complete_register_test.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
-set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}

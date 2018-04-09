@@ -27229,9 +27229,6 @@ typedef ap_uint<5 +1> exact_exponent_t;
 typedef ap_uint<(10 +1) * 2> exact_mantissa_t;
 typedef ap_int<(10 +1) * 2 + 1> exact_mantissa_2s_t;
 typedef ap_int<128> exact_mantissa_shifted_t;
-#pragma empty_line
-#pragma empty_line
-typedef ap_uint<8> cr_word_t;
 typedef ap_int<128> cr_t;
 #pragma line 2 "exact_dot_product/complete_register.cpp" 2
 #pragma empty_line
@@ -27249,7 +27246,7 @@ public:
 #pragma empty_line
 #pragma empty_line
 #pragma empty_line
- data_t get_result()
+ result_data_t get_result()
  {
   ap_uint<1> sign = m_cr.get_bit(127);
 #pragma empty_line
@@ -27286,7 +27283,7 @@ public:
    }
   }
 #pragma empty_line
-  data_t result = (sign, exponent, mantissa);
+  result_data_t result = (sign, exponent, mantissa);
 #pragma empty_line
   return result;
  }
@@ -27317,6 +27314,7 @@ public:
   int to_shift = exact_e - 30;
   cr_t shifted = exact_m2s;
   shifted = shifted << (64 - 23 + 1 + to_shift);
+#pragma empty_line
 #pragma empty_line
   m_cr += shifted;
  }
