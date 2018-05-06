@@ -46,10 +46,10 @@ architecture behav of linear_activation_1 is
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+    constant ap_const_lv7_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
     constant ap_const_lv4_0 : STD_LOGIC_VECTOR (3 downto 0) := "0000";
-    constant ap_const_lv8_80 : STD_LOGIC_VECTOR (7 downto 0) := "10000000";
-    constant ap_const_lv8_1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
+    constant ap_const_lv7_40 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
+    constant ap_const_lv7_1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
     constant ap_const_lv32_8 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001000";
     constant ap_const_lv32_F : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001111";
     constant ap_const_lv32_10 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000010000";
@@ -81,12 +81,12 @@ architecture behav of linear_activation_1 is
     signal ap_CS_fsm_state1 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state1 : signal is "none";
     signal internal_ap_ready : STD_LOGIC;
-    signal L2_WEIGHTS_V_address0 : STD_LOGIC_VECTOR (6 downto 0);
+    signal L2_WEIGHTS_V_address0 : STD_LOGIC_VECTOR (5 downto 0);
     signal L2_WEIGHTS_V_ce0 : STD_LOGIC;
     signal L2_WEIGHTS_V_q0 : STD_LOGIC_VECTOR (79 downto 0);
     signal L2_BIAS_V_address0 : STD_LOGIC_VECTOR (3 downto 0);
     signal L2_BIAS_V_ce0 : STD_LOGIC;
-    signal L2_BIAS_V_q0 : STD_LOGIC_VECTOR (3 downto 0);
+    signal L2_BIAS_V_q0 : STD_LOGIC_VECTOR (7 downto 0);
     signal data_in_V_V_blk_n : STD_LOGIC;
     signal ap_CS_fsm_pp0_stage0 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_pp0_stage0 : signal is "none";
@@ -108,7 +108,7 @@ architecture behav of linear_activation_1 is
     signal acc_2_V_reg_243 : STD_LOGIC_VECTOR (31 downto 0);
     signal acc_1_V_reg_255 : STD_LOGIC_VECTOR (31 downto 0);
     signal acc_0_V_reg_267 : STD_LOGIC_VECTOR (31 downto 0);
-    signal ii_reg_279 : STD_LOGIC_VECTOR (7 downto 0);
+    signal ii_reg_279 : STD_LOGIC_VECTOR (6 downto 0);
     signal ires_reg_290 : STD_LOGIC_VECTOR (3 downto 0);
     signal exitcond5_fu_302_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_block_state2_pp0_stage0_iter0 : BOOLEAN;
@@ -118,7 +118,7 @@ architecture behav of linear_activation_1 is
     signal ap_block_pp0_stage0_11001 : BOOLEAN;
     signal ap_reg_pp0_iter1_exitcond5_reg_596 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_reg_pp0_iter2_exitcond5_reg_596 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ii_2_fu_308_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal ii_2_fu_308_p2 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_enable_reg_pp0_iter0 : STD_LOGIC := '0';
     signal tmp_V_1_reg_610 : STD_LOGIC_VECTOR (31 downto 0);
     signal tmp_1_fu_319_p1 : STD_LOGIC_VECTOR (7 downto 0);
@@ -208,7 +208,7 @@ architecture behav of linear_activation_1 is
     signal ap_idle_pp1 : STD_LOGIC;
     signal ap_enable_pp1 : STD_LOGIC;
 
-    component mnist_mux_104_32_ibs IS
+    component mnist_mux_104_32_hbi IS
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -240,7 +240,7 @@ architecture behav of linear_activation_1 is
     end component;
 
 
-    component linear_activationg8j IS
+    component linear_activationfYi IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -248,13 +248,13 @@ architecture behav of linear_activation_1 is
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
-        address0 : IN STD_LOGIC_VECTOR (6 downto 0);
+        address0 : IN STD_LOGIC_VECTOR (5 downto 0);
         ce0 : IN STD_LOGIC;
         q0 : OUT STD_LOGIC_VECTOR (79 downto 0) );
     end component;
 
 
-    component linear_activationhbi IS
+    component linear_activationg8j IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -264,17 +264,17 @@ architecture behav of linear_activation_1 is
         reset : IN STD_LOGIC;
         address0 : IN STD_LOGIC_VECTOR (3 downto 0);
         ce0 : IN STD_LOGIC;
-        q0 : OUT STD_LOGIC_VECTOR (3 downto 0) );
+        q0 : OUT STD_LOGIC_VECTOR (7 downto 0) );
     end component;
 
 
 
 begin
-    L2_WEIGHTS_V_U : component linear_activationg8j
+    L2_WEIGHTS_V_U : component linear_activationfYi
     generic map (
         DataWidth => 80,
-        AddressRange => 128,
-        AddressWidth => 7)
+        AddressRange => 64,
+        AddressWidth => 6)
     port map (
         clk => ap_clk,
         reset => ap_rst,
@@ -282,9 +282,9 @@ begin
         ce0 => L2_WEIGHTS_V_ce0,
         q0 => L2_WEIGHTS_V_q0);
 
-    L2_BIAS_V_U : component linear_activationhbi
+    L2_BIAS_V_U : component linear_activationg8j
     generic map (
-        DataWidth => 4,
+        DataWidth => 8,
         AddressRange => 10,
         AddressWidth => 4)
     port map (
@@ -294,7 +294,7 @@ begin
         ce0 => L2_BIAS_V_ce0,
         q0 => L2_BIAS_V_q0);
 
-    mnist_mux_104_32_ibs_U147 : component mnist_mux_104_32_ibs
+    mnist_mux_104_32_hbi_U82 : component mnist_mux_104_32_hbi
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -602,7 +602,7 @@ begin
             if (((exitcond5_fu_302_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_enable_reg_pp0_iter0 = ap_const_logic_1) and (ap_const_boolean_0 = ap_block_pp0_stage0_11001))) then 
                 ii_reg_279 <= ii_2_fu_308_p2;
             elsif ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                ii_reg_279 <= ap_const_lv8_0;
+                ii_reg_279 <= ap_const_lv7_0;
             end if; 
         end if;
     end process;
@@ -739,7 +739,7 @@ begin
         end if; 
     end process;
 
-    L2_WEIGHTS_V_address0 <= tmp_s_fu_314_p1(7 - 1 downto 0);
+    L2_WEIGHTS_V_address0 <= tmp_s_fu_314_p1(6 - 1 downto 0);
 
     L2_WEIGHTS_V_ce0_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0_11001, ap_enable_reg_pp0_iter0)
     begin
@@ -934,9 +934,9 @@ begin
         end if; 
     end process;
 
-    exitcond5_fu_302_p2 <= "1" when (ii_reg_279 = ap_const_lv8_80) else "0";
+    exitcond5_fu_302_p2 <= "1" when (ii_reg_279 = ap_const_lv7_40) else "0";
     exitcond_fu_543_p2 <= "1" when (ap_phi_mux_ires_phi_fu_294_p4 = ap_const_lv4_A) else "0";
-    ii_2_fu_308_p2 <= std_logic_vector(unsigned(ii_reg_279) + unsigned(ap_const_lv8_1));
+    ii_2_fu_308_p2 <= std_logic_vector(unsigned(ii_reg_279) + unsigned(ap_const_lv7_1));
 
     internal_ap_ready_assign_proc : process(ap_CS_fsm_state10)
     begin

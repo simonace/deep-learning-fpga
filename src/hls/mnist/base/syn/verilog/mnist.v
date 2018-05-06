@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="mnist,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.510000,HLS_SYN_LAT=919,HLS_SYN_TPT=919,HLS_SYN_MEM=60,HLS_SYN_DSP=158,HLS_SYN_FF=9512,HLS_SYN_LUT=3621}" *)
+(* CORE_GENERATION_INFO="mnist,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.510000,HLS_SYN_LAT=855,HLS_SYN_TPT=855,HLS_SYN_MEM=32,HLS_SYN_DSP=94,HLS_SYN_FF=5360,HLS_SYN_LUT=3038}" *)
 
 module mnist (
         sdata_in_TDATA,
@@ -297,7 +297,7 @@ fifo_w32_d1_A data_out_V_V_U(
     .if_read(packer_U0_stream_in_V_V_read)
 );
 
-start_for_linear_mb6 start_for_linear_mb6_U(
+start_for_linear_lbW start_for_linear_lbW_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -323,7 +323,7 @@ start_for_relu_U0 start_for_relu_U0_U(
     .if_read(relu_U0_ap_ready)
 );
 
-start_for_linear_ncg start_for_linear_ncg_U(
+start_for_linear_mb6 start_for_linear_mb6_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),

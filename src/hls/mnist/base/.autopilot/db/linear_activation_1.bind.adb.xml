@@ -285,9 +285,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="19" bw="8" op_0_bw="8" op_1_bw="0">
+<Node id="19" bw="7" op_0_bw="7" op_1_bw="0">
 <![CDATA[
-.preheader93:10  %ii = phi i8 [ 0, %.preheader93.preheader ], [ %ii_2, %0 ]
+.preheader93:10  %ii = phi i7 [ 0, %.preheader93.preheader ], [ %ii_2, %0 ]
 
 ]]></Node>
 <StgValue><ssdm name="ii"/></StgValue>
@@ -300,9 +300,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="20" bw="1" op_0_bw="8" op_1_bw="8">
+<Node id="20" bw="1" op_0_bw="7" op_1_bw="7">
 <![CDATA[
-.preheader93:11  %exitcond5 = icmp eq i8 %ii, -128
+.preheader93:11  %exitcond5 = icmp eq i7 %ii, -64
 
 ]]></Node>
 <StgValue><ssdm name="exitcond5"/></StgValue>
@@ -315,9 +315,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="21" bw="8" op_0_bw="8" op_1_bw="8">
+<Node id="21" bw="7" op_0_bw="7" op_1_bw="7">
 <![CDATA[
-.preheader93:12  %ii_2 = add i8 %ii, 1
+.preheader93:12  %ii_2 = add i7 %ii, 1
 
 ]]></Node>
 <StgValue><ssdm name="ii_2"/></StgValue>
@@ -346,9 +346,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="64" op_0_bw="8">
+<Node id="29" bw="64" op_0_bw="7">
 <![CDATA[
-:5  %tmp_s = zext i8 %ii to i64
+:5  %tmp_s = zext i7 %ii to i64
 
 ]]></Node>
 <StgValue><ssdm name="tmp_s"/></StgValue>
@@ -362,9 +362,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="7" op_0_bw="80" op_1_bw="64" op_2_bw="64">
+<Node id="30" bw="6" op_0_bw="80" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-:6  %L2_WEIGHTS_V_addr = getelementptr [128 x i80]* @L2_WEIGHTS_V, i64 0, i64 %tmp_s
+:6  %L2_WEIGHTS_V_addr = getelementptr [64 x i80]* @L2_WEIGHTS_V, i64 0, i64 %tmp_s
 
 ]]></Node>
 <StgValue><ssdm name="L2_WEIGHTS_V_addr"/></StgValue>
@@ -378,7 +378,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="80" op_0_bw="7">
+<Node id="31" bw="80" op_0_bw="6">
 <![CDATA[
 :7  %L2_WEIGHTS_V_load = load i80* %L2_WEIGHTS_V_addr, align 16
 
@@ -413,7 +413,7 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="80" op_0_bw="7">
+<Node id="31" bw="80" op_0_bw="6">
 <![CDATA[
 :7  %L2_WEIGHTS_V_load = load i80* %L2_WEIGHTS_V_addr, align 16
 
@@ -917,7 +917,7 @@
 
 <Node id="24" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:0  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+:0  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -1268,9 +1268,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="4" op_0_bw="4" op_1_bw="64" op_2_bw="64">
+<Node id="87" bw="4" op_0_bw="8" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-:5  %L2_BIAS_V_addr = getelementptr [10 x i4]* @L2_BIAS_V, i64 0, i64 %tmp_7
+:5  %L2_BIAS_V_addr = getelementptr [10 x i8]* @L2_BIAS_V, i64 0, i64 %tmp_7
 
 ]]></Node>
 <StgValue><ssdm name="L2_BIAS_V_addr"/></StgValue>
@@ -1284,9 +1284,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="4" op_0_bw="4">
+<Node id="88" bw="8" op_0_bw="4">
 <![CDATA[
-:6  %L2_BIAS_V_load = load i4* %L2_BIAS_V_addr, align 1
+:6  %L2_BIAS_V_load = load i8* %L2_BIAS_V_addr, align 1
 
 ]]></Node>
 <StgValue><ssdm name="L2_BIAS_V_load"/></StgValue>
@@ -1303,9 +1303,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="4" op_0_bw="4">
+<Node id="88" bw="8" op_0_bw="4">
 <![CDATA[
-:6  %L2_BIAS_V_load = load i4* %L2_BIAS_V_addr, align 1
+:6  %L2_BIAS_V_load = load i8* %L2_BIAS_V_addr, align 1
 
 ]]></Node>
 <StgValue><ssdm name="L2_BIAS_V_load"/></StgValue>
@@ -1335,9 +1335,9 @@
 </and_exp></or_exp>
 </condition>
 
-<Node id="90" bw="32" op_0_bw="4">
+<Node id="90" bw="32" op_0_bw="8">
 <![CDATA[
-:8  %tmp_8 = sext i4 %L2_BIAS_V_load to i32
+:8  %tmp_8 = sext i8 %L2_BIAS_V_load to i32
 
 ]]></Node>
 <StgValue><ssdm name="tmp_8"/></StgValue>

@@ -11,9 +11,9 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
-#include "mnist_mux_104_32_ibs.h"
+#include "mnist_mux_104_32_hbi.h"
+#include "linear_activationfYi.h"
 #include "linear_activationg8j.h"
-#include "linear_activationhbi.h"
 
 namespace ap_rtl {
 
@@ -45,21 +45,21 @@ struct linear_activation_1 : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    linear_activationg8j* L2_WEIGHTS_V_U;
-    linear_activationhbi* L2_BIAS_V_U;
-    mnist_mux_104_32_ibs<1,1,32,32,32,32,32,32,32,32,32,32,4,32>* mnist_mux_104_32_ibs_U147;
+    linear_activationfYi* L2_WEIGHTS_V_U;
+    linear_activationg8j* L2_BIAS_V_U;
+    mnist_mux_104_32_hbi<1,1,32,32,32,32,32,32,32,32,32,32,4,32>* mnist_mux_104_32_hbi_U82;
     sc_signal< sc_logic > real_start;
     sc_signal< sc_logic > start_once_reg;
     sc_signal< sc_logic > ap_done_reg;
     sc_signal< sc_lv<5> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;
     sc_signal< sc_logic > internal_ap_ready;
-    sc_signal< sc_lv<7> > L2_WEIGHTS_V_address0;
+    sc_signal< sc_lv<6> > L2_WEIGHTS_V_address0;
     sc_signal< sc_logic > L2_WEIGHTS_V_ce0;
     sc_signal< sc_lv<80> > L2_WEIGHTS_V_q0;
     sc_signal< sc_lv<4> > L2_BIAS_V_address0;
     sc_signal< sc_logic > L2_BIAS_V_ce0;
-    sc_signal< sc_lv<4> > L2_BIAS_V_q0;
+    sc_signal< sc_lv<8> > L2_BIAS_V_q0;
     sc_signal< sc_logic > data_in_V_V_blk_n;
     sc_signal< sc_logic > ap_CS_fsm_pp0_stage0;
     sc_signal< sc_logic > ap_enable_reg_pp0_iter1;
@@ -80,7 +80,7 @@ struct linear_activation_1 : public sc_module {
     sc_signal< sc_lv<32> > acc_2_V_reg_243;
     sc_signal< sc_lv<32> > acc_1_V_reg_255;
     sc_signal< sc_lv<32> > acc_0_V_reg_267;
-    sc_signal< sc_lv<8> > ii_reg_279;
+    sc_signal< sc_lv<7> > ii_reg_279;
     sc_signal< sc_lv<4> > ires_reg_290;
     sc_signal< sc_lv<1> > exitcond5_fu_302_p2;
     sc_signal< bool > ap_block_state2_pp0_stage0_iter0;
@@ -90,7 +90,7 @@ struct linear_activation_1 : public sc_module {
     sc_signal< bool > ap_block_pp0_stage0_11001;
     sc_signal< sc_lv<1> > ap_reg_pp0_iter1_exitcond5_reg_596;
     sc_signal< sc_lv<1> > ap_reg_pp0_iter2_exitcond5_reg_596;
-    sc_signal< sc_lv<8> > ii_2_fu_308_p2;
+    sc_signal< sc_lv<7> > ii_2_fu_308_p2;
     sc_signal< sc_logic > ap_enable_reg_pp0_iter0;
     sc_signal< sc_lv<32> > tmp_V_1_reg_610;
     sc_signal< sc_lv<8> > tmp_1_fu_319_p1;
@@ -191,10 +191,10 @@ struct linear_activation_1 : public sc_module {
     static const sc_lv<32> ap_const_lv32_3;
     static const sc_lv<1> ap_const_lv1_1;
     static const sc_lv<32> ap_const_lv32_2;
-    static const sc_lv<8> ap_const_lv8_0;
+    static const sc_lv<7> ap_const_lv7_0;
     static const sc_lv<4> ap_const_lv4_0;
-    static const sc_lv<8> ap_const_lv8_80;
-    static const sc_lv<8> ap_const_lv8_1;
+    static const sc_lv<7> ap_const_lv7_40;
+    static const sc_lv<7> ap_const_lv7_1;
     static const sc_lv<32> ap_const_lv32_8;
     static const sc_lv<32> ap_const_lv32_F;
     static const sc_lv<32> ap_const_lv32_10;

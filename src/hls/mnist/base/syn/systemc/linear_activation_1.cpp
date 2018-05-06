@@ -27,10 +27,10 @@ const sc_lv<1> linear_activation_1::ap_const_lv1_0 = "0";
 const sc_lv<32> linear_activation_1::ap_const_lv32_3 = "11";
 const sc_lv<1> linear_activation_1::ap_const_lv1_1 = "1";
 const sc_lv<32> linear_activation_1::ap_const_lv32_2 = "10";
-const sc_lv<8> linear_activation_1::ap_const_lv8_0 = "00000000";
+const sc_lv<7> linear_activation_1::ap_const_lv7_0 = "0000000";
 const sc_lv<4> linear_activation_1::ap_const_lv4_0 = "0000";
-const sc_lv<8> linear_activation_1::ap_const_lv8_80 = "10000000";
-const sc_lv<8> linear_activation_1::ap_const_lv8_1 = "1";
+const sc_lv<7> linear_activation_1::ap_const_lv7_40 = "1000000";
+const sc_lv<7> linear_activation_1::ap_const_lv7_1 = "1";
 const sc_lv<32> linear_activation_1::ap_const_lv32_8 = "1000";
 const sc_lv<32> linear_activation_1::ap_const_lv32_F = "1111";
 const sc_lv<32> linear_activation_1::ap_const_lv32_10 = "10000";
@@ -54,31 +54,31 @@ const sc_lv<4> linear_activation_1::ap_const_lv4_1 = "1";
 const sc_lv<32> linear_activation_1::ap_const_lv32_4 = "100";
 
 linear_activation_1::linear_activation_1(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    L2_WEIGHTS_V_U = new linear_activationg8j("L2_WEIGHTS_V_U");
+    L2_WEIGHTS_V_U = new linear_activationfYi("L2_WEIGHTS_V_U");
     L2_WEIGHTS_V_U->clk(ap_clk);
     L2_WEIGHTS_V_U->reset(ap_rst);
     L2_WEIGHTS_V_U->address0(L2_WEIGHTS_V_address0);
     L2_WEIGHTS_V_U->ce0(L2_WEIGHTS_V_ce0);
     L2_WEIGHTS_V_U->q0(L2_WEIGHTS_V_q0);
-    L2_BIAS_V_U = new linear_activationhbi("L2_BIAS_V_U");
+    L2_BIAS_V_U = new linear_activationg8j("L2_BIAS_V_U");
     L2_BIAS_V_U->clk(ap_clk);
     L2_BIAS_V_U->reset(ap_rst);
     L2_BIAS_V_U->address0(L2_BIAS_V_address0);
     L2_BIAS_V_U->ce0(L2_BIAS_V_ce0);
     L2_BIAS_V_U->q0(L2_BIAS_V_q0);
-    mnist_mux_104_32_ibs_U147 = new mnist_mux_104_32_ibs<1,1,32,32,32,32,32,32,32,32,32,32,4,32>("mnist_mux_104_32_ibs_U147");
-    mnist_mux_104_32_ibs_U147->din0(acc_0_V_reg_267);
-    mnist_mux_104_32_ibs_U147->din1(acc_1_V_reg_255);
-    mnist_mux_104_32_ibs_U147->din2(acc_2_V_reg_243);
-    mnist_mux_104_32_ibs_U147->din3(acc_3_V_reg_231);
-    mnist_mux_104_32_ibs_U147->din4(acc_4_V_reg_219);
-    mnist_mux_104_32_ibs_U147->din5(acc_5_V_reg_207);
-    mnist_mux_104_32_ibs_U147->din6(acc_6_V_reg_195);
-    mnist_mux_104_32_ibs_U147->din7(acc_7_V_reg_183);
-    mnist_mux_104_32_ibs_U147->din8(acc_8_V_reg_171);
-    mnist_mux_104_32_ibs_U147->din9(acc_9_V_reg_159);
-    mnist_mux_104_32_ibs_U147->din10(ires_reg_290);
-    mnist_mux_104_32_ibs_U147->dout(tmp_16_fu_560_p12);
+    mnist_mux_104_32_hbi_U82 = new mnist_mux_104_32_hbi<1,1,32,32,32,32,32,32,32,32,32,32,4,32>("mnist_mux_104_32_hbi_U82");
+    mnist_mux_104_32_hbi_U82->din0(acc_0_V_reg_267);
+    mnist_mux_104_32_hbi_U82->din1(acc_1_V_reg_255);
+    mnist_mux_104_32_hbi_U82->din2(acc_2_V_reg_243);
+    mnist_mux_104_32_hbi_U82->din3(acc_3_V_reg_231);
+    mnist_mux_104_32_hbi_U82->din4(acc_4_V_reg_219);
+    mnist_mux_104_32_hbi_U82->din5(acc_5_V_reg_207);
+    mnist_mux_104_32_hbi_U82->din6(acc_6_V_reg_195);
+    mnist_mux_104_32_hbi_U82->din7(acc_7_V_reg_183);
+    mnist_mux_104_32_hbi_U82->din8(acc_8_V_reg_171);
+    mnist_mux_104_32_hbi_U82->din9(acc_9_V_reg_159);
+    mnist_mux_104_32_hbi_U82->din10(ires_reg_290);
+    mnist_mux_104_32_hbi_U82->dout(tmp_16_fu_560_p12);
 
     SC_METHOD(thread_ap_clk_no_reset_);
     dont_initialize();
@@ -615,7 +615,7 @@ linear_activation_1::~linear_activation_1() {
 
     delete L2_WEIGHTS_V_U;
     delete L2_BIAS_V_U;
-    delete mnist_mux_104_32_ibs_U147;
+    delete mnist_mux_104_32_hbi_U82;
 }
 
 void linear_activation_1::thread_ap_clk_no_reset_() {
@@ -791,7 +791,7 @@ void linear_activation_1::thread_ap_clk_no_reset_() {
         ii_reg_279 = ii_2_fu_308_p2.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                 !(esl_seteq<1,1,1>(ap_const_logic_0, real_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1)))) {
-        ii_reg_279 = ap_const_lv8_0;
+        ii_reg_279 = ap_const_lv7_0;
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state6.read())) {
         ires_reg_290 = ap_const_lv4_0;
@@ -870,7 +870,7 @@ void linear_activation_1::thread_L2_BIAS_V_ce0() {
 }
 
 void linear_activation_1::thread_L2_WEIGHTS_V_address0() {
-    L2_WEIGHTS_V_address0 =  (sc_lv<7>) (tmp_s_fu_314_p1.read());
+    L2_WEIGHTS_V_address0 =  (sc_lv<6>) (tmp_s_fu_314_p1.read());
 }
 
 void linear_activation_1::thread_L2_WEIGHTS_V_ce0() {
@@ -1127,7 +1127,7 @@ void linear_activation_1::thread_data_out_V_V_write() {
 }
 
 void linear_activation_1::thread_exitcond5_fu_302_p2() {
-    exitcond5_fu_302_p2 = (!ii_reg_279.read().is_01() || !ap_const_lv8_80.is_01())? sc_lv<1>(): sc_lv<1>(ii_reg_279.read() == ap_const_lv8_80);
+    exitcond5_fu_302_p2 = (!ii_reg_279.read().is_01() || !ap_const_lv7_40.is_01())? sc_lv<1>(): sc_lv<1>(ii_reg_279.read() == ap_const_lv7_40);
 }
 
 void linear_activation_1::thread_exitcond_fu_543_p2() {
@@ -1135,7 +1135,7 @@ void linear_activation_1::thread_exitcond_fu_543_p2() {
 }
 
 void linear_activation_1::thread_ii_2_fu_308_p2() {
-    ii_2_fu_308_p2 = (!ii_reg_279.read().is_01() || !ap_const_lv8_1.is_01())? sc_lv<8>(): (sc_biguint<8>(ii_reg_279.read()) + sc_biguint<8>(ap_const_lv8_1));
+    ii_2_fu_308_p2 = (!ii_reg_279.read().is_01() || !ap_const_lv7_1.is_01())? sc_lv<7>(): (sc_biguint<7>(ii_reg_279.read()) + sc_biguint<7>(ap_const_lv7_1));
 }
 
 void linear_activation_1::thread_internal_ap_ready() {
@@ -1261,7 +1261,7 @@ void linear_activation_1::thread_tmp_7_fu_555_p1() {
 }
 
 void linear_activation_1::thread_tmp_8_fu_586_p1() {
-    tmp_8_fu_586_p1 = esl_sext<32,4>(L2_BIAS_V_q0.read());
+    tmp_8_fu_586_p1 = esl_sext<32,8>(L2_BIAS_V_q0.read());
 }
 
 void linear_activation_1::thread_tmp_V_fu_590_p2() {
@@ -1269,7 +1269,7 @@ void linear_activation_1::thread_tmp_V_fu_590_p2() {
 }
 
 void linear_activation_1::thread_tmp_s_fu_314_p1() {
-    tmp_s_fu_314_p1 = esl_zext<64,8>(ii_reg_279.read());
+    tmp_s_fu_314_p1 = esl_zext<64,7>(ii_reg_279.read());
 }
 
 void linear_activation_1::thread_ap_NS_fsm() {

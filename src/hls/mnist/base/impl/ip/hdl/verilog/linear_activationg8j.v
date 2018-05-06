@@ -6,19 +6,19 @@
 // ==============================================================
 
 `timescale 1 ns / 1 ps
-module linear_activationg8j_rom (
+(* rom_style = "distributed" *) module linear_activationg8j_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 80;
-parameter AWIDTH = 7;
-parameter MEM_SIZE = 128;
+parameter DWIDTH = 8;
+parameter AWIDTH = 4;
+parameter MEM_SIZE = 10;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
 output reg[DWIDTH-1:0] q0;
 input clk;
 
-reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
+(* ram_style = "distributed" *)reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
 
 initial begin
     $readmemh("./linear_activationg8j_rom.dat", ram);
@@ -47,9 +47,9 @@ module linear_activationg8j(
     ce0,
     q0);
 
-parameter DataWidth = 32'd80;
-parameter AddressRange = 32'd128;
-parameter AddressWidth = 32'd7;
+parameter DataWidth = 32'd8;
+parameter AddressRange = 32'd10;
+parameter AddressWidth = 32'd4;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

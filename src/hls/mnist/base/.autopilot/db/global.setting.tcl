@@ -43,8 +43,8 @@ set SCTraceOption "all"
 set TargetInfo "xc7z020:clg400:-1"
 set SourceFiles {sc {} c ../mnist.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile {/home/xbili/Code/FPGA/hls-projects/mnist/base/base.directive}
-set TBFiles {verilog {../../../../keras-mnist/data/int8/y_test.dat ../../../../keras-mnist/data/int8/x_test.dat ../mnist_test.cpp} bc {../../../../keras-mnist/data/int8/y_test.dat ../../../../keras-mnist/data/int8/x_test.dat ../mnist_test.cpp} vhdl {../../../../keras-mnist/data/int8/y_test.dat ../../../../keras-mnist/data/int8/x_test.dat ../mnist_test.cpp} sc {../../../../keras-mnist/data/int8/y_test.dat ../../../../keras-mnist/data/int8/x_test.dat ../mnist_test.cpp} cas {../../../../keras-mnist/data/int8/y_test.dat ../../../../keras-mnist/data/int8/x_test.dat ../mnist_test.cpp} c {}}
+set DirectiveFile {/home/xbili/Code/FPGA/deep-learning-fpga/src/hls/mnist/base/base.directive}
+set TBFiles {verilog ../mnist_test.cpp bc ../mnist_test.cpp vhdl ../mnist_test.cpp sc ../mnist_test.cpp cas ../mnist_test.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

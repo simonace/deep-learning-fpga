@@ -61,12 +61,12 @@ reg    ap_done_reg;
 (* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    internal_ap_ready;
-wire   [6:0] L2_WEIGHTS_V_address0;
+wire   [5:0] L2_WEIGHTS_V_address0;
 reg    L2_WEIGHTS_V_ce0;
 wire   [79:0] L2_WEIGHTS_V_q0;
 wire   [3:0] L2_BIAS_V_address0;
 reg    L2_BIAS_V_ce0;
-wire   [3:0] L2_BIAS_V_q0;
+wire   [7:0] L2_BIAS_V_q0;
 reg    data_in_V_V_blk_n;
 wire    ap_CS_fsm_pp0_stage0;
 reg    ap_enable_reg_pp0_iter1;
@@ -87,7 +87,7 @@ reg   [31:0] acc_3_V_reg_231;
 reg   [31:0] acc_2_V_reg_243;
 reg   [31:0] acc_1_V_reg_255;
 reg   [31:0] acc_0_V_reg_267;
-reg   [7:0] ii_reg_279;
+reg   [6:0] ii_reg_279;
 reg   [3:0] ires_reg_290;
 wire   [0:0] exitcond5_fu_302_p2;
 wire    ap_block_state2_pp0_stage0_iter0;
@@ -97,7 +97,7 @@ wire    ap_block_state5_pp0_stage0_iter3;
 reg    ap_block_pp0_stage0_11001;
 reg   [0:0] ap_reg_pp0_iter1_exitcond5_reg_596;
 reg   [0:0] ap_reg_pp0_iter2_exitcond5_reg_596;
-wire   [7:0] ii_2_fu_308_p2;
+wire   [6:0] ii_2_fu_308_p2;
 reg    ap_enable_reg_pp0_iter0;
 reg  signed [31:0] tmp_V_1_reg_610;
 wire   [7:0] tmp_1_fu_319_p1;
@@ -198,10 +198,10 @@ initial begin
 #0 ap_enable_reg_pp1_iter1 = 1'b0;
 end
 
-linear_activationg8j #(
+linear_activationfYi #(
     .DataWidth( 80 ),
-    .AddressRange( 128 ),
-    .AddressWidth( 7 ))
+    .AddressRange( 64 ),
+    .AddressWidth( 6 ))
 L2_WEIGHTS_V_U(
     .clk(ap_clk),
     .reset(ap_rst),
@@ -210,8 +210,8 @@ L2_WEIGHTS_V_U(
     .q0(L2_WEIGHTS_V_q0)
 );
 
-linear_activationhbi #(
-    .DataWidth( 4 ),
+linear_activationg8j #(
+    .DataWidth( 8 ),
     .AddressRange( 10 ),
     .AddressWidth( 4 ))
 L2_BIAS_V_U(
@@ -222,7 +222,7 @@ L2_BIAS_V_U(
     .q0(L2_BIAS_V_q0)
 );
 
-mnist_mux_104_32_ibs #(
+mnist_mux_104_32_hbi #(
     .ID( 1 ),
     .NUM_STAGE( 1 ),
     .din0_WIDTH( 32 ),
@@ -237,7 +237,7 @@ mnist_mux_104_32_ibs #(
     .din9_WIDTH( 32 ),
     .din10_WIDTH( 4 ),
     .dout_WIDTH( 32 ))
-mnist_mux_104_32_ibs_U147(
+mnist_mux_104_32_hbi_U82(
     .din0(acc_0_V_reg_267),
     .din1(acc_1_V_reg_255),
     .din2(acc_2_V_reg_243),
@@ -454,7 +454,7 @@ always @ (posedge ap_clk) begin
     if (((exitcond5_fu_302_p2 == 1'd0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b0 == ap_block_pp0_stage0_11001))) begin
         ii_reg_279 <= ii_2_fu_308_p2;
     end else if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        ii_reg_279 <= 8'd0;
+        ii_reg_279 <= 7'd0;
     end
 end
 
@@ -784,11 +784,11 @@ assign ap_ready = internal_ap_ready;
 
 assign data_out_V_V_din = tmp_V_reg_788;
 
-assign exitcond5_fu_302_p2 = ((ii_reg_279 == 8'd128) ? 1'b1 : 1'b0);
+assign exitcond5_fu_302_p2 = ((ii_reg_279 == 7'd64) ? 1'b1 : 1'b0);
 
 assign exitcond_fu_543_p2 = ((ap_phi_mux_ires_phi_fu_294_p4 == 4'd10) ? 1'b1 : 1'b0);
 
-assign ii_2_fu_308_p2 = (ii_reg_279 + 8'd1);
+assign ii_2_fu_308_p2 = (ii_reg_279 + 7'd1);
 
 assign ires_1_fu_549_p2 = (ap_phi_mux_ires_phi_fu_294_p4 + 4'd1);
 

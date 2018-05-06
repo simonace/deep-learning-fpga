@@ -37,7 +37,7 @@ end;
 architecture behav of mnist is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "mnist,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.510000,HLS_SYN_LAT=919,HLS_SYN_TPT=919,HLS_SYN_MEM=60,HLS_SYN_DSP=158,HLS_SYN_FF=9512,HLS_SYN_LUT=3621}";
+    "mnist,hls_ip_2017_4,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z020clg400-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=8.510000,HLS_SYN_LAT=855,HLS_SYN_TPT=855,HLS_SYN_MEM=32,HLS_SYN_DSP=94,HLS_SYN_FF=5360,HLS_SYN_LUT=3038}";
     constant ap_const_lv32_0 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     constant ap_const_lv4_0 : STD_LOGIC_VECTOR (3 downto 0) := "0000";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
@@ -275,7 +275,7 @@ architecture behav of mnist is
     end component;
 
 
-    component start_for_linear_mb6 IS
+    component start_for_linear_lbW IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -305,7 +305,7 @@ architecture behav of mnist is
     end component;
 
 
-    component start_for_linear_ncg IS
+    component start_for_linear_mb6 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -493,7 +493,7 @@ begin
         if_empty_n => data_out_V_V_empty_n,
         if_read => packer_U0_stream_in_V_V_read);
 
-    start_for_linear_mb6_U : component start_for_linear_mb6
+    start_for_linear_lbW_U : component start_for_linear_lbW
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -519,7 +519,7 @@ begin
         if_empty_n => start_for_relu_U0_empty_n,
         if_read => relu_U0_ap_ready);
 
-    start_for_linear_ncg_U : component start_for_linear_ncg
+    start_for_linear_mb6_U : component start_for_linear_mb6
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,

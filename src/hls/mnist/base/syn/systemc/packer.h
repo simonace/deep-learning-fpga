@@ -11,8 +11,8 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
-#include "packer_packet_usejbC.h"
-#include "packer_packet_laskbM.h"
+#include "packer_packet_useibs.h"
+#include "packer_packet_lasjbC.h"
 
 namespace ap_rtl {
 
@@ -47,10 +47,10 @@ struct packer : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    packer_packet_usejbC* packet_user_V_U;
-    packer_packet_laskbM* packet_last_V_U;
-    packer_packet_usejbC* packet_id_V_U;
-    packer_packet_usejbC* packet_dest_V_U;
+    packer_packet_useibs* packet_user_V_U;
+    packer_packet_lasjbC* packet_last_V_U;
+    packer_packet_useibs* packet_id_V_U;
+    packer_packet_useibs* packet_dest_V_U;
     sc_signal< sc_logic > ap_done_reg;
     sc_signal< sc_lv<4> > ap_CS_fsm;
     sc_signal< sc_logic > ap_CS_fsm_state1;

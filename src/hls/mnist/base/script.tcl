@@ -5,14 +5,12 @@
 ############################################################
 open_project mnist
 set_top mnist
-add_files mnist/q_l2_w_data.h
-add_files mnist/q_l2_b_data.h
-add_files mnist/q_l1_w_data.h
-add_files mnist/q_l1_b_data.h
+add_files mnist/l1_b_data.h
+add_files mnist/l1_w_data.h
+add_files mnist/l2_b_data.h
+add_files mnist/l2_w_data.h
 add_files mnist/mnist.cpp
 add_files -tb mnist/mnist_test.cpp
-add_files -tb x_test.dat
-add_files -tb y_test.dat
 open_solution "base"
 set_part {xc7z020clg400-1} -tool vivado
 create_clock -period 10 -name default

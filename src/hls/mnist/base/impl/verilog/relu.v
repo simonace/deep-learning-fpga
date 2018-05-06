@@ -64,11 +64,11 @@ wire    ap_CS_fsm_state2;
 wire   [0:0] exitcond_fu_78_p2;
 reg    data_out_V_V_blk_n;
 wire   [0:0] tmp_fu_90_p2;
-wire   [7:0] ii_1_fu_84_p2;
+wire   [6:0] ii_1_fu_84_p2;
 reg    ap_predicate_op14_write_state2;
 reg    ap_predicate_op16_write_state2;
 reg    ap_block_state2;
-reg   [7:0] ii_reg_67;
+reg   [6:0] ii_reg_67;
 reg    ap_block_state1;
 reg   [1:0] ap_NS_fsm;
 reg    ap_condition_81;
@@ -116,7 +116,7 @@ always @ (posedge ap_clk) begin
     if ((~(((data_out_V_V_full_n == 1'b0) & (ap_predicate_op16_write_state2 == 1'b1)) | ((data_out_V_V_full_n == 1'b0) & (ap_predicate_op14_write_state2 == 1'b1)) | ((exitcond_fu_78_p2 == 1'd0) & (data_in_V_V_empty_n == 1'b0))) & (exitcond_fu_78_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
         ii_reg_67 <= ii_1_fu_84_p2;
     end else if ((~((real_start == 1'b0) | (ap_done_reg == 1'b1)) & (1'b1 == ap_CS_fsm_state1))) begin
-        ii_reg_67 <= 8'd0;
+        ii_reg_67 <= 7'd0;
     end
 end
 
@@ -256,9 +256,9 @@ end
 
 assign ap_ready = internal_ap_ready;
 
-assign exitcond_fu_78_p2 = ((ii_reg_67 == 8'd128) ? 1'b1 : 1'b0);
+assign exitcond_fu_78_p2 = ((ii_reg_67 == 7'd64) ? 1'b1 : 1'b0);
 
-assign ii_1_fu_84_p2 = (ii_reg_67 + 8'd1);
+assign ii_1_fu_84_p2 = (ii_reg_67 + 7'd1);
 
 assign start_out = real_start;
 

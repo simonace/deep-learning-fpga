@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'linear_activation_1'" level="0">
-<item name = "Date">Thu Apr  5 21:36:53 2018
+<item name = "Date">Sun Apr 22 02:00:09 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mnist</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">145, 145, 145, 145, none</column>
+<column name="">81, 81, 81, 81, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- NewInput">130, 130, 4, 1, 1, 128, yes</column>
+<column name="- NewInput">66, 66, 4, 1, 1, 64, yes</column>
 <column name="- Result">11, 11, 3, 1, 1, 10, yes</column>
 </table>
 </item>
@@ -49,12 +49,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, 30, 0, 751</column>
+<column name="Expression">-, 30, 0, 749</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">-, -, 0, 55</column>
-<column name="Memory">3, -, 4, 1</column>
+<column name="Memory">3, -, 8, 2</column>
 <column name="Multiplexer">-, -, -, 222</column>
-<column name="Register">0, -, 881, 32</column>
+<column name="Register">0, -, 880, 32</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
 <specialColumn name="Utilization (%)">1, 13, ~0, 1</specialColumn>
 </table>
@@ -63,7 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="mnist_mux_104_32_ibs_U147">mnist_mux_104_32_ibs, 0, 0, 0, 55</column>
+<column name="mnist_mux_104_32_hbi_U82">mnist_mux_104_32_hbi, 0, 0, 0, 55</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -72,8 +72,8 @@
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
 <keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
-<column name="L2_WEIGHTS_V_U">linear_activationg8j, 3, 0, 0, 128, 80, 1, 10240</column>
-<column name="L2_BIAS_V_U">linear_activationhbi, 0, 4, 1, 10, 4, 1, 40</column>
+<column name="L2_WEIGHTS_V_U">linear_activationfYi, 3, 0, 0, 64, 80, 1, 5120</column>
+<column name="L2_BIAS_V_U">linear_activationg8j, 0, 8, 2, 10, 8, 1, 80</column>
 </table>
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
@@ -102,14 +102,14 @@
 <column name="acc_7_V_1_fu_528_p2">+, 0, 0, 39, 32, 32</column>
 <column name="acc_8_V_1_fu_533_p2">+, 0, 0, 39, 32, 32</column>
 <column name="acc_9_V_1_fu_538_p2">+, 0, 0, 39, 32, 32</column>
-<column name="ii_2_fu_308_p2">+, 0, 0, 15, 8, 1</column>
+<column name="ii_2_fu_308_p2">+, 0, 0, 15, 7, 1</column>
 <column name="ires_1_fu_549_p2">+, 0, 0, 13, 4, 1</column>
 <column name="tmp_V_fu_590_p2">+, 0, 0, 39, 32, 32</column>
 <column name="ap_block_pp0_stage0_11001">and, 0, 0, 8, 1, 1</column>
 <column name="ap_block_pp1_stage0_01001">and, 0, 0, 8, 1, 1</column>
 <column name="ap_block_state3_pp0_stage0_iter1">and, 0, 0, 8, 1, 1</column>
 <column name="ap_block_state9_pp1_stage0_iter2">and, 0, 0, 8, 1, 1</column>
-<column name="exitcond5_fu_302_p2">icmp, 0, 0, 13, 8, 9</column>
+<column name="exitcond5_fu_302_p2">icmp, 0, 0, 11, 7, 8</column>
 <column name="exitcond_fu_543_p2">icmp, 0, 0, 9, 4, 4</column>
 <column name="ap_block_state1">or, 0, 0, 8, 1, 1</column>
 <column name="ap_enable_pp0">xor, 0, 0, 8, 1, 2</column>
@@ -139,7 +139,7 @@
 <column name="ap_phi_mux_ires_phi_fu_294_p4">9, 2, 4, 8</column>
 <column name="data_in_V_V_blk_n">9, 2, 1, 2</column>
 <column name="data_out_V_V_blk_n">9, 2, 1, 2</column>
-<column name="ii_reg_279">9, 2, 8, 16</column>
+<column name="ii_reg_279">9, 2, 7, 14</column>
 <column name="ires_reg_290">9, 2, 4, 8</column>
 <column name="real_start">9, 2, 1, 2</column>
 </table>
@@ -168,7 +168,7 @@
 <column name="ap_reg_pp1_iter1_exitcond_reg_774">1, 0, 1, 0</column>
 <column name="exitcond5_reg_596">1, 0, 1, 0</column>
 <column name="exitcond_reg_774">1, 0, 1, 0</column>
-<column name="ii_reg_279">8, 0, 8, 0</column>
+<column name="ii_reg_279">7, 0, 7, 0</column>
 <column name="ires_1_reg_778">4, 0, 4, 0</column>
 <column name="ires_reg_290">4, 0, 4, 0</column>
 <column name="start_once_reg">1, 0, 1, 0</column>

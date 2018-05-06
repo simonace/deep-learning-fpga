@@ -9,9 +9,9 @@
 (* rom_style = "distributed" *) module linear_activationcud_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 5;
-parameter AWIDTH = 7;
-parameter MEM_SIZE = 128;
+parameter DWIDTH = 8;
+parameter AWIDTH = 6;
+parameter MEM_SIZE = 64;
 
 input[AWIDTH-1:0] addr0;
 input ce0;
@@ -47,9 +47,9 @@ module linear_activationcud(
     ce0,
     q0);
 
-parameter DataWidth = 32'd5;
-parameter AddressRange = 32'd128;
-parameter AddressWidth = 32'd7;
+parameter DataWidth = 32'd8;
+parameter AddressRange = 32'd64;
+parameter AddressWidth = 32'd6;
 input reset;
 input clk;
 input[AddressWidth - 1:0] address0;

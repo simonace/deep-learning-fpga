@@ -230,7 +230,7 @@ initial begin
 #0 ap_enable_reg_pp0_iter0 = 1'b0;
 end
 
-packer_packet_usejbC #(
+packer_packet_useibs #(
     .DataWidth( 1 ),
     .AddressRange( 10 ),
     .AddressWidth( 4 ))
@@ -242,7 +242,7 @@ packet_user_V_U(
     .q0(packet_user_V_q0)
 );
 
-packer_packet_laskbM #(
+packer_packet_lasjbC #(
     .DataWidth( 1 ),
     .AddressRange( 10 ),
     .AddressWidth( 4 ))
@@ -256,7 +256,7 @@ packet_last_V_U(
     .q0(packet_last_V_q0)
 );
 
-packer_packet_usejbC #(
+packer_packet_useibs #(
     .DataWidth( 1 ),
     .AddressRange( 10 ),
     .AddressWidth( 4 ))
@@ -268,7 +268,7 @@ packet_id_V_U(
     .q0(packet_id_V_q0)
 );
 
-packer_packet_usejbC #(
+packer_packet_useibs #(
     .DataWidth( 1 ),
     .AddressRange( 10 ),
     .AddressWidth( 4 ))

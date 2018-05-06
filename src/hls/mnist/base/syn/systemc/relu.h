@@ -53,11 +53,11 @@ struct relu : public sc_module {
     sc_signal< sc_lv<1> > exitcond_fu_78_p2;
     sc_signal< sc_logic > data_out_V_V_blk_n;
     sc_signal< sc_lv<1> > tmp_fu_90_p2;
-    sc_signal< sc_lv<8> > ii_1_fu_84_p2;
+    sc_signal< sc_lv<7> > ii_1_fu_84_p2;
     sc_signal< bool > ap_predicate_op14_write_state2;
     sc_signal< bool > ap_predicate_op16_write_state2;
     sc_signal< bool > ap_block_state2;
-    sc_signal< sc_lv<8> > ii_reg_67;
+    sc_signal< sc_lv<7> > ii_reg_67;
     sc_signal< bool > ap_block_state1;
     sc_signal< sc_lv<2> > ap_NS_fsm;
     sc_signal< bool > ap_condition_81;
@@ -70,9 +70,9 @@ struct relu : public sc_module {
     static const sc_lv<32> ap_const_lv32_1;
     static const sc_lv<1> ap_const_lv1_0;
     static const sc_lv<1> ap_const_lv1_1;
-    static const sc_lv<8> ap_const_lv8_0;
-    static const sc_lv<8> ap_const_lv8_80;
-    static const sc_lv<8> ap_const_lv8_1;
+    static const sc_lv<7> ap_const_lv7_0;
+    static const sc_lv<7> ap_const_lv7_40;
+    static const sc_lv<7> ap_const_lv7_1;
     // Thread declarations
     void thread_ap_clk_no_reset_();
     void thread_ap_CS_fsm_state1();

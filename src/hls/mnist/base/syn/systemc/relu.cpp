@@ -21,9 +21,9 @@ const sc_lv<32> relu::ap_const_lv32_0 = "00000000000000000000000000000000";
 const sc_lv<32> relu::ap_const_lv32_1 = "1";
 const sc_lv<1> relu::ap_const_lv1_0 = "0";
 const sc_lv<1> relu::ap_const_lv1_1 = "1";
-const sc_lv<8> relu::ap_const_lv8_0 = "00000000";
-const sc_lv<8> relu::ap_const_lv8_80 = "10000000";
-const sc_lv<8> relu::ap_const_lv8_1 = "1";
+const sc_lv<7> relu::ap_const_lv7_0 = "0000000";
+const sc_lv<7> relu::ap_const_lv7_40 = "1000000";
+const sc_lv<7> relu::ap_const_lv7_1 = "1";
 
 relu::relu(sc_module_name name) : sc_module(name), mVcdFile(0) {
 
@@ -254,7 +254,7 @@ void relu::thread_ap_clk_no_reset_() {
         ii_reg_67 = ii_1_fu_84_p2.read();
     } else if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && 
                 !(esl_seteq<1,1,1>(ap_const_logic_0, real_start.read()) || esl_seteq<1,1,1>(ap_done_reg.read(), ap_const_logic_1)))) {
-        ii_reg_67 = ap_const_lv8_0;
+        ii_reg_67 = ap_const_lv7_0;
     }
     if ( ap_rst.read() == ap_const_logic_1) {
         start_once_reg = ap_const_logic_0;
@@ -397,11 +397,11 @@ void relu::thread_data_out_V_V_write() {
 }
 
 void relu::thread_exitcond_fu_78_p2() {
-    exitcond_fu_78_p2 = (!ii_reg_67.read().is_01() || !ap_const_lv8_80.is_01())? sc_lv<1>(): sc_lv<1>(ii_reg_67.read() == ap_const_lv8_80);
+    exitcond_fu_78_p2 = (!ii_reg_67.read().is_01() || !ap_const_lv7_40.is_01())? sc_lv<1>(): sc_lv<1>(ii_reg_67.read() == ap_const_lv7_40);
 }
 
 void relu::thread_ii_1_fu_84_p2() {
-    ii_1_fu_84_p2 = (!ii_reg_67.read().is_01() || !ap_const_lv8_1.is_01())? sc_lv<8>(): (sc_biguint<8>(ii_reg_67.read()) + sc_biguint<8>(ap_const_lv8_1));
+    ii_1_fu_84_p2 = (!ii_reg_67.read().is_01() || !ap_const_lv7_1.is_01())? sc_lv<7>(): (sc_biguint<7>(ii_reg_67.read()) + sc_biguint<7>(ap_const_lv7_1));
 }
 
 void relu::thread_internal_ap_ready() {

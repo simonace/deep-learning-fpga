@@ -40,9 +40,9 @@ architecture behav of relu is
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
     constant ap_const_lv1_0 : STD_LOGIC_VECTOR (0 downto 0) := "0";
     constant ap_const_lv1_1 : STD_LOGIC_VECTOR (0 downto 0) := "1";
-    constant ap_const_lv8_0 : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-    constant ap_const_lv8_80 : STD_LOGIC_VECTOR (7 downto 0) := "10000000";
-    constant ap_const_lv8_1 : STD_LOGIC_VECTOR (7 downto 0) := "00000001";
+    constant ap_const_lv7_0 : STD_LOGIC_VECTOR (6 downto 0) := "0000000";
+    constant ap_const_lv7_40 : STD_LOGIC_VECTOR (6 downto 0) := "1000000";
+    constant ap_const_lv7_1 : STD_LOGIC_VECTOR (6 downto 0) := "0000001";
 
     signal real_start : STD_LOGIC;
     signal start_once_reg : STD_LOGIC := '0';
@@ -59,11 +59,11 @@ architecture behav of relu is
     signal exitcond_fu_78_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal data_out_V_V_blk_n : STD_LOGIC;
     signal tmp_fu_90_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal ii_1_fu_84_p2 : STD_LOGIC_VECTOR (7 downto 0);
+    signal ii_1_fu_84_p2 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_predicate_op14_write_state2 : BOOLEAN;
     signal ap_predicate_op16_write_state2 : BOOLEAN;
     signal ap_block_state2 : BOOLEAN;
-    signal ii_reg_67 : STD_LOGIC_VECTOR (7 downto 0);
+    signal ii_reg_67 : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_block_state1 : BOOLEAN;
     signal ap_NS_fsm : STD_LOGIC_VECTOR (1 downto 0);
     signal ap_condition_81 : BOOLEAN;
@@ -124,7 +124,7 @@ begin
             if ((not((((data_out_V_V_full_n = ap_const_logic_0) and (ap_predicate_op16_write_state2 = ap_const_boolean_1)) or ((data_out_V_V_full_n = ap_const_logic_0) and (ap_predicate_op14_write_state2 = ap_const_boolean_1)) or ((exitcond_fu_78_p2 = ap_const_lv1_0) and (data_in_V_V_empty_n = ap_const_logic_0)))) and (exitcond_fu_78_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
                 ii_reg_67 <= ii_1_fu_84_p2;
             elsif ((not(((real_start = ap_const_logic_0) or (ap_done_reg = ap_const_logic_1))) and (ap_const_logic_1 = ap_CS_fsm_state1))) then 
-                ii_reg_67 <= ap_const_lv8_0;
+                ii_reg_67 <= ap_const_lv7_0;
             end if; 
         end if;
     end process;
@@ -259,8 +259,8 @@ begin
         end if; 
     end process;
 
-    exitcond_fu_78_p2 <= "1" when (ii_reg_67 = ap_const_lv8_80) else "0";
-    ii_1_fu_84_p2 <= std_logic_vector(unsigned(ii_reg_67) + unsigned(ap_const_lv8_1));
+    exitcond_fu_78_p2 <= "1" when (ii_reg_67 = ap_const_lv7_40) else "0";
+    ii_1_fu_84_p2 <= std_logic_vector(unsigned(ii_reg_67) + unsigned(ap_const_lv7_1));
 
     internal_ap_ready_assign_proc : process(data_in_V_V_empty_n, data_out_V_V_full_n, ap_CS_fsm_state2, exitcond_fu_78_p2, ap_predicate_op14_write_state2, ap_predicate_op16_write_state2)
     begin

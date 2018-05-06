@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mnist'" level="0">
-<item name = "Date">Thu Apr  5 21:36:54 2018
+<item name = "Date">Sun Apr 22 02:00:10 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mnist</item>
@@ -22,17 +22,17 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">919, 919, 919, 919, dataflow</column>
+<column name="">855, 855, 855, 855, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="linear_activation_U0">linear_activation, 918, 918, 918, 918, none</column>
-<column name="linear_activation_1_U0">linear_activation_1, 145, 145, 145, 145, none</column>
+<column name="linear_activation_U0">linear_activation, 854, 854, 854, 854, none</column>
+<column name="linear_activation_1_U0">linear_activation_1, 81, 81, 81, 81, none</column>
 <column name="packer_U0">packer, 23, 23, 23, 23, none</column>
-<column name="relu_U0">relu, 129, 129, 129, 129, none</column>
+<column name="relu_U0">relu, 65, 65, 65, 65, none</column>
 <column name="unpacker_U0">unpacker, 786, 786, 786, 786, none</column>
 </table>
 </item>
@@ -52,22 +52,22 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, -, -</column>
 <column name="FIFO">0, -, 20, 152</column>
-<column name="Instance">60, 158, 9492, 3469</column>
+<column name="Instance">32, 94, 5340, 2886</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, -</column>
 <column name="Register">-, -, -, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">21, 71, 8, 6</specialColumn>
+<specialColumn name="Utilization (%)">11, 42, 5, 5</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="linear_activation_U0">linear_activation, 57, 128, 8428, 1509</column>
-<column name="linear_activation_1_U0">linear_activation_1, 3, 30, 885, 1061</column>
+<column name="linear_activation_U0">linear_activation, 29, 64, 4274, 929</column>
+<column name="linear_activation_1_U0">linear_activation_1, 3, 30, 888, 1060</column>
 <column name="packer_U0">packer, 0, 0, 127, 524</column>
-<column name="relu_U0">relu, 0, 0, 12, 161</column>
+<column name="relu_U0">relu, 0, 0, 11, 159</column>
 <column name="unpacker_U0">unpacker, 0, 0, 40, 214</column>
 </table>
 </item>

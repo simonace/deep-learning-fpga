@@ -1,13 +1,13 @@
 #include "mnist.hpp"
 
 // Data files
-#include "q_l1_b_data.h"
-#include "q_l1_w_data.h"
-#include "q_l2_b_data.h"
-#include "q_l2_w_data.h"
+#include "l1_b_data.h"
+#include "l1_w_data.h"
+#include "l2_b_data.h"
+#include "l2_w_data.h"
 
 #define INPUT_DIM 784
-#define LAYER_1_UNITS 128
+#define LAYER_1_UNITS 64
 #define LAYER_2_UNITS 10
 
 void mnist(

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'relu'" level="0">
-<item name = "Date">Thu Apr  5 21:36:52 2018
+<item name = "Date">Sun Apr 22 02:00:09 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mnist</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">129, 129, 129, 129, none</column>
+<column name="">65, 65, 65, 65, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">128, 128, 1, -, -, 128, no</column>
+<column name="- Loop 1">64, 64, 1, -, -, 64, no</column>
 </table>
 </item>
 </section>
@@ -48,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 0, 86</column>
+<column name="Expression">-, -, 0, 84</column>
 <column name="FIFO">-, -, -, -</column>
 <column name="Instance">-, -, -, -</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 75</column>
-<column name="Register">-, -, 12, -</column>
+<column name="Register">-, -, 11, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0</specialColumn>
 </table>
@@ -78,11 +78,11 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="ii_1_fu_84_p2">+, 0, 0, 15, 8, 1</column>
+<column name="ii_1_fu_84_p2">+, 0, 0, 15, 7, 1</column>
 <column name="ap_condition_81">and, 0, 0, 8, 1, 1</column>
 <column name="ap_predicate_op14_write_state2">and, 0, 0, 8, 1, 1</column>
 <column name="ap_predicate_op16_write_state2">and, 0, 0, 8, 1, 1</column>
-<column name="exitcond_fu_78_p2">icmp, 0, 0, 13, 8, 9</column>
+<column name="exitcond_fu_78_p2">icmp, 0, 0, 11, 7, 8</column>
 <column name="tmp_fu_90_p2">icmp, 0, 0, 18, 32, 1</column>
 <column name="ap_block_state1">or, 0, 0, 8, 1, 1</column>
 <column name="ap_block_state2">or, 0, 0, 8, 1, 1</column>
@@ -95,7 +95,7 @@
 <column name="data_in_V_V_blk_n">9, 2, 1, 2</column>
 <column name="data_out_V_V_blk_n">9, 2, 1, 2</column>
 <column name="data_out_V_V_din">15, 3, 32, 96</column>
-<column name="ii_reg_67">9, 2, 8, 16</column>
+<column name="ii_reg_67">9, 2, 7, 14</column>
 <column name="real_start">9, 2, 1, 2</column>
 </table>
 </item>
@@ -103,7 +103,7 @@
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">2, 0, 2, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="ii_reg_67">8, 0, 8, 0</column>
+<column name="ii_reg_67">7, 0, 7, 0</column>
 <column name="start_once_reg">1, 0, 1, 0</column>
 </table>
 </item>

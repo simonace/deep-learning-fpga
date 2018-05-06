@@ -99,7 +99,7 @@ set NewPortList {[
  	{ "name": "sdata_out_TREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "outacc", "bundle":{"name": "sdata_out_V_dest_V", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "134", "135", "139", "144", "145", "146", "147", "148", "149", "150", "151"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "70", "71", "75", "80", "81", "82", "83", "84", "85", "86", "87"],
 		"CDFG" : "mnist",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "0", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0",
 		"FunctionPipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
@@ -110,7 +110,7 @@ set RtlHierarchyInfo {[
 		"InputProcess" : [
 			{"ID" : "1", "Name" : "unpacker_U0"}],
 		"OutputProcess" : [
-			{"ID" : "139", "Name" : "packer_U0"}],
+			{"ID" : "75", "Name" : "packer_U0"}],
 		"Port" : [
 			{"Name" : "sdata_in_V_data_V", "Type" : "Axis", "Direction" : "I",
 				"SubConnect" : [
@@ -135,25 +135,25 @@ set RtlHierarchyInfo {[
 					{"ID" : "1", "SubInstance" : "unpacker_U0", "Port" : "stream_in_V_dest_V"}]},
 			{"Name" : "sdata_out_V_data_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_data_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_data_V"}]},
 			{"Name" : "sdata_out_V_keep_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_keep_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_keep_V"}]},
 			{"Name" : "sdata_out_V_strb_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_strb_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_strb_V"}]},
 			{"Name" : "sdata_out_V_user_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_user_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_user_V"}]},
 			{"Name" : "sdata_out_V_last_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_last_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_last_V"}]},
 			{"Name" : "sdata_out_V_id_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_id_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_id_V"}]},
 			{"Name" : "sdata_out_V_dest_V", "Type" : "Axis", "Direction" : "O",
 				"SubConnect" : [
-					{"ID" : "139", "SubInstance" : "packer_U0", "Port" : "stream_out_V_dest_V"}]},
+					{"ID" : "75", "SubInstance" : "packer_U0", "Port" : "stream_out_V_dest_V"}]},
 			{"Name" : "L1_WEIGHTS_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "2", "SubInstance" : "linear_activation_U0", "Port" : "L1_WEIGHTS_V"}]},
@@ -162,10 +162,10 @@ set RtlHierarchyInfo {[
 					{"ID" : "2", "SubInstance" : "linear_activation_U0", "Port" : "L1_BIAS_V"}]},
 			{"Name" : "L2_WEIGHTS_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "135", "SubInstance" : "linear_activation_1_U0", "Port" : "L2_WEIGHTS_V"}]},
+					{"ID" : "71", "SubInstance" : "linear_activation_1_U0", "Port" : "L2_WEIGHTS_V"}]},
 			{"Name" : "L2_BIAS_V", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "135", "SubInstance" : "linear_activation_1_U0", "Port" : "L2_BIAS_V"}]}]},
+					{"ID" : "71", "SubInstance" : "linear_activation_1_U0", "Port" : "L2_BIAS_V"}]}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.unpacker_U0", "Parent" : "0",
 		"CDFG" : "unpacker",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
@@ -184,10 +184,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "stream_in_V_last_V", "Type" : "Axis", "Direction" : "I"},
 			{"Name" : "stream_in_V_id_V", "Type" : "Axis", "Direction" : "I"},
 			{"Name" : "stream_in_V_dest_V", "Type" : "Axis", "Direction" : "I"},
-			{"Name" : "stream_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "2", "DependentChan" : "144",
+			{"Name" : "stream_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "2", "DependentChan" : "80",
 				"BlockSignal" : [
 					{"Name" : "stream_out_V_V_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0", "Parent" : "0", "Child" : ["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133"],
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0", "Parent" : "0", "Child" : ["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69"],
 		"CDFG" : "linear_activation",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -196,19 +196,19 @@ set RtlHierarchyInfo {[
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
 		"StartSource" : "1",
-		"StartFifo" : "start_for_linear_mb6_U",
+		"StartFifo" : "start_for_linear_lbW_U",
 		"Port" : [
-			{"Name" : "data_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "1", "DependentChan" : "144",
+			{"Name" : "data_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "1", "DependentChan" : "80",
 				"BlockSignal" : [
 					{"Name" : "data_in_V_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "data_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "134", "DependentChan" : "145",
+			{"Name" : "data_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "70", "DependentChan" : "81",
 				"BlockSignal" : [
 					{"Name" : "data_out_V_V_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "L1_WEIGHTS_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "L1_BIAS_V", "Type" : "Memory", "Direction" : "I"}]},
 	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.L1_WEIGHTS_V_U", "Parent" : "2"},
 	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.L1_BIAS_V_U", "Parent" : "2"},
-	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mux_1287_32dEe_U9", "Parent" : "2"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mux_646_32_dEe_U9", "Parent" : "2"},
 	{"ID" : "6", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U10", "Parent" : "2"},
 	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U11", "Parent" : "2"},
 	{"ID" : "8", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U12", "Parent" : "2"},
@@ -273,71 +273,7 @@ set RtlHierarchyInfo {[
 	{"ID" : "67", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U71", "Parent" : "2"},
 	{"ID" : "68", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U72", "Parent" : "2"},
 	{"ID" : "69", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U73", "Parent" : "2"},
-	{"ID" : "70", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U74", "Parent" : "2"},
-	{"ID" : "71", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U75", "Parent" : "2"},
-	{"ID" : "72", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U76", "Parent" : "2"},
-	{"ID" : "73", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U77", "Parent" : "2"},
-	{"ID" : "74", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U78", "Parent" : "2"},
-	{"ID" : "75", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U79", "Parent" : "2"},
-	{"ID" : "76", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U80", "Parent" : "2"},
-	{"ID" : "77", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U81", "Parent" : "2"},
-	{"ID" : "78", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U82", "Parent" : "2"},
-	{"ID" : "79", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U83", "Parent" : "2"},
-	{"ID" : "80", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U84", "Parent" : "2"},
-	{"ID" : "81", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U85", "Parent" : "2"},
-	{"ID" : "82", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U86", "Parent" : "2"},
-	{"ID" : "83", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U87", "Parent" : "2"},
-	{"ID" : "84", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U88", "Parent" : "2"},
-	{"ID" : "85", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U89", "Parent" : "2"},
-	{"ID" : "86", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U90", "Parent" : "2"},
-	{"ID" : "87", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U91", "Parent" : "2"},
-	{"ID" : "88", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U92", "Parent" : "2"},
-	{"ID" : "89", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U93", "Parent" : "2"},
-	{"ID" : "90", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U94", "Parent" : "2"},
-	{"ID" : "91", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U95", "Parent" : "2"},
-	{"ID" : "92", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U96", "Parent" : "2"},
-	{"ID" : "93", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U97", "Parent" : "2"},
-	{"ID" : "94", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U98", "Parent" : "2"},
-	{"ID" : "95", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U99", "Parent" : "2"},
-	{"ID" : "96", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U100", "Parent" : "2"},
-	{"ID" : "97", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U101", "Parent" : "2"},
-	{"ID" : "98", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U102", "Parent" : "2"},
-	{"ID" : "99", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U103", "Parent" : "2"},
-	{"ID" : "100", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U104", "Parent" : "2"},
-	{"ID" : "101", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U105", "Parent" : "2"},
-	{"ID" : "102", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U106", "Parent" : "2"},
-	{"ID" : "103", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U107", "Parent" : "2"},
-	{"ID" : "104", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U108", "Parent" : "2"},
-	{"ID" : "105", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U109", "Parent" : "2"},
-	{"ID" : "106", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U110", "Parent" : "2"},
-	{"ID" : "107", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U111", "Parent" : "2"},
-	{"ID" : "108", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U112", "Parent" : "2"},
-	{"ID" : "109", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U113", "Parent" : "2"},
-	{"ID" : "110", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U114", "Parent" : "2"},
-	{"ID" : "111", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U115", "Parent" : "2"},
-	{"ID" : "112", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U116", "Parent" : "2"},
-	{"ID" : "113", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U117", "Parent" : "2"},
-	{"ID" : "114", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U118", "Parent" : "2"},
-	{"ID" : "115", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U119", "Parent" : "2"},
-	{"ID" : "116", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U120", "Parent" : "2"},
-	{"ID" : "117", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U121", "Parent" : "2"},
-	{"ID" : "118", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U122", "Parent" : "2"},
-	{"ID" : "119", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U123", "Parent" : "2"},
-	{"ID" : "120", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U124", "Parent" : "2"},
-	{"ID" : "121", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U125", "Parent" : "2"},
-	{"ID" : "122", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U126", "Parent" : "2"},
-	{"ID" : "123", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U127", "Parent" : "2"},
-	{"ID" : "124", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U128", "Parent" : "2"},
-	{"ID" : "125", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U129", "Parent" : "2"},
-	{"ID" : "126", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U130", "Parent" : "2"},
-	{"ID" : "127", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U131", "Parent" : "2"},
-	{"ID" : "128", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U132", "Parent" : "2"},
-	{"ID" : "129", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U133", "Parent" : "2"},
-	{"ID" : "130", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U134", "Parent" : "2"},
-	{"ID" : "131", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U135", "Parent" : "2"},
-	{"ID" : "132", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_eOg_U136", "Parent" : "2"},
-	{"ID" : "133", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_U0.mnist_mac_muladd_fYi_U137", "Parent" : "2"},
-	{"ID" : "134", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.relu_U0", "Parent" : "0",
+	{"ID" : "70", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.relu_U0", "Parent" : "0",
 		"CDFG" : "relu",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -348,13 +284,13 @@ set RtlHierarchyInfo {[
 		"StartSource" : "2",
 		"StartFifo" : "start_for_relu_U0_U",
 		"Port" : [
-			{"Name" : "data_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "2", "DependentChan" : "145",
+			{"Name" : "data_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "2", "DependentChan" : "81",
 				"BlockSignal" : [
 					{"Name" : "data_in_V_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "data_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "135", "DependentChan" : "146",
+			{"Name" : "data_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "71", "DependentChan" : "82",
 				"BlockSignal" : [
 					{"Name" : "data_out_V_V_blk_n", "Type" : "RtlSignal"}]}]},
-	{"ID" : "135", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0", "Parent" : "0", "Child" : ["136", "137", "138"],
+	{"ID" : "71", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0", "Parent" : "0", "Child" : ["72", "73", "74"],
 		"CDFG" : "linear_activation_1",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -362,21 +298,21 @@ set RtlHierarchyInfo {[
 		"Datapath" : "0",
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
-		"StartSource" : "134",
-		"StartFifo" : "start_for_linear_ncg_U",
+		"StartSource" : "70",
+		"StartFifo" : "start_for_linear_mb6_U",
 		"Port" : [
-			{"Name" : "data_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "134", "DependentChan" : "146",
+			{"Name" : "data_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "70", "DependentChan" : "82",
 				"BlockSignal" : [
 					{"Name" : "data_in_V_V_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "data_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "139", "DependentChan" : "147",
+			{"Name" : "data_out_V_V", "Type" : "Fifo", "Direction" : "O", "DependentProc" : "75", "DependentChan" : "83",
 				"BlockSignal" : [
 					{"Name" : "data_out_V_V_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "L2_WEIGHTS_V", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "L2_BIAS_V", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "136", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0.L2_WEIGHTS_V_U", "Parent" : "135"},
-	{"ID" : "137", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0.L2_BIAS_V_U", "Parent" : "135"},
-	{"ID" : "138", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0.mnist_mux_104_32_ibs_U147", "Parent" : "135"},
-	{"ID" : "139", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.packer_U0", "Parent" : "0", "Child" : ["140", "141", "142", "143"],
+	{"ID" : "72", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0.L2_WEIGHTS_V_U", "Parent" : "71"},
+	{"ID" : "73", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0.L2_BIAS_V_U", "Parent" : "71"},
+	{"ID" : "74", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.linear_activation_1_U0.mnist_mux_104_32_hbi_U82", "Parent" : "71"},
+	{"ID" : "75", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.packer_U0", "Parent" : "0", "Child" : ["76", "77", "78", "79"],
 		"CDFG" : "packer",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1",
 		"FunctionPipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
@@ -384,10 +320,10 @@ set RtlHierarchyInfo {[
 		"Datapath" : "0",
 		"ClockEnable" : "0",
 		"VariableLatency" : "1",
-		"StartSource" : "135",
+		"StartSource" : "71",
 		"StartFifo" : "start_for_packer_U0_U",
 		"Port" : [
-			{"Name" : "stream_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "135", "DependentChan" : "147",
+			{"Name" : "stream_in_V_V", "Type" : "Fifo", "Direction" : "I", "DependentProc" : "71", "DependentChan" : "83",
 				"BlockSignal" : [
 					{"Name" : "stream_in_V_V_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "stream_out_V_data_V", "Type" : "Axis", "Direction" : "O",
@@ -399,18 +335,18 @@ set RtlHierarchyInfo {[
 			{"Name" : "stream_out_V_last_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "stream_out_V_id_V", "Type" : "Axis", "Direction" : "O"},
 			{"Name" : "stream_out_V_dest_V", "Type" : "Axis", "Direction" : "O"}]},
-	{"ID" : "140", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_user_V_U", "Parent" : "139"},
-	{"ID" : "141", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_last_V_U", "Parent" : "139"},
-	{"ID" : "142", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_id_V_U", "Parent" : "139"},
-	{"ID" : "143", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_dest_V_U", "Parent" : "139"},
-	{"ID" : "144", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_in_V_V_U", "Parent" : "0"},
-	{"ID" : "145", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.l1_result_V_V_U", "Parent" : "0"},
-	{"ID" : "146", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.l1_relu_V_V_U", "Parent" : "0"},
-	{"ID" : "147", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_out_V_V_U", "Parent" : "0"},
-	{"ID" : "148", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_linear_mb6_U", "Parent" : "0"},
-	{"ID" : "149", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_relu_U0_U", "Parent" : "0"},
-	{"ID" : "150", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_linear_ncg_U", "Parent" : "0"},
-	{"ID" : "151", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_packer_U0_U", "Parent" : "0"}]}
+	{"ID" : "76", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_user_V_U", "Parent" : "75"},
+	{"ID" : "77", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_last_V_U", "Parent" : "75"},
+	{"ID" : "78", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_id_V_U", "Parent" : "75"},
+	{"ID" : "79", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.packer_U0.packet_dest_V_U", "Parent" : "75"},
+	{"ID" : "80", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_in_V_V_U", "Parent" : "0"},
+	{"ID" : "81", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.l1_result_V_V_U", "Parent" : "0"},
+	{"ID" : "82", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.l1_relu_V_V_U", "Parent" : "0"},
+	{"ID" : "83", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.data_out_V_V_U", "Parent" : "0"},
+	{"ID" : "84", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_linear_lbW_U", "Parent" : "0"},
+	{"ID" : "85", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_relu_U0_U", "Parent" : "0"},
+	{"ID" : "86", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_linear_mb6_U", "Parent" : "0"},
+	{"ID" : "87", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_packer_U0_U", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -468,8 +404,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "919", "Max" : "919"}
-	, {"Name" : "Interval", "Min" : "919", "Max" : "919"}
+	{"Name" : "Latency", "Min" : "855", "Max" : "855"}
+	, {"Name" : "Interval", "Min" : "855", "Max" : "855"}
 ]}
 
 set PipelineEnableSignalInfo {[

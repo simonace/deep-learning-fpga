@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'mnist'" level="0">
-<item name = "Date">Thu Apr  5 21:36:50 2018
+<item name = "Date">Sun Apr 22 02:00:07 2018
 </item>
 <item name = "Version">2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)</item>
 <item name = "Project">mnist</item>
@@ -24,17 +24,17 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">919, 919, 919, 919, dataflow</column>
+<column name="">855, 855, 855, 855, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_linear_activation_fu_160">linear_activation, 918, 918, 918, 918, none</column>
-<column name="grp_linear_activation_1_fu_170">linear_activation_1, 145, 145, 145, 145, none</column>
+<column name="grp_linear_activation_fu_160">linear_activation, 854, 854, 854, 854, none</column>
+<column name="grp_linear_activation_1_fu_170">linear_activation_1, 81, 81, 81, 81, none</column>
 <column name="grp_packer_fu_180">packer, 23, 23, 23, 23, none</column>
-<column name="grp_relu_fu_199">relu, 129, 129, 129, 129, none</column>
+<column name="grp_relu_fu_199">relu, 65, 65, 65, 65, none</column>
 <column name="grp_unpacker_fu_205">unpacker, 786, 786, 786, 786, none</column>
 </table>
 </item>

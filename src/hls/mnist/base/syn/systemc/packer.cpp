@@ -38,13 +38,13 @@ const sc_lv<4> packer::ap_const_lv4_9 = "1001";
 const sc_lv<32> packer::ap_const_lv32_3 = "11";
 
 packer::packer(sc_module_name name) : sc_module(name), mVcdFile(0) {
-    packet_user_V_U = new packer_packet_usejbC("packet_user_V_U");
+    packet_user_V_U = new packer_packet_useibs("packet_user_V_U");
     packet_user_V_U->clk(ap_clk);
     packet_user_V_U->reset(ap_rst);
     packet_user_V_U->address0(packet_user_V_address0);
     packet_user_V_U->ce0(packet_user_V_ce0);
     packet_user_V_U->q0(packet_user_V_q0);
-    packet_last_V_U = new packer_packet_laskbM("packet_last_V_U");
+    packet_last_V_U = new packer_packet_lasjbC("packet_last_V_U");
     packet_last_V_U->clk(ap_clk);
     packet_last_V_U->reset(ap_rst);
     packet_last_V_U->address0(packet_last_V_address0);
@@ -52,13 +52,13 @@ packer::packer(sc_module_name name) : sc_module(name), mVcdFile(0) {
     packet_last_V_U->we0(packet_last_V_we0);
     packet_last_V_U->d0(packet_last_V_d0);
     packet_last_V_U->q0(packet_last_V_q0);
-    packet_id_V_U = new packer_packet_usejbC("packet_id_V_U");
+    packet_id_V_U = new packer_packet_useibs("packet_id_V_U");
     packet_id_V_U->clk(ap_clk);
     packet_id_V_U->reset(ap_rst);
     packet_id_V_U->address0(packet_id_V_address0);
     packet_id_V_U->ce0(packet_id_V_ce0);
     packet_id_V_U->q0(packet_id_V_q0);
-    packet_dest_V_U = new packer_packet_usejbC("packet_dest_V_U");
+    packet_dest_V_U = new packer_packet_useibs("packet_dest_V_U");
     packet_dest_V_U->clk(ap_clk);
     packet_dest_V_U->reset(ap_rst);
     packet_dest_V_U->address0(packet_dest_V_address0);

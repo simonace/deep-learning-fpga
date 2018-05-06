@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'relu'
 ================================================================
-* Date:           Thu Apr  5 21:36:49 2018
+* Date:           Sun Apr 22 02:00:06 2018
 
 * Version:        2017.4 (Build 2086221 on Fri Dec 15 21:13:33 MST 2017)
 * Project:        mnist
@@ -29,7 +29,7 @@
     |  Latency  |  Interval | Pipeline|
     | min | max | min | max |   Type  |
     +-----+-----+-----+-----+---------+
-    |  129|  129|  129|  129|   none  |
+    |   65|   65|   65|   65|   none  |
     +-----+-----+-----+-----+---------+
 
     + Detail: 
@@ -41,7 +41,7 @@
         |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
         | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
         +----------+-----+-----+----------+-----------+-----------+------+----------+
-        |- Loop 1  |  128|  128|         1|          -|          -|   128|    no    |
+        |- Loop 1  |   64|   64|         1|          -|          -|    64|    no    |
         +----------+-----+-----+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -88,10 +88,10 @@ ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInter
 ST_1 : Operation 5 [1/1] (1.76ns)   --->   "br label %1" [mnist/relu_activation.hpp:7]
 
  <State 2> : 7.27ns
-ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%ii = phi i8 [ 0, %0 ], [ %ii_1, %5 ]"
-ST_2 : Operation 7 [1/1] (1.55ns)   --->   "%exitcond = icmp eq i8 %ii, -128" [mnist/relu_activation.hpp:7]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)"
-ST_2 : Operation 9 [1/1] (1.91ns)   --->   "%ii_1 = add i8 %ii, 1" [mnist/relu_activation.hpp:7]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.91> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 6 [1/1] (0.00ns)   --->   "%ii = phi i7 [ 0, %0 ], [ %ii_1, %5 ]"
+ST_2 : Operation 7 [1/1] (1.48ns)   --->   "%exitcond = icmp eq i7 %ii, -64" [mnist/relu_activation.hpp:7]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)"
+ST_2 : Operation 9 [1/1] (1.87ns)   --->   "%ii_1 = add i7 %ii, 1" [mnist/relu_activation.hpp:7]   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 10 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %6, label %2" [mnist/relu_activation.hpp:7]
 ST_2 : Operation 11 [1/1] (3.63ns)   --->   "%tmp_V = call i32 @_ssdm_op_Read.ap_fifo.volatile.i32P(i32* %data_in_V_V)" [mnist/relu_activation.hpp:8]   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 1> <FIFO>
 ST_2 : Operation 12 [1/1] (2.47ns)   --->   "%tmp = icmp sgt i32 %tmp_V, 0" [mnist/relu_activation.hpp:9]   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.47> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
@@ -406,8 +406,8 @@ StgValue_19 (ret              ) [ 000]
 
 <comp id="67" class="1005" name="ii_reg_67">
 <pin_list>
-<pin id="68" dir="0" index="0" bw="8" slack="1"/>
-<pin id="69" dir="1" index="1" bw="8" slack="1"/>
+<pin id="68" dir="0" index="0" bw="7" slack="1"/>
+<pin id="69" dir="1" index="1" bw="7" slack="1"/>
 </pin_list>
 <bind>
 <opset="ii (phireg) "/>
@@ -418,9 +418,9 @@ StgValue_19 (ret              ) [ 000]
 <pin_list>
 <pin id="72" dir="0" index="0" bw="1" slack="1"/>
 <pin id="73" dir="0" index="1" bw="0" slack="2147483647"/>
-<pin id="74" dir="0" index="2" bw="8" slack="0"/>
+<pin id="74" dir="0" index="2" bw="7" slack="0"/>
 <pin id="75" dir="0" index="3" bw="0" slack="2147483647"/>
-<pin id="76" dir="1" index="4" bw="8" slack="0"/>
+<pin id="76" dir="1" index="4" bw="7" slack="0"/>
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
@@ -430,8 +430,8 @@ StgValue_19 (ret              ) [ 000]
 
 <comp id="78" class="1004" name="exitcond_fu_78">
 <pin_list>
-<pin id="79" dir="0" index="0" bw="8" slack="0"/>
-<pin id="80" dir="0" index="1" bw="8" slack="0"/>
+<pin id="79" dir="0" index="0" bw="7" slack="0"/>
+<pin id="80" dir="0" index="1" bw="7" slack="0"/>
 <pin id="81" dir="1" index="2" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
@@ -442,9 +442,9 @@ StgValue_19 (ret              ) [ 000]
 
 <comp id="84" class="1004" name="ii_1_fu_84">
 <pin_list>
-<pin id="85" dir="0" index="0" bw="8" slack="0"/>
+<pin id="85" dir="0" index="0" bw="7" slack="0"/>
 <pin id="86" dir="0" index="1" bw="1" slack="0"/>
-<pin id="87" dir="1" index="2" bw="8" slack="0"/>
+<pin id="87" dir="1" index="2" bw="7" slack="0"/>
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
@@ -466,8 +466,8 @@ StgValue_19 (ret              ) [ 000]
 
 <comp id="99" class="1005" name="ii_1_reg_99">
 <pin_list>
-<pin id="100" dir="0" index="0" bw="8" slack="0"/>
-<pin id="101" dir="1" index="1" bw="8" slack="0"/>
+<pin id="100" dir="0" index="0" bw="7" slack="0"/>
+<pin id="101" dir="1" index="1" bw="7" slack="0"/>
 </pin_list>
 <bind>
 <opset="ii_1 "/>
@@ -555,10 +555,10 @@ N/A
 +-----------+--------+
 |           |   FF   |
 +-----------+--------+
-|ii_1_reg_99|    8   |
-| ii_reg_67 |    8   |
+|ii_1_reg_99|    7   |
+| ii_reg_67 |    7   |
 +-----------+--------+
-|   Total   |   16   |
+|   Total   |   14   |
 +-----------+--------+
 
 * Multiplexer (MUX) list: 
@@ -579,7 +579,7 @@ N/A
 |  Function |    -   |    0   |   44   |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    1   |    -   |    9   |
-|  Register |    -   |   16   |    -   |
+|  Register |    -   |   14   |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    1   |   16   |   53   |
+|   Total   |    1   |   14   |   53   |
 +-----------+--------+--------+--------+

@@ -209,7 +209,7 @@ architecture behav of packer is
     signal ap_condition_695 : BOOLEAN;
     signal ap_condition_699 : BOOLEAN;
 
-    component packer_packet_usejbC IS
+    component packer_packet_useibs IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -223,7 +223,7 @@ architecture behav of packer is
     end component;
 
 
-    component packer_packet_laskbM IS
+    component packer_packet_lasjbC IS
     generic (
         DataWidth : INTEGER;
         AddressRange : INTEGER;
@@ -241,7 +241,7 @@ architecture behav of packer is
 
 
 begin
-    packet_user_V_U : component packer_packet_usejbC
+    packet_user_V_U : component packer_packet_useibs
     generic map (
         DataWidth => 1,
         AddressRange => 10,
@@ -253,7 +253,7 @@ begin
         ce0 => packet_user_V_ce0,
         q0 => packet_user_V_q0);
 
-    packet_last_V_U : component packer_packet_laskbM
+    packet_last_V_U : component packer_packet_lasjbC
     generic map (
         DataWidth => 1,
         AddressRange => 10,
@@ -267,7 +267,7 @@ begin
         d0 => packet_last_V_d0,
         q0 => packet_last_V_q0);
 
-    packet_id_V_U : component packer_packet_usejbC
+    packet_id_V_U : component packer_packet_useibs
     generic map (
         DataWidth => 1,
         AddressRange => 10,
@@ -279,7 +279,7 @@ begin
         ce0 => packet_id_V_ce0,
         q0 => packet_id_V_q0);
 
-    packet_dest_V_U : component packer_packet_usejbC
+    packet_dest_V_U : component packer_packet_useibs
     generic map (
         DataWidth => 1,
         AddressRange => 10,

@@ -18,9 +18,9 @@
 #include "packer.h"
 #include "fifo_w8_d1_A.h"
 #include "fifo_w32_d1_A.h"
-#include "start_for_linear_mb6.h"
+#include "start_for_linear_lbW.h"
 #include "start_for_relu_U0.h"
-#include "start_for_linear_ncg.h"
+#include "start_for_linear_mb6.h"
 #include "start_for_packer_U0.h"
 
 namespace ap_rtl {
@@ -69,9 +69,9 @@ struct mnist : public sc_module {
     fifo_w32_d1_A* l1_result_V_V_U;
     fifo_w32_d1_A* l1_relu_V_V_U;
     fifo_w32_d1_A* data_out_V_V_U;
-    start_for_linear_mb6* start_for_linear_mb6_U;
+    start_for_linear_lbW* start_for_linear_lbW_U;
     start_for_relu_U0* start_for_relu_U0_U;
-    start_for_linear_ncg* start_for_linear_ncg_U;
+    start_for_linear_mb6* start_for_linear_mb6_U;
     start_for_packer_U0* start_for_packer_U0_U;
     sc_signal< sc_logic > ap_rst_n_inv;
     sc_signal< sc_logic > unpacker_U0_ap_start;

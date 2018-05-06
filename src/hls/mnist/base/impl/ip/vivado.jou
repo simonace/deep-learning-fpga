@@ -2,11 +2,11 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Apr  5 21:51:26 2018
-# Process ID: 10054
-# Current directory: /home/xbili/Code/FPGA/hls-projects/mnist/base/impl/ip
+# Start of session at: Sun Apr 22 02:00:28 2018
+# Process ID: 30183
+# Current directory: /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/mnist/base/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
-# Log file: /home/xbili/Code/FPGA/hls-projects/mnist/base/impl/ip/vivado.log
-# Journal file: /home/xbili/Code/FPGA/hls-projects/mnist/base/impl/ip/vivado.jou
+# Log file: /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/mnist/base/impl/ip/vivado.log
+# Journal file: /home/xbili/Code/FPGA/deep-learning-fpga/src/hls/mnist/base/impl/ip/vivado.jou
 #-----------------------------------------------------------
 source run_ippack.tcl -notrace

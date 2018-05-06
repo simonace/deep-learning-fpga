@@ -9,7 +9,7 @@
 module linear_activationbkb_rom (
 addr0, ce0, q0, clk);
 
-parameter DWIDTH = 1022;
+parameter DWIDTH = 512;
 parameter AWIDTH = 10;
 parameter MEM_SIZE = 784;
 
@@ -47,7 +47,7 @@ module linear_activationbkb(
     ce0,
     q0);
 
-parameter DataWidth = 32'd1022;
+parameter DataWidth = 32'd512;
 parameter AddressRange = 32'd784;
 parameter AddressWidth = 32'd10;
 input reset;

@@ -78,9 +78,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="7" bw="8" op_0_bw="8" op_1_bw="0">
+<Node id="7" bw="7" op_0_bw="7" op_1_bw="0">
 <![CDATA[
-:0  %ii = phi i8 [ 0, %0 ], [ %ii_1, %5 ]
+:0  %ii = phi i7 [ 0, %0 ], [ %ii_1, %5 ]
 
 ]]></Node>
 <StgValue><ssdm name="ii"/></StgValue>
@@ -93,9 +93,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="8" bw="1" op_0_bw="8" op_1_bw="8">
+<Node id="8" bw="1" op_0_bw="7" op_1_bw="7">
 <![CDATA[
-:1  %exitcond = icmp eq i8 %ii, -128
+:1  %exitcond = icmp eq i7 %ii, -64
 
 ]]></Node>
 <StgValue><ssdm name="exitcond"/></StgValue>
@@ -110,7 +110,7 @@
 
 <Node id="9" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 128, i64 128, i64 128)
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 64, i64 64, i64 64)
 
 ]]></Node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -123,9 +123,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="10" bw="8" op_0_bw="8" op_1_bw="8">
+<Node id="10" bw="7" op_0_bw="7" op_1_bw="7">
 <![CDATA[
-:3  %ii_1 = add i8 %ii, 1
+:3  %ii_1 = add i7 %ii, 1
 
 ]]></Node>
 <StgValue><ssdm name="ii_1"/></StgValue>

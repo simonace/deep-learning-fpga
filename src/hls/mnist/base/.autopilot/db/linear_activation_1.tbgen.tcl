@@ -74,7 +74,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "L2_BIAS_V", "Type" : "Memory", "Direction" : "I"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.L2_WEIGHTS_V_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.L2_BIAS_V_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mnist_mux_104_32_ibs_U147", "Parent" : "0"}]}
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mnist_mux_104_32_hbi_U82", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
@@ -87,8 +87,8 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "145", "Max" : "145"}
-	, {"Name" : "Interval", "Min" : "145", "Max" : "145"}
+	{"Name" : "Latency", "Min" : "81", "Max" : "81"}
+	, {"Name" : "Interval", "Min" : "81", "Max" : "81"}
 ]}
 
 set PipelineEnableSignalInfo {[
